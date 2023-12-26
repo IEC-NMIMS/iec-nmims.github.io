@@ -2,7 +2,11 @@ import React from "react";
 import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
 import Navbar from "./Components/Navbar/Navbar";
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter,Route, Routes } from 'react-router-dom';
+import Home from "./Pages/Home";
+import Aboutus from "./Pages/Aboutus";
+import Ourteam from "./Pages/Ourteam";
+import Events from "./Pages/Events";
 
 const DefaultPage=styled(Box)({
 
@@ -30,12 +34,30 @@ const OrangeFade=styled(Box)({
     top:'2000px',
 })
 
+const MainPage=styled(Box)({
+	
+})
 function App() {
 	return (
 		<DefaultPage>
 			<Navbar></Navbar>
+			<MainPage>
+
+			</MainPage>
 			<BlueFade></BlueFade>
 			<OrangeFade></OrangeFade>
+			
+			
+			<Routes>
+				<Route path="/" element={<Home/>}/>
+				<Route path="/aboutus" element={<Aboutus/>}/>
+				<Route path="/ourteam" element={<Ourteam/>}/>
+				<Route path="/events" element={<Events/>}/>
+			  
+		  </Routes>
+		 
+
+
 			
 		</DefaultPage>
 	)
