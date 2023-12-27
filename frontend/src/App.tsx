@@ -1,20 +1,16 @@
 import React from "react";
 import Navbar from "./Components/Navbar/Navbar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import Home from "./Pages/Home";
-// import Aboutus from "./Pages/Aboutus";
-// import Ourteam from "./Pages/Ourteam";
-// import Events from "./Pages/Events";
+// import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Components/Pages/Home";
 import Aboutus from "./Components/Pages/Aboutus";
 import Ourteam from "./Components/Pages/Ourteam";
 import Events from "./Components/Pages/Events";
 import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
 
-function App() {
+const App = () => {
 	return (
 		<>
-			<Navbar></Navbar>
+			<Navbar />
 			<BackgroundBox
 				color="blue"
 				position="left"
@@ -52,6 +48,6 @@ function App() {
 			</Routes> */}
 		</>
 	);
-}
+};
 
 export default App;

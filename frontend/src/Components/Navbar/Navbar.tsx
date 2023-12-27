@@ -64,7 +64,7 @@ const Navbar = () => {
 		<NavBox>
 			<Logo>
 				<img
-					src="/Images/Logo.svg"
+					src="Images/Logo.svg"
 					height="50px"
 				/>
 			</Logo>
