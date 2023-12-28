@@ -27,12 +27,12 @@ function App() {
 				index={2}
 			/>
 
-			<Home />
+			{/* <Home/>
 			<Aboutus />
 			<Ourteam />
-			<Events />
+			<Events /> */}
 
-			{/* <Routes>
+			<Routes>
 				<Route
 					path="/"
 					element={<Home />}
@@ -49,7 +49,7 @@ function App() {
 					path="/events"
 					element={<Events />}
 				/>
-			</Routes> */}
+			</Routes>
 		</>
 	);
 }
