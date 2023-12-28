@@ -46,6 +46,10 @@ const Register = styled(IconButton)({
 	color: "black",
 	fontFamily: "sans-serif",
 	fontSize: "22px",
+
+	"&:hover": {
+		backgroundColor: "white",
+	},
 });
 
 const LinkText = styled(Typography)({
