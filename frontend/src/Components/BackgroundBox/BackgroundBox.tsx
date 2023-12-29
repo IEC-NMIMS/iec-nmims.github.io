@@ -25,7 +25,7 @@ const BackgroundBox = (props: Props) => {
 			filter: "blur(30px)",
 			position: "absolute",
 			backgroundImage: colorGradient,
-			left: "-100px",
+			left: "-250px",
 			top: top,
 			opacity: 0.6,
 		});
@@ -37,7 +37,7 @@ const BackgroundBox = (props: Props) => {
 			filter: "blur(30px)",
 			position: "absolute",
 			backgroundImage: colorGradient,
-			right: "-100px",
+			right: "-250px",
 			top: top,
 			opacity: 0.6,
 		});
