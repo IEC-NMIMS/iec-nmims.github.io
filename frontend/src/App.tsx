@@ -6,17 +6,8 @@ import Aboutus from "./Components/Pages/Aboutus";
 import Ourteam from "./Components/Pages/Ourteam";
 import Events from "./Components/Pages/Events";
 import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
-
-const App = () => {
-	return (
-		<>
-			<Navbar />
-			<BackgroundBox
-				color="blue"
-				position="left"
-				index={1}
-			/>
 import WhatDo from "./Components/Pages/WhatDo";
+
 function App() {
   return (
     <>
@@ -25,12 +16,13 @@ function App() {
 
       <BackgroundBox color="yellow" position="right" index={2} />
 
-			<Home />
-			<Aboutus />
-			<Ourteam />
-			<Events />
+      <Home />
+      <Aboutus />
+      <Ourteam />
+      <Events />
+      <WhatDo />
 
-			{/* <Routes>
+      {/* <Routes>
 				<Route
 					path="/"
 					element={<Home />}
@@ -48,8 +40,8 @@ function App() {
 					element={<Events />}
 				/>
 			</Routes> */}
-		</>
-	);
+    </>
+  );
 }
 
 export default App;
