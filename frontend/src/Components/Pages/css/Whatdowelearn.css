@@ -1,0 +1,31 @@
+.Whatdowelearn-title{
+    color : white;
+    margin-top: 50px;
+    margin-left: 50px;
+    font-size: 3rem;
+}
+
+body {
+    font-family: sans-serif;
+    padding : 0% 2% 2% 5%;
+}
+
+h2 {
+    margin-top: 50px;
+    color: white;
+    font-size: 1.8rem;
+}
+
+.Whatdowelearn-upper{
+    display: flex;
+}
+
+span {
+    color: white;
+    font-weight: none; 
+}
+
+.element{
+    max-width: 420px;
+    margin-left: 20px;
+}
