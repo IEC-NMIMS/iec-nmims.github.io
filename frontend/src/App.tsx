@@ -16,19 +16,21 @@ const App = () => {
 				position="left"
 				index={1}
 			/>
+import WhatDo from "./Components/Pages/WhatDo";
+function App() {
+  return (
+    <>
+      <Navbar></Navbar>
+      <BackgroundBox color="blue" position="left" index={1} />
 
-			<BackgroundBox
-				color="yellow"
-				position="right"
-				index={2}
-			/>
+      <BackgroundBox color="yellow" position="right" index={2} />
 
-			{/* <Home/>
+			<Home />
 			<Aboutus />
 			<Ourteam />
-			<Events /> */}
+			<Events />
 
-			<Routes>
+			{/* <Routes>
 				<Route
 					path="/"
 					element={<Home />}
@@ -45,9 +47,9 @@ const App = () => {
 					path="/events"
 					element={<Events />}
 				/>
-			</Routes>
+			</Routes> */}
 		</>
 	);
-};
+}
 
 export default App;
