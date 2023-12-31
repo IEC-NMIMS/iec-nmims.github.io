@@ -7,29 +7,27 @@ import Ourteam from "./Components/Pages/Ourteam";
 import Events from "./Components/Pages/Events";
 import Whoarewe from "./Components/Pages/Whoarewe";
 import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
+import WhatDo from "./Components/Pages/WhatDo";
 
-const App = () => {
-	return (
-		<>
-			<Navbar />
-			<BackgroundBox
-				color="blue"
-				position="left"
-				index={1}
-			/>
+function App() {
+  return (
+    <>
+      <Navbar></Navbar>
+      <BackgroundBox color="blue" position="left" index={1} />
 
-			<BackgroundBox
-				color="yellow"
-				position="right"
-				index={2}
-			/>
+      <BackgroundBox color="yellow" position="right" index={2} />
 
 			{/* <Home/>
 			<Aboutus />
 			<Ourteam />
+<<<<<<<<< Temporary merge branch 1
 			<Events /> */}
+=========
+			<Events />
+			<Whoarewe />
+>>>>>>>>> Temporary merge branch 2
 
-			<Routes>
+      {/* <Routes>
 				<Route
 					path="/"
 					element={<Home />}
@@ -46,12 +44,15 @@ const App = () => {
 					path="/events"
 					element={<Events />}
 				/>
+<<<<<<<<< Temporary merge branch 1
 			</Routes>
+=========
 				<Route
 					path="/whoarewe"
 					element={<Whoarewe />}
 				/>
 			</Routes> */}
+>>>>>>>>> Temporary merge branch 2
 		</>
 	);
 };
