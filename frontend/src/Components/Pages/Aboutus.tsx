@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 const Aboutus = () => {
   return (
-    <div>Aboutus</div>
+    <div>
+    </div>
+    
   )
 }
 
