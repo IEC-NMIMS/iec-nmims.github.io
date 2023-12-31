@@ -8,26 +8,18 @@ import Events from "./Components/Pages/Events";
 import Whoarewe from "./Components/Pages/Whoarewe";
 import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
 import WhatDo from "./Components/Pages/WhatDo";
+import Whatdowelearn from "./Components/Pages/Whatdowelearn";
 
 function App() {
-  return (
-    <>
-      <Navbar></Navbar>
-      <BackgroundBox color="blue" position="left" index={1} />
-
-      <BackgroundBox color="yellow" position="right" index={2} />
-
-			{/* <Home/>
-			<Aboutus />
-			<Ourteam />
-<<<<<<<<< Temporary merge branch 1
-			<Events /> */}
-=========
-			<Events />
+	return (
+		<>
+			<Navbar></Navbar>
 			<Whoarewe />
->>>>>>>>> Temporary merge branch 2
+			<WhatDo />
+			<Whatdowelearn />
+			<Events />
 
-      {/* <Routes>
+			{/* <Routes>
 				<Route
 					path="/"
 					element={<Home />}
@@ -44,17 +36,9 @@ function App() {
 					path="/events"
 					element={<Events />}
 				/>
-<<<<<<<<< Temporary merge branch 1
-			</Routes>
-=========
-				<Route
-					path="/whoarewe"
-					element={<Whoarewe />}
-				/>
 			</Routes> */}
->>>>>>>>> Temporary merge branch 2
 		</>
 	);
-};
+}
 
 export default App;
