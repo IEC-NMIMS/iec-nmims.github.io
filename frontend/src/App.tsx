@@ -17,11 +17,15 @@ function App() {
 
       <BackgroundBox color="yellow" position="right" index={2} />
 
-      <Home />
-      <Aboutus />
-      <Ourteam />
-      <Events />
-      <WhatDo />
+			{/* <Home/>
+			<Aboutus />
+			<Ourteam />
+<<<<<<<<< Temporary merge branch 1
+			<Events /> */}
+=========
+			<Events />
+			<Whoarewe />
+>>>>>>>>> Temporary merge branch 2
 
       {/* <Routes>
 				<Route
@@ -40,9 +44,17 @@ function App() {
 					path="/events"
 					element={<Events />}
 				/>
+<<<<<<<<< Temporary merge branch 1
+			</Routes>
+=========
+				<Route
+					path="/whoarewe"
+					element={<Whoarewe />}
+				/>
 			</Routes> */}
-    </>
-  );
+>>>>>>>>> Temporary merge branch 2
+		</>
+	);
 };
 
 export default App;
