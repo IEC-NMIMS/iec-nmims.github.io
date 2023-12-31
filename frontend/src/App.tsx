@@ -5,6 +5,7 @@ import Home from "./Components/Pages/Home";
 import Aboutus from "./Components/Pages/Aboutus";
 import Ourteam from "./Components/Pages/Ourteam";
 import Events from "./Components/Pages/Events";
+import Whoarewe from "./Components/Pages/Whoarewe";
 import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
 
 const App = () => {
@@ -46,6 +47,11 @@ const App = () => {
 					element={<Events />}
 				/>
 			</Routes>
+				<Route
+					path="/whoarewe"
+					element={<Whoarewe />}
+				/>
+			</Routes> */}
 		</>
 	);
 };
