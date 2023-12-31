@@ -5,6 +5,7 @@ import Home from "./Components/Pages/Home";
 import Aboutus from "./Components/Pages/Aboutus";
 import Ourteam from "./Components/Pages/Ourteam";
 import Events from "./Components/Pages/Events";
+import Whoarewe from "./Components/Pages/Whoarewe";
 import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
 import WhatDo from "./Components/Pages/WhatDo";
 
@@ -42,6 +43,6 @@ function App() {
 			</Routes> */}
     </>
   );
-}
+};
 
 export default App;
