@@ -7,7 +7,7 @@ import EastIcon from "@mui/icons-material/East";
 import Typography from "@mui/material/Typography";
 
 const NavBox = styled(Box)({
-	margin: "20px",
+	margin: "20px 15px 20px 40px",
 	backgroundColor: "rgba(42,43,42,255)",
 	borderRadius: "20px",
 	height: "72px",
@@ -46,6 +46,10 @@ const Register = styled(IconButton)({
 	color: "black",
 	fontFamily: "sans-serif",
 	fontSize: "22px",
+
+	"&:hover": {
+		backgroundColor: "white",
+	},
 });
 
 const LinkText = styled(Typography)({
