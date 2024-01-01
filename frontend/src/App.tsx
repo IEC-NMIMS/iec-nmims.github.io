@@ -4,9 +4,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Components/Pages/Home";
 import Aboutus from "./Components/Pages/Aboutus";
 import Ourteam from "./Components/Pages/Ourteam";
-import Events from "./Components/Pages/Events";
+import SampleEvents from "./Components/Pages/sampleEvents";
 import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
-
+import Events from "./Components/Pages/Events";
 const App = () => {
 	return (
 		<>
@@ -22,28 +22,26 @@ const App = () => {
 				position="right"
 				index={2}
 			/>
-
+			
 			{/* <Home/>
 			<Aboutus />
 			<Ourteam />
 			<Events /> */}
-
 			<Routes>
 				<Route
 					path="/"
 					element={<Home />}
 				/>
-				<Route
-					path="/aboutus"
-					element={<Aboutus />}
+				<Route path="/events"
+				element={<Events/>}
 				/>
+
+        
+				
+				
 				<Route
-					path="/ourteam"
-					element={<Ourteam />}
-				/>
-				<Route
-					path="/events"
-					element={<Events />}
+					path="/sampleevents"
+					element={<SampleEvents/>}
 				/>
 			</Routes>
 		</>

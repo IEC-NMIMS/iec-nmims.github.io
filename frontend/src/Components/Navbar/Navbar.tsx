@@ -82,7 +82,7 @@ const Navbar = () => {
 				</NavLink>
 				<NavLink
 					style={{ textDecoration: "none" }}
-					to="/events"
+					to="/sampleevents"
 				>
 					<LinkText>Events</LinkText>
 				</NavLink>
