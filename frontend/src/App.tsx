@@ -1,10 +1,11 @@
 import React from "react";
 import Navbar from "./Components/Navbar/Navbar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Components/Pages/Home";
 import Aboutus from "./Components/Pages/Aboutus";
 import Ourteam from "./Components/Pages/Ourteam";
 import Events from "./Components/Pages/Events";
+import Whoarewe from "./Components/Pages/Whoarewe";
 import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
 
 const App = () => {
@@ -23,12 +24,14 @@ const App = () => {
 				index={2}
 			/>
 
-			{/* <Home/>
+			<Home/>
 			<Aboutus />
 			<Ourteam />
-			<Events /> */}
 
-			<Routes>
+			<Events />
+			<Whoarewe />
+
+			{/*<Routes>
 				<Route
 					path="/"
 					element={<Home />}
@@ -45,7 +48,12 @@ const App = () => {
 					path="/events"
 					element={<Events />}
 				/>
-			</Routes>
+				</Routes>
+					<Route
+						path="/whoarewe"
+						element={<Whoarewe />}
+					/>
+				</Routes> */}
 		</>
 	);
 };
