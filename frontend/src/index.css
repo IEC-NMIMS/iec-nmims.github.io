@@ -2,6 +2,7 @@ body {
     margin: 0;
     background-color:#000000;
     overflow-x: hidden;
+    font-family: sans-serif;
 }
 
 /* width */
