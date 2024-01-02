@@ -1,38 +1,65 @@
 import React from "react";
 import Navbar from "./Components/Navbar/Navbar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SampleEvents from "./Components/Pages/sampleEvents";
-import Events from "./Components/Pages/Events";
-import WhoAreWe from "./Components/Pages/WhoAreWe";
-import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
+import Events from "./Components/Events/Events";
+import WhoAreWe from "./Components/WhoAreWe/WhoAreWe";
 import ContactUs from "./Components/ContactUs/ContactUs";
-import WhatDo from "./Components/Pages/WhatDo";
-import WhatDoWeLearn from "./Components/Pages/WhatDoWeLearn";
+import WhatDo from "./Components/WhatDo/WhatDo";
+import WhatDoWeLearn from "./Components/WhatDoWeLearn/WhatDoWeLearn";
+import Speaker from "./Components/Speaker/Speaker";
+import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
 
 function App() {
 	return (
 		<>
-			<Navbar></Navbar>
+			<BackgroundBox
+				color="blue"
+				position="left"
+				index={0}
+			/>
+
+			<BackgroundBox
+				color="yellow"
+				position="right"
+				index={1}
+			/>
+
+			<BackgroundBox
+				color="yellow"
+				position="left"
+				index={2}
+			/>
+
+			<BackgroundBox
+				color="blue"
+				position="right"
+				index={3}
+			/>
+
+			<BackgroundBox
+				color="blue"
+				position="left"
+				index={4}
+			/>
+
+			<BackgroundBox
+				color="yellow"
+				position="right"
+				index={5}
+			/>
+
+			<BackgroundBox
+				color="blue"
+				position="left"
+				index={6}
+			/>
+
+			<Navbar />
 			<WhoAreWe />
 			<WhatDo />
 			<WhatDoWeLearn />
 			<Events />
-      <ContactUs />
-      
-      <Routes>
-				<Route
-					path="/"
-					element={<Home />}
-				/>
-				<Route path="/events"
-				element={<Events/>}
-				/>
-				
-				<Route
-					path="/sampleevents"
-					element={<SampleEvents/>}
-				/>
-			</Routes>
+			<Speaker />
+			<ContactUs />
 		</>
 	);
 }

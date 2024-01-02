@@ -27,7 +27,8 @@ const BackgroundBox = (props: Props) => {
 			backgroundImage: colorGradient,
 			left: "-250px",
 			top: top,
-			opacity: 0.6,
+			opacity: 0.4,
+			zIndex: 1,
 		});
 	} else {
 		FadedBox = styled(Box)({
@@ -39,7 +40,8 @@ const BackgroundBox = (props: Props) => {
 			backgroundImage: colorGradient,
 			right: "-250px",
 			top: top,
-			opacity: 0.6,
+			opacity: 0.4,
+			zIndex: 1,
 		});
 	}
 	return <FadedBox />;
