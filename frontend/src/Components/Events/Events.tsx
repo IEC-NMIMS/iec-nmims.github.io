@@ -2,8 +2,8 @@ import { Typography } from "@mui/material";
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import Item from "../EventItems/Item";
-import { EventList } from "../EventItems/EventList";
+import Item from "./Item";
+import { EventList } from "./EventList";
 import styled from "@emotion/styled";
 
 const Events = () => {

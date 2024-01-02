@@ -1,10 +1,11 @@
 import React from "react";
 import Navbar from "./Components/Navbar/Navbar";
-import Events from "./Components/Pages/Events";
-import WhoAreWe from "./Components/Pages/WhoAreWe";
+import Events from "./Components/Events/Events";
+import WhoAreWe from "./Components/WhoAreWe/WhoAreWe";
 import ContactUs from "./Components/ContactUs/ContactUs";
-import WhatDo from "./Components/Pages/WhatDo";
-import WhatDoWeLearn from "./Components/Pages/WhatDoWeLearn";
+import WhatDo from "./Components/WhatDo/WhatDo";
+import WhatDoWeLearn from "./Components/WhatDoWeLearn/WhatDoWeLearn";
+import Speaker from "./Components/Speaker/Speaker";
 import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
 			<WhatDo />
 			<WhatDoWeLearn />
 			<Events />
+			<Speaker />
 			<ContactUs />
 		</>
 	);

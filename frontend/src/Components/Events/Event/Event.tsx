@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography, Stepper, Step, StepLabel } from "@mui/material";
 import styled from "@emotion/styled";
 import { useLocation } from "react-router-dom";
-import BackgroundBox from "../BackgroundBox/BackgroundBox";
+import BackgroundBox from "../../BackgroundBox/BackgroundBox";
 import IconButton from "@mui/material/IconButton";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 

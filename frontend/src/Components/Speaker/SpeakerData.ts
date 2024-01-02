@@ -23,6 +23,4 @@ export const SpeakerList=[
        post:'Founder of Rockstah Media and CybernetIV Digital',
        desc:"Two time Tedx speaker and the youngest Guest lecturer and IIT kanpur Enterpreneurship Summit.",
       },
-    
-    
  ]
