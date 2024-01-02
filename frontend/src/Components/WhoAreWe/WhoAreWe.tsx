@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import IconButton from "@mui/material/IconButton";
 import EastIcon from "@mui/icons-material/East";
 import Typography from "@mui/material/Typography";
+import { NavLink } from "react-router-dom";
 
 const OuterBox = styled(Box)({
 	width: "100%",
@@ -107,10 +108,15 @@ const WhoAreWe = () => {
 						wish to pursue you entrepreneurship as a career.
 						<br />
 					</LeftPanelPara>
-					<KnowMore>
-						<div>Click to know more</div>
-						<Arrow />
-					</KnowMore>
+					<NavLink
+						style={{ textDecoration: "none" }}
+						to="/vision-mission"
+					>
+						<KnowMore>
+							<div>Click to know more</div>
+							<Arrow />
+						</KnowMore>
+					</NavLink>
 				</LeftPanel>
 				<RightPanel>
 					<RightPanelImage />

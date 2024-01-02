@@ -5,7 +5,6 @@ import IconButton from "@mui/material/IconButton";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useState } from "react";
 import Carousel from "react-material-ui-carousel";
-import { NavLink, Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 interface urls {

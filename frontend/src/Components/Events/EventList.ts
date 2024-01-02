@@ -4,14 +4,14 @@ export const EventList=[
     name:'Enigma',
     desc:"IEC's introductory event meant for freshers essentially to get the essence of 'our vision and mission'.It is a delightful experience with a Bollywood twist where freshers get hands-on experience about entrepreneurship.",
     imageList: [
-      {links:"./Unplanned/u2.svg"},
-      {links:"./Unplanned/u3.svg"},
-      {links:"./Unplanned/u4.svg"}
+      {links:"./Images/Unplanned/u2.svg"},
+      {links:"./Images/Unplanned/u3.svg"},
+      {links:"./Images/Unplanned/u4.svg"}
 
    ],
    modaldata: {
     name:'Enigma',
-    image:"./Unplanned/u2.svg",
+    image:"./Images/Unplanned/u2.svg",
     title:'Innovation challenge',
     data:"IEC's introductory event meant for freshers essentially to get the essence of 'our vision and mission'.It is a delightful experience with a Bollywood twist where freshers get hands-on experience about entrepreneurship.\n We want to createa conducive environment that inspires individuals to stick through tough times  and not give up on challenges  that hinder  them  to grow and develop as next generation entrepreneurs and innovators.",
     dates:["21st January", "31st January", "20th February"],
@@ -36,13 +36,13 @@ export const EventList=[
     name:'Unplanned 3.0',
     desc:"Unplanned is a captivating event, in which participants have to use their prompt reasoning to create on-the-spot business plans. This event aims to encourage improvisational skills in students while providing them with a platform to hone their planning skills.",
     imageList: [
-      {links:"./Unplanned/u2.svg"},
-      {links:"./Unplanned/u3.svg"},
-      {links:"./Unplanned/u4.svg"}
+      {links:"./Images/Unplanned/u2.svg"},
+      {links:"./Images/Unplanned/u3.svg"},
+      {links:"./Images/Unplanned/u4.svg"}
     ],
     modaldata: {
       name:'Unplanned',
-      image:"./Unplanned/u2.svg",
+      image:"./Images/Unplanned/u2.svg",
       title:'Innovation challenge',
       data:"IEC's introductory event meant for freshers essentially to get the essence of 'our vision and mission'.It is a delightful experience with a Bollywood twist where freshers get hands-on experience about entrepreneurship.",
       dates:["21st January", "31st January", "20th February"],
@@ -67,13 +67,13 @@ export const EventList=[
     name:'Inceptio 7.0',
     desc:"IEC's introductory event meant for freshers essentially to get the essence of 'our vision and mission'.It is a delightful experience with a Bollywood twist where freshers get hands-on experience about entrepreneurship.",
     imageList: [
-      {links:"./Unplanned/u2.svg"},
-      {links:"./Unplanned/u3.svg"},
-      {links:"./Unplanned/u4.svg"}
+      {links:"./Images/Unplanned/u2.svg"},
+      {links:"./Images/Unplanned/u3.svg"},
+      {links:"./Images/Unplanned/u4.svg"}
     ],
     modaldata: {
       name:'Inceptio',
-      image:"./Unplanned/u2.svg",
+      image:"./Images/Unplanned/u2.svg",
       title:'Innovation challenge',
       data:"IEC's introductory event meant for freshers essentially to get the essence of 'our vision and mission'.It is a delightful experience with a Bollywood twist where freshers get hands-on experience about entrepreneurship.",
       dates:["21st January", "31st January", "20th February"],
@@ -98,13 +98,13 @@ export const EventList=[
     name:'Concept Show',
     desc:"The NMIMS MPSTME's Innovation and Entrepreneurship Carnival is a one-of-a-kind annual event. The festival will have a variety of experiences to share.",
     imageList: [
-      {links:"./Unplanned/u2.svg"},
-      {links:"./Unplanned/u3.svg"},
-      {links:"./Unplanned/u4.svg"}
+      {links:"./Images/Unplanned/u2.svg"},
+      {links:"./Images/Unplanned/u3.svg"},
+      {links:"./Images/Unplanned/u4.svg"}
     ],
     modaldata: {
       name:'Inceptio',
-      image:"./Unplanned/u2.svg",
+      image:"./Images/Unplanned/u2.svg",
       title:'Innovation challenge',
       data:"IEC's introductory event meant for freshers essentially to get the essence of 'our vision and mission'.It is a delightful experience with a Bollywood twist where freshers get hands-on experience about entrepreneurship.",
       dates:["21st January", "31st January", "20th February"],

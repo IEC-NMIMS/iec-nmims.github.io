@@ -47,6 +47,12 @@ function App() {
 				index={5}
 			/>
 
+			<BackgroundBox
+				color="blue"
+				position="left"
+				index={6}
+			/>
+
 			<Navbar />
 			<WhoAreWe />
 			<WhatDo />
