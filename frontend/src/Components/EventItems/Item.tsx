@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
-import { Box, Card, CardContent, Typography } from '@mui/material'
-import React from 'react';
+import styled from "@emotion/styled";
+import { Box, Card, CardContent, Typography } from "@mui/material";
+import React from "react";
 import IconButton from "@mui/material/IconButton";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useState } from 'react';
@@ -31,7 +31,6 @@ interface Props{
     imageList:urls[];
     modaldata:modals;
 }
-
 
 const Item = (props:Props) => {
     const navigate =useNavigate();

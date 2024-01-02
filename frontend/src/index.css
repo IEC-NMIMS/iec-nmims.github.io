@@ -4,14 +4,13 @@ body {
     overflow-x: hidden;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none; 
-    
+    font-family: sans-serif;
 }
 
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
   background-color:  rgba(255, 253, 253, 0);
-  
 }
 
 /* Track */
@@ -24,11 +23,12 @@ body {
 ::-webkit-scrollbar-thumb { 
     background-color: #000000;
     opacity: .5;
+    border-radius: 50px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background-color:rgba(42,43,42,255);
+  background-color:rgba(42,43,42,1);
   opacity: .5;
 }
 
