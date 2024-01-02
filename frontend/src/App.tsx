@@ -1,5 +1,7 @@
 import React from "react";
 import Navbar from "./Components/Navbar/Navbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SampleEvents from "./Components/Pages/sampleEvents";
 import Events from "./Components/Pages/Events";
 import WhoAreWe from "./Components/Pages/WhoAreWe";
 import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
@@ -16,6 +18,21 @@ function App() {
 			<WhatDoWeLearn />
 			<Events />
       <ContactUs />
+      
+      <Routes>
+				<Route
+					path="/"
+					element={<Home />}
+				/>
+				<Route path="/events"
+				element={<Events/>}
+				/>
+				
+				<Route
+					path="/sampleevents"
+					element={<SampleEvents/>}
+				/>
+			</Routes>
 		</>
 	);
 }

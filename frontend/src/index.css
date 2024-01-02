@@ -2,6 +2,9 @@ body {
     margin: 0;
     background-color:#000000;
     overflow-x: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none; 
+    font-family: sans-serif;
 }
 
 /* width */
@@ -13,7 +16,7 @@ body {
 /* Track */
 ::-webkit-scrollbar-track {
   background-color: rgba(109, 109, 109, 0);
-  opacity: .5;
+  opacity: 0;
 }
 
 /* Handle */
