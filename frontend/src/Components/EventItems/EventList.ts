@@ -41,7 +41,7 @@ export const EventList=[
       {links:"./Unplanned/u4.svg"}
     ],
     modaldata: {
-      name:'unplanned',
+      name:'Unplanned',
       image:"./Unplanned/u2.svg",
       title:'Innovation challenge',
       data:"IEC's introductory event meant for freshers essentially to get the essence of 'our vision and mission'.It is a delightful experience with a Bollywood twist where freshers get hands-on experience about entrepreneurship.",

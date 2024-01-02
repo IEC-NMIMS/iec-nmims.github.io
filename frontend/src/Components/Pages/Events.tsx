@@ -1,160 +1,63 @@
-import React from 'react';
-import { Box, Typography,Stepper,Step,StepLabel } from '@mui/material';
-import styled from '@emotion/styled';
-import { useLocation } from 'react-router-dom';
-import BackgroundBox from '../BackgroundBox/BackgroundBox';
-import IconButton from '@mui/material/IconButton';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { Typography } from "@mui/material";
+import React from "react";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import Item from "../EventItems/Item";
+import { EventList } from "../EventItems/EventList";
+import styled from "@emotion/styled";
 
- 
+const Events = () => {
+	const responsive = {
+		superLargeDesktop: {
+			breakpoint: { max: 4000, min: 3000 },
+			items: 5,
+		},
+		desktop: {
+			breakpoint: { max: 3000, min: 1024, marginleft: "10px" },
+			items: 3.2,
+		},
+		tablet: {
+			breakpoint: { max: 1024, min: 464 },
+			items: 2,
+		},
+		mobile: {
+			breakpoint: { max: 464, min: 0 },
+			items: 1,
+		},
+	};
+	const Headers = styled(Typography)({
+		color: "white",
+		fontFamily: "sans-serif",
+		fontSize: "36px",
+		margin: "20px 0px 20px 50px",
+	});
+	return (
+		<>
+			<Headers>Events</Headers>
+			<Carousel
+				responsive={responsive}
+				swipeable={false}
+				draggable={true}
+				showDots={false}
+				containerClass=""
+				ssr={false}
+				autoPlaySpeed={1000}
+				keyBoardControl={true}
+				transitionDuration={500}
+			>
+				{EventList.map((info) => (
+					<Item
+						image={info.image}
+						name={info.name}
+						desc={info.desc}
+						imageList={info.imageList}
+						modaldata={info.modaldata}
+					></Item>
+				))}
+			</Carousel>
+			;
+		</>
+	);
+};
 
-const Events = ( ) => {
-    const location =useLocation();
-    console.log(location.state)
-
-    const {name, image, title, data,dates,rules} =location.state
-    
-    const Data = styled(Box)({
-        margin: '30px 0 0 0',
-        fontSize:'25px',
-        fontFamily:'sans-serif',
-        color:'white',
-        display: 'flex',        
-        justifyContent:'center',
-        flexDirection:'column',
-
-      })
-    const Header=styled(Typography)({
-      fontSize:'30px',
-        fontFamily:'sans-serif',
-        alignSelf: 'center',
-        marginBottom: '10px'
-    })
-    const Background =styled(Box)({
-      alignSelf:'center',
-      width:'1200px',
-      backgroundColor:'rgba(222,222,222,.1)',
-      borderRadius:'20px',
-      padding:'20px',
-      display:'flex',
-      justifyContent:'center',
-      flexDirection:'column',
-    
-      
-    })
-    const ImageBox =styled(Box)({
-      width :'1100px',
-      height:'400px',
-      alignSelf:'center',
-      backgroundColor:'rgba(222,222,222,.2)',
-      borderRadius:'20px',
-      display:'flex',
-      justifyContent: 'center',
-      margin:'20px 0 10px 0'
-      
-    })
-    const Title=styled(Typography)({
-      fontSize:'50px',
-        fontFamily:'sans-serif',
-        paddingLeft:'50px',
-        marginBottom: '10px'
-    })
-    const Desc=styled(Typography)({
-      fontSize:'20px',
-        fontFamily:'sans-serif',
-        padding:'0 10px 0 50px',
-        marginBottom: '30px'
-    })
-    const Steppers =styled(Stepper)({
-      color: 'white',
-      width:'1300px',
-      alignSelf: 'center',
-      height:'100px',
-      
-    })
-    const StepLabels =styled(Typography)({
-      color: 'white',
-    })
-    const connectors =styled('div')({
-      color: 'white',
-      backgroundColor: 'white',
-      width: '5px',
-    })
-    const steps=[
-      "Quiz Round\n "+dates[0],
-      "Submission Round\n "+dates[1],
-      "Final Round "+"\n"+dates[2]]
-    const Rulesregister=styled(Box)({
-      display: 'flex',
-      flexDirection: 'row',
-    })
-
-    const RegisterNow = styled(IconButton)({
-      color:'black',
-        fontSize:'22px',
-        borderRadius:'10px',
-        margin:'20px 0 0 50px',
-        padding:'10px 10px 10px 20px',
-        fontWeight:'normal',
-
-        bottom:'15px',
-        backgroundColor:'	#00BFFF'
-        
-    })
-    const Arrow = styled(ArrowForwardIcon)({
-      marginLeft:'50px',
-    })
-    const RuleRegulation =styled(Typography)({
-      textDecoration:'underline',
-      color:'white',
-        fontSize:'22px',
-        padding:'10px 10px 10px 20px',
-        position:'absolute',
-        right:'220px'
-
-    })
-    const Li =styled('li')({
-      marginLeft:'40px',
-    })
-
-  return (
-    <Data>
-    <Header>{name}</Header>
-    <Background>
-      <ImageBox><img src={image} height="400px"/></ImageBox>
-      <Title>{title}</Title>
-      <Desc>{data}</Desc>
-      <Steppers  alternativeLabel> 
-        {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel>
-            <StepLabels>
-              {label}
-            </StepLabels>
-              </StepLabel>
-              
-          </Step>
-        ))}
-      </Steppers>
-      <Rulesregister>
-      <RegisterNow>Register Now <Arrow></Arrow></RegisterNow>
-
-      <RuleRegulation>Rules And Regulations</RuleRegulation>
-            </Rulesregister>
-            <Box>
-              <ul>
-                
-                {rules.map((rule)=>(<Li><Typography>{rule}</Typography></Li>))}
-              </ul>
-            </Box>
-
-              
-
-    </Background>
-    
-
-    </Data>
-  )
-}
-
-export default Events
+export default Events;

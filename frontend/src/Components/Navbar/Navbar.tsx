@@ -1,7 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
-import { NavLink, useLocation } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import EastIcon from "@mui/icons-material/East";
 import Typography from "@mui/material/Typography";
@@ -57,6 +56,7 @@ const LinkText = styled(Typography)({
 	color: "white",
 	fontSize: "20px",
 	padding: "0 20px",
+	cursor: "pointer",
 });
 
 const Arrow = styled(EastIcon)({
@@ -74,30 +74,10 @@ const Navbar = () => {
 			</Logo>
 
 			<Links>
-				<NavLink
-					style={{ textDecoration: "none" }}
-					to="/home"
-				>
-					<LinkText>Home</LinkText>
-				</NavLink>
-				<NavLink
-					style={{ textDecoration: "none" }}
-					to="/sampleevents"
-				>
-					<LinkText>Events</LinkText>
-				</NavLink>
-				<NavLink
-					style={{ textDecoration: "none" }}
-					to="/ourteam"
-				>
-					<LinkText>Our Team</LinkText>
-				</NavLink>
-				<NavLink
-					style={{ textDecoration: "none" }}
-					to="/aboutus"
-				>
-					<LinkText>About us</LinkText>
-				</NavLink>
+				<LinkText>Home</LinkText>
+				<LinkText>Events</LinkText>
+				<LinkText>Our Team</LinkText>
+				<LinkText>About us</LinkText>
 			</Links>
 			<Register>
 				Register Now
