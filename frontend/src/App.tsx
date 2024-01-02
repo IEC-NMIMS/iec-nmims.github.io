@@ -24,15 +24,27 @@ function App() {
 			/>
 
 			<BackgroundBox
-				color="blue"
+				color="yellow"
 				position="left"
 				index={2}
 			/>
 
 			<BackgroundBox
-				color="yellow"
+				color="blue"
 				position="right"
 				index={3}
+			/>
+
+			<BackgroundBox
+				color="blue"
+				position="left"
+				index={4}
+			/>
+
+			<BackgroundBox
+				color="yellow"
+				position="right"
+				index={5}
 			/>
 
 			<Navbar />
