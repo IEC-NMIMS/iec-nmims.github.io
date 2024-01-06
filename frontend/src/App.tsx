@@ -7,6 +7,7 @@ import WhatDo from "./Components/WhatDo/WhatDo";
 import WhatDoWeLearn from "./Components/WhatDoWeLearn/WhatDoWeLearn";
 import Speaker from "./Components/Speaker/Speaker";
 import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
+import Home from "./Components/Home/Home";
 
 function App() {
 	return (
@@ -53,7 +54,9 @@ function App() {
 				index={6}
 			/>
 
+
 			<Navbar />
+			<Home />
 			<WhoAreWe />
 			<WhatDo />
 			<WhatDoWeLearn />
