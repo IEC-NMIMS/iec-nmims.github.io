@@ -8,7 +8,7 @@ import WhatDoWeLearn from "./Components/WhatDoWeLearn/WhatDoWeLearn";
 import Speaker from "./Components/Speaker/Speaker";
 import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
 import Home from "./Components/Home/Home";
-
+import WhatTheyThinkOfIEC from "./Components/WhatTheyThinkOfIEC/WhatTheyThinkOfIEC";
 function App() {
 	return (
 		<>
@@ -62,6 +62,7 @@ function App() {
 			<WhatDoWeLearn />
 			<Events />
 			<Speaker />
+			<WhatTheyThinkOfIEC />
 			<ContactUs />
 		</>
 	);
