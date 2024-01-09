@@ -11,6 +11,7 @@ const OuterBox = styled(Box)({
 	display: "flex",
 	justifyContent: "center",
 	border: "none",
+	zIndex: 1,
 });
 
 const WhoAreWeBox = styled(Box)({

@@ -2,9 +2,9 @@ body {
     margin: 0;
     background-color:#000000;
     overflow-x: hidden;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none; 
-    font-family: sans-serif;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    font-family: ITCAvantGardeGothicStd;
 }
 
 /* width */

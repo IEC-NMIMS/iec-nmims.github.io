@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 
 const OuterBox = styled(Box)({
 	marginLeft: "50px",
+	zIndex: 1,
 });
 
 const Title = styled(Typography)({
@@ -14,29 +15,32 @@ const Title = styled(Typography)({
 	marginTop: "50px",
 	marginLeft: "50px",
 	fontSize: "3rem",
+	zIndex: 1,
 });
 
 const InnerBox = styled(Box)({
 	display: "flex",
+	zIndex: 1,
 });
 
 const WhatDoWeLearnBox = styled(Box)({
 	marginTop: "35px",
 	marginLeft: "30px",
 	width: "200px",
-	backgroundColor: "rgba(42,43,42,255)",
+	backgroundColor: "rgba(42,43,42,0.5)",
 	borderRadius: "20px",
 	height: "215px",
 	display: "flex",
 	flexDirection: "row",
 	alignItems: "center",
-	border: "solid",
+	zIndex: 1,
 });
 
 const Element = styled(Box)({
 	maxWidth: "420px",
 	marginLeft: "20px",
 	marginRight: "auto",
+	zIndex: 1,
 });
 
 const ElementTitle = styled(Typography)({
@@ -48,6 +52,7 @@ const ElementTitle = styled(Typography)({
 const ElementDescription = styled(Typography)({
 	color: "white",
 	fontWeight: "none",
+	opacity: 0.6,
 });
 
 const KnowMore = styled(IconButton)({

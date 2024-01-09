@@ -7,6 +7,7 @@ const SectionContainer = styled(Container)`
 	place-items: center;
 	max-width: 600px;
 	padding: 4px;
+	z-index: 1;
 `;
 
 const Heading = styled(Typography)`

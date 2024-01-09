@@ -7,13 +7,14 @@ import Typography from "@mui/material/Typography";
 
 const NavBox = styled(Box)({
 	margin: "20px 15px 20px 25px",
-	backgroundColor: "rgba(42,43,42,255)",
+	backgroundColor: "rgba(42,43,42, 0.3)",
 	borderRadius: "20px",
 	height: "72px",
 	display: "flex",
 	flexDirection: "row",
 	padding: "10px",
 	alignItems: "center",
+	zIndex: 1,
 });
 
 const Logo = styled(Box)({
