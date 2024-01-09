@@ -8,13 +8,16 @@ import InputBase from "@mui/material/InputBase";
 
 const ContactContainer = styled(Box)({
 	color: "white",
-	marginLeft: "2.8%",
+	marginLeft: "50px",
+	marginBottom: "100px",
 	fontFamily: "sans-serif",
 	zIndex: 1,
 });
 const Header = styled(Typography)({
-	fontSize: "40px",
+	fontFamily: "ITCAvantGardeGothicStd",
+	fontSize: "3rem",
 	fontWeight: "bold",
+	marginBottom: "50px",
 });
 const SubContainer = styled(Box)({
 	backgroundColor: "rgb(42, 43, 42, 0.3)",
@@ -39,15 +42,17 @@ const NameEmail = styled(Box)({
 	display: "flex",
 });
 const TextInput = styled(InputBase)({
+	fontFamily: "ITCAvantGardeGothicStd",
 	marginRight: "25px",
 	color: "white",
 	width: "325px",
 	border: "2px solid rgba(255, 255, 255, 0.5)",
 	borderRadius: "10px",
 	height: "40px",
-	padding: "5px",
+	padding: "5px 10px",
 });
 const SubjectInput = styled(InputBase)({
+	fontFamily: "ITCAvantGardeGothicStd",
 	marginTop: "25px",
 	marginRight: "25px",
 	color: "white",
@@ -55,9 +60,10 @@ const SubjectInput = styled(InputBase)({
 	border: "2px solid rgba(255, 255, 255, 0.5)",
 	borderRadius: "10px",
 	height: "40px",
-	padding: "5px",
+	padding: "5px 10px",
 });
 const MessageInput = styled(InputBase)({
+	fontFamily: "ITCAvantGardeGothicStd",
 	marginTop: "25px",
 	marginRight: "25px",
 	color: "white",
@@ -65,13 +71,17 @@ const MessageInput = styled(InputBase)({
 	border: "2px solid rgba(255, 255, 255, 0.5)",
 	borderRadius: "10px",
 	height: "10em",
-	padding: "5px",
+	padding: "5px 10px",
 });
 const ButtonInput = styled(Button)({
+	fontFamily: "ITCAvantGardeGothicStd",
+	fontWeight: "bold",
 	color: "rgb(42, 43, 42)",
 	borderColor: "#000000",
+	borderRadius: "15px",
 	width: "30%",
 	marginLeft: "35%",
+	textTransform: "none",
 });
 const CallAdd = styled(Box)({
 	display: "grid",
@@ -84,12 +94,14 @@ const Emhour = styled(Box)({
 	gridTemplateRows: "2.5em 2.5em",
 });
 const InfoHead = styled(Typography)({
+	fontFamily: "ITCAvantGardeGothicStd",
 	fontSize: "1.5em",
 	padding: "0px",
 	marginBottom: "0px",
 	fontWeight: "bold",
 });
 const Info = styled(Typography)({
+	fontFamily: "ITCAvantGardeGothicStd",
 	fontSize: ".8em",
 	padding: "0px",
 	marginTop: "0px",
@@ -129,7 +141,7 @@ const ContactUs = () => {
 					<ButtonInput
 						variant="contained"
 						color="inherit"
-						endIcon={<SendIcon />}
+						disableElevation
 					>
 						Send Message
 					</ButtonInput>

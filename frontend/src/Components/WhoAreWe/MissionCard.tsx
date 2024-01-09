@@ -3,69 +3,72 @@ import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
 import Typography from "@mui/material/Typography";
 
+const OuterBox = styled(Box)({
+	width: "100%",
+	height: "700px",
+	display: "flex",
+	justifyContent: "center",
+	alignItems: "center",
+});
+
 const WhoAreWeBox = styled(Box)({
-	margin: "20px",
-	backgroundColor: "rgba(42,43,42,255)",
+	backgroundColor: "rgba(42,43,42,0.3)",
 	borderRadius: "20px",
-	height: "500px",
+	height: "350px",
+	width: "75%",
 	display: "flex",
 	flexDirection: "row",
-	padding: "30px",
 	alignItems: "center",
-	justifyContent: "center",
+	justifyContent: "space-between",
 	color: "white",
-	border: "solid",
+	padding: "30px",
 });
 
 const ImagePanel = styled(Box)({
-	width: "60%",
-	marginRight: "20px",
+	display: "flex",
+	alignItems: "center",
+	width: "55%",
+	height: "100%",
+	backgroundColor: "#D9D9D9",
+	borderRadius: "20px",
+});
+
+const RightPanel = styled(Box)({
+	width: "45%",
+	display: "flex",
+	flexDirection: "column",
+	justifyContent: "left",
+	padding: "20px",
 });
 
 const PanelTitle = styled(Typography)({
 	fontSize: "3rem",
 	fontWeight: "bold",
-	marginBottom: "20px",
+	fontFamily: "ITCAvantGardeGothicStd",
+	marginBottom: "30px",
 });
 
 const PanelPara = styled(Typography)({
-	fontSize: "16px",
-	marginBottom: "20px",
+	color: "rgba(255, 255, 255, 0.8)",
+	fontSize: "1rem",
+	fontFamily: "ITCAvantGardeGothicStd",
 });
 
 const MissionCard = () => {
 	return (
-		<WhoAreWeBox>
-			<ImagePanel>
-				<img
-					width="100%"
-					src="Images/Logo.svg"
-				/>
-			</ImagePanel>
-			<Box>
-				<PanelTitle>Our Mission</PanelTitle>
-				<PanelPara>
-					Creatting a entrepreneurial ecosystem to provide
-					<br />
-					the platform for young students with creative minds
-					<br />
-					and ideas with potential for substantial business
-					<br />
-					opportunities, is what we strive towards.
-					<br />
-					<br />
-					Through industrial exposure, events, seminars,
-					<br />
-					workshops, networking, mentoring and more. we
-					<br />
-					encourage students to take their passion foward
-					<br />
-					through projects, interships and startup.
-					<br />
-				</PanelPara>
-				<br />
-			</Box>
-		</WhoAreWeBox>
+		<OuterBox>
+			<WhoAreWeBox>
+				<ImagePanel></ImagePanel>
+				<RightPanel>
+					<PanelTitle>Our Mission</PanelTitle>
+					<PanelPara>
+						We work towards raising awareness, providing support to student-based
+						start-ups and creating a community of bright young minds coming together to
+						make ideas & dreams a reality.
+					</PanelPara>
+				</RightPanel>
+			</WhoAreWeBox>
+		</OuterBox>
 	);
 };
 

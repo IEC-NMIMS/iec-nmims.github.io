@@ -3,68 +3,73 @@ import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
 import Typography from "@mui/material/Typography";
 
+const OuterBox = styled(Box)({
+	width: "100%",
+	height: "700px",
+	display: "flex",
+	justifyContent: "center",
+	alignItems: "center",
+});
+
 const WhoAreWeBox = styled(Box)({
-	margin: "20px",
-	backgroundColor: "rgba(42,43,42,255)",
+	backgroundColor: "rgba(42,43,42,0.3)",
 	borderRadius: "20px",
-	height: "500px",
+	height: "350px",
+	width: "75%",
 	display: "flex",
 	flexDirection: "row",
-	padding: "30px",
 	alignItems: "center",
-	justifyContent: "center",
+	justifyContent: "space-between",
 	color: "white",
-	border: "solid",
+	padding: "30px",
 });
 
 const ImagePanel = styled(Box)({
-	width: "60%",
+	display: "flex",
+	alignItems: "center",
+	width: "55%",
+	height: "100%",
+	backgroundColor: "#D9D9D9",
+	borderRadius: "20px",
+});
+
+const RightPanel = styled(Box)({
+	width: "45%",
+	display: "flex",
+	flexDirection: "column",
+	justifyContent: "left",
+	padding: "20px",
 });
 
 const PanelTitle = styled(Typography)({
 	fontSize: "3rem",
 	fontWeight: "bold",
-	marginBottom: "20px",
+	fontFamily: "ITCAvantGardeGothicStd",
+	marginBottom: "30px",
 });
 
 const PanelPara = styled(Typography)({
-	fontSize: "16px",
-	marginBottom: "20px",
-	marginRight: "10px",
+	color: "rgba(255, 255, 255, 0.8)",
+	fontSize: "1rem",
+	fontFamily: "ITCAvantGardeGothicStd",
 });
 
-const VisionCard = () => {
+const MissionCard = () => {
 	return (
-		<WhoAreWeBox>
-			<Box>
-				<PanelTitle>Our Vision</PanelTitle>
-				<PanelPara>
-					Leadership is what defines how succsefull you will be.
-					<br />
-					How you inspire other people shapes your own
-					<br />
-					destiny and we of IEC, give you a chance to do <br />
-					precisely that speak up,manage and lead!
-					<br />
-					<br />
-					We want to create a conducive environment that
-					<br />
-					inspires individuals to stick through tough times and
-					<br />
-					not give up on the challenges that hinder them to grow
-					<br />
-					and develop as the next generation entrepreneurs and innovators <br />
-				</PanelPara>
-				<br />
-			</Box>
-			<ImagePanel>
-				<img
-					width="100%"
-					src="Images/Logo.svg"
-				/>
-			</ImagePanel>
-		</WhoAreWeBox>
+		<OuterBox>
+			<WhoAreWeBox>
+				<RightPanel>
+					<PanelTitle>Our Vision</PanelTitle>
+
+					<PanelPara>
+						IEC strongly believes that with the correct guidance and support even the
+						smallest of ideas can grow and lead to a successful entrepreneurial journey.
+					</PanelPara>
+				</RightPanel>
+				<ImagePanel></ImagePanel>
+			</WhoAreWeBox>
+		</OuterBox>
 	);
 };
 
-export default VisionCard;
+export default MissionCard;

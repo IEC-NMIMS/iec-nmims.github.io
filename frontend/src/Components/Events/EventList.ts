@@ -2,7 +2,7 @@ export const EventList=[
    {
     image:'',
     name:'Enigma',
-    desc:"IEC's introductory event meant for freshers essentially to get the essence of 'our vision and mission'.It is a delightful experience with a Bollywood twist where freshers get hands-on experience about entrepreneurship.",
+    desc:"IEC's introductory event meant for freshers essentially to get the essence of 'our vision and mission'. Various innovative games including Time Capsule, where people write a note to their future selves about their goals, heads up and dumb charades of brands/entrepreneurs sum it up. It is a delightful experience with a Bollywood twist where freshers get hands-on experience about entrepreneurship.",
     imageList: [
       {links:"./Images/Unplanned/u2.svg"},
       {links:"./Images/Unplanned/u3.svg"},
@@ -13,7 +13,7 @@ export const EventList=[
     name:'Enigma',
     image:"./Images/Unplanned/u2.svg",
     title:'Innovation challenge',
-    data:"IEC's introductory event meant for freshers essentially to get the essence of 'our vision and mission'.It is a delightful experience with a Bollywood twist where freshers get hands-on experience about entrepreneurship.\n We want to createa conducive environment that inspires individuals to stick through tough times  and not give up on challenges  that hinder  them  to grow and develop as next generation entrepreneurs and innovators.",
+    data:"IEC's introductory event meant for freshers essentially to get the essence of 'our vision and mission'. Various innovative games including Time Capsule, where people write a note to their future selves about their goals, heads up and dumb charades of brands/entrepreneurs sum it up. It is a delightful experience with a Bollywood twist where freshers get hands-on experience about entrepreneurship.",
     dates:["21st January", "31st January", "20th February"],
     rules:["Lorem ipsum dolor sit amet",
            "consectetuer adipiscing elit.",
@@ -34,7 +34,7 @@ export const EventList=[
    {
     image:'./Unplanned/u1.svg',
     name:'Unplanned 3.0',
-    desc:"Unplanned is a captivating event, in which participants have to use their prompt reasoning to create on-the-spot business plans. This event aims to encourage improvisational skills in students while providing them with a platform to hone their planning skills.",
+    desc:"Unplanned is a captivating event, in which participants have to use their prompt reasoning to create on-the-spot business plans. All participants will be presented with images based on which they have to assemble a business plan Participants will be kept on their toes as their challenges will change momentarily. his event aims to encourage improvisational skills in students while providing them with a platform to hone their planning skills.",
     imageList: [
       {links:"./Images/Unplanned/u2.svg"},
       {links:"./Images/Unplanned/u3.svg"},
@@ -44,7 +44,7 @@ export const EventList=[
       name:'Unplanned',
       image:"./Images/Unplanned/u2.svg",
       title:'Innovation challenge',
-      data:"IEC's introductory event meant for freshers essentially to get the essence of 'our vision and mission'.It is a delightful experience with a Bollywood twist where freshers get hands-on experience about entrepreneurship.",
+      data:"Unplanned is a captivating event, in which participants have to use their prompt reasoning to create on-the-spot business plans. All participants will be presented with images based on which they have to assemble a business plan Participants will be kept on their toes as their challenges will change momentarily. his event aims to encourage improvisational skills in students while providing them with a platform to hone their planning skills.",
       dates:["21st January", "31st January", "20th February"],
       rules:["Lorem ipsum dolor sit amet",
              "consectetuer adipiscing elit.",
@@ -65,7 +65,7 @@ export const EventList=[
    {
     image:'',
     name:'Inceptio 7.0',
-    desc:"IEC's introductory event meant for freshers essentially to get the essence of 'our vision and mission'.It is a delightful experience with a Bollywood twist where freshers get hands-on experience about entrepreneurship.",
+    desc:"Content not provided yet.",
     imageList: [
       {links:"./Images/Unplanned/u2.svg"},
       {links:"./Images/Unplanned/u3.svg"},
@@ -75,7 +75,7 @@ export const EventList=[
       name:'Inceptio',
       image:"./Images/Unplanned/u2.svg",
       title:'Innovation challenge',
-      data:"IEC's introductory event meant for freshers essentially to get the essence of 'our vision and mission'.It is a delightful experience with a Bollywood twist where freshers get hands-on experience about entrepreneurship.",
+      data:"Content not provided yet.",
       dates:["21st January", "31st January", "20th February"],
       rules:["Lorem ipsum dolor sit amet",
              "consectetuer adipiscing elit.",
@@ -96,17 +96,17 @@ export const EventList=[
    {
     image:'',
     name:'Concept Show',
-    desc:"The NMIMS MPSTME's Innovation and Entrepreneurship Carnival is a one-of-a-kind annual event. The festival will have a variety of experiences to share.",
+    desc:"Description not provided yet.",
     imageList: [
       {links:"./Images/Unplanned/u2.svg"},
       {links:"./Images/Unplanned/u3.svg"},
       {links:"./Images/Unplanned/u4.svg"}
     ],
     modaldata: {
-      name:'Inceptio',
+      name:'Concept Show',
       image:"./Images/Unplanned/u2.svg",
       title:'Innovation challenge',
-      data:"IEC's introductory event meant for freshers essentially to get the essence of 'our vision and mission'.It is a delightful experience with a Bollywood twist where freshers get hands-on experience about entrepreneurship.",
+      data:"Description not provided yet!",
       dates:["21st January", "31st January", "20th February"],
       rules:["Lorem ipsum dolor sit amet",
              "consectetuer adipiscing elit.",
@@ -124,6 +124,4 @@ export const EventList=[
              "Donec quis dui at dolor tempor interdum."]
      }
    },
-   
-   
 ]

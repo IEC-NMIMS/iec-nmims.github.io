@@ -13,8 +13,8 @@ const Events = () => {
 			items: 5,
 		},
 		desktop: {
-			breakpoint: { max: 3000, min: 1024, marginleft: "10px" },
-			items: 3.2,
+			breakpoint: { max: 3000, min: 1024 },
+			items: 3.6,
 		},
 		tablet: {
 			breakpoint: { max: 1024, min: 464 },
@@ -27,9 +27,12 @@ const Events = () => {
 	};
 	const Headers = styled(Typography)({
 		color: "white",
-		fontFamily: "sans-serif",
-		fontSize: "36px",
-		margin: "20px 0px 20px 50px",
+		fontSize: "3rem",
+		fontWeight: "bold",
+		fontFamily: "ITCAvantGardeGothicStd",
+		marginLeft: "50px",
+		marginBottom: "50px",
+		zIndex: 1,
 	});
 	return (
 		<>
@@ -41,9 +44,12 @@ const Events = () => {
 				showDots={false}
 				containerClass=""
 				ssr={false}
-				autoPlaySpeed={1000}
+				infinite={true}
+				autoPlay={true}
+				autoPlaySpeed={4000}
 				keyBoardControl={true}
-				transitionDuration={500}
+				transitionDuration={2000}
+				arrows={false}
 			>
 				{EventList.map((info) => (
 					<Item
@@ -55,7 +61,6 @@ const Events = () => {
 					></Item>
 				))}
 			</Carousel>
-			;
 		</>
 	);
 };

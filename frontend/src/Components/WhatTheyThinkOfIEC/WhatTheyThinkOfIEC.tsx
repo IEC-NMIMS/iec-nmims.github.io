@@ -1,32 +1,37 @@
-import styled from '@emotion/styled'
-import { Typography } from '@mui/material'
-import React from 'react';
+import styled from "@emotion/styled";
+import { Typography } from "@mui/material";
+import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { ReviewList } from './ReviewList';
-import Review from './Review';
-import { Box } from '@mui/material';
-
+import { ReviewList } from "./ReviewList";
+import Review from "./Review";
+import { Box } from "@mui/material";
 
 const WhatTheyThinkOfIEC = () => {
-    const WhatTheyThinkOfIECBox =styled(Box)({
-
-        paddingLeft:'50px',
-    })
-    const Header =styled(Typography)({
-        fontSize:'55px',
-        color: 'white',
-        padding:'40px  0 0 0px',
-        fontWeight:'bold'
-
-    })
-    const Intro =styled(Typography)({
-        fontSize:'20px',
-        color: 'white',
-        width:'800px',
-        padding:'10px  0 30px 0px',
-    })
-    const responsive = {
+	const WhatTheyThinkOfIECBox = styled(Box)({
+		marginLeft: "50px",
+		marginBottom: "150px",
+	});
+	const MentorText = styled(Typography)({
+		color: "#00D1FF",
+		fontFamily: "ITCAvantGardeGothicStd",
+		fontSize: "1rem",
+		fontWeight: "bold",
+	});
+	const Header = styled(Typography)({
+		fontFamily: "ITCAvantGardeGothicStd",
+		fontSize: "3rem",
+		color: "white",
+		fontWeight: "bold",
+	});
+	const Intro = styled(Typography)({
+		fontFamily: "ITCAvantGardeGothicStd",
+		fontSize: "1rem",
+		color: "white",
+		width: "600px",
+		marginBottom: "50px",
+	});
+	const responsive = {
 		superLargeDesktop: {
 			breakpoint: { max: 4000, min: 3000 },
 			items: 5,
@@ -44,20 +49,27 @@ const WhatTheyThinkOfIEC = () => {
 			items: 1,
 		},
 	};
-  return (
-    <WhatTheyThinkOfIECBox>
-    <Header>What they think of IEC</Header> 
-    <Intro>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel justo vitae velit eleifend luctus. Nulla facilisi. Mauris bibendum tincidunt mauris, a interdum odio lacinia vel. Curabitur lacinia, justo at consequat congue, orci justo consequat justo, vel suscipit velit dolor id justo.  </Intro>
-    <Carousel
+	return (
+		<WhatTheyThinkOfIECBox>
+			<MentorText>Our Faculty Mentors</MentorText>
+			<Header>What they think of IEC</Header>
+			<Intro>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+				incididunt ut labore et dolore magna aliqua.
+			</Intro>
+			<Carousel
 				responsive={responsive}
 				swipeable={false}
 				draggable={true}
 				showDots={false}
 				containerClass=""
 				ssr={false}
-				autoPlaySpeed={1000}
+				infinite={true}
+				autoPlay={true}
+				autoPlaySpeed={5000}
 				keyBoardControl={true}
-				transitionDuration={500}
+				transitionDuration={2000}
+				arrows={false}
 			>
 				{ReviewList.map((data) => (
 					<Review
@@ -69,8 +81,8 @@ const WhatTheyThinkOfIEC = () => {
 					></Review>
 				))}
 			</Carousel>
-    </WhatTheyThinkOfIECBox>
-  )
-}
+		</WhatTheyThinkOfIECBox>
+	);
+};
 
-export default WhatTheyThinkOfIEC
+export default WhatTheyThinkOfIEC;

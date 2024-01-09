@@ -5,61 +5,53 @@ import IconButton from "@mui/material/IconButton";
 import EastIcon from "@mui/icons-material/East";
 import Typography from "@mui/material/Typography";
 import { Card, colors } from "@mui/material";
-import Paper from "@mui/material/Paper";
 
 const OuterBox = styled(Box)({
 	marginLeft: "50px",
+	marginRight: "0",
+	marginBottom: "150px",
 	zIndex: 1,
-});
-
-const Title = styled(Typography)({
-	color: "white",
-	fontSize: "3rem",
-	marginBottom: "10px",
-});
-
-const Title2 = styled(Typography)({
-	color: "black",
-	fontSize: "3rem",
-	fontWeight: "bold",
-	marginBottom: "-10px",
-	fontFamily: "sans-serif",
-});
-
-const Title3 = styled(Typography)({
-	color: "black",
-	fontWeight: "bold",
-	fontFamily: "sans-serif",
 });
 
 const InnerBox = styled(Box)({
 	display: "flex",
 });
 
-const HomePage = styled(Box)({
-	marginTop: "35px",
-	marginLeft: "30px",
-	width: "200px",
-	backgroundColor: "rgba(42,43,42,255)",
-	borderRadius: "20px",
-	height: "215px",
-	display: "flex",
-	flexDirection: "row",
-	alignItems: "center",
-	border: "solid",
+const TopRight = styled(Card)({
+	backgroundColor: "black",
+	color: "rgba(255, 255, 255, 0.75)",
+	width: "625px",
+	padding: "0 5px",
+	marginLeft: "650px",
+	marginTop: "100px",
+	marginBottom: "100px",
+});
+
+const IECTitle = styled(Typography)({
+	color: "white",
+	fontSize: "3.6rem",
+	fontFamily: "ITCAvantGardeGothicStd",
+	fontWeight: "bold",
+	marginBottom: "10px",
+});
+
+const InfoText = styled(Typography)({
+	marginBottom: "30px",
+	fontSize: "16px",
+	fontFamily: "ITCAvantGardeGothicStd",
 });
 
 const KnowMore = styled(IconButton)({
 	backgroundColor: "rgb(0,185,203)",
-	borderRadius: "10px",
+	borderRadius: "15px",
 	right: "10px",
-	height: "40px",
-	width: "300px",
+	height: "50px",
+	width: "350px",
 	display: "flex",
 	justifyContent: "start",
+	alignItems: "center",
 	padding: "0px 0px 0px 20px ",
 	color: "black",
-	fontFamily: "sans-serif",
 	fontSize: "16px",
 	fontWeight: "bold",
 	marginLeft: "8px",
@@ -70,28 +62,14 @@ const KnowMore = styled(IconButton)({
 	},
 });
 
-const Arrow = styled(EastIcon)({
-	marginLeft: "auto",
-	marginTop: "5px",
-	marginRight: "15px",
-});
-
-const Text = styled(Typography)({
-	fontFamily: "sans-serif",
-	fontWeight: "400px",
-	marginBottom: "20px",
-	fontSize: "16px",
-});
-
-const TopRight = styled(Card)({
-	backgroundColor: "black",
-	color: "rgba(255, 255, 255, 0.75)",
-	width: "500px",
-	marginLeft: "650px",
+const ButtonText = styled(Typography)({
+	fontFamily: "ITCAvantGardeGothicStd",
+	fontSize: "1rem",
+	fontWeight: "bold",
 });
 
 const Whitebox = styled(Card)({
-	backgroundColor: "white",
+	backgroundColor: "rgba(255, 255, 255, 0.8)",
 	marginLeft: "245px",
 	marginBottom: "50px",
 	marginTop: "100px",
@@ -101,30 +79,46 @@ const Whitebox = styled(Card)({
 	display: "flex",
 	flexDirection: "row",
 	alignItems: "center",
+	justifyContent: "space-evenly",
 	color: "black",
 });
 
-const style = {
-	padding: "0px 20px 20px 20px",
-};
+const WhiteBoxItem = styled(Box)({
+	display: "flex",
+	flexDirection: "column",
+	alignItems: "center",
+	justifyContent: "center",
+});
 
-const style1 = {
-	paddingLeft: "30px",
-};
+const WhiteBoxTitle = styled(Typography)({
+	fontSize: "3rem",
+	fontWeight: "bold",
+	fontFamily: "ITCAvantGardeGothicStd",
+});
+
+const WhiteBoxBody = styled(Typography)({
+	fontWeight: "600",
+	fontFamily: "ITCAvantGardeGothicStd",
+});
+
+const Arrow = styled(EastIcon)({
+	marginLeft: "auto",
+	marginRight: "15px",
+});
 
 const Home = () => {
 	return (
 		<OuterBox>
 			<InnerBox>
 				<TopRight>
-					<Title>Innovation and Entrepreneurship Cell</Title>
-					<Text>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, accusamus
-						debitis quae recusandae eaque quos voluptatem aspernatur a harum velit et.
-						Sed quaerat excepturi illum natus, quidem officia laboriosam eius?
-					</Text>
+					<IECTitle>Innovation and Entrepreneurship Cell</IECTitle>
+					<InfoText>
+						IEC MPSTME aims to provide a holistic development of students, with a
+						cornerstone built on the pillars of ingenuity, intellect, and innovative
+						thinking.
+					</InfoText>
 					<KnowMore>
-						<div>Register Now for Inceptio</div>
+						<ButtonText>Register Now for Inceptio</ButtonText>
 						<Arrow />
 					</KnowMore>
 				</TopRight>
@@ -132,33 +126,25 @@ const Home = () => {
 
 			<InnerBox>
 				<Whitebox>
-					<div style={{ padding: "0px 20px 20px 20px", marginLeft: 90 }}>
-						<Title2>+110</Title2>
-						<div>
-							<Title3>Team Members</Title3>
-						</div>
-					</div>
+					<WhiteBoxItem>
+						<WhiteBoxTitle>+110</WhiteBoxTitle>
+						<WhiteBoxBody>Team Members</WhiteBoxBody>
+					</WhiteBoxItem>
 
-					<div style={style}>
-						<Title2>+100</Title2>
-						<div style={style1}>
-							<Title3>Events</Title3>
-						</div>
-					</div>
+					<WhiteBoxItem>
+						<WhiteBoxTitle>+100</WhiteBoxTitle>
+						<WhiteBoxBody>Events</WhiteBoxBody>
+					</WhiteBoxItem>
 
-					<div style={style}>
-						<Title2>+200</Title2>
-						<div style={style1}>
-							<Title3>Speakers</Title3>
-						</div>
-					</div>
+					<WhiteBoxItem>
+						<WhiteBoxTitle>+200</WhiteBoxTitle>
+						<WhiteBoxBody>Speakers</WhiteBoxBody>
+					</WhiteBoxItem>
 
-					<div style={style}>
-						<Title2>+10K</Title2>
-						<div style={style1}>
-							<Title3>Outreach</Title3>
-						</div>
-					</div>
+					<WhiteBoxItem>
+						<WhiteBoxTitle>+10k</WhiteBoxTitle>
+						<WhiteBoxBody>Outreach</WhiteBoxBody>
+					</WhiteBoxItem>
 				</Whitebox>
 				<InnerBox></InnerBox>
 			</InnerBox>
