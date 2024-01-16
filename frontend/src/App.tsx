@@ -9,6 +9,7 @@ import Speaker from "./Components/Speaker/Speaker";
 import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
 import Home from "./Components/Home/Home";
 import WhatTheyThinkOfIEC from "./Components/WhatTheyThinkOfIEC/WhatTheyThinkOfIEC";
+
 function App() {
 	return (
 		<>
@@ -81,7 +82,13 @@ function App() {
 			<BackgroundBox
 				color="blue"
 				position="right"
-				index={11}
+				index={10.75}
+			/>
+
+			<BackgroundBox
+				color="yellow"
+				position="left"
+				index={11.5}
 			/>
 
 			<Navbar />

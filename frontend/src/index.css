@@ -3,6 +3,16 @@
   src: url("./Fonts/ITCAvantGardeGothicStdBook.otf");
 }
 
+@keyframes moving {
+  0% {
+    left: 50px;
+  }
+
+  100% {
+    left: 1200px;
+  }
+}
+
 body {
     margin: 0 50px;
     background-color:#000000;

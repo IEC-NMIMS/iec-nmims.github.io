@@ -92,7 +92,14 @@ const Navbar = () => {
 						Inceptio
 					</NavLink>
 				</LinkText>
-				<LinkText>Our Team</LinkText>
+				<LinkText>
+					<NavLink
+						to="/our-team"
+						style={{ textDecoration: "none", color: "white" }}
+					>
+						Our Team
+					</NavLink>
+				</LinkText>
 				<LinkText>About Us</LinkText>
 			</Links>
 			<Register>

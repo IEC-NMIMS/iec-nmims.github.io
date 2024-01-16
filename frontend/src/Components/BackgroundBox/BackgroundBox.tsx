@@ -19,29 +19,35 @@ const BackgroundBox = (props: Props) => {
 	const top = index * 500 + "px";
 	if (position.toLowerCase() === "left") {
 		FadedBox = styled(Box)({
-			height: "600px",
-			width: "600px",
+			height: "300px",
+			width: "300px",
 			borderRadius: "100%",
 			filter: "blur(30px)",
 			position: "absolute",
 			backgroundImage: colorGradient,
-			left: "-250px",
 			top: top,
 			opacity: 0.4,
 			zIndex: 0,
+			animationName: "moving",
+			animationDuration: "10s",
+			animationIterationCount: "infinite",
+			animationDirection: "alternate",
 		});
 	} else {
 		FadedBox = styled(Box)({
-			height: "600px",
-			width: "600px",
+			height: "300px",
+			width: "300px",
 			borderRadius: "100%",
-			filter: "blur(30px)",
+			filter: "blur(50px)",
 			position: "absolute",
 			backgroundImage: colorGradient,
-			right: "-250px",
 			top: top,
 			opacity: 0.4,
 			zIndex: 0,
+			animationName: "moving",
+			animationDuration: "10s",
+			animationIterationCount: "infinite",
+			animationDirection: "alternate-reverse",
 		});
 	}
 	return <FadedBox />;
