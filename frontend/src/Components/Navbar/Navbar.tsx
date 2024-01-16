@@ -4,10 +4,11 @@ import styled from "@emotion/styled";
 import IconButton from "@mui/material/IconButton";
 import EastIcon from "@mui/icons-material/East";
 import Typography from "@mui/material/Typography";
+import { NavLink } from "react-router-dom";
 
 const NavBox = styled(Box)({
 	margin: "20px 0 20px 0",
-	backgroundColor: "rgba(42,43,42, 0.3)",
+	backgroundColor: "rgba(42,43,42, 0.8)",
 	borderRadius: "20px",
 	height: "72px",
 	display: "flex",
@@ -83,8 +84,16 @@ const Navbar = () => {
 			<Links>
 				<LinkText>Home</LinkText>
 				<LinkText>Events</LinkText>
+				<LinkText>
+					<NavLink
+						to="/inceptio"
+						style={{ textDecoration: "none", color: "white" }}
+					>
+						Inceptio
+					</NavLink>
+				</LinkText>
 				<LinkText>Our Team</LinkText>
-				<LinkText>About us</LinkText>
+				<LinkText>About Us</LinkText>
 			</Links>
 			<Register>
 				<RegisterText>Register Now</RegisterText>

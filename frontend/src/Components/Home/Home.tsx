@@ -22,7 +22,7 @@ const TopRight = styled(Card)({
 	color: "rgba(255, 255, 255, 0.75)",
 	width: "625px",
 	padding: "0 5px",
-	marginLeft: "650px",
+	marginLeft: "750px",
 	marginTop: "100px",
 	marginBottom: "100px",
 });
