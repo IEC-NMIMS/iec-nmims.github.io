@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Event from "./Components/Events/Event/Event.tsx";
 import WhoAreWeCarousel from "./Components/WhoAreWe/WhoAreWeCarousel.tsx";
 import Inceptio from "./Components/Inceptio/Inceptio.tsx";
-import OurTeam from "./Components/OurTeam/OurTeam";
+// import OurTeam from "./Components/OurTeam/OurTeam";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<BrowserRouter>
@@ -27,10 +27,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 				path="/inceptio"
 				element={<Inceptio />}
 			/>
-			<Route
+			{/* <Route
 				path="/our-team"
 				element={<OurTeam />}
-			/>
+			/> */}
 		</Routes>
 	</BrowserRouter>
 );
