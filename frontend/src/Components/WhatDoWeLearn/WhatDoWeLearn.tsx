@@ -6,48 +6,60 @@ import EastIcon from "@mui/icons-material/East";
 import Typography from "@mui/material/Typography";
 
 const OuterBox = styled(Box)({
-	marginLeft: "50px",
+	marginBottom: "150px",
+	zIndex: 1,
 });
 
 const Title = styled(Typography)({
 	color: "white",
-	marginTop: "50px",
 	marginLeft: "50px",
+	marginBottom: "50px",
 	fontSize: "3rem",
+	fontWeight: "bold",
+	fontFamily: "ITCAvantGardeGothicStd",
+	zIndex: 1,
 });
 
 const InnerBox = styled(Box)({
 	display: "flex",
+	zIndex: 1,
 });
 
 const WhatDoWeLearnBox = styled(Box)({
 	marginTop: "35px",
 	marginLeft: "30px",
 	width: "200px",
-	backgroundColor: "rgba(42,43,42,255)",
+	backgroundColor: "rgba(42,43,42,0.5)",
 	borderRadius: "20px",
-	height: "215px",
+	height: "180px",
 	display: "flex",
 	flexDirection: "row",
 	alignItems: "center",
-	border: "solid",
+	zIndex: 1,
 });
 
 const Element = styled(Box)({
 	maxWidth: "420px",
 	marginLeft: "20px",
 	marginRight: "auto",
+	zIndex: 1,
 });
 
 const ElementTitle = styled(Typography)({
 	marginTop: "40px",
+	marginBottom: "10px",
 	color: "white",
 	fontSize: "1.8rem",
+	fontWeight: "bold",
+	fontFamily: "ITCAvantGardeGothicStd",
 });
 
 const ElementDescription = styled(Typography)({
 	color: "white",
+	fontSize: "0.8rem",
 	fontWeight: "none",
+	opacity: 0.6,
+	fontFamily: "ITCAvantGardeGothicStd",
 });
 
 const KnowMore = styled(IconButton)({
@@ -71,13 +83,10 @@ const WhatDoWeLearn = () => {
 				<Element>
 					<ElementTitle>Broaden your understanding of the corporate world</ElementTitle>
 					<ElementDescription>
-						IEC's introductory event meant for freshers essentially to get the essence
-						of 'our vision and mission'.It is a delightful experience with a Bollywood
-						twist where freshers get hands-on experience about entrepreneurship.
+						This event comprises of multiple talks and competitions that broadens your
+						perspective.
 					</ElementDescription>
-					<br />
 					<KnowMore>
-						{" "}
 						Know More <Arrow />
 					</KnowMore>
 				</Element>
@@ -86,13 +95,9 @@ const WhatDoWeLearn = () => {
 				<Element>
 					<ElementTitle>Concepts about entrepreneurship</ElementTitle>
 					<ElementDescription>
-						IEC's introductory event meant for freshers essentially to get the essence
-						of 'our vision and mission'.It is a delightful experience with a Bollywood
-						twist where freshers get hands-on experience about entrepreneurship.
+						Concepts of Entrepreneurship that even you might not have thought about.
 					</ElementDescription>
-					<br />
 					<KnowMore>
-						{" "}
 						Know More <Arrow />
 					</KnowMore>
 				</Element>
@@ -100,30 +105,28 @@ const WhatDoWeLearn = () => {
 			<InnerBox>
 				<WhatDoWeLearnBox></WhatDoWeLearnBox>
 				<Element>
-					<ElementTitle>Having fun while Learning</ElementTitle>
+					<ElementTitle>
+						Having fun while <br /> Learning
+					</ElementTitle>
 					<ElementDescription>
-						IEC's introductory event meant for freshers essentially to get the essence
-						of 'our vision and mission'.It is a delightful experience with a Bollywood
-						twist where freshers get hands-on experience about entrepreneurship.
+						All the events are not only competitive and learning opriented but also fun
+						filled...
 					</ElementDescription>
-					<br />
 					<KnowMore>
-						{" "}
 						Know More <Arrow />
 					</KnowMore>
 				</Element>
 
 				<WhatDoWeLearnBox></WhatDoWeLearnBox>
 				<Element>
-					<ElementTitle>Opportunities for networking</ElementTitle>
+					<ElementTitle>
+						Opportunities for <br /> networking
+					</ElementTitle>
 					<ElementDescription>
-						IEC's introductory event meant for freshers essentially to get the essence
-						of 'our vision and mission'.It is a delightful experience with a Bollywood
-						twist where freshers get hands-on experience about entrepreneurship.
+						This fiesta is a platform to connect and network woth a bunch of people from
+						the industry... Grab an opportunity today
 					</ElementDescription>
-					<br />
 					<KnowMore>
-						{" "}
 						Know More <Arrow />
 					</KnowMore>
 				</Element>

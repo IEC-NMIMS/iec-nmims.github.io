@@ -9,139 +9,199 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 const Event = () => {
 	const location = useLocation();
 	console.log(location.state);
+	window.scrollTo(0, 0);
 
 	const { name, image, title, data, dates, rules } = location.state;
 
 	const Data = styled(Box)({
-		margin: "30px 0 0 0",
+		marginTop: "30px",
+		marginBottom: "30px",
 		fontSize: "25px",
-		fontFamily: "sans-serif",
 		color: "white",
 		display: "flex",
 		justifyContent: "center",
 		flexDirection: "column",
+		zIndex: 1,
 	});
+
 	const Header = styled(Typography)({
-		fontSize: "30px",
-		fontFamily: "sans-serif",
+		fontSize: "3rem",
+		fontWeight: "bold",
+		fontFamily: "ITCAvantGardeGothicStd",
 		alignSelf: "center",
-		marginBottom: "10px",
+		marginBottom: "50px",
+		zIndex: 1,
 	});
+
 	const Background = styled(Box)({
 		alignSelf: "center",
-		width: "1200px",
-		backgroundColor: "rgba(222,222,222,.1)",
+		width: "80%",
+		backgroundColor: "rgba(42,43,42,0.3)",
 		borderRadius: "20px",
 		padding: "20px",
 		display: "flex",
 		justifyContent: "center",
 		flexDirection: "column",
+		zIndex: 1,
 	});
+
 	const ImageBox = styled(Box)({
-		width: "1100px",
+		width: "95%",
 		height: "400px",
 		alignSelf: "center",
-		backgroundColor: "rgba(222,222,222,.2)",
+		backgroundColor: "gray",
 		borderRadius: "20px",
 		display: "flex",
 		justifyContent: "center",
-		margin: "20px 0 10px 0",
+		margin: "20px 0 30px 0",
+		zIndex: 1,
 	});
+
 	const Title = styled(Typography)({
-		fontSize: "50px",
-		fontFamily: "sans-serif",
+		fontSize: "3.6rem",
+		fontWeight: "bold",
+		fontFamily: "ITCAvantGardeGothicStd",
 		paddingLeft: "50px",
 		marginBottom: "10px",
+		zIndex: 1,
 	});
+
 	const Desc = styled(Typography)({
-		fontSize: "20px",
-		fontFamily: "sans-serif",
+		color: "rgba(255, 255, 255, 0.8)",
+		fontSize: "1rem",
+		fontFamily: "ITCAvantGardeGothicStd",
 		padding: "0 10px 0 50px",
-		marginBottom: "30px",
+		marginBottom: "50px",
+		zIndex: 1,
 	});
+
 	const Steppers = styled(Stepper)({
 		color: "white",
 		width: "1300px",
 		alignSelf: "center",
 		height: "100px",
+		zIndex: 1,
+		marginBottom: "65px",
 	});
+
 	const StepLabels = styled(Typography)({
+		fontFamily: "ITCAvantGardeGothicStd",
+		fontSize: "0.8rem",
 		color: "white",
+		zIndex: 1,
 	});
-	const connectors = styled("div")({
-		color: "white",
-		backgroundColor: "white",
-		width: "5px",
-	});
-	const steps = [
-		"Quiz Round\n " + dates[0],
-		"Submission Round\n " + dates[1],
-		"Final Round " + "\n" + dates[2],
-	];
-	const Rulesregister = styled(Box)({
+
+	const RulesRegister = styled(Box)({
 		display: "flex",
 		flexDirection: "row",
+		zIndex: 1,
+	});
+
+	const RuleRegulation = styled(Typography)({
+		fontFamily: "ITCAvantGardeGothicStd",
+		textDecoration: "underline",
+		color: "white",
+		fontSize: "1.5rem",
+		fontWeight: "500",
+		marginRight: "auto",
+		marginLeft: "50px",
+		zIndex: 1,
 	});
 
 	const RegisterNow = styled(IconButton)({
+		width: "30%",
 		color: "black",
-		fontSize: "22px",
+		fontSize: "1.3rem",
+		fontWeight: "400",
 		borderRadius: "10px",
-		margin: "20px 0 0 50px",
-		padding: "10px 10px 10px 20px",
-		fontWeight: "normal",
+		zIndex: 1,
+		backgroundColor: "#00B9CB",
+		display: "flex",
+		flexDirection: "row",
+		justifyContent: "left",
+		alignItems: "center",
+		padding: "10px 20px 10px 20px",
 
-		bottom: "15px",
-		backgroundColor: "	#00BFFF",
+		"&:hover": {
+			backgroundColor: "#00B9CB",
+		},
 	});
+
+	const RegisterText = styled(Typography)({
+		fontFamily: "ITCAvantGardeGothicStd",
+		fontWeight: "600",
+	});
+
 	const Arrow = styled(ArrowForwardIcon)({
-		marginLeft: "50px",
+		marginLeft: "auto",
+		zIndex: 1,
 	});
-	const RuleRegulation = styled(Typography)({
-		textDecoration: "underline",
-		color: "white",
-		fontSize: "22px",
-		padding: "10px 10px 10px 20px",
-		position: "absolute",
-		right: "220px",
-	});
+
 	const Li = styled("li")({
 		marginLeft: "40px",
+		zIndex: 1,
 	});
+
+	const steps = ["Quiz Round", "Submission Round", "Final Round"];
 
 	return (
 		<Data>
+			<BackgroundBox
+				color="blue"
+				position="left"
+				index={0}
+			/>
+
+			<BackgroundBox
+				color="yellow"
+				position="right"
+				index={0.8}
+			/>
+
+			<BackgroundBox
+				color="yellow"
+				position="left"
+				index={1.5}
+			/>
+
+			<BackgroundBox
+				color="blue"
+				position="right"
+				index={2}
+			/>
+
 			<Header>{name}</Header>
 			<Background>
-				<ImageBox>
-					<img
-						src={image}
-						height="400px"
-					/>
-				</ImageBox>
+				<ImageBox></ImageBox>
 				<Title>{title}</Title>
 				<Desc>{data}</Desc>
 				<Steppers alternativeLabel>
-					{steps.map((label) => (
-						<Step key={label}>
+					{steps.map((label, index) => (
+						<Step key={index}>
 							<StepLabel>
-								<StepLabels>{label}</StepLabels>
+								<StepLabels>
+									{label} <br /> {dates[index]}
+								</StepLabels>
 							</StepLabel>
 						</Step>
 					))}
 				</Steppers>
-				<Rulesregister>
-					<RegisterNow>
-						Register Now <Arrow></Arrow>
-					</RegisterNow>
+				<RulesRegister>
+					<RuleRegulation>Rules and Regulations</RuleRegulation>
 
-					<RuleRegulation>Rules And Regulations</RuleRegulation>
-				</Rulesregister>
+					<RegisterNow>
+						<RegisterText>Register Now</RegisterText> <Arrow />
+					</RegisterNow>
+				</RulesRegister>
 				<Box>
 					<ul>
 						{rules.map((rule) => (
 							<Li>
-								<Typography>{rule}</Typography>
+								<Typography
+									sx={{ fontFamily: "ITCAvantGardeGothicStd", fontWeight: "100" }}
+								>
+									{rule}
+								</Typography>
 							</Li>
 						))}
 					</ul>

@@ -11,33 +11,42 @@ const OuterBox = styled(Box)({
 	display: "flex",
 	justifyContent: "center",
 	border: "none",
+	zIndex: 1,
+	marginBottom: "150px",
 });
 
 const WhoAreWeBox = styled(Box)({
 	backgroundColor: "rgba(42,43,42,0.3)",
 	borderRadius: "20px",
-	width: "65%",
-	height: "325px",
+	width: "70%",
+	height: "max-content",
 	display: "flex",
 	flexDirection: "row",
-	padding: "30px",
 	alignItems: "center",
+	padding: "45px",
 	color: "white",
+	zIndex: 1,
 });
 
 const LeftPanel = styled(Box)({
-	width: "60%",
+	width: "50%",
+	zIndex: 1,
 });
 
 const LeftPanelTitle = styled(Typography)({
+	fontFamily: "ITCAvantGardeGothicStd",
 	fontSize: "3rem",
-	fontWeight: "400px",
-	marginBottom: "20px",
+	fontWeight: "bold",
+	marginBottom: "30px",
+	zIndex: 1,
 });
 
 const LeftPanelPara = styled(Typography)({
-	fontSize: "16px",
-	marginBottom: "20px",
+	fontFamily: "ITCAvantGardeGothicStd",
+	fontSize: "1rem",
+	color: "rgba(255, 255, 255, 0.6)",
+	marginBottom: "40px",
+	zIndex: 1,
 });
 
 const KnowMore = styled(IconButton)({
@@ -54,21 +63,25 @@ const KnowMore = styled(IconButton)({
 	fontSize: "16px",
 	fontWeight: "bold",
 	marginLeft: "8px",
+	zIndex: 1,
 
 	"&:hover": {
 		backgroundColor: "rgb(0,185,203)",
 	},
 });
 
+const KnowMoreText = styled(Typography)({
+	fontFamily: "ITCAvantGardeGothicStd",
+	fontWeight: "bold",
+});
+
 const Arrow = styled(EastIcon)({
 	marginLeft: "auto",
-	marginTop: "5px",
 	marginRight: "15px",
 });
 
 const RightPanel = styled(Box)({
-	width: "40%",
-	padding: "40px",
+	width: "50%",
 	display: "flex",
 	justifyContent: "end",
 });
@@ -76,11 +89,10 @@ const RightPanel = styled(Box)({
 const RightPanelImage = styled(Box)({
 	alignItems: "center",
 	justifyContent: "end",
-	height: "250px",
+	height: "375px",
 	width: "100%",
 	display: "flex",
 	borderRadius: "20px",
-	padding: "20px",
 	backgroundColor: "gray",
 });
 
@@ -89,11 +101,11 @@ const WhoAreWe = () => {
 		<OuterBox>
 			<WhoAreWeBox>
 				<LeftPanel>
-					<LeftPanelTitle>Who are we?</LeftPanelTitle>
+					<LeftPanelTitle>Who Are We?</LeftPanelTitle>
 					<LeftPanelPara>
 						The Innovation and Entrepreneurship cell (IEC)
 						<br />
-						of mpstme is a student body, certified by the
+						of MPSTME is a student body, certified by the
 						<br />
 						Ministry of Education. Government of India, and
 						<br />
@@ -105,7 +117,7 @@ const WhoAreWe = () => {
 						<br />
 						and create passion amongst the students who
 						<br />
-						wish to pursue you entrepreneurship as a career.
+						wish to pursue entrepreneurship as a career.
 						<br />
 					</LeftPanelPara>
 					<NavLink
@@ -113,7 +125,7 @@ const WhoAreWe = () => {
 						to="/vision-mission"
 					>
 						<KnowMore>
-							<div>Click to know more</div>
+							<KnowMoreText>Click to know more</KnowMoreText>
 							<Arrow />
 						</KnowMore>
 					</NavLink>

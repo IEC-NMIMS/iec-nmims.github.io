@@ -30,47 +30,58 @@ const Item = (props: Props) => {
 	const navigate = useNavigate();
 	const [isHovered, setHovered] = useState(false);
 	const { image, name, desc, imageList, modaldata } = props;
+
 	const EventCard = styled(Card)({
-		marginLeft: "100px",
 		width: "350px",
 		height: "600px",
 		padding: "5px",
-		backgroundColor: "rgba(42,43,42,.6)",
+		backgroundColor: "rgba(42,43,42,.3)",
 		borderRadius: "10px",
 	});
+
 	const EventPic = styled(Box)({
 		display: "flex",
 		alignSelf: "center",
-
 		width: "320px",
-		height: "300px",
+		height: "320px",
 		borderRadius: "10px",
-		"&.hover": {},
 	});
+
 	const EventName = styled(Typography)({
-		fontFamily: "sans-serif",
-		fontSize: "30px",
+		fontFamily: "ITCAvantGardeGothicStd",
+		fontSize: "1.5rem",
+		fontWeight: "bold",
 		color: "white",
-		margin: "20px 0 10px 0",
+		margin: "20px 0",
 	});
+
 	const EventDesc = styled(Typography)({
-		fontFamily: "sans-serif",
-		fontSize: "15px",
-		color: "white",
+		fontFamily: "ITCAvantGardeGothicStd",
+		fontSize: "0.7rem",
+		marginBottom: "20px",
+		color: "rgba(255, 255, 255, 0.8)",
 	});
+
 	const KnowMore = styled(IconButton)({
 		color: "white",
 		fontSize: "16px",
 		borderRadius: "0px",
 		margin: "10px 0 0 0",
 		position: "fixed",
-		bottom: "15px",
+		bottom: "10px",
 	});
+
+	const KnowMoreText = styled(Typography)({
+		marginLeft: "-8px",
+		fontFamily: "ITCAvantGardeGothicStd",
+	});
+
 	const Arrow = styled(ArrowForwardIosIcon)({
 		color: "white",
 		paddingLeft: "20px",
 		fontSize: "16px",
 	});
+
 	const handleMouseEnter = () => {
 		setHovered(true);
 	};
@@ -78,18 +89,8 @@ const Item = (props: Props) => {
 	const handleMouseLeave = () => {
 		setHovered(false);
 	};
-	const [open, setOpen] = useState(false);
-	const handleOpen = () => setOpen(true);
-	const handleClose = () => setOpen(false);
-	const EventM = styled(Box)({
-		display: "fixed",
-		justifyContent: "center",
 
-		alignSelf: "center",
-		position: "relative",
-		top: "50px",
-	});
-	const handleknowmore = (name, image, title, data, dates, rules) => {
+	const handleKnowMore = (name, image, title, data, dates, rules) => {
 		navigate("/events", {
 			state: {
 				name: name,
@@ -134,7 +135,7 @@ const Item = (props: Props) => {
 
 			<KnowMore
 				onClick={() =>
-					handleknowmore(
+					handleKnowMore(
 						modaldata.name,
 						modaldata.image,
 						modaldata.title,
@@ -144,7 +145,7 @@ const Item = (props: Props) => {
 					)
 				}
 			>
-				Know More
+				<KnowMoreText>Know More</KnowMoreText>
 				<Arrow />
 			</KnowMore>
 		</CardContent>
