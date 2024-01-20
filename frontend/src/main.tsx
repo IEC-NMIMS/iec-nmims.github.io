@@ -10,6 +10,7 @@ import Inceptio from "./Components/Inceptio/Inceptio.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<BrowserRouter>
+		<p style={{ color: "white" }}>{window.innerWidth + " " + window.innerHeight}</p>
 		<Routes>
 			<Route
 				path="/"

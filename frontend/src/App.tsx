@@ -9,8 +9,12 @@ import Speaker from "./Components/Speaker/Speaker";
 import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
 import Home from "./Components/Home/Home";
 import WhatTheyThinkOfIEC from "./Components/WhatTheyThinkOfIEC/WhatTheyThinkOfIEC";
+import { useTheme, useMediaQuery } from "@mui/material";
+import MobileDrawer from "./Components/MobileDrawer/MobileDrawer";
 
 function App() {
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 	return (
 		<>
 			<BackgroundBox
@@ -85,13 +89,15 @@ function App() {
 				index={10.75}
 			/>
 
-			<BackgroundBox
-				color="yellow"
-				position="left"
-				index={11.5}
-			/>
+			{!isMobile && (
+				<BackgroundBox
+					color="yellow"
+					position="left"
+					index={11.5}
+				/>
+			)}
 
-			<Navbar />
+			{!isMobile ? <Navbar /> : <MobileDrawer />}
 			<Home />
 			<WhoAreWe />
 			<WhatDoWeDo />
