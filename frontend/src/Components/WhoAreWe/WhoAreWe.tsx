@@ -106,6 +106,12 @@ const WhoAreWe = () => {
 		marginBottom: isMobile ? "20px" : "0",
 	});
 
+	const Image = styled("img")({
+		width: "100%",
+		height: "100%",
+		borderRadius: "20px",
+	});
+
 	const DesktopWhoAreWeContent = () => {
 		return (
 			<>
@@ -130,7 +136,9 @@ const WhoAreWe = () => {
 					</NavLink>
 				</LeftPanel>
 				<RightPanel>
-					<RightPanelImage />
+					<RightPanelImage>
+						<Image src="./images/team/iec-team.png" />
+					</RightPanelImage>
 				</RightPanel>
 			</>
 		);
@@ -139,7 +147,9 @@ const WhoAreWe = () => {
 	const MobileWhoAreWeContent = () => {
 		return (
 			<>
-				<RightPanelImage />
+				<RightPanelImage>
+					<Image src="./images/team/iec-team.png" />
+				</RightPanelImage>
 				<LeftPanelTitle>Who Are We?</LeftPanelTitle>
 				<LeftPanelPara>
 					The Innovation and Entrepreneurship cell (IEC)

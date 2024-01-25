@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import styled from "@emotion/styled";
 import { Box, Card, CardContent, Typography, useMediaQuery, useTheme } from "@mui/material";
 
@@ -6,11 +6,10 @@ interface Props {
 	index: number;
 	photo: string;
 	depname: string;
-
 }
 
 const CoreItem = (props: Props) => {
-	const { index, photo, depname, } = props;
+	const { index, photo, depname } = props;
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
@@ -30,40 +29,40 @@ const CoreItem = (props: Props) => {
 		borderRadius: "10px",
 		zIndex: 1,
 	});
+	const Image = styled("img")({
+		width: "100%",
+		height: "100%",
+		borderRadius: "10px",
+	});
 	const CoreContainer = styled(Box)({
 		display: "flex",
 		justifyContent: "center",
 		alignItems: "center",
-		alignSelf:'center',
+		alignSelf: "center",
 		zIndex: 2,
-		width:'100%'
+		width: "100%",
 	});
 	const DepName = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: "1.2rem",
+		fontSize: isMobile && window.innerWidth < 600 ? "1.2rem" : "1.5rem",
+		textAlign: "center",
 		fontWeight: "bold",
 		color: "white",
 		marginTop: "20px",
 		zIndex: 3,
-		
 	});
-	
-	
 
 	const Itemcard = (
 		<CardContent>
 			<CorePic>
-				<img
-					src={photo}
-					alt=""
-				/>
+				<Image src={photo} />
 			</CorePic>
 			<CoreContainer>
-				<DepName>{depname}</DepName>   
+				<DepName>{depname}</DepName>
 			</CoreContainer>
 		</CardContent>
 	);
 	return <MemberCard variant="outlined">{Itemcard}</MemberCard>;
 };
 
-export default CoreItem
+export default CoreItem;

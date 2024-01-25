@@ -1,5 +1,5 @@
 import React from "react";
-import { SpeakerList } from "./SpeakerData";
+import { SpeakerList } from "./SpeakerList";
 import SpeakerItem from "./SpeakerItem";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import styled from "@emotion/styled";
@@ -34,7 +34,7 @@ const Speaker = () => {
 		display: "flex",
 		flexDirection: "column",
 		margin: isMobile ? "50px 0px" : "150px 0",
-		marginRight: isMobile && window.innerWidth < 600 ? "0px" : "20px",
+		marginLeft: isMobile && window.innerWidth < 600 ? "10px" : "0px",
 		zIndex: 1,
 	});
 
@@ -54,15 +54,15 @@ const Speaker = () => {
 			<SpeakerHeader>Speaker</SpeakerHeader>
 			<Carousel
 				responsive={responsive}
-				swipeable={false}
-				draggable={true}
+				swipeable={isMobile && window.innerWidth < 600 ? true : false}
+				draggable={false}
 				showDots={false}
 				containerClass=""
 				ssr={false}
-				infinite={true}
-				autoPlay={true}
+				infinite={isMobile && window.innerWidth < 600 ? true : false}
+				autoPlay={isMobile && window.innerWidth < 600 ? true : false}
 				autoPlaySpeed={4000}
-				keyBoardControl={true}
+				keyBoardControl={isMobile && window.innerWidth < 600 ? true : false}
 				transitionDuration={2000}
 				arrows={false}
 			>

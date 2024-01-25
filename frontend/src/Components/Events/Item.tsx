@@ -4,7 +4,6 @@ import React from "react";
 import IconButton from "@mui/material/IconButton";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useState } from "react";
-import Carousel from "react-material-ui-carousel";
 import { useNavigate } from "react-router-dom";
 
 interface urls {
@@ -22,14 +21,12 @@ interface Props {
 	image: string;
 	name: string;
 	desc: string;
-	imageList: urls[];
-	modaldata: modals;
+	modalData: modals;
 }
 
 const Item = (props: Props) => {
 	const navigate = useNavigate();
-	const [isHovered, setHovered] = useState(false);
-	const { image, name, desc, imageList, modaldata } = props;
+	const { image, name, desc, modalData } = props;
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
@@ -48,6 +45,13 @@ const Item = (props: Props) => {
 		width: isMobile && window.innerWidth < 600 ? "100%" : "320px",
 		height: "320px",
 		borderRadius: "10px",
+	});
+
+	const Image = styled("img")({
+		width: isMobile && window.innerWidth < 600 ? "100%" : "320px",
+		height: isMobile && window.innerWidth < 600 ? "" : "100%",
+		aspectRatio: isMobile && window.innerWidth < 600 ? "1 / 1" : "",
+		borderRadius: "20px",
 	});
 
 	const EventName = styled(Typography)({
@@ -85,15 +89,6 @@ const Item = (props: Props) => {
 		paddingLeft: "20px",
 		fontSize: "1.25rem",
 	});
-
-	const handleMouseEnter = () => {
-		setHovered(true);
-	};
-
-	const handleMouseLeave = () => {
-		setHovered(false);
-	};
-
 	const handleKnowMore = (name, image, title, data, dates, rules) => {
 		navigate("/events", {
 			state: {
@@ -110,32 +105,7 @@ const Item = (props: Props) => {
 	const Itemcard = (
 		<CardContent>
 			<EventPic>
-				{isHovered ? (
-					<div
-						style={{
-							width: "320px",
-							height: "320px",
-						}}
-						onMouseLeave={handleMouseLeave}
-					>
-						<Carousel indicators={false}>
-							{imageList.map((urls) => (
-								<img
-									src={urls.links}
-									style={{ borderRadius: "20px" }}
-								/>
-							))}
-						</Carousel>
-					</div>
-				) : (
-					<img
-						src={image}
-						width={"320px"}
-						height={"320px"}
-						style={{ borderRadius: "20px" }}
-						onMouseEnter={handleMouseEnter}
-					/>
-				)}
+				<Image src={image} />
 			</EventPic>
 			<EventName>{name}</EventName>
 			<EventDesc>{desc}</EventDesc>
@@ -143,12 +113,12 @@ const Item = (props: Props) => {
 			<KnowMore
 				onClick={() =>
 					handleKnowMore(
-						modaldata.name,
-						modaldata.image,
-						modaldata.title,
-						modaldata.data,
-						modaldata.dates,
-						modaldata.rules
+						modalData.name,
+						modalData.image,
+						modalData.title,
+						modalData.data,
+						modalData.dates,
+						modalData.rules
 					)
 				}
 			>

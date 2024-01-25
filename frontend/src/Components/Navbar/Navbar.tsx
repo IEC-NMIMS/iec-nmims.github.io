@@ -33,6 +33,10 @@ const Navbar = () => {
 		marginRight: "auto",
 	});
 
+	const Image = styled("img")({
+		height: "50px",
+	});
+
 	const Links = styled(Box)({
 		width: "700px",
 		display: "flex",
@@ -79,10 +83,7 @@ const Navbar = () => {
 	return (
 		<NavBox>
 			<Logo>
-				<img
-					src="Images/Logo.svg"
-					height="50px"
-				/>
+				<Image src="images/logo/iec-logo.svg" />
 			</Logo>
 
 			<Links>

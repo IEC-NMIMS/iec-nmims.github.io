@@ -4,6 +4,10 @@ import styled from "@emotion/styled";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Typography from "@mui/material/Typography";
 import { useMediaQuery, useTheme } from "@mui/material";
+import InsightsIcon from "@mui/icons-material/Insights";
+import LayersIcon from "@mui/icons-material/Layers";
+import RadarIcon from "@mui/icons-material/Radar";
+import KeyboardCommandKeyIcon from "@mui/icons-material/KeyboardCommandKey";
 
 const WhatDoWeLearn = () => {
 	const theme = useTheme();
@@ -48,9 +52,11 @@ const WhatDoWeLearn = () => {
 	const LearnImageBox = styled(Box)({
 		width: isMobile && window.innerWidth < 600 ? "150px" : "200px",
 		height: isMobile && window.innerWidth < 600 ? "150px" : "200px",
-		backgroundColor: "rgba(42, 43, 43, 0.5)",
 		borderRadius: "20px",
 		marginRight: isMobile && window.innerWidth < 600 ? "10px" : "20px",
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
 	});
 
 	const LearnContentBox = styled(Box)({
@@ -94,7 +100,14 @@ const WhatDoWeLearn = () => {
 			<Title>What Do You Learn</Title>
 			<InnerBox>
 				<LearnBox>
-					<LearnImageBox />
+					<LearnImageBox>
+						<InsightsIcon
+							sx={{
+								fontSize: isMobile && window.innerWidth < 600 ? "7rem" : "10rem",
+								zIndex: "1",
+							}}
+						/>
+					</LearnImageBox>
 					<LearnContentBox>
 						<LearnTitle>Broaden your understanding of the corporate world</LearnTitle>
 						<LearnDescription>
@@ -110,7 +123,14 @@ const WhatDoWeLearn = () => {
 					</LearnContentBox>
 				</LearnBox>
 				<LearnBox>
-					<LearnImageBox />
+					<LearnImageBox>
+						<LayersIcon
+							sx={{
+								fontSize: isMobile && window.innerWidth < 600 ? "7rem" : "10rem",
+								zIndex: "1",
+							}}
+						/>
+					</LearnImageBox>
 					<LearnContentBox>
 						<LearnTitle>Concepts about entrepreneurship</LearnTitle>
 						<LearnDescription>
@@ -126,7 +146,14 @@ const WhatDoWeLearn = () => {
 					</LearnContentBox>
 				</LearnBox>
 				<LearnBox>
-					<LearnImageBox />
+					<LearnImageBox>
+						<RadarIcon
+							sx={{
+								fontSize: isMobile && window.innerWidth < 600 ? "7rem" : "10rem",
+								zIndex: "1",
+							}}
+						/>
+					</LearnImageBox>
 					<LearnContentBox>
 						<LearnTitle>Having fun while learning</LearnTitle>
 						<LearnDescription>
@@ -142,7 +169,14 @@ const WhatDoWeLearn = () => {
 					</LearnContentBox>
 				</LearnBox>
 				<LearnBox>
-					<LearnImageBox />
+					<LearnImageBox>
+						<KeyboardCommandKeyIcon
+							sx={{
+								fontSize: isMobile && window.innerWidth < 600 ? "7rem" : "10rem",
+								zIndex: "1",
+							}}
+						/>
+					</LearnImageBox>
 					<LearnContentBox>
 						<LearnTitle>Opportunities for networking</LearnTitle>
 						<LearnDescription>

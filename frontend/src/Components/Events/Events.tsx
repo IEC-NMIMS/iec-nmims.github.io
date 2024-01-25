@@ -18,7 +18,7 @@ const Events = () => {
 		},
 		desktop: {
 			breakpoint: { max: 3000, min: 1200 },
-			items: 3.6,
+			items: 3.8,
 		},
 		tablet: {
 			breakpoint: { max: 1200, min: 600 },
@@ -42,7 +42,7 @@ const Events = () => {
 	return (
 		<div
 			style={{
-				marginLeft: isMobile && window.innerWidth < 600 ? "0px" : "20px",
+				marginLeft: isMobile && window.innerWidth < 600 ? "10px" : "20px",
 				marginRight: isMobile && window.innerWidth < 600 ? "0px" : "20px",
 				marginBottom: isMobile ? "100px" : "0",
 				display: isMobile ? "flex" : "",
@@ -70,8 +70,7 @@ const Events = () => {
 						image={info.image}
 						name={info.name}
 						desc={info.desc}
-						imageList={info.imageList}
-						modaldata={info.modaldata}
+						modalData={info.modalData}
 					></Item>
 				))}
 			</Carousel>

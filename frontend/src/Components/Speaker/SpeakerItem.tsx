@@ -20,7 +20,7 @@ const SpeakerItem = (props: Props) => {
 
 	const EventCard = styled(Card)({
 		width: isMobile && window.innerWidth < 600 ? "95%" : "350px",
-		height: "600px",
+		height: isMobile && window.innerWidth < 600 ? "500px" : "550px",
 		padding: "5px",
 		backgroundColor: "rgba(42,43,42,.3)",
 		borderRadius: "20px",
@@ -29,9 +29,14 @@ const SpeakerItem = (props: Props) => {
 	const SpeakerPic = styled(Box)({
 		background: "grey",
 		width: isMobile && window.innerWidth < 600 ? "100%" : "318px",
-		height: "300px",
+		height: isMobile && window.innerWidth < 600 ? "260px" : "265px",
 		borderRadius: "10px",
 		zIndex: 1,
+	});
+	const Image = styled("img")({
+		aspectRatio: isMobile && window.innerWidth < 600 ? "1/1" : "1.2 / 1",
+		width: "100%",
+		borderRadius: "10px",
 	});
 	const SpeakerContainer = styled(Box)({
 		display: "flex",
@@ -67,9 +72,9 @@ const SpeakerItem = (props: Props) => {
 	const Itemcard = (
 		<CardContent>
 			<SpeakerPic>
-				<img
+				<Image
 					src={image}
-					alt=""
+					alt={name}
 				/>
 			</SpeakerPic>
 			<SpeakerContainer>

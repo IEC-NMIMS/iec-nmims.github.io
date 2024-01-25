@@ -7,11 +7,9 @@ import Event from "./Components/Events/Event/Event.tsx";
 import WhoAreWeCarousel from "./Components/WhoAreWe/WhoAreWeCarousel.tsx";
 import Inceptio from "./Components/Inceptio/Inceptio.tsx";
 import OurTeam from "./Components/OurTeam/OurTeam.tsx";
-// import OurTeam from "./Components/OurTeam/OurTeam";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<BrowserRouter>
-		<p style={{ color: "white" }}>{window.innerWidth + " " + window.innerHeight}</p>
 		<Routes>
 			<Route
 				path="/"
@@ -31,7 +29,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 			/>
 			<Route
 				path="/our-team"
-				element={<OurTeam/>}
+				element={<OurTeam />}
 			/>
 		</Routes>
 	</BrowserRouter>

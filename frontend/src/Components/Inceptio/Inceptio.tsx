@@ -154,16 +154,15 @@ const Inceptio = () => {
 					<ImageCard />
 					<Heading sx={{ textAlign: "center" }}>Inceptio</Heading>
 					<EventDescriptionText>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-						non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat.
+						The NMIMS MPSTME's Innovation and Entrepreneurship Carnival is an
+						exceptional annual three-day event fostering entrepreneurship, business, and
+						innovation. It gathers young individuals citywide to collaborate on
+						projects, fostering discovery and teamwork. The festival offers diverse
+						experiences including workshops led by industry professionals to learn idea
+						origination, validation, and skill application, with opportunities to win
+						cash prizes, certificates, internships, and access to Angel Investors. Aimed
+						at innovators and entrepreneurial spirits, it's a chance to realize
+						potential and engage in a lifetime experience!
 					</EventDescriptionText>
 					<CardBox>
 						<DataCard>
