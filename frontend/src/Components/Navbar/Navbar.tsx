@@ -4,13 +4,14 @@ import styled from "@emotion/styled";
 import IconButton from "@mui/material/IconButton";
 import EastIcon from "@mui/icons-material/East";
 import Typography from "@mui/material/Typography";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { useMediaQuery, useTheme } from "@mui/material";
 
 const Navbar = () => {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+	const navigate = useNavigate();
 
 	const NavBox = styled(Box)({
 		margin: "20px 0 20px 0",
@@ -81,7 +82,7 @@ const Navbar = () => {
 		marginLeft: "auto",
 	});
 	return (
-		<NavBox>
+		<NavBox id="navbar">
 			<Logo>
 				<Image src="images/logo/iec-logo.svg" />
 			</Logo>
@@ -90,9 +91,16 @@ const Navbar = () => {
 				<LinkText
 					onClick={() => {
 						const element = document.getElementById("home");
-						element?.scrollIntoView({
-							behavior: "smooth",
-						});
+						const href = window.location.href.split("/");
+						const length = window.location.href.split("/").length;
+
+						if (href[length - 1] === "") {
+							element?.scrollIntoView({
+								behavior: "smooth",
+							});
+						} else {
+							navigate("/");
+						}
 					}}
 				>
 					Home
@@ -100,9 +108,15 @@ const Navbar = () => {
 				<LinkText
 					onClick={() => {
 						const element = document.getElementById("events");
-						element?.scrollIntoView({
-							behavior: "smooth",
-						});
+						const href = window.location.href.split("/");
+						const length = window.location.href.split("/").length;
+						if (href[length - 1] == "") {
+							element?.scrollIntoView({
+								behavior: "smooth",
+							});
+						} else {
+							navigate("/");
+						}
 					}}
 				>
 					Events
@@ -126,18 +140,30 @@ const Navbar = () => {
 				<LinkText
 					onClick={() => {
 						const element = document.getElementById("about-us");
-						element?.scrollIntoView({
-							behavior: "smooth",
-						});
+						const href = window.location.href.split("/");
+						const length = window.location.href.split("/").length;
+						if (href[length - 1] == "") {
+							element?.scrollIntoView({
+								behavior: "smooth",
+							});
+						} else {
+							navigate("/");
+						}
 					}}
 				>
 					About Us
 				</LinkText>
 			</Links>
-			<Register>
-				<RegisterText>Register Now</RegisterText>
-				<Arrow />
-			</Register>
+			<NavLink
+				to="https://unstop.com/college-fests/inceptio-70-the-entrepreneurial-festival-narsee-monjee-institute-of-management-studies-nmims-mumbai-191469"
+				style={{ textDecoration: "none", color: "white" }}
+				target="_blank"
+			>
+				<Register>
+					<RegisterText>Register Now</RegisterText>
+					<Arrow />
+				</Register>
+			</NavLink>
 		</NavBox>
 	);
 };

@@ -4,8 +4,9 @@ import styled from "@emotion/styled";
 import IconButton from "@mui/material/IconButton";
 import EastIcon from "@mui/icons-material/East";
 import Typography from "@mui/material/Typography";
-import { Card, colors, useMediaQuery } from "@mui/material";
+import { Card, useMediaQuery, CardMedia, CardContent } from "@mui/material";
 import { useTheme } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
 	const theme = useTheme();
@@ -14,30 +15,43 @@ const Home = () => {
 
 	const OuterBox = styled(Box)({
 		width: isMobile ? "100%" : "auto",
-		marginLeft: isMobile ? "0" : "50px",
+		marginLeft: isMobile ? "0" : "20px",
 		marginRight: "0",
 		marginBottom: isMobile ? "20px" : "150px",
 		zIndex: 1,
+		backgroundColor: "transparent",
 	});
 
 	const InnerBox = styled(Box)({
+		backgroundColor: "transparent",
 		marginBottom: isMobile ? "50px" : "0",
 		display: "flex",
+		alignItems: "center",
 	});
 
 	const TopRight = styled(Card)({
-		backgroundColor: "black",
+		backgroundColor: "transparent",
+		border: 0,
+		boxShadow: "none",
 		color: "rgba(255, 255, 255, 0.75)",
 		width: "max-content",
 		padding: "0 5px",
-		marginLeft: isMobile ? "0" : "750px",
+		marginLeft: "0",
 		marginTop: isMobile ? "0" : "100px",
 		marginBottom: isMobile ? "0px" : "100px",
 	});
 
+	const VideoCard = styled(Card)({
+		backgroundColor: "transparent",
+		display: "flex",
+		alignItems: "center",
+		height: "max-content",
+		zIndex: -2,
+	});
+
 	const IECTitle = styled(Typography)({
 		color: "white",
-		fontSize: isMobile && window.innerWidth < 600 ? "2rem" : "3.6rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "2rem" : "3.6rem",
 		fontFamily: "ITCAvantGardeGothicStd",
 		fontWeight: "bold",
 		marginBottom: "10px",
@@ -45,7 +59,7 @@ const Home = () => {
 
 	const InfoText = styled(Typography)({
 		marginBottom: "30px",
-		fontSize: isMobile && window.innerWidth < 600 ? "0.8rem" : "1.25rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "0.8rem" : "1.25rem",
 		fontFamily: "ITCAvantGardeGothicStd",
 	});
 
@@ -54,7 +68,7 @@ const Home = () => {
 		borderRadius: isMobile ? "12px" : "15px",
 		right: "10px",
 		height: isMobile ? "40px" : "50px",
-		width: isMobile && window.innerWidth < 600 ? "250px" : "350px",
+		width: isMobile && window.innerWidth < 1024 ? "250px" : "350px",
 		display: "flex",
 		justifyContent: "start",
 		alignItems: "center",
@@ -70,7 +84,7 @@ const Home = () => {
 
 	const ButtonText = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "0.8rem" : "1rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "0.8rem" : "1rem",
 		fontWeight: "bold",
 	});
 
@@ -103,7 +117,7 @@ const Home = () => {
 	});
 
 	const WhiteBoxBody = styled(Typography)({
-		fontSize: isMobile && window.innerWidth < 600 ? "70%" : isMobile ? "80%" : "1.8rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "70%" : isMobile ? "80%" : "1.8rem",
 		fontWeight: "600",
 		fontFamily: "ITCAvantGardeGothicStd",
 	});
@@ -115,6 +129,19 @@ const Home = () => {
 	return (
 		<OuterBox id="home">
 			<InnerBox>
+				{window.innerWidth > 1200 && (
+					<VideoCard>
+						<CardMedia
+							sx={{ borderRadius: "0px", zIndex: -2, backgroundColor: "transparent" }}
+							component="video"
+							src="images/home/home-animation.mp4"
+							title="Home Animation"
+							autoPlay
+							loop
+							muted
+						/>
+					</VideoCard>
+				)}
 				<TopRight>
 					<IECTitle>Innovation and Entrepreneurship Cell</IECTitle>
 					<InfoText>
@@ -122,10 +149,16 @@ const Home = () => {
 						cornerstone built on the pillars of ingenuity, intellect, and innovative
 						thinking.
 					</InfoText>
-					<KnowMore>
-						<ButtonText>Register Now for Inceptio</ButtonText>
-						<Arrow />
-					</KnowMore>
+					<NavLink
+						to="https://unstop.com/college-fests/inceptio-70-the-entrepreneurial-festival-narsee-monjee-institute-of-management-studies-nmims-mumbai-191469"
+						style={{ textDecoration: "none", color: "white" }}
+						target="_blank"
+					>
+						<KnowMore>
+							<ButtonText>Register Now for Inceptio</ButtonText>
+							<Arrow />
+						</KnowMore>
+					</NavLink>
 				</TopRight>
 			</InnerBox>
 

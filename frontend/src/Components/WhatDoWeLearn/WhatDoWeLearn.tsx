@@ -17,17 +17,17 @@ const WhatDoWeLearn = () => {
 	const OuterBox = styled(Box)({
 		marginBottom: isMobile ? "100px" : "150px",
 		zIndex: 1,
-		display: isMobile && window.innerWidth < 600 ? "flex" : "",
-		justifyContent: isMobile && window.innerWidth < 600 ? "center" : "",
-		alignItems: isMobile && window.innerWidth < 600 ? "center" : "",
+		display: isMobile && window.innerWidth < 1024 ? "flex" : "",
+		justifyContent: isMobile && window.innerWidth < 1024 ? "center" : "",
+		alignItems: isMobile && window.innerWidth < 1024 ? "center" : "",
 		flexDirection: "column",
 		color: "white",
 	});
 
 	const Title = styled(Typography)({
 		marginBottom: "50px",
-		marginLeft: isMobile && window.innerWidth < 600 ? "0" : "50px",
-		fontSize: isMobile && window.innerWidth < 600 ? "1.8rem" : "3rem",
+		marginLeft: isMobile && window.innerWidth < 1024 ? "0" : "50px",
+		fontSize: isMobile && window.innerWidth < 1024 ? "1.8rem" : "3rem",
 		fontWeight: "bold",
 		fontFamily: "ITCAvantGardeGothicStd",
 		zIndex: 1,
@@ -36,63 +36,47 @@ const WhatDoWeLearn = () => {
 	const InnerBox = styled(Box)({
 		display: "grid",
 		gridTemplateColumns: isMobile ? "auto" : "auto auto",
-		margin: isMobile && window.innerWidth < 600 ? "0" : "0 50px",
-		width: isMobile && window.innerWidth < 600 ? "100%" : "auto",
+		margin: isMobile && window.innerWidth < 1024 ? "0" : "0 50px",
+		width: isMobile && window.innerWidth < 1024 ? "100%" : "auto",
 		rowGap: "20px",
 	});
 
 	const LearnBox = styled(Box)({
 		width: "1fr",
-		height: isMobile && window.innerWidth < 600 ? "1fr" : "250px",
+		height: isMobile && window.innerWidth < 1024 ? "1fr" : "250px",
 		display: "flex",
 		alignItems: "center",
 		flexDirection: "row",
 	});
 
 	const LearnImageBox = styled(Box)({
-		width: isMobile && window.innerWidth < 600 ? "150px" : "200px",
-		height: isMobile && window.innerWidth < 600 ? "150px" : "200px",
+		width: isMobile && window.innerWidth < 1024 ? "150px" : "200px",
+		height: isMobile && window.innerWidth < 1024 ? "150px" : "200px",
 		borderRadius: "20px",
-		marginRight: isMobile && window.innerWidth < 600 ? "10px" : "20px",
+		marginRight: isMobile && window.innerWidth < 1024 ? "10px" : "20px",
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "center",
 	});
 
 	const LearnContentBox = styled(Box)({
-		width: isMobile && window.innerWidth < 600 ? "80%" : "450px",
-		height: isMobile && window.innerWidth < 600 ? "100%" : "100%",
+		width: isMobile && window.innerWidth < 1024 ? "80%" : "450px",
+		height: isMobile && window.innerWidth < 1024 ? "100%" : "100%",
 		display: "flex",
-		justifyContent: "space-evenly",
+		justifyContent: "center",
 		flexDirection: "column",
 	});
 
 	const LearnTitle = styled(Typography)({
-		fontSize: isMobile && window.innerWidth < 600 ? "0.8rem" : "1.8rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "0.8rem" : "1.8rem",
 		fontWeight: "bold",
 		fontFamily: "ITCAvantGardeGothicStd",
 	});
 
 	const LearnDescription = styled(Typography)({
 		color: "rgba(255, 255, 255, 0.8)",
-		fontSize: isMobile && window.innerWidth < 600 ? "0.5rem" : "0.7rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "0.5rem" : "0.7rem",
 		fontFamily: "ITCAvantGardeGothicStd",
-	});
-
-	const LearnKnowMore = styled(Box)({
-		width: isMobile && window.innerWidth < 600 ? "50%" : "25%",
-		fontSize: isMobile && window.innerWidth < 600 ? "0.7rem" : "1rem",
-		fontWeight: "bold",
-		fontFamily: "ITCAvantGardeGothicStd",
-		display: "flex",
-		flexDirection: "row",
-		alignItems: "center",
-		justifyContent: "space-between",
-	});
-
-	const Arrow = styled(ArrowForwardIosIcon)({
-		fontSize: isMobile && window.innerWidth < 600 ? "0.7rem" : "1rem",
-		fontWeight: "bold",
 	});
 
 	return (
@@ -103,7 +87,7 @@ const WhatDoWeLearn = () => {
 					<LearnImageBox>
 						<InsightsIcon
 							sx={{
-								fontSize: isMobile && window.innerWidth < 600 ? "7rem" : "10rem",
+								fontSize: isMobile && window.innerWidth < 1024 ? "7rem" : "10rem",
 								zIndex: "1",
 							}}
 						/>
@@ -116,17 +100,13 @@ const WhatDoWeLearn = () => {
 							Bollywood twist where freshers get hands-on experience about
 							entrepreneurship.
 						</LearnDescription>
-						<LearnKnowMore>
-							Know More
-							<Arrow />
-						</LearnKnowMore>
 					</LearnContentBox>
 				</LearnBox>
 				<LearnBox>
 					<LearnImageBox>
 						<LayersIcon
 							sx={{
-								fontSize: isMobile && window.innerWidth < 600 ? "7rem" : "10rem",
+								fontSize: isMobile && window.innerWidth < 1024 ? "7rem" : "10rem",
 								zIndex: "1",
 							}}
 						/>
@@ -139,17 +119,13 @@ const WhatDoWeLearn = () => {
 							Bollywood twist where freshers get hands-on experience about
 							entrepreneurship.
 						</LearnDescription>
-						<LearnKnowMore>
-							Know More
-							<Arrow />
-						</LearnKnowMore>
 					</LearnContentBox>
 				</LearnBox>
 				<LearnBox>
 					<LearnImageBox>
 						<RadarIcon
 							sx={{
-								fontSize: isMobile && window.innerWidth < 600 ? "7rem" : "10rem",
+								fontSize: isMobile && window.innerWidth < 1024 ? "7rem" : "10rem",
 								zIndex: "1",
 							}}
 						/>
@@ -162,17 +138,13 @@ const WhatDoWeLearn = () => {
 							Bollywood twist where freshers get hands-on experience about
 							entrepreneurship.
 						</LearnDescription>
-						<LearnKnowMore>
-							Know More
-							<Arrow />
-						</LearnKnowMore>
 					</LearnContentBox>
 				</LearnBox>
 				<LearnBox>
 					<LearnImageBox>
 						<KeyboardCommandKeyIcon
 							sx={{
-								fontSize: isMobile && window.innerWidth < 600 ? "7rem" : "10rem",
+								fontSize: isMobile && window.innerWidth < 1024 ? "7rem" : "10rem",
 								zIndex: "1",
 							}}
 						/>
@@ -185,10 +157,6 @@ const WhatDoWeLearn = () => {
 							Bollywood twist where freshers get hands-on experience about
 							entrepreneurship.
 						</LearnDescription>
-						<LearnKnowMore>
-							Know More
-							<Arrow />
-						</LearnKnowMore>
 					</LearnContentBox>
 				</LearnBox>
 			</InnerBox>

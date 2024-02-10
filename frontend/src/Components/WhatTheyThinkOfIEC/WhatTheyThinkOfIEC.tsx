@@ -13,36 +13,36 @@ const WhatTheyThinkOfIEC = () => {
 	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const WhatTheyThinkOfIECBox = styled(Box)({
-		marginLeft: isMobile && window.innerWidth < 600 ? "0px" : "50px",
-		marginBottom: isMobile && window.innerWidth < 600 ? "50px" : "150px",
+		marginLeft: isMobile && window.innerWidth < 1024 ? "0px" : "50px",
+		marginBottom: isMobile && window.innerWidth < 1024 ? "50px" : "150px",
 	});
 
 	const HeadingBox = styled(Box)({
-		display: isMobile && window.innerWidth < 600 ? "flex" : "",
+		display: isMobile && window.innerWidth < 1024 ? "flex" : "",
 		flexDirection: "column",
-		alignItems: isMobile && window.innerWidth < 600 ? "center" : "",
+		alignItems: isMobile && window.innerWidth < 1024 ? "center" : "",
 	});
 
 	const MentorText = styled(Typography)({
 		color: "#00D1FF",
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "0.7rem" : "1rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "0.7rem" : "1rem",
 		fontWeight: "bold",
 	});
 
 	const Header = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "1.8rem" : "3rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "1.8rem" : "3rem",
 		color: "white",
 		fontWeight: "bold",
 	});
 
 	const Intro = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "0.7rem" : "1rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "0.7rem" : "1rem",
 		color: "white",
-		width: isMobile && window.innerWidth < 600 ? "100%" : "600px",
-		textAlign: isMobile && window.innerWidth < 600 ? "center" : "left",
+		width: isMobile && window.innerWidth < 1024 ? "100%" : "600px",
+		textAlign: isMobile && window.innerWidth < 1024 ? "center" : "left",
 		marginBottom: "50px",
 	});
 
@@ -88,8 +88,9 @@ const WhatTheyThinkOfIEC = () => {
 				transitionDuration={2000}
 				arrows={false}
 			>
-				{ReviewList.map((data) => (
+				{ReviewList.map((data, index) => (
 					<Review
+						key={index}
 						title={data.title}
 						star={data.star}
 						desc={data.desc}

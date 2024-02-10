@@ -34,14 +34,14 @@ const Speaker = () => {
 		display: "flex",
 		flexDirection: "column",
 		margin: isMobile ? "50px 0px" : "150px 0",
-		marginLeft: isMobile && window.innerWidth < 600 ? "10px" : "0px",
+		marginLeft: isMobile && window.innerWidth < 1024 ? "10px" : "0px",
 		zIndex: 1,
 	});
 
 	const SpeakerHeader = styled(Typography)({
-		fontSize: isMobile && window.innerWidth < 600 ? "1.8rem" : "3rem",
-		alignSelf: isMobile && window.innerWidth < 600 ? "center" : "",
-		marginLeft: isMobile && window.innerWidth < 600 ? "0" : "50px",
+		fontSize: isMobile && window.innerWidth < 1024 ? "1.8rem" : "3rem",
+		alignSelf: isMobile && window.innerWidth < 1024 ? "center" : "",
+		marginLeft: isMobile && window.innerWidth < 1024 ? "0" : "50px",
 		marginBottom: "50px",
 		fontWeight: "bold",
 		color: "white",
@@ -54,20 +54,21 @@ const Speaker = () => {
 			<SpeakerHeader>Speaker</SpeakerHeader>
 			<Carousel
 				responsive={responsive}
-				swipeable={isMobile && window.innerWidth < 600 ? true : false}
-				draggable={false}
+				swipeable={true}
+				draggable={true}
 				showDots={false}
 				containerClass=""
 				ssr={false}
-				infinite={isMobile && window.innerWidth < 600 ? true : false}
-				autoPlay={isMobile && window.innerWidth < 600 ? true : false}
+				infinite={true}
+				autoPlay={true}
 				autoPlaySpeed={4000}
-				keyBoardControl={isMobile && window.innerWidth < 600 ? true : false}
+				keyBoardControl={true}
 				transitionDuration={2000}
 				arrows={false}
 			>
 				{SpeakerList.map((info, index) => (
 					<SpeakerItem
+						key={index}
 						index={index}
 						image={info.image}
 						name={info.name}

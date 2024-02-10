@@ -1,16 +1,20 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import BackgroundBox from "../BackgroundBox/BackgroundBox";
+import { InceptioList } from "./InceptioList";
+import { NavLink } from "react-router-dom";
 
 const Inceptio = () => {
 	const theme = useTheme();
-	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+	const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+	window.scrollTo(0, 0);
 
 	const OuterBox = styled(Box)({
 		width: "100%",
-		margin: isMobile && window.innerWidth < 600 ? "0px 0" : "50px 0",
+		margin: isMobile && window.innerWidth < 1024 ? "0 0" : "50px 0",
+		paddingTop: isMobile && window.innerWidth < 1024 ? "20px" : "",
 		height: "max-content",
 		display: "flex",
 		flexDirection: "column",
@@ -20,36 +24,45 @@ const Inceptio = () => {
 
 	const Heading = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "1.8rem" : "3rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "1.8rem" : "3rem",
 		fontWeight: "bold",
 		marginBottom: "20px",
 		zIndex: "1",
 	});
 
 	const MainCard = styled(Box)({
+		display: "flex",
+		flexDirection: "column",
 		borderRadius: "20px",
-		width: isMobile && window.innerWidth < 600 ? "80%" : "95%",
+		width: isDesktop && window.innerWidth < 1200 ? "95%" : "80%",
 		height: "max-content",
-		padding: isMobile && window.innerWidth < 600 ? "20px" : "30px",
+		padding: isMobile && window.innerWidth < 1024 ? "20px" : "30px",
 		backgroundColor: "rgba(42,43,42,.3)",
 		zIndex: "1",
 	});
 
 	const ImageCard = styled(Box)({
 		width: "100%",
-		height: "300px",
-		backgroundColor: "gray",
+		height: isMobile ? "200px" : "600px",
 		borderRadius: "15px",
 		marginBottom: "20px",
 		zIndex: "1",
 	});
 
+	const Image = styled("img")({
+		width: "100%",
+		height: "100%",
+		borderRadius: "20px",
+		padding: "0",
+		margin: "0",
+	});
+
 	const EventDescriptionText = styled(Typography)({
 		color: "rgba(255,255,255, 0.8)",
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "0.6rem" : "1rem",
-		marginBottom: isMobile && window.innerWidth < 600 ? "20px" : "50px",
-		textAlign: isMobile && window.innerWidth < 600 ? "center" : "left",
+		fontSize: isMobile && window.innerWidth < 1024 ? "0.6rem" : "1rem",
+		marginBottom: isMobile && window.innerWidth < 1024 ? "20px" : "50px",
+		textAlign: isMobile && window.innerWidth < 1024 ? "center" : "left",
 		zIndex: "1",
 	});
 
@@ -57,32 +70,36 @@ const Inceptio = () => {
 		width: "100%",
 		height: "max-content",
 		display: "grid",
-		gridTemplateColumns: isMobile && window.innerWidth < 600 ? "auto" : "auto auto",
-		gap: isMobile && window.innerWidth < 600 ? "20px 0" : "50px 60px",
+		gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+		gap: isMobile ? "50px 0" : "50px 30px",
+		marginBottom: "30px",
 		zIndex: "1",
 	});
 
 	const DataCard = styled(Box)({
+		display: "flex",
+		flexDirection: "column",
+		alignItems: isMobile && window.innerWidth < 1024 ? "center" : "",
+		textAlign: isMobile && window.innerWidth < 1024 ? "center" : "start",
 		borderRadius: "15px",
 		width: "95%",
-		height: "max-content",
+		height: "100%",
 		backgroundColor: "rgba(42,43,42,.3)",
-		padding: isMobile && window.innerWidth < 600 ? "15px" : "20px 15px",
-		marginLeft: isMobile && window.innerWidth < 600 ? "-8px" : "",
+		padding: isMobile && window.innerWidth < 1024 ? "15px" : "20px 15px 0",
+		marginLeft: isMobile && window.innerWidth < 1024 ? "-8px" : "",
 		zIndex: "1",
 	});
 
 	const DataCardImage = styled(Box)({
 		borderRadius: "10px",
 		width: "100%",
-		height: "250px",
-		backgroundColor: "gray",
+		height: isMobile && window.innerWidth < 1024 ? "150px" : "300px",
 		zIndex: "1",
 	});
 
 	const DataCardHeading = styled(Box)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "1.2rem" : "2rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "1.2rem" : "1.8rem",
 		fontWeight: "600",
 		margin: "20px 0",
 		zIndex: "1",
@@ -90,32 +107,10 @@ const Inceptio = () => {
 
 	const DataCardDescription = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "0.4rem" : "0.8rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "0.4rem" : "0.6rem",
 		zIndex: "1",
 	});
 
-	const DataCardKnowMoreBox = styled(Box)({
-		display: "flex",
-		flexDirection: "row",
-		alignItems: "center",
-		marginTop: "20px",
-		cursor: "pointer",
-		zIndex: "1",
-	});
-
-	const DataCardKnowMoreText = styled(Typography)({
-		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "0.6rem" : "1rem",
-		fontWeight: "bold",
-		zIndex: "1",
-	});
-
-	const DataCardKnowMoreIcon = styled(ArrowForwardIosIcon)({
-		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "0.6rem" : "1rem",
-		marginLeft: "5px",
-		zIndex: "1",
-	});
 	return (
 		<>
 			<BackgroundBox
@@ -149,10 +144,12 @@ const Inceptio = () => {
 			/>
 
 			<OuterBox>
-				<Heading>Events</Heading>
+				<Heading>Inceptio</Heading>
 				<MainCard>
-					<ImageCard />
-					<Heading sx={{ textAlign: "center" }}>Inceptio</Heading>
+					<ImageCard>
+						<Image src="images/inceptio/inceptio-banner.png" />
+					</ImageCard>
+
 					<EventDescriptionText>
 						The NMIMS MPSTME's Innovation and Entrepreneurship Carnival is an
 						exceptional annual three-day event fostering entrepreneurship, business, and
@@ -165,90 +162,24 @@ const Inceptio = () => {
 						potential and engage in a lifetime experience!
 					</EventDescriptionText>
 					<CardBox>
-						<DataCard>
-							<DataCardImage />
-							<DataCardHeading>The Innovation Challenge</DataCardHeading>
-							<DataCardDescription>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-								ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-								aliquip ex ea commodo consequat.
-							</DataCardDescription>
-							<DataCardKnowMoreBox>
-								<DataCardKnowMoreText>Know More</DataCardKnowMoreText>
-								<DataCardKnowMoreIcon />
-							</DataCardKnowMoreBox>
-						</DataCard>
-						<DataCard>
-							<DataCardImage />
-							<DataCardHeading>The Innovation Challenge</DataCardHeading>
-							<DataCardDescription>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-								ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-								aliquip ex ea commodo consequat.
-							</DataCardDescription>
-							<DataCardKnowMoreBox>
-								<DataCardKnowMoreText>Know More</DataCardKnowMoreText>
-								<DataCardKnowMoreIcon />
-							</DataCardKnowMoreBox>
-						</DataCard>
-						<DataCard>
-							<DataCardImage />
-							<DataCardHeading>The Innovation Challenge</DataCardHeading>
-							<DataCardDescription>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-								ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-								aliquip ex ea commodo consequat.
-							</DataCardDescription>
-							<DataCardKnowMoreBox>
-								<DataCardKnowMoreText>Know More</DataCardKnowMoreText>
-								<DataCardKnowMoreIcon />
-							</DataCardKnowMoreBox>
-						</DataCard>
-						<DataCard>
-							<DataCardImage />
-							<DataCardHeading>The Innovation Challenge</DataCardHeading>
-							<DataCardDescription>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-								ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-								aliquip ex ea commodo consequat.
-							</DataCardDescription>
-							<DataCardKnowMoreBox>
-								<DataCardKnowMoreText>Know More</DataCardKnowMoreText>
-								<DataCardKnowMoreIcon />
-							</DataCardKnowMoreBox>
-						</DataCard>
-						<DataCard>
-							<DataCardImage />
-							<DataCardHeading>The Innovation Challenge</DataCardHeading>
-							<DataCardDescription>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-								ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-								aliquip ex ea commodo consequat.
-							</DataCardDescription>
-							<DataCardKnowMoreBox>
-								<DataCardKnowMoreText>Know More</DataCardKnowMoreText>
-								<DataCardKnowMoreIcon />
-							</DataCardKnowMoreBox>
-						</DataCard>
-						<DataCard>
-							<DataCardImage />
-							<DataCardHeading>The Innovation Challenge</DataCardHeading>
-							<DataCardDescription>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-								ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-								aliquip ex ea commodo consequat.
-							</DataCardDescription>
-							<DataCardKnowMoreBox>
-								<DataCardKnowMoreText>Know More</DataCardKnowMoreText>
-								<DataCardKnowMoreIcon />
-							</DataCardKnowMoreBox>
-						</DataCard>
+						{InceptioList.map((data, index) => (
+							<NavLink
+								to={data.link}
+								style={{ textDecoration: "none", color: "white" }}
+								target="_blank"
+							>
+								<DataCard key={index}>
+									<DataCardImage>
+										<Image
+											src={data.image}
+											style={{ borderRadius: "10px" }}
+										/>
+									</DataCardImage>
+									<DataCardHeading>{data.name}</DataCardHeading>
+									<DataCardDescription>{data.description}</DataCardDescription>
+								</DataCard>
+							</NavLink>
+						))}
 					</CardBox>
 				</MainCard>
 			</OuterBox>

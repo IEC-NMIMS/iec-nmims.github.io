@@ -18,7 +18,7 @@ const WhoAreWe = () => {
 		justifyContent: "center",
 		border: "none",
 		zIndex: 1,
-		marginBottom: isMobile && window.innerWidth < 600 ? "50px" : "150px",
+		marginBottom: isMobile && window.innerWidth < 1024 ? "50px" : "150px",
 	});
 
 	const WhoAreWeBox = styled(Box)({
@@ -41,7 +41,7 @@ const WhoAreWe = () => {
 
 	const LeftPanelTitle = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "2rem" : "3rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "2rem" : "3rem",
 		fontWeight: "bold",
 		marginBottom: isMobile ? "10px" : "30px",
 		zIndex: 1,
@@ -50,7 +50,7 @@ const WhoAreWe = () => {
 	const LeftPanelPara = styled(Typography)({
 		width: isMobile ? "100%" : "auto",
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "0.6rem" : "1rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "0.6rem" : "1rem",
 		color: "rgba(255, 255, 255, 0.6)",
 		marginBottom: isMobile ? "20px" : "40px",
 		zIndex: 1,
@@ -62,11 +62,11 @@ const WhoAreWe = () => {
 		borderRadius: "10px",
 		right: "10px",
 		height: "40px",
-		width: isMobile && window.innerWidth < 600 ? "100%" : "350px",
+		width: isMobile && window.innerWidth < 1024 ? "100%" : "350px",
 		display: "flex",
 		justifyContent: "start",
 		alignItems: "center",
-		paddingRight: isMobile && window.innerWidth < 600 ? "0px" : "20px",
+		paddingRight: isMobile && window.innerWidth < 1024 ? "0px" : "20px",
 		color: "black",
 		fontFamily: "sans-serif",
 		fontWeight: "bold",
@@ -80,7 +80,7 @@ const WhoAreWe = () => {
 
 	const KnowMoreText = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "0.8rem" : "1rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "0.8rem" : "1rem",
 		fontWeight: "bold",
 	});
 
@@ -98,11 +98,10 @@ const WhoAreWe = () => {
 	const RightPanelImage = styled(Box)({
 		alignItems: "center",
 		justifyContent: "end",
-		height: isMobile && window.innerWidth < 600 ? "200px" : "375px",
+		height: isMobile && window.innerWidth < 1024 ? "200px" : "375px",
 		width: "100%",
 		display: "flex",
 		borderRadius: "20px",
-		backgroundColor: "gray",
 		marginBottom: isMobile ? "20px" : "0",
 	});
 
@@ -152,22 +151,12 @@ const WhoAreWe = () => {
 				</RightPanelImage>
 				<LeftPanelTitle>Who Are We?</LeftPanelTitle>
 				<LeftPanelPara>
-					The Innovation and Entrepreneurship cell (IEC)
-					<br />
-					of MPSTME is a student body, certified by the
-					<br />
-					Ministry of Education. Government of India, and
-					<br />
-					aims to inculcate and entrepreneurial and innovative
-					<br />
-					environment in the institute. We want to keep up the
-					<br />
-					spirit of entrepreneurship in the minds of the youth
-					<br />
-					and create passion amongst the students who
-					<br />
-					wish to pursue entrepreneurship as a career.
-					<br />
+					The Innovation and Entrepreneurship cell (IEC) of MPSTME is a student body,
+					certified by the Ministry of Education. Government of India, and aims to
+					inculcate and entrepreneurial and innovative environment in the institute. We
+					want to keep up the spirit of entrepreneurship in the minds of the youth and
+					create passion amongst the students who wish to pursue entrepreneurship as a
+					career.
 				</LeftPanelPara>
 				<NavLink
 					style={{ textDecoration: "none" }}

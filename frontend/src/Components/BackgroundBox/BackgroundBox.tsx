@@ -23,15 +23,15 @@ const BackgroundBox = (props: Props) => {
 	const top = index * 500 + "px";
 
 	FadedBox = styled(Box)({
-		height: isMobile && window.innerWidth < 600 ? "150px" : "300px",
-		width: isMobile && window.innerWidth < 600 ? "150px" : "300px",
+		height: isMobile && window.innerWidth < 1024 ? "150px" : "300px",
+		width: isMobile && window.innerWidth < 1024 ? "150px" : "300px",
 		borderRadius: "100%",
 		filter: "blur(30px)",
 		position: "absolute",
 		backgroundImage: colorGradient,
 		top: top,
 		opacity: 0.4,
-		zIndex: 0,
+		zIndex: isMobile ? 0 : -1,
 		animationName: "moving",
 		animationDuration: "10s",
 		animationIterationCount: "infinite",

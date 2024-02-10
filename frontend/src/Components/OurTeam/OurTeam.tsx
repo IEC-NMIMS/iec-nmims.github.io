@@ -6,6 +6,7 @@ import styled from "@emotion/styled";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import CoreItem from "./CoreItem";
+import BackgroundBox from "../BackgroundBox/BackgroundBox";
 
 const OurTeam = () => {
 	const theme = useTheme();
@@ -35,14 +36,14 @@ const OurTeam = () => {
 		display: "flex",
 		flexDirection: "column",
 		margin: "50px 0",
-		marginRight: isMobile && window.innerWidth < 600 ? "0px" : "20px",
+		marginRight: isMobile && window.innerWidth < 1024 ? "0px" : "20px",
 		zIndex: 1,
 	});
 
 	const OurTeamHeader = styled(Typography)({
-		fontSize: isMobile && window.innerWidth < 600 ? "1.8rem" : "3rem",
-		alignSelf: isMobile && window.innerWidth < 600 ? "center" : "",
-		marginLeft: isMobile && window.innerWidth < 600 ? "0" : "50px",
+		fontSize: isMobile && window.innerWidth < 1024 ? "1.8rem" : "3rem",
+		alignSelf: isMobile && window.innerWidth < 1024 ? "center" : "",
+		marginLeft: isMobile && window.innerWidth < 1024 ? "0" : "50px",
 		marginBottom: "0px",
 		fontWeight: "bold",
 		color: "white",
@@ -50,9 +51,9 @@ const OurTeam = () => {
 		fontFamily: "ITCAvantGardeGothicStd",
 	});
 	const SuperCoreHeader = styled(Typography)({
-		fontSize: isMobile && window.innerWidth < 600 ? "1.4rem" : "1.8rem",
-		alignSelf: isMobile && window.innerWidth < 600 ? "center" : "",
-		marginLeft: isMobile && window.innerWidth < 600 ? "0" : "50px",
+		fontSize: isMobile && window.innerWidth < 1024 ? "1.4rem" : "1.8rem",
+		alignSelf: isMobile && window.innerWidth < 1024 ? "center" : "",
+		marginLeft: isMobile && window.innerWidth < 1024 ? "0" : "50px",
 		marginTop: "40px",
 		marginBottom: "40px",
 		fontWeight: "bold",
@@ -62,57 +63,76 @@ const OurTeam = () => {
 	});
 
 	return (
-		<OurTeamBox>
-			<OurTeamHeader>Our Team</OurTeamHeader>
-			<SuperCoreHeader>Super Core</SuperCoreHeader>
-			<Carousel
-				responsive={responsive}
-				swipeable={false}
-				draggable={true}
-				showDots={false}
-				containerClass=""
-				ssr={false}
-				infinite={true}
-				autoPlay={true}
-				autoPlaySpeed={4000}
-				keyBoardControl={true}
-				transitionDuration={2000}
-				arrows={false}
-			>
-				{SuperCorelist.map((info, index) => (
-					<SuperCoreItem
-						index={index}
-						photo={info.photo}
-						name={info.Name}
-						desg={info.designation}
-					></SuperCoreItem>
-				))}
-			</Carousel>
+		<>
+			<BackgroundBox
+				color="blue"
+				position="right"
+				index={0}
+			/>
 
-			<SuperCoreHeader>Core</SuperCoreHeader>
-			<Carousel
-				responsive={responsive}
-				swipeable={false}
-				draggable={true}
-				showDots={false}
-				containerClass=""
-				ssr={false}
-				infinite={true}
-				autoPlay={true}
-				autoPlaySpeed={4000}
-				keyBoardControl={true}
-				transitionDuration={2000}
-				arrows={false}
-			>
-				{CoreDep.map((info, index) => (
-					<CoreItem
-						index={index}
-						photo={info.photo}
-						depname={info.department}
-					></CoreItem>
-				))}
-			</Carousel>
-		</OurTeamBox>
+			<BackgroundBox
+				color="yellow"
+				position="left"
+				index={1}
+			/>
+
+			<BackgroundBox
+				color="blue"
+				position="right"
+				index={2}
+			/>
+
+			<OurTeamBox>
+				<OurTeamHeader>Our Team</OurTeamHeader>
+				<SuperCoreHeader>Super Core</SuperCoreHeader>
+				<Carousel
+					responsive={responsive}
+					swipeable={false}
+					draggable={true}
+					showDots={false}
+					containerClass=""
+					ssr={false}
+					infinite={true}
+					autoPlay={true}
+					autoPlaySpeed={4000}
+					keyBoardControl={true}
+					transitionDuration={2000}
+					arrows={false}
+				>
+					{SuperCorelist.map((info, index) => (
+						<SuperCoreItem
+							index={index}
+							photo={info.photo}
+							name={info.Name}
+							desg={info.designation}
+						></SuperCoreItem>
+					))}
+				</Carousel>
+				<SuperCoreHeader>Core</SuperCoreHeader>
+				<Carousel
+					responsive={responsive}
+					swipeable={false}
+					draggable={true}
+					showDots={false}
+					containerClass=""
+					ssr={false}
+					infinite={true}
+					autoPlay={true}
+					autoPlaySpeed={4000}
+					keyBoardControl={true}
+					transitionDuration={2000}
+					arrows={false}
+				>
+					{CoreDep.map((info, index) => (
+						<CoreItem
+							index={index}
+							photo={info.photo}
+							depname={info.department}
+						></CoreItem>
+					))}
+				</Carousel>
+			</OurTeamBox>
+		</>
 	);
 };
 

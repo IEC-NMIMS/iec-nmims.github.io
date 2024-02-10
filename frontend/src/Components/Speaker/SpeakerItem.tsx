@@ -19,22 +19,21 @@ const SpeakerItem = (props: Props) => {
 	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const EventCard = styled(Card)({
-		width: isMobile && window.innerWidth < 600 ? "95%" : "350px",
-		height: isMobile && window.innerWidth < 600 ? "500px" : "550px",
+		width: isMobile && window.innerWidth < 1024 ? "95%" : "350px",
+		height: isMobile && window.innerWidth < 1024 ? "500px" : "550px",
 		padding: "5px",
 		backgroundColor: "rgba(42,43,42,.3)",
 		borderRadius: "20px",
 		zIndex: 1,
 	});
 	const SpeakerPic = styled(Box)({
-		background: "grey",
-		width: isMobile && window.innerWidth < 600 ? "100%" : "318px",
-		height: isMobile && window.innerWidth < 600 ? "260px" : "265px",
+		width: isMobile && window.innerWidth < 1024 ? "100%" : "318px",
+		height: isMobile && window.innerWidth < 1024 ? "260px" : "265px",
 		borderRadius: "10px",
 		zIndex: 1,
 	});
 	const Image = styled("img")({
-		aspectRatio: isMobile && window.innerWidth < 600 ? "1/1" : "1.2 / 1",
+		aspectRatio: isMobile && window.innerWidth < 1024 ? "1/1" : "1.2 / 1",
 		width: "100%",
 		borderRadius: "10px",
 	});
@@ -54,7 +53,7 @@ const SpeakerItem = (props: Props) => {
 	});
 	const SpeakerPost = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "0.6rem" : "0.8rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "0.6rem" : "0.8rem",
 		color: "white",
 		borderRadius: "0px",
 		marginBottom: "20px",
@@ -64,7 +63,7 @@ const SpeakerItem = (props: Props) => {
 	const SpeakerDesc = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
 		textAlign: "center",
-		fontSize: isMobile && window.innerWidth < 600 ? "0.8rem" : "1rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "0.8rem" : "1rem",
 		color: "rgba(255, 255, 255, 0.8)",
 		zIndex: 1,
 	});

@@ -9,7 +9,7 @@ import Box from "@mui/material/Box";
 import MenuIcon from "@mui/icons-material/Menu";
 import styled from "@emotion/styled";
 import EastIcon from "@mui/icons-material/East";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 type Anchor = "top";
 
@@ -45,7 +45,8 @@ const BackgroundBox = (props: Props) => {
 
 const MobileDrawer = () => {
 	const theme = useTheme();
-	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+	const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+	const navigate = useNavigate();
 
 	const [state, setState] = React.useState(false);
 
@@ -128,9 +129,16 @@ const MobileDrawer = () => {
 						disablePadding
 						onClick={() => {
 							const element = document.getElementById("home");
-							element?.scrollIntoView({
-								behavior: "smooth",
-							});
+							const href = window.location.href.split("/");
+							const length = window.location.href.split("/").length;
+
+							if (href[length - 1] === "") {
+								element?.scrollIntoView({
+									behavior: "smooth",
+								});
+							} else {
+								navigate("/");
+							}
 						}}
 					>
 						<ListItemButton>
@@ -141,10 +149,17 @@ const MobileDrawer = () => {
 					<ListItem
 						disablePadding
 						onClick={() => {
-							const element = document.getElementById("events");
-							element?.scrollIntoView({
-								behavior: "smooth",
-							});
+							const element = document.getElementById("home");
+							const href = window.location.href.split("/");
+							const length = window.location.href.split("/").length;
+
+							if (href[length - 1] === "") {
+								element?.scrollIntoView({
+									behavior: "smooth",
+								});
+							} else {
+								navigate("/");
+							}
 						}}
 					>
 						<ListItemButton>
@@ -177,10 +192,17 @@ const MobileDrawer = () => {
 					<ListItem
 						disablePadding
 						onClick={() => {
-							const element = document.getElementById("about-us");
-							element?.scrollIntoView({
-								behavior: "smooth",
-							});
+							const element = document.getElementById("home");
+							const href = window.location.href.split("/");
+							const length = window.location.href.split("/").length;
+
+							if (href[length - 1] === "") {
+								element?.scrollIntoView({
+									behavior: "smooth",
+								});
+							} else {
+								navigate("/");
+							}
 						}}
 					>
 						<ListItemButton>
@@ -199,7 +221,12 @@ const MobileDrawer = () => {
 
 	return (
 		<div>
-			{isMobile && <HamburgerMenu onClick={toggleDrawer()} />}
+			{isMobile && (
+				<HamburgerMenu
+					id="navbar"
+					onClick={toggleDrawer()}
+				/>
+			)}
 			<Drawer
 				anchor="top"
 				open={state}

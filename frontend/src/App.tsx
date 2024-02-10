@@ -11,6 +11,8 @@ import Home from "./Components/Home/Home";
 import WhatTheyThinkOfIEC from "./Components/WhatTheyThinkOfIEC/WhatTheyThinkOfIEC";
 import { useTheme, useMediaQuery } from "@mui/material";
 import MobileDrawer from "./Components/MobileDrawer/MobileDrawer";
+import { useLocation } from "react-router-dom";
+import InnoVision from "./Components/InnoVision/InnoVision";
 
 function App() {
 	const theme = useTheme();
@@ -97,13 +99,13 @@ function App() {
 				/>
 			)}
 
-			{!isMobile ? <Navbar /> : <MobileDrawer />}
 			<Home />
 			<WhoAreWe />
 			<WhatDoWeDo />
 			<WhatDoWeLearn />
 			<Events />
 			<Speaker />
+			<InnoVision />
 			<WhatTheyThinkOfIEC />
 			<ContactUs />
 		</>

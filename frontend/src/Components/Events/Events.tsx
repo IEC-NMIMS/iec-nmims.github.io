@@ -31,19 +31,19 @@ const Events = () => {
 	};
 	const Headers = styled(Typography)({
 		color: "white",
-		fontSize: isMobile && window.innerWidth < 600 ? "1.8rem" : "3rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "1.8rem" : "3rem",
 		fontWeight: "bold",
 		fontFamily: "ITCAvantGardeGothicStd",
-		marginLeft: isMobile && window.innerWidth < 600 ? "0" : "50px",
-		marginBottom: isMobile && window.innerWidth < 600 ? "50px" : "100px",
+		marginLeft: isMobile && window.innerWidth < 1024 ? "0" : "50px",
+		marginBottom: isMobile && window.innerWidth < 1024 ? "50px" : "100px",
 		zIndex: 1,
-		alignSelf: isMobile && window.innerWidth < 600 ? "center" : "",
+		alignSelf: isMobile && window.innerWidth < 1024 ? "center" : "",
 	});
 	return (
 		<div
 			style={{
-				marginLeft: isMobile && window.innerWidth < 600 ? "10px" : "20px",
-				marginRight: isMobile && window.innerWidth < 600 ? "0px" : "20px",
+				marginLeft: isMobile && window.innerWidth < 1024 ? "10px" : "20px",
+				marginRight: isMobile && window.innerWidth < 1024 ? "0px" : "20px",
 				marginBottom: isMobile ? "100px" : "0",
 				display: isMobile ? "flex" : "",
 				flexDirection: "column",
@@ -65,13 +65,14 @@ const Events = () => {
 				transitionDuration={2000}
 				arrows={false}
 			>
-				{EventList.map((info) => (
+				{EventList.map((info, index) => (
 					<Item
+						key={index}
 						image={info.image}
 						name={info.name}
 						desc={info.desc}
 						modalData={info.modalData}
-					></Item>
+					/>
 				))}
 			</Carousel>
 		</div>

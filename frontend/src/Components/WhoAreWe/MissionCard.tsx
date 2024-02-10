@@ -11,7 +11,7 @@ const MissionCard = () => {
 
 	const OuterBox = styled(Box)({
 		width: "100%",
-		height: "700px",
+		height: "550px",
 		display: "flex",
 		justifyContent: "center",
 		alignItems: "center",
@@ -20,10 +20,10 @@ const MissionCard = () => {
 	const WhoAreWeBox = styled(Box)({
 		backgroundColor: "rgba(42,43,42,0.3)",
 		borderRadius: "20px",
-		height: "350px",
+		height: "max-content",
 		width: "75%",
 		display: "flex",
-		flexDirection: isMobile && window.innerWidth < 600 ? "column" : "row",
+		flexDirection: isMobile && window.innerWidth < 1024 ? "column" : "row",
 		alignItems: "center",
 		justifyContent: "space-between",
 		color: "white",
@@ -33,15 +33,22 @@ const MissionCard = () => {
 	const ImagePanel = styled(Box)({
 		display: "flex",
 		alignItems: "center",
-		width: isMobile && window.innerWidth < 600 ? "100%" : "55%",
+		width: isMobile && window.innerWidth < 1024 ? "100%" : "55%",
 		height: "100%",
-		backgroundColor: "#D9D9D9",
 		borderRadius: "20px",
 	});
 
+	const Image = styled("img")({
+		width: "100%",
+		height: "100%",
+		borderRadius: "20px",
+		padding: "0",
+		margin: "0",
+	});
+
 	const RightPanel = styled(Box)({
-		width: isMobile && window.innerWidth < 600 ? "100%" : "45%",
-		height: isMobile && window.innerWidth < 600 ? "max-content" : "",
+		width: isMobile && window.innerWidth < 1024 ? "100%" : "45%",
+		height: isMobile && window.innerWidth < 1024 ? "max-content" : "",
 		display: "flex",
 		flexDirection: "column",
 		justifyContent: "left",
@@ -49,24 +56,26 @@ const MissionCard = () => {
 	});
 
 	const PanelTitle = styled(Typography)({
-		fontSize: isMobile && window.innerWidth < 600 ? "1.8rem" : "3rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "1.8rem" : "3rem",
 		fontWeight: "bold",
 		fontFamily: "ITCAvantGardeGothicStd",
-		marginBottom: isMobile && window.innerWidth < 600 ? "10px" : "30px",
-		textAlign: isMobile && window.innerWidth < 600 ? "center" : "left",
+		marginBottom: isMobile && window.innerWidth < 1024 ? "10px" : "30px",
+		textAlign: isMobile && window.innerWidth < 1024 ? "center" : "left",
 	});
 
 	const PanelPara = styled(Typography)({
 		color: "rgba(255, 255, 255, 0.8)",
-		fontSize: isMobile && window.innerWidth < 600 ? "0.8rem" : "1rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "0.8rem" : "1rem",
 		fontFamily: "ITCAvantGardeGothicStd",
-		textAlign: isMobile && window.innerWidth < 600 ? "center" : "left",
+		textAlign: isMobile && window.innerWidth < 1024 ? "center" : "left",
 	});
 
 	const DesktopMissionCard = () => {
 		return (
 			<>
-				<ImagePanel></ImagePanel>
+				<ImagePanel>
+					<Image src="images/vision-mission/mission.png" />
+				</ImagePanel>
 				<RightPanel>
 					<PanelTitle>Our Mission</PanelTitle>
 					<PanelPara>
@@ -82,7 +91,9 @@ const MissionCard = () => {
 	const MobileMissionCard = () => {
 		return (
 			<>
-				<ImagePanel></ImagePanel>
+				<ImagePanel>
+					<Image src="images/vision-mission/mission.png" />
+				</ImagePanel>
 				<RightPanel>
 					<PanelTitle>Our Mission</PanelTitle>
 					<PanelPara>
@@ -98,7 +109,7 @@ const MissionCard = () => {
 	return (
 		<OuterBox>
 			<WhoAreWeBox>
-				{isMobile && window.innerWidth < 600 ? (
+				{isMobile && window.innerWidth < 1024 ? (
 					<MobileMissionCard />
 				) : (
 					<DesktopMissionCard />

@@ -6,16 +6,10 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-interface urls {
-	links: string;
-}
 interface modals {
-	name: string;
-	image: string;
 	title: string;
 	data: string;
-	dates: string[];
-	rules: string[];
+	images: string[];
 }
 interface Props {
 	image: string;
@@ -32,7 +26,7 @@ const Item = (props: Props) => {
 	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const EventCard = styled(Card)({
-		width: isMobile && window.innerWidth < 600 ? "95%" : "350px",
+		width: isMobile && window.innerWidth < 1024 ? "95%" : "350px",
 		height: "600px",
 		padding: "5px",
 		backgroundColor: "rgba(42,43,42,.3)",
@@ -42,15 +36,15 @@ const Item = (props: Props) => {
 	const EventPic = styled(Box)({
 		display: "flex",
 		alignSelf: "center",
-		width: isMobile && window.innerWidth < 600 ? "100%" : "320px",
-		height: "320px",
+		width: isMobile && window.innerWidth < 1024 ? "100%" : "320px",
+		height: "260px",
 		borderRadius: "10px",
 	});
 
 	const Image = styled("img")({
-		width: isMobile && window.innerWidth < 600 ? "100%" : "320px",
-		height: isMobile && window.innerWidth < 600 ? "" : "100%",
-		aspectRatio: isMobile && window.innerWidth < 600 ? "1 / 1" : "",
+		width: isMobile && window.innerWidth < 1024 ? "100%" : "320px",
+		height: isMobile && window.innerWidth < 1024 ? "" : "100%",
+		aspectRatio: isMobile && window.innerWidth < 1024 ? "1 / 1" : "",
 		borderRadius: "20px",
 	});
 
@@ -64,7 +58,7 @@ const Item = (props: Props) => {
 
 	const EventDesc = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "0.6rem" : "0.7rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "0.6rem" : "0.7rem",
 		marginBottom: "20px",
 		color: "rgba(255, 255, 255, 0.8)",
 	});
@@ -89,17 +83,18 @@ const Item = (props: Props) => {
 		paddingLeft: "20px",
 		fontSize: "1.25rem",
 	});
-	const handleKnowMore = (name, image, title, data, dates, rules) => {
-		navigate("/events", {
-			state: {
-				name: name,
-				image: image,
-				title: title,
-				data: data,
-				dates: dates,
-				rules: rules,
-			},
-		});
+	const handleKnowMore = (title, data, images) => {
+		if (title === "Innovation Challenge") {
+			navigate("/inceptio");
+		} else {
+			navigate("/events", {
+				state: {
+					title: title,
+					data: data,
+					images: images,
+				},
+			});
+		}
 	};
 
 	const Itemcard = (
@@ -111,16 +106,7 @@ const Item = (props: Props) => {
 			<EventDesc>{desc}</EventDesc>
 
 			<KnowMore
-				onClick={() =>
-					handleKnowMore(
-						modalData.name,
-						modalData.image,
-						modalData.title,
-						modalData.data,
-						modalData.dates,
-						modalData.rules
-					)
-				}
+				onClick={() => handleKnowMore(modalData.title, modalData.data, modalData.images)}
 			>
 				<KnowMoreText>Know More</KnowMoreText>
 				<Arrow />

@@ -1,21 +1,23 @@
-import React from "react";
+import React, { useRef } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import styled from "@emotion/styled";
 import InputBase from "@mui/material/InputBase";
+import emailjs from "@emailjs/browser";
 
 const ContactUs = () => {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+	const form = useRef<HTMLFormElement>(null);
 
 	const ContactContainer = styled(Box)({
 		color: "white",
-		marginLeft: isMobile && window.innerWidth < 600 ? "0" : "50px",
+		marginLeft: isMobile && window.innerWidth < 1024 ? "0" : "50px",
 		marginBottom: "100px",
-		display: isMobile && window.innerWidth < 600 ? "flex" : "",
+		display: isMobile && window.innerWidth < 1024 ? "flex" : "",
 		flexDirection: "column",
 		alignItems: "center",
 		zIndex: 1,
@@ -23,7 +25,7 @@ const ContactUs = () => {
 
 	const Header = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "1.8rem" : "3rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "1.8rem" : "3rem",
 		fontWeight: "bold",
 		marginBottom: "50px",
 	});
@@ -32,34 +34,34 @@ const ContactUs = () => {
 		backgroundColor: "rgba(42, 43, 42, 0.3)",
 		borderRadius: "20px",
 		color: "white",
-		margin: isMobile && window.innerWidth < 600 ? "0" : "1.2%",
-		marginLeft: isMobile && window.innerWidth < 600 ? "0" : ".2%",
-		padding: isMobile && window.innerWidth < 600 ? "20px 20px" : "2%",
-		display: isMobile && window.innerWidth < 600 ? "" : "flex",
-		paddingTop: isMobile && window.innerWidth < 600 ? "20px" : "2.5%",
+		margin: isMobile && window.innerWidth < 1024 ? "0" : "1.2%",
+		marginLeft: isMobile && window.innerWidth < 1024 ? "0" : ".2%",
+		padding: isMobile && window.innerWidth < 1024 ? "20px 20px" : "2%",
+		display: isMobile && window.innerWidth < 1024 ? "" : "flex",
+		paddingTop: isMobile && window.innerWidth < 1024 ? "20px" : "2.5%",
 	});
 
-	const ContactForm = styled(Box)({
-		width: isMobile && window.innerWidth < 600 ? "100%" : "50%",
-		marginRight: isMobile && window.innerWidth < 600 ? "0" : "2%",
-		display: isMobile && window.innerWidth < 600 ? "" : "flex",
+	const ContactForm = styled("form")({
+		width: isMobile && window.innerWidth < 1024 ? "100%" : "50%",
+		marginRight: isMobile && window.innerWidth < 1024 ? "0" : "2%",
+		display: isMobile && window.innerWidth < 1024 ? "" : "flex",
 		flexDirection: "column",
 	});
 
 	const ContactInfo = styled(Box)({
-		display: isMobile && window.innerWidth < 600 ? "" : "inline-grid",
+		display: isMobile && window.innerWidth < 1024 ? "" : "inline-grid",
 	});
 
 	const NameEmail = styled(Box)({
-		display: isMobile && window.innerWidth < 600 ? "" : "flex",
+		display: isMobile && window.innerWidth < 1024 ? "" : "flex",
 	});
 
 	const TextInput = styled(InputBase)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		marginRight: isMobile && window.innerWidth < 600 ? "0" : "25px",
-		marginBottom: isMobile && window.innerWidth < 600 ? "25px" : "0",
+		marginRight: isMobile && window.innerWidth < 1024 ? "0" : "25px",
+		marginBottom: isMobile && window.innerWidth < 1024 ? "25px" : "0",
 		color: "white",
-		width: isMobile && window.innerWidth < 600 ? "100%" : "325px",
+		width: isMobile && window.innerWidth < 1024 ? "100%" : "325px",
 		border: "2px solid rgba(255, 255, 255, 0.5)",
 		borderRadius: "10px",
 		height: "40px",
@@ -68,8 +70,8 @@ const ContactUs = () => {
 
 	const SubjectInput = styled(InputBase)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		marginTop: isMobile && window.innerWidth < 600 ? "0" : "25px",
-		marginRight: isMobile && window.innerWidth < 600 ? "0" : "25px",
+		marginTop: isMobile && window.innerWidth < 1024 ? "0" : "25px",
+		marginRight: isMobile && window.innerWidth < 1024 ? "0" : "25px",
 		color: "white",
 		width: "100%",
 		border: "2px solid rgba(255, 255, 255, 0.5)",
@@ -90,23 +92,25 @@ const ContactUs = () => {
 		padding: "5px 10px",
 	});
 
-	const ButtonInput = styled(Button)({
+	const ButtonInput = styled("button")({
 		fontFamily: "ITCAvantGardeGothicStd",
 		fontWeight: "bold",
 		color: "rgb(42, 43, 42)",
 		borderColor: "#000000",
 		borderRadius: "15px",
-		width: isMobile && window.innerWidth < 600 ? "100%" : "40%",
-		margin: isMobile && window.innerWidth < 600 ? "20px 0" : "0",
+		width: isMobile && window.innerWidth < 1024 ? "100%" : "40%",
+		height: isMobile && window.innerHeight < 1024 ? "20px" : "50px",
+		margin: isMobile && window.innerWidth < 1024 ? "20px 0" : "0",
 		alignSelf: "center",
 		textTransform: "none",
+		cursor: "pointer",
 	});
 
 	const CallAdd = styled(Box)({
 		display: "grid",
 		gridTemplateColumns: "1fr 1fr",
 		gridTemplateRows: "2.5em 2.5em",
-		marginBottom: isMobile && window.innerWidth < 600 ? "20px" : "0",
+		marginBottom: isMobile && window.innerWidth < 1024 ? "20px" : "0",
 	});
 
 	const Emhour = styled(Box)({
@@ -117,7 +121,7 @@ const ContactUs = () => {
 
 	const InfoHead = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "1.2rem" : "1.5rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "1.2rem" : "1.5rem",
 		padding: "0px",
 		marginBottom: "0px",
 		fontWeight: "bold",
@@ -125,24 +129,46 @@ const ContactUs = () => {
 
 	const Info = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 600 ? "0.6rem" : "0.8rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "0.6rem" : "0.8rem",
 		padding: "0px",
 		marginTop: "0px",
 	});
+	const sendEmail = (e) => {
+		e.preventDefault();
+
+		emailjs
+			.sendForm("service_79t3ups", "template_rdye5ac", form.current!, {
+				publicKey: "v-RbDoYe0nh3ZI6pL",
+			})
+			.then(
+				() => {
+					form.current!.reset();
+					alert("SUCCESS!");
+				},
+				(error) => {
+					alert("FAILED..." + error.text);
+				}
+			);
+	};
 	return (
 		<ContactContainer>
 			<Header>Contact Us</Header>
 			<SubContainer>
-				<ContactForm>
+				<ContactForm
+					ref={form}
+					onSubmit={sendEmail}
+				>
 					<NameEmail>
 						<TextInput
 							id="contact-name"
 							placeholder="Name"
+							name="name"
 							type="text"
 						/>
 						<TextInput
 							id="contact-email"
 							placeholder="Email"
+							name="email"
 							type="email"
 							style={{ marginRight: "0" }}
 						/>
@@ -150,22 +176,18 @@ const ContactUs = () => {
 					<SubjectInput
 						id="contact-subject"
 						placeholder="Subject"
+						name="subject"
 						type="text"
 					/>
 					<MessageInput
 						id="contact-meassage"
 						placeholder="Message"
+						name="message"
 						multiline
 						rows={6}
 					/>{" "}
 					<br />
-					<ButtonInput
-						variant="contained"
-						color="inherit"
-						disableElevation
-					>
-						Send Message
-					</ButtonInput>
+					<ButtonInput color="inherit">Send Message</ButtonInput>
 				</ContactForm>
 				<ContactInfo>
 					<CallAdd>
@@ -180,7 +202,7 @@ const ContactUs = () => {
 					<Emhour>
 						<InfoHead>Email Us</InfoHead>
 						<InfoHead>Open Hours</InfoHead>
-						<Info>iecmpstme@nmims.edu</Info>
+						<Info>iec.nmims@gmail.com</Info>
 						<Info>
 							Monday - Saturday
 							<br></br>10:00AM - 05:00PM

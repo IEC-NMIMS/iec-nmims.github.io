@@ -10,20 +10,20 @@ const WhatDoWeDo = () => {
 
 	const SectionContainer = styled(Box)({
 		display: "flex",
-		flexDirection: isMobile && window.innerWidth < 600 ? "column" : "row",
-		justifyContent: isMobile && window.innerWidth < 600 ? "center" : "space-evenly",
+		flexDirection: isMobile && window.innerWidth < 1024 ? "column" : "row",
+		justifyContent: isMobile && window.innerWidth < 1024 ? "center" : "space-evenly",
 		alignItems: "center",
 		textAlign: "center",
 		width: "100%",
 		zIndex: "1",
-		marginBottom: isMobile && window.innerWidth < 600 ? "50px" : "150px",
+		marginBottom: isMobile && window.innerWidth < 1024 ? "50px" : "150px",
 	});
 
 	const Heading = styled(Typography)({
-		fontSize: isMobile && window.innerWidth < 600 ? "1.8rem" : "3rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "1.8rem" : "3rem",
 		fontWeight: "bold",
-		marginLeft: isMobile && window.innerWidth < 600 ? "0" : "50px",
-		alignSelf: isMobile && window.innerWidth < 600 ? "center" : "",
+		marginLeft: isMobile && window.innerWidth < 1024 ? "0" : "50px",
+		alignSelf: isMobile && window.innerWidth < 1024 ? "center" : "",
 		marginBottom: "50px",
 		color: "white",
 		zIndex: "1",
@@ -43,10 +43,10 @@ const WhatDoWeDo = () => {
 
 	const HeadingText = styled(Typography)({
 		color: "white",
-		fontSize: isMobile && window.innerWidth < 600 ? "1.5rem" : "2.25rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "1.5rem" : "2.25rem",
 		fontWeight: "bold",
-		marginTop: isMobile && window.innerWidth < 600 ? "0" : "40px",
-		marginBottom: isMobile && window.innerWidth < 600 ? "5px" : "20px",
+		marginTop: isMobile && window.innerWidth < 1024 ? "0" : "40px",
+		marginBottom: isMobile && window.innerWidth < 1024 ? "5px" : "20px",
 		zIndex: "1",
 		fontFamily: "ITCAvantGardeGothicStd",
 	});
@@ -70,9 +70,10 @@ const WhatDoWeDo = () => {
 			<SectionContainer>
 				{headings.map((heading, index) => (
 					<StyledPaper
+						key={index}
 						sx={{
 							borderRight:
-								isMobile && window.innerWidth < 600
+								isMobile && window.innerWidth < 1024
 									? "none"
 									: index === 0 || index === 1
 									? "3px solid gray"
