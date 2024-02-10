@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -8,55 +8,72 @@ import Review from "./Review";
 import { Box } from "@mui/material";
 
 const WhatTheyThinkOfIEC = () => {
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+
 	const WhatTheyThinkOfIECBox = styled(Box)({
-		marginLeft: "50px",
-		marginBottom: "150px",
+		marginLeft: isMobile && window.innerWidth < 1024 ? "0px" : "50px",
+		marginBottom: isMobile && window.innerWidth < 1024 ? "50px" : "150px",
 	});
+
+	const HeadingBox = styled(Box)({
+		display: isMobile && window.innerWidth < 1024 ? "flex" : "",
+		flexDirection: "column",
+		alignItems: isMobile && window.innerWidth < 1024 ? "center" : "",
+	});
+
 	const MentorText = styled(Typography)({
 		color: "#00D1FF",
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: "1rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "0.7rem" : "1rem",
 		fontWeight: "bold",
 	});
+
 	const Header = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: "3rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "1.8rem" : "3rem",
 		color: "white",
 		fontWeight: "bold",
 	});
+
 	const Intro = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: "1rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "0.7rem" : "1rem",
 		color: "white",
-		width: "600px",
+		width: isMobile && window.innerWidth < 1024 ? "100%" : "600px",
+		textAlign: isMobile && window.innerWidth < 1024 ? "center" : "left",
 		marginBottom: "50px",
 	});
+
 	const responsive = {
 		superLargeDesktop: {
 			breakpoint: { max: 4000, min: 3000 },
 			items: 5,
 		},
 		desktop: {
-			breakpoint: { max: 3000, min: 1024, marginleft: "10px" },
+			breakpoint: { max: 3000, min: 1200 },
 			items: 2.6,
 		},
 		tablet: {
-			breakpoint: { max: 1024, min: 464 },
-			items: 2,
+			breakpoint: { max: 1200, min: 600 },
+			items: 1.75,
 		},
 		mobile: {
-			breakpoint: { max: 464, min: 0 },
+			breakpoint: { max: 600, min: 0 },
 			items: 1,
 		},
 	};
 	return (
 		<WhatTheyThinkOfIECBox>
-			<MentorText>Our Faculty Mentors</MentorText>
-			<Header>What they think of IEC</Header>
-			<Intro>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-				incididunt ut labore et dolore magna aliqua.
-			</Intro>
+			<HeadingBox>
+				<MentorText>Our Faculty Mentors</MentorText>
+				<Header>What they think of IEC</Header>
+				<Intro>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+					incididunt ut labore et dolore magna aliqua.
+				</Intro>
+			</HeadingBox>
 			<Carousel
 				responsive={responsive}
 				swipeable={false}
@@ -71,8 +88,9 @@ const WhatTheyThinkOfIEC = () => {
 				transitionDuration={2000}
 				arrows={false}
 			>
-				{ReviewList.map((data) => (
+				{ReviewList.map((data, index) => (
 					<Review
+						key={index}
 						title={data.title}
 						star={data.star}
 						desc={data.desc}

@@ -1,6 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 interface Props {
 	color: string;
@@ -10,6 +11,9 @@ interface Props {
 
 const BackgroundBox = (props: Props) => {
 	const { color, position, index } = props;
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 	const colorGradient =
 		color.toLowerCase() === "blue"
 			? "linear-gradient(to bottom right,rgba(0, 80, 217,1)40%, rgba(0,212,255,1)80%,rgba(0, 232, 255)10%,#000 )"
@@ -17,39 +21,22 @@ const BackgroundBox = (props: Props) => {
 
 	let FadedBox = styled(Box)({});
 	const top = index * 500 + "px";
-	if (position.toLowerCase() === "left") {
-		FadedBox = styled(Box)({
-			height: "300px",
-			width: "300px",
-			borderRadius: "100%",
-			filter: "blur(30px)",
-			position: "absolute",
-			backgroundImage: colorGradient,
-			top: top,
-			opacity: 0.4,
-			zIndex: 0,
-			animationName: "moving",
-			animationDuration: "10s",
-			animationIterationCount: "infinite",
-			animationDirection: "alternate",
-		});
-	} else {
-		FadedBox = styled(Box)({
-			height: "300px",
-			width: "300px",
-			borderRadius: "100%",
-			filter: "blur(50px)",
-			position: "absolute",
-			backgroundImage: colorGradient,
-			top: top,
-			opacity: 0.4,
-			zIndex: 0,
-			animationName: "moving",
-			animationDuration: "10s",
-			animationIterationCount: "infinite",
-			animationDirection: "alternate-reverse",
-		});
-	}
+
+	FadedBox = styled(Box)({
+		height: isMobile && window.innerWidth < 1024 ? "150px" : "300px",
+		width: isMobile && window.innerWidth < 1024 ? "150px" : "300px",
+		borderRadius: "100%",
+		filter: "blur(30px)",
+		position: "absolute",
+		backgroundImage: colorGradient,
+		top: top,
+		opacity: 0.4,
+		zIndex: isMobile ? 0 : -1,
+		animationName: "moving",
+		animationDuration: "10s",
+		animationIterationCount: "infinite",
+		animationDirection: position.toLowerCase() == "left" ? "alternate" : "alternate-reverse",
+	});
 	return <FadedBox />;
 };
 

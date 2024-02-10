@@ -42,16 +42,15 @@ const WhoAreWeCarousel = () => {
 
 			<Carousel
 				responsive={responsive}
-				swipeable={false}
+				swipeable={true}
 				draggable={true}
 				showDots={false}
 				ssr={false}
 				infinite={true}
 				autoPlay={true}
-				autoPlaySpeed={3000}
+				autoPlaySpeed={4000}
 				keyBoardControl={true}
 				transitionDuration={1000}
-				removeArrowOnDeviceType={["superLargeDesktop", "desktop", "tablet", "mobile"]}
 			>
 				<MissionCard />
 				<VisionCard />

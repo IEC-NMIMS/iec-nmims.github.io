@@ -5,16 +5,42 @@
 
 @keyframes moving {
   0% {
-    left: 50px;
+    left: -15%;
   }
 
   100% {
-    left: 1200px;
+    left: 95%;
   }
 }
 
+@media screen and (max-width: 1200px) {
+  html, body {
+    margin: 0px;
+    background-color:#000000;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  @keyframes moving {
+    0% {
+      left: 5%;
+    }
+  
+    100% {
+      left: 55%;
+    }
+  }
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
+
 body {
-    margin: 0 50px;
+    margin: 0 20px;
     background-color:#000000;
     overflow-x: hidden;
     -ms-overflow-style: none;
@@ -24,3 +50,4 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+

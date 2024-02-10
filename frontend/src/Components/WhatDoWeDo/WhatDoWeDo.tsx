@@ -1,25 +1,29 @@
 import React from "react";
-import { Box, Grid, Paper, Typography } from "@mui/material";
+import { Box, Grid, Paper, Typography, useMediaQuery, useTheme } from "@mui/material";
 import styled from "@emotion/styled";
 
 const WhatDoWeDo = () => {
 	const headings = ["Workshops", "Projects", "Startups"];
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const SectionContainer = styled(Box)({
 		display: "flex",
-		flexDirection: "row",
-		justifyContent: "space-evenly",
+		flexDirection: isMobile && window.innerWidth < 1024 ? "column" : "row",
+		justifyContent: isMobile && window.innerWidth < 1024 ? "center" : "space-evenly",
 		alignItems: "center",
 		textAlign: "center",
 		width: "100%",
 		zIndex: "1",
-		marginBottom: "150px",
+		marginBottom: isMobile && window.innerWidth < 1024 ? "50px" : "150px",
 	});
 
 	const Heading = styled(Typography)({
-		fontSize: "3rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "1.8rem" : "3rem",
 		fontWeight: "bold",
-		marginLeft: "50px",
+		marginLeft: isMobile && window.innerWidth < 1024 ? "0" : "50px",
+		alignSelf: isMobile && window.innerWidth < 1024 ? "center" : "",
 		marginBottom: "50px",
 		color: "white",
 		zIndex: "1",
@@ -30,7 +34,7 @@ const WhatDoWeDo = () => {
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
-		height: "350px",
+		height: isMobile ? "max-content" : "350px",
 		backgroundColor: "transparent",
 		boxShadow: "none",
 		color: "white",
@@ -39,32 +43,41 @@ const WhatDoWeDo = () => {
 
 	const HeadingText = styled(Typography)({
 		color: "white",
-		fontSize: "2.25rem",
+		fontSize: isMobile && window.innerWidth < 1024 ? "1.5rem" : "2.25rem",
 		fontWeight: "bold",
-		marginTop: "40px",
-		marginBottom: "20px",
+		marginTop: isMobile && window.innerWidth < 1024 ? "0" : "40px",
+		marginBottom: isMobile && window.innerWidth < 1024 ? "5px" : "20px",
 		zIndex: "1",
 		fontFamily: "ITCAvantGardeGothicStd",
 	});
 
 	const ContentText = styled(Typography)({
 		color: "rgba(255,255,255,0.8)",
-		marginBottom: "1.5rem",
+		marginBottom: "50px",
 		width: "90%",
 		fontWeight: "100",
-		fontSize: "16px",
+		fontSize: isMobile ? "0.8rem" : "1.25rem",
 		zIndex: "1",
 		fontFamily: "ITCAvantGardeGothicStd",
 	});
 
 	return (
-		<>
+		<div
+			id="what-do-we-do"
+			style={{ display: "flex", flexDirection: "column" }}
+		>
 			<Heading>What Do We Do</Heading>
 			<SectionContainer>
 				{headings.map((heading, index) => (
 					<StyledPaper
+						key={index}
 						sx={{
-							borderRight: index === 0 || index === 1 ? "3px solid gray" : "none",
+							borderRight:
+								isMobile && window.innerWidth < 1024
+									? "none"
+									: index === 0 || index === 1
+									? "3px solid gray"
+									: "none",
 						}}
 					>
 						<HeadingText>{heading}</HeadingText>
@@ -102,7 +115,7 @@ const WhatDoWeDo = () => {
 					</StyledPaper>
 				))}
 			</SectionContainer>
-		</>
+		</div>
 	);
 };
 
