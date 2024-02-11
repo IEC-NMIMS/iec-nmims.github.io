@@ -1,17 +1,16 @@
-import React from "react";
 import SuperCoreItem from "./SuperCoreItem";
-import { CoreDep, SuperCorelist } from "./teamList";
+import { CoreDep, SuperCorelist, MentorList } from "./teamList";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import styled from "@emotion/styled";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import CoreItem from "./CoreItem";
 import BackgroundBox from "../BackgroundBox/BackgroundBox";
+import MentorItem from "./MentorItem";
 
 const OurTeam = () => {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const responsive = {
 		superLargeDesktop: {
@@ -97,7 +96,7 @@ const OurTeam = () => {
 					autoPlaySpeed={4000}
 					keyBoardControl={true}
 					transitionDuration={2000}
-					arrows={false}
+					arrows={true}
 				>
 					{SuperCorelist.map((info, index) => (
 						<SuperCoreItem
@@ -106,6 +105,29 @@ const OurTeam = () => {
 							name={info.Name}
 							desg={info.designation}
 						></SuperCoreItem>
+					))}
+				</Carousel>
+				<SuperCoreHeader>Mentors</SuperCoreHeader>
+				<Carousel
+					responsive={responsive}
+					swipeable={false}
+					draggable={true}
+					showDots={false}
+					containerClass=""
+					ssr={false}
+					infinite={true}
+					autoPlay={true}
+					autoPlaySpeed={4000}
+					keyBoardControl={true}
+					transitionDuration={2000}
+					arrows={true}
+				>
+					{MentorList.map((info, index) => (
+						<MentorItem
+							index={index}
+							photo={info.photo}
+							name={info.name}
+						></MentorItem>
 					))}
 				</Carousel>
 				<SuperCoreHeader>Core</SuperCoreHeader>
@@ -121,7 +143,7 @@ const OurTeam = () => {
 					autoPlaySpeed={4000}
 					keyBoardControl={true}
 					transitionDuration={2000}
-					arrows={false}
+					arrows={true}
 				>
 					{CoreDep.map((info, index) => (
 						<CoreItem

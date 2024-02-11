@@ -1,12 +1,10 @@
-import React from "react";
-import { Box, Grid, Paper, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Paper, Typography, useMediaQuery, useTheme } from "@mui/material";
 import styled from "@emotion/styled";
 
 const WhatDoWeDo = () => {
 	const headings = ["Workshops", "Projects", "Startups"];
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const SectionContainer = styled(Box)({
 		display: "flex",

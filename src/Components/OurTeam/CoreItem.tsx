@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "@emotion/styled";
 import { Box, Card, CardContent, Typography, useMediaQuery, useTheme } from "@mui/material";
 
@@ -9,10 +8,9 @@ interface Props {
 }
 
 const CoreItem = (props: Props) => {
-	const { index, photo, depname } = props;
+	const { photo, depname } = props;
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const MemberCard = styled(Card)({
 		width: isMobile && window.innerWidth < 1024 ? "95%" : "350px",

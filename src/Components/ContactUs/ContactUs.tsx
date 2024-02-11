@@ -1,7 +1,5 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import SendIcon from "@mui/icons-material/Send";
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import styled from "@emotion/styled";
 import InputBase from "@mui/material/InputBase";
@@ -10,7 +8,6 @@ import emailjs from "@emailjs/browser";
 const ContactUs = () => {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 	const form = useRef<HTMLFormElement>(null);
 
 	const ContactContainer = styled(Box)({
@@ -99,7 +96,7 @@ const ContactUs = () => {
 		borderColor: "#000000",
 		borderRadius: "15px",
 		width: isMobile && window.innerWidth < 1024 ? "100%" : "40%",
-		height: isMobile && window.innerHeight < 1024 ? "20px" : "50px",
+		height: isMobile && window.innerHeight < 1024 ? "40px" : "50px",
 		margin: isMobile && window.innerWidth < 1024 ? "20px 0" : "0",
 		alignSelf: "center",
 		textTransform: "none",
@@ -133,7 +130,7 @@ const ContactUs = () => {
 		padding: "0px",
 		marginTop: "0px",
 	});
-	const sendEmail = (e) => {
+	const sendEmail = (e: { preventDefault: () => void }) => {
 		e.preventDefault();
 
 		emailjs
@@ -193,7 +190,7 @@ const ContactUs = () => {
 					<CallAdd>
 						<InfoHead>Call Us</InfoHead>
 						<InfoHead>Address</InfoHead>
-						<Info>+91 95756 22585</Info>
+						<Info>+91 70458 73430</Info>
 						<Info>
 							IEC-MPSTME, NMIMS,V. L. Mehta Road, Vile Parle, West Mumbai, Maharashtra
 							400056

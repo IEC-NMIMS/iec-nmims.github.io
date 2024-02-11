@@ -1,4 +1,3 @@
-import React from "react";
 import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
 import { useMediaQuery, useTheme } from "@mui/material";
@@ -13,7 +12,6 @@ const BackgroundBox = (props: Props) => {
 	const { color, position, index } = props;
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 	const colorGradient =
 		color.toLowerCase() === "blue"
 			? "linear-gradient(to bottom right,rgba(0, 80, 217,1)40%, rgba(0,212,255,1)80%,rgba(0, 232, 255)10%,#000 )"

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
-import React from "react";
+
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { ReviewList } from "./ReviewList";
@@ -10,7 +10,6 @@ import { Box } from "@mui/material";
 const WhatTheyThinkOfIEC = () => {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const WhatTheyThinkOfIECBox = styled(Box)({
 		marginLeft: isMobile && window.innerWidth < 1024 ? "0px" : "50px",

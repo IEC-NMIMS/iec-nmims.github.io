@@ -1,16 +1,14 @@
-import React from "react";
 import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
 import IconButton from "@mui/material/IconButton";
 import EastIcon from "@mui/icons-material/East";
 import Typography from "@mui/material/Typography";
-import { NavLink, Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useMediaQuery, useTheme } from "@mui/material";
 
 const Navbar = () => {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 	const navigate = useNavigate();
 
 	const NavBox = styled(Box)({

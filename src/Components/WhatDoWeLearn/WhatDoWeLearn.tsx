@@ -1,7 +1,5 @@
-import React from "react";
 import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Typography from "@mui/material/Typography";
 import { useMediaQuery, useTheme } from "@mui/material";
 import InsightsIcon from "@mui/icons-material/Insights";
@@ -12,7 +10,6 @@ import KeyboardCommandKeyIcon from "@mui/icons-material/KeyboardCommandKey";
 const WhatDoWeLearn = () => {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const OuterBox = styled(Box)({
 		marginBottom: isMobile ? "100px" : "150px",

@@ -75,3 +75,26 @@ export const CoreDep = [
 		department: "Technicals",
 	},
 ];
+
+export const MentorList = [
+	{
+		photo: "images/team/mentors/Anushree.png",
+		name: "Anushree Mishra",
+	},
+	{
+		photo: "images/team/mentors/Jas.png",
+		name: "Jas Shah",
+	},
+	{
+		photo: "images/team/mentors/Niyati.png",
+		name: "Niyati Mehta",
+	},
+	{
+		photo: "images/team/mentors/Shraddha.png",
+		name: "Shraddha Phulre",
+	},
+	{
+		photo: "images/team/mentors/Viraj.png",
+		name: "Viraj Sanap",
+	},
+];

@@ -1,8 +1,5 @@
 import styled from "@emotion/styled";
 import { Box, Card, CardContent, Typography, useMediaQuery, useTheme } from "@mui/material";
-import React from "react";
-import IconButton from "@mui/material/IconButton";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 interface Props {
 	index: number;
@@ -13,14 +10,13 @@ interface Props {
 }
 
 const InnoVisionItem = (props: Props) => {
-	const { index, image, name, post, desc } = props;
+	const { image, name, post, desc } = props;
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const EventCard = styled(Card)({
 		width: isMobile && window.innerWidth < 1024 ? "95%" : "350px",
-		height: isMobile && window.innerWidth < 1024 ? "500px" : "550px",
+		height: "550px",
 		padding: "5px",
 		backgroundColor: "rgba(42,43,42,.3)",
 		borderRadius: "20px",
@@ -28,7 +24,7 @@ const InnoVisionItem = (props: Props) => {
 	});
 	const SpeakerPic = styled(Box)({
 		width: isMobile && window.innerWidth < 1024 ? "100%" : "318px",
-		height: isMobile && window.innerWidth < 1024 ? "260px" : "265px",
+		height: isMobile && window.innerWidth < 1024 ? "max-content" : "265px",
 		borderRadius: "10px",
 		zIndex: 1,
 	});
@@ -37,21 +33,18 @@ const InnoVisionItem = (props: Props) => {
 		width: "100%",
 		borderRadius: "10px",
 	});
-	const SpeakerContainer = styled(Box)({
-		display: "flex",
-		flexDirection: "column",
-		justifyContent: "center",
-		alignItems: "center",
-	});
 	const SpeakerName = styled(Typography)({
+		width: "100%",
 		fontFamily: "ITCAvantGardeGothicStd",
 		fontSize: "1.5rem",
 		fontWeight: "bold",
 		color: "white",
 		marginTop: "20px",
+		textAlign: "center",
 		zIndex: 1,
 	});
 	const SpeakerPost = styled(Typography)({
+		width: "100%",
 		fontFamily: "ITCAvantGardeGothicStd",
 		fontSize: isMobile && window.innerWidth < 1024 ? "0.6rem" : "0.8rem",
 		color: "white",
@@ -61,6 +54,7 @@ const InnoVisionItem = (props: Props) => {
 		zIndex: 1,
 	});
 	const SpeakerDesc = styled(Typography)({
+		width: "100%",
 		fontFamily: "ITCAvantGardeGothicStd",
 		textAlign: "center",
 		fontSize: isMobile && window.innerWidth < 1024 ? "0.8rem" : "1rem",
@@ -76,11 +70,9 @@ const InnoVisionItem = (props: Props) => {
 					alt={name}
 				/>
 			</SpeakerPic>
-			<SpeakerContainer>
-				<SpeakerName>{name}</SpeakerName>
-				<SpeakerPost>{post}</SpeakerPost>
-				<SpeakerDesc>{desc}</SpeakerDesc>
-			</SpeakerContainer>
+			<SpeakerName>{name}</SpeakerName>
+			<SpeakerPost>{post}</SpeakerPost>
+			<SpeakerDesc>{desc}</SpeakerDesc>
 		</CardContent>
 	);
 	return <EventCard variant="outlined">{Itemcard}</EventCard>;

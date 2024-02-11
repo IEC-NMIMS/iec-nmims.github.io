@@ -1,5 +1,4 @@
-import React from "react";
-import { Box, Typography, Stepper, Step, StepLabel, useTheme, useMediaQuery } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import styled from "@emotion/styled";
 import { useLocation } from "react-router-dom";
 import BackgroundBox from "../../BackgroundBox/BackgroundBox";
@@ -8,7 +7,6 @@ const Event = () => {
 	const location = useLocation();
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 	window.scrollTo(0, 0);
 
 	const { title, data, images } = location.state;
@@ -102,7 +100,7 @@ const Event = () => {
 				<Title>{title}</Title>
 				<Desc>{data}</Desc>
 				<ImageBox>
-					{images.map((image) => (
+					{images.map((image: string | undefined) => (
 						<Image src={image} />
 					))}
 				</ImageBox>
