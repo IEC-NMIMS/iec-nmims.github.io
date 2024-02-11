@@ -1,5 +1,3 @@
-import React from "react";
-import Navbar from "./Components/Navbar/Navbar";
 import Events from "./Components/Events/Events";
 import WhoAreWe from "./Components/WhoAreWe/WhoAreWe";
 import ContactUs from "./Components/ContactUs/ContactUs";
@@ -10,8 +8,6 @@ import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
 import Home from "./Components/Home/Home";
 import WhatTheyThinkOfIEC from "./Components/WhatTheyThinkOfIEC/WhatTheyThinkOfIEC";
 import { useTheme, useMediaQuery } from "@mui/material";
-import MobileDrawer from "./Components/MobileDrawer/MobileDrawer";
-import { useLocation } from "react-router-dom";
 import InnoVision from "./Components/InnoVision/InnoVision";
 
 function App() {

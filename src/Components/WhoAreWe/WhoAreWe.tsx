@@ -1,4 +1,3 @@
-import React from "react";
 import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
 import IconButton from "@mui/material/IconButton";
@@ -10,7 +9,6 @@ import { useMediaQuery, useTheme } from "@mui/material";
 const WhoAreWe = () => {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const OuterBox = styled(Box)({
 		width: "100%",

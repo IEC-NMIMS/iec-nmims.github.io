@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "@emotion/styled";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import BackgroundBox from "../BackgroundBox/BackgroundBox";

@@ -1,4 +1,3 @@
-import React from "react";
 import { InnoVisionGuestList } from "./InnoVisionGuestList";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import styled from "@emotion/styled";
@@ -9,7 +8,6 @@ import InnoVisionItem from "./InnoVisionItem";
 const InnoVision = () => {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const responsive = {
 		superLargeDesktop: {

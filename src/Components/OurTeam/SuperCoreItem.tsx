@@ -1,7 +1,5 @@
-import React from "react";
 import styled from "@emotion/styled";
 import { Box, Card, CardContent, Typography, useMediaQuery, useTheme } from "@mui/material";
-import Navbar from "./../Navbar/Navbar";
 
 interface Props {
 	index: number;
@@ -11,10 +9,9 @@ interface Props {
 }
 
 const SuperCoreItem = (props: Props) => {
-	const { index, photo, name, desg } = props;
+	const { photo, name, desg } = props;
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const MemberCard = styled(Card)({
 		width: isMobile && window.innerWidth < 1024 ? "95%" : "350px",

@@ -1,7 +1,6 @@
 import * as React from "react";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import { Button, Typography, useMediaQuery, useTheme } from "@mui/material";
@@ -10,8 +9,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import styled from "@emotion/styled";
 import EastIcon from "@mui/icons-material/East";
 import { NavLink, useNavigate } from "react-router-dom";
-
-type Anchor = "top";
 
 interface Props {
 	color: string;
@@ -50,7 +47,7 @@ const MobileDrawer = () => {
 
 	const [state, setState] = React.useState(false);
 
-	const toggleDrawer = () => (event: React.MouseEvent) => {
+	const toggleDrawer = () => () => {
 		setState(!state);
 	};
 
@@ -108,7 +105,7 @@ const MobileDrawer = () => {
 		marginLeft: "auto",
 	});
 
-	const list = (anchor: Anchor) => (
+	const list = () => (
 		<>
 			<BackgroundBox
 				color="blue"
@@ -149,7 +146,7 @@ const MobileDrawer = () => {
 					<ListItem
 						disablePadding
 						onClick={() => {
-							const element = document.getElementById("home");
+							const element = document.getElementById("events");
 							const href = window.location.href.split("/");
 							const length = window.location.href.split("/").length;
 
@@ -192,7 +189,7 @@ const MobileDrawer = () => {
 					<ListItem
 						disablePadding
 						onClick={() => {
-							const element = document.getElementById("home");
+							const element = document.getElementById("about-us");
 							const href = window.location.href.split("/");
 							const length = window.location.href.split("/").length;
 
@@ -210,10 +207,16 @@ const MobileDrawer = () => {
 						</ListItemButton>
 					</ListItem>
 
-					<MenuButton variant="contained">
-						<MenuButtonText>Register Now</MenuButtonText>
-						<Arrow />
-					</MenuButton>
+					<NavLink
+						to="https://unstop.com/college-fests/inceptio-70-the-entrepreneurial-festival-narsee-monjee-institute-of-management-studies-nmims-mumbai-191469"
+						style={{ textDecoration: "none", color: "white" }}
+						target="_blank"
+					>
+						<MenuButton variant="contained">
+							<MenuButtonText>Register Now</MenuButtonText>
+							<Arrow />
+						</MenuButton>
+					</NavLink>
 				</MenuList>
 			</MenuBox>
 		</>
@@ -232,7 +235,7 @@ const MobileDrawer = () => {
 				open={state}
 				onClose={toggleDrawer()}
 			>
-				{list("top")}
+				{list()}
 			</Drawer>
 		</div>
 	);

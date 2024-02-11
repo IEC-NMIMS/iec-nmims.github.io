@@ -1,10 +1,9 @@
-import React from "react";
 import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
 import IconButton from "@mui/material/IconButton";
 import EastIcon from "@mui/icons-material/East";
 import Typography from "@mui/material/Typography";
-import { Card, useMediaQuery, CardMedia, CardContent } from "@mui/material";
+import { Card, useMediaQuery, CardMedia } from "@mui/material";
 import { useTheme } from "@mui/material";
 import { NavLink } from "react-router-dom";
 

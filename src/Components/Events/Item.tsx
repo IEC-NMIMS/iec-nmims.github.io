@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
 import { Box, Card, CardContent, Typography, useMediaQuery, useTheme } from "@mui/material";
-import React from "react";
+
 import IconButton from "@mui/material/IconButton";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface modals {
@@ -23,7 +22,6 @@ const Item = (props: Props) => {
 	const { image, name, desc, modalData } = props;
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const EventCard = styled(Card)({
 		width: isMobile && window.innerWidth < 1024 ? "95%" : "350px",
@@ -83,7 +81,7 @@ const Item = (props: Props) => {
 		paddingLeft: "20px",
 		fontSize: "1.25rem",
 	});
-	const handleKnowMore = (title, data, images) => {
+	const handleKnowMore = (title: string, data: string, images: string[]) => {
 		if (title === "Innovation Challenge") {
 			navigate("/inceptio");
 		} else {

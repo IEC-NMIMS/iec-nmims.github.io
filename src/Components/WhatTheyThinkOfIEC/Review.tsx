@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
-import React from "react";
+
 import { Box } from "@mui/system";
 import StarIcon from "@mui/icons-material/Star";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
@@ -17,7 +17,6 @@ const Review = (props: Props) => {
 	const { title, star, desc, reviewer, position } = props;
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const ReviewBox = styled(Box)({
 		color: "white",

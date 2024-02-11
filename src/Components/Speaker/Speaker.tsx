@@ -1,4 +1,3 @@
-import React from "react";
 import { SpeakerList } from "./SpeakerList";
 import SpeakerItem from "./SpeakerItem";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
@@ -9,7 +8,6 @@ import "react-multi-carousel/lib/styles.css";
 const Speaker = () => {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const responsive = {
 		superLargeDesktop: {

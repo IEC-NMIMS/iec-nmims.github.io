@@ -1,4 +1,3 @@
-import React from "react";
 import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
 import Typography from "@mui/material/Typography";
@@ -7,7 +6,6 @@ import { useMediaQuery, useTheme } from "@mui/material";
 const MissionCard = () => {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const OuterBox = styled(Box)({
 		width: "100%",
