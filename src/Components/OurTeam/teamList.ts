@@ -22,7 +22,7 @@ export const SuperCorelist = [
 	{
 		photo: "images/team/supercore/Kashmaya Khandelwal.png",
 		Name: "Kashmaya Khandelwal",
-		designation: "Vice President  (Relation)",
+		designation: "Vice President  (Relations)",
 	},
 	{
 		photo: "images/team/supercore/Roshni Luthria.png",
@@ -32,7 +32,7 @@ export const SuperCorelist = [
 	{
 		photo: "images/team/supercore/Ojaswa Bhawsar.png",
 		Name: "Ojaswa Bhawsar",
-		designation: "Vice President  (Operation)",
+		designation: "Vice President  (Operations)",
 	},
 	{
 		photo: "images/team/supercore/Rajveer Jha.png",
