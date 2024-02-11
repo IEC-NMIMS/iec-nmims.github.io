@@ -190,7 +190,7 @@ const ContactUs = () => {
 					<CallAdd>
 						<InfoHead>Call Us</InfoHead>
 						<InfoHead>Address</InfoHead>
-						<Info>+91 95756 22585</Info>
+						<Info>+91 70458 73430</Info>
 						<Info>
 							IEC-MPSTME, NMIMS,V. L. Mehta Road, Vile Parle, West Mumbai, Maharashtra
 							400056
