@@ -9,6 +9,7 @@ import Home from "./Components/Home/Home";
 import WhatTheyThinkOfIEC from "./Components/WhatTheyThinkOfIEC/WhatTheyThinkOfIEC";
 import { useTheme, useMediaQuery } from "@mui/material";
 import InnoVision from "./Components/InnoVision/InnoVision";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
 	const theme = useTheme();
@@ -104,6 +105,7 @@ function App() {
 			<InnoVision />
 			<WhatTheyThinkOfIEC />
 			<ContactUs />
+			<Footer />
 		</>
 	);
 }
