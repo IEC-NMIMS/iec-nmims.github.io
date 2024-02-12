@@ -69,8 +69,7 @@ const WhatTheyThinkOfIEC = () => {
 				<MentorText>Our Faculty Mentors</MentorText>
 				<Header>What they think of IEC</Header>
 				<Intro>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-					incididunt ut labore et dolore magna aliqua.
+				Discover the transformative experiences and satisfied voices of our delighted guests, where authenticity meets excellence.
 				</Intro>
 			</HeadingBox>
 			<Carousel
