@@ -13,7 +13,7 @@ const ContactUs = () => {
 	const ContactContainer = styled(Box)({
 		color: "white",
 		marginLeft: isMobile && window.innerWidth < 1024 ? "0" : "50px",
-		marginBottom: "100px",
+		marginBottom: "20px",
 		display: isMobile && window.innerWidth < 1024 ? "flex" : "",
 		flexDirection: "column",
 		alignItems: "center",
