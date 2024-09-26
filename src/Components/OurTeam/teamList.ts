@@ -1,43 +1,48 @@
 export const SuperCorelist = [
 	{
-		photo: "images/team/supercore/Aditya Vellore.png",
-		Name: "Aditya Vellore",
+		photo: "images/team/supercore/Vaibhav Bhutada.png",
+		Name: "Vaibhav Bhutada",
 		designation: "President",
 	},
 	{
-		photo: "images/team/supercore/Sharvil Gangan.png",
-		Name: "Sharvil Gangan",
+		photo: "images/team/supercore/Jignesh Desai.png",
+		Name: "Jignesh Desai",
 		designation: "Secretary",
 	},
 	{
-		photo: "images/team/supercore/Siddhi Jain.png",
-		Name: "Siddhi Jain",
+		photo: "images/team/supercore/Chahak Daga.png",
+		Name: "Chahak Daga",
 		designation: "Secretary",
 	},
 	{
-		photo: "images/team/supercore/Vaibhav Bhutada.png",
-		Name: "Vaibhav Bhutada",
-		designation: "Vice President  (Admin & Finanace)",
+		photo: "images/team/supercore/Mandar Rele.png",
+		Name: "Mandar Rele",
+		designation: "Treasurer",
 	},
 	{
-		photo: "images/team/supercore/Kashmaya Khandelwal.png",
-		Name: "Kashmaya Khandelwal",
+		photo: "images/team/supercore/Dhara Patel.png",
+		Name: "Dhara Patel",
 		designation: "Vice President  (Relations)",
 	},
 	{
-		photo: "images/team/supercore/Roshni Luthria.png",
-		Name: "Roshni Luthria",
+		photo: "images/team/supercore/Darrian Bharucha.png",
+		Name: "Darrian  Bharucha",
 		designation: "Vice President  (Marketing)",
 	},
 	{
-		photo: "images/team/supercore/Ojaswa Bhawsar.png",
-		Name: "Ojaswa Bhawsar",
-		designation: "Vice President  (Operations)",
+		photo: "images/team/supercore/Karan Bedi.png",
+		Name: "Karan Bedi",
+		designation: "Vice President  (Technical)",
 	},
 	{
-		photo: "images/team/supercore/Rajveer Jha.png",
-		Name: "Rajveer Jha",
+		photo: "images/team/supercore/Ananyaa Kapoor.png",
+		Name: "Ananya Kapoor",
 		designation: "Vice President  (Outreach)",
+	},
+	{
+		photo: "images/team/supercore/Preyasi Bhuva.png",
+		Name: "Preyasi Bhuva",
+		designation: "Coordinator",
 	},
 ];
 
@@ -51,8 +56,8 @@ export const CoreDep = [
 		department: "Corporate Relations",
 	},
 	{
-		photo: "images/team/core/DMC.png",
-		department: "Digital media & Content",
+		photo: "images/team/core/DC.png",
+		department: "Digital Creatives",
 	},
 	{
 		photo: "images/team/core/IHC.png",
@@ -69,6 +74,10 @@ export const CoreDep = [
 	{
 		photo: "images/team/core/PR.png",
 		department: "Public Relations",
+	},
+	{
+		photo: "images/team/core/SMC.png",
+		department: "Social Media and Content Writing",
 	},
 	{
 		photo: "images/team/core/Tech.png",
