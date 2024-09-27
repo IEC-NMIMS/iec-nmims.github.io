@@ -87,23 +87,31 @@ export const CoreDep = [
 
 export const MentorList = [
 	{
-		photo: "images/team/mentors/Anushree.png",
-		name: "Anushree Mishra",
+		photo: "images/team/mentors/Aditya Vellore.png",
+		name: "Aditya Vellore",
 	},
 	{
-		photo: "images/team/mentors/Jas.png",
-		name: "Jas Shah",
+		photo: "images/team/mentors/Kashmaya Khandelwal.png",
+		name: "Kashmaya Khandelwal",
 	},
 	{
-		photo: "images/team/mentors/Niyati.png",
-		name: "Niyati Mehta",
+		photo: "images/team/mentors/Ojaswa Bhawsar.png",
+		name: "Ojaswa Bhawsar",
 	},
 	{
-		photo: "images/team/mentors/Shraddha.png",
-		name: "Shraddha Phulre",
+		photo: "images/team/mentors/Rajveer Jha.png",
+		name: "Rajveer Jha",
 	},
 	{
-		photo: "images/team/mentors/Viraj.png",
-		name: "Viraj Sanap",
+		photo: "images/team/mentors/Roshni Luthria.png",
+		name: "Roshni Luthria",
+	},
+	{
+		photo: "images/team/mentors/Sharvil Gangan.png",
+		name: "Sharvil Gangan",
+	},
+	{
+		photo: "images/team/mentors/Siddhi Jain.png",
+		name: "Siddhi Jain",
 	},
 ];
