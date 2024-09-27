@@ -95,10 +95,6 @@ export const MentorList = [
 		name: "Kashmaya Khandelwal",
 	},
 	{
-		photo: "images/team/mentors/Ojaswa Bhawsar.png",
-		name: "Ojaswa Bhawsar",
-	},
-	{
 		photo: "images/team/mentors/Rajveer Jha.png",
 		name: "Rajveer Jha",
 	},
