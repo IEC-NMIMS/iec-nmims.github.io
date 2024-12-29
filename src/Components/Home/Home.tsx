@@ -1,11 +1,11 @@
 import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
-import IconButton from "@mui/material/IconButton";
-import EastIcon from "@mui/icons-material/East";
+// import IconButton from "@mui/material/IconButton";
+// import EastIcon from "@mui/icons-material/East";
 import Typography from "@mui/material/Typography";
 import { Card, useMediaQuery, CardMedia } from "@mui/material";
 import { useTheme } from "@mui/material";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
 const Home = () => {
 	const theme = useTheme();
@@ -62,30 +62,30 @@ const Home = () => {
 		fontFamily: "ITCAvantGardeGothicStd",
 	});
 
-	const KnowMore = styled(IconButton)({
-		backgroundColor: "rgb(0,185,203)",
-		borderRadius: isMobile ? "12px" : "15px",
-		right: "10px",
-		height: isMobile ? "40px" : "50px",
-		width: isMobile && window.innerWidth < 1024 ? "250px" : "350px",
-		display: "flex",
-		justifyContent: "start",
-		alignItems: "center",
-		paddingRight: isMobile ? "0" : "20px",
-		color: "black",
-		fontWeight: "bold",
-		marginLeft: "8px",
-
-		"&:hover": {
-			backgroundColor: "rgb(0,185,203)",
-		},
-	});
-
-	const ButtonText = styled(Typography)({
-		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 1024 ? "0.8rem" : "1rem",
-		fontWeight: "bold",
-	});
+	// const KnowMore = styled(IconButton)({
+	// 	backgroundColor: "rgb(0,185,203)",
+	// 	borderRadius: isMobile ? "12px" : "15px",
+	// 	right: "10px",
+	// 	height: isMobile ? "40px" : "50px",
+	// 	width: isMobile && window.innerWidth < 1024 ? "250px" : "350px",
+	// 	display: "flex",
+	// 	justifyContent: "start",
+	// 	alignItems: "center",
+	// 	paddingRight: isMobile ? "0" : "20px",
+	// 	color: "black",
+	// 	fontWeight: "bold",
+	// 	marginLeft: "8px",
+	//
+	// 	"&:hover": {
+	// 		backgroundColor: "rgb(0,185,203)",
+	// 	},
+	// });
+	//
+	// const ButtonText = styled(Typography)({
+	// 	fontFamily: "ITCAvantGardeGothicStd",
+	// 	fontSize: isMobile && window.innerWidth < 1024 ? "0.8rem" : "1rem",
+	// 	fontWeight: "bold",
+	// });
 
 	const Whitebox = styled(Card)({
 		backgroundColor: "rgba(255, 255, 255, 0.8)",
@@ -121,10 +121,10 @@ const Home = () => {
 		fontFamily: "ITCAvantGardeGothicStd",
 	});
 
-	const Arrow = styled(EastIcon)({
-		marginLeft: "auto",
-		marginRight: "15px",
-	});
+	// const Arrow = styled(EastIcon)({
+	// 	marginLeft: "auto",
+	// 	marginRight: "15px",
+	// });
 	return (
 		<OuterBox id="home">
 			<InnerBox>
@@ -148,16 +148,16 @@ const Home = () => {
 						cornerstone built on the pillars of ingenuity, intellect, and innovative
 						thinking.
 					</InfoText>
-					<NavLink
-						to="https://unstop.com/college-fests/inceptio-70-the-entrepreneurial-festival-narsee-monjee-institute-of-management-studies-nmims-mumbai-191469"
-						style={{ textDecoration: "none", color: "white" }}
-						target="_blank"
-					>
-						<KnowMore>
-							<ButtonText>Register Now for Inceptio</ButtonText>
-							<Arrow />
-						</KnowMore>
-					</NavLink>
+					{/*<NavLink*/}
+					{/*	to="https://unstop.com/college-fests/inceptio-70-the-entrepreneurial-festival-narsee-monjee-institute-of-management-studies-nmims-mumbai-191469"*/}
+					{/*	style={{ textDecoration: "none", color: "white" }}*/}
+					{/*	target="_blank"*/}
+					{/*>*/}
+					{/*	<KnowMore>*/}
+					{/*		<ButtonText>Register Now for Inceptio</ButtonText>*/}
+					{/*		<Arrow />*/}
+					{/*	</KnowMore>*/}
+					{/*</NavLink>*/}
 				</TopRight>
 			</InnerBox>
 

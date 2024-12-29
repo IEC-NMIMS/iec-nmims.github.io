@@ -25,10 +25,19 @@ const Inceptio = () => {
     fontFamily: "ITCAvantGardeGothicStd",
     fontSize: isMobile && window.innerWidth < 1024 ? "2.8rem" : "8rem",
     fontWeight: "bold",
-    marginBottom: "20px",
+    textAlign: "center",
+    marginBottom: "10px",
     zIndex: "1",
   });
-
+  const Subheading = styled(Typography)({
+    fontSize: isMobile && window.innerWidth < 1024 ? "1.8rem" : "3rem",
+    fontWeight: "bold",
+    fontFamily: "ITCAvantGardeGothicStd",
+    textAlign: "center",
+    paddingLeft: isMobile && window.innerWidth < 1024 ? "0" : "50px",
+    marginBottom: "20px",
+    zIndex: 1,
+  });
   const MainCard = styled(Box)({
     display: "flex",
     flexDirection: "column",
@@ -40,13 +49,13 @@ const Inceptio = () => {
     zIndex: "1",
   });
 
-  const ImageCard = styled(Box)({
-    width: "100%",
-    height: isMobile ? "200px" : "600px",
-    borderRadius: "15px",
-    marginBottom: "20px",
-    zIndex: "1",
-  });
+  // const ImageCard = styled(Box)({
+  //   width: "100%",
+  //   height: isMobile ? "200px" : "600px",
+  //   borderRadius: "15px",
+  //   marginBottom: "20px",
+  //   zIndex: "1",
+  // });
 
   const Image = styled("img")({
     width: "100%",
@@ -127,17 +136,19 @@ const Inceptio = () => {
       <BackgroundBox color="yellow" position="right" index={3.5} />
 
       <OuterBox>
-        <Heading>Inceptio</Heading>
+
         <MainCard>
-          <ImageCard>
-            <Image
-              src="images/inceptio/inceptio-banner.png"
-              srcSet="images/inceptio/inceptio-banner-large.png 2x, images/inceptio/inceptio-banner.png 1x"
-              alt="Inceptio Banner"
-            />
-          </ImageCard>
+          {/*<ImageCard>*/}
+          {/*  <Image*/}
+          {/*    src="images/inceptio/inceptio-banner.png"*/}
+          {/*    srcSet="images/inceptio/inceptio-banner-large.png 2x, images/inceptio/inceptio-banner.png 1x"*/}
+          {/*    alt="Inceptio Banner"*/}
+          {/*  />*/}
+          {/*</ImageCard>*/}
 
           <EventDescriptionText>
+            <Heading>Inceptio</Heading>
+            <Subheading>Glimpses of Innovation and Entrepreneurship: The Inceptio Experience</Subheading>
             The NMIMS MPSTME's Innovation and Entrepreneurship Carnival is an
             exceptional annual three-day event fostering entrepreneurship,
             business, and innovation. It gathers young individuals citywide to

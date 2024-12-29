@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 
 interface modals {
   title: string;
+  subtitle: string;
   data: string;
   images: string[];
 }
@@ -89,13 +90,14 @@ const Item = (props: Props) => {
     paddingLeft: "20px",
     fontSize: "1.25rem",
   });
-  const handleKnowMore = (title: string, data: string, images: string[]) => {
+  const handleKnowMore = (title: string,subtitle:string, data: string, images: string[]) => {
     if (title === "Innovation Challenge") {
       navigate("/inceptio");
     } else {
       navigate("/events", {
         state: {
           title: title,
+          subtitle: subtitle,
           data: data,
           images: images,
         },
@@ -113,7 +115,7 @@ const Item = (props: Props) => {
 
       <KnowMore
         onClick={() =>
-          handleKnowMore(modalData.title, modalData.data, modalData.images)
+          handleKnowMore(modalData.title,modalData.subtitle, modalData.data, modalData.images)
         }
       >
         <KnowMoreText>Know More</KnowMoreText>

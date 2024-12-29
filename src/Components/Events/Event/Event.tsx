@@ -9,7 +9,7 @@ const Event = () => {
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 	window.scrollTo(0, 0);
 
-	const { title, data, images } = location.state;
+	const { title, data, images,subtitle } = location.state;
 
 	const Data = styled(Box)({
 		marginTop: "30px",
@@ -35,6 +35,15 @@ const Event = () => {
 	});
 
 	const Title = styled(Typography)({
+		fontSize: isMobile && window.innerWidth < 1024 ? "2.8rem" : "8rem",
+		fontWeight: "bold",
+		fontFamily: "ITCAvantGardeGothicStd",
+		textAlign: "center",
+		paddingLeft: isMobile && window.innerWidth < 1024 ? "0" : "50px",
+		marginBottom: "10px",
+		zIndex: 1,
+	});
+	const Subtitle = styled(Typography)({
 		fontSize: isMobile && window.innerWidth < 1024 ? "1.8rem" : "3rem",
 		fontWeight: "bold",
 		fontFamily: "ITCAvantGardeGothicStd",
@@ -43,7 +52,6 @@ const Event = () => {
 		marginBottom: "10px",
 		zIndex: 1,
 	});
-
 	const Desc = styled(Typography)({
 		color: "rgba(255, 255, 255, 0.8)",
 		fontSize: isMobile && window.innerWidth < 1024 ? "0.6rem" : "1rem",
@@ -98,6 +106,7 @@ const Event = () => {
 			/>
 			<Background>
 				<Title>{title}</Title>
+				<Subtitle>{subtitle}</Subtitle>
 				<Desc>{data}</Desc>
 				<ImageBox>
 					{images.map((image: string | undefined) => (

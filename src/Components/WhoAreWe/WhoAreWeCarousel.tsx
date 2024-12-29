@@ -49,6 +49,7 @@ const WhoAreWeCarousel = () => {
 				autoPlay={true}
 				autoPlaySpeed={4000}
 				keyBoardControl={true}
+				arrows={false}
 				transitionDuration={1000}
 			>
 				<MissionCard />

@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
-import IconButton from "@mui/material/IconButton";
-import EastIcon from "@mui/icons-material/East";
+// import IconButton from "@mui/material/IconButton";
+// import EastIcon from "@mui/icons-material/East";
 import Typography from "@mui/material/Typography";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useMediaQuery, useTheme } from "@mui/material";
@@ -52,33 +52,33 @@ const Navbar = () => {
 		cursor: "pointer",
 	});
 
-	const Register = styled(IconButton)({
-		backgroundColor: "white",
-		borderRadius: "15px",
-		marginLeft: "20px",
-		right: "10px",
-		padding: "0 15px",
-		width: isMobile ? "175px" : "220px",
-		height: "50px",
-		display: "flex",
-		justifyContent: "start",
-		color: "black",
-		fontSize: "22px",
+	// const Register = styled(IconButton)({
+	// 	backgroundColor: "white",
+	// 	borderRadius: "15px",
+	// 	marginLeft: "20px",
+	// 	right: "10px",
+	// 	padding: "0 15px",
+	// 	width: isMobile ? "175px" : "220px",
+	// 	height: "50px",
+	// 	display: "flex",
+	// 	justifyContent: "start",
+	// 	color: "black",
+	// 	fontSize: "22px",
+	//
+	// 	"&:hover": {
+	// 		backgroundColor: "white",
+	// 	},
+	// });
+	//
+	// const RegisterText = styled(Typography)({
+	// 	fontFamily: "ITCAvantGardeGothicStd",
+	// 	fontWeight: "bold",
+	// 	fontSize: isMobile ? "0.9rem" : "1.2rem",
+	// });
 
-		"&:hover": {
-			backgroundColor: "white",
-		},
-	});
-
-	const RegisterText = styled(Typography)({
-		fontFamily: "ITCAvantGardeGothicStd",
-		fontWeight: "bold",
-		fontSize: isMobile ? "0.9rem" : "1.2rem",
-	});
-
-	const Arrow = styled(EastIcon)({
-		marginLeft: "auto",
-	});
+	// const Arrow = styled(EastIcon)({
+	// 	marginLeft: "auto",
+	// });
 	return (
 		<NavBox id="navbar">
 			<Logo>
@@ -157,10 +157,10 @@ const Navbar = () => {
 				style={{ textDecoration: "none", color: "white" }}
 				target="_blank"
 			>
-				<Register>
-					<RegisterText>Register Now</RegisterText>
-					<Arrow />
-				</Register>
+				{/*<Register>*/}
+				{/*	<RegisterText>Register Now</RegisterText>*/}
+				{/*	<Arrow />*/}
+				{/*</Register>*/}
 			</NavLink>
 		</NavBox>
 	);
