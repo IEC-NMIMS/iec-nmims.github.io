@@ -10,7 +10,6 @@ const ContactUs = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const form = useRef<HTMLFormElement>(null);
-
   const ContactContainer = styled(Box)({
     color: "white",
     marginLeft: isMobile && window.innerWidth < 1024 ? "0" : "50px",
@@ -124,6 +123,14 @@ const ContactUs = () => {
     marginBottom: "0px",
     fontWeight: "bold",
   });
+  const StyledLink= styled('a')({
+    fontFamily: "ITCAvantGardeGothicStd",
+    color: "white",
+    textDecoration: "none",
+    '&:hover': {
+      textDecoration: "underline",
+    }
+  })
 
   const Info = styled(Typography)({
     fontFamily: "ITCAvantGardeGothicStd",
@@ -135,77 +142,77 @@ const ContactUs = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm("service_79t3ups", "template_rdye5ac", form.current!, {
-        publicKey: "v-RbDoYe0nh3ZI6pL",
-      })
-      .then(
-        () => {
-          form.current!.reset();
-          alert("SUCCESS!");
-        },
-        (error) => {
-          alert("FAILED..." + error.text);
-        }
-      );
+        .sendForm("service_79t3ups", "template_s527qdh", form.current!, {
+          publicKey: "rxKvzV-FaA8t2u-yw",
+        })
+        .then(
+            () => {
+              form.current!.reset();
+              alert("SUCCESS!");
+            },
+            (error) => {
+              alert("FAILED..." + error.text);
+            }
+        );
   };
   return (
-    <ContactContainer>
-      <Header>Contact Us</Header>
-      <SubContainer>
-        <ContactForm ref={form} onSubmit={sendEmail}>
-          <NameEmail>
-            <TextInput
-              id="contact-name"
-              placeholder="Name"
-              name="name"
-              type="text"
+      <ContactContainer>
+        <Header>Contact Us</Header>
+        <SubContainer>
+          <ContactForm ref={form} onSubmit={sendEmail}>
+            <NameEmail>
+              <TextInput
+                  id="contact-name"
+                  placeholder="Name"
+                  name="name"
+                  type="text"
+              />
+              <TextInput
+                  id="contact-email"
+                  placeholder="Email"
+                  name="email"
+                  type="email"
+                  style={{ marginRight: "0" }}
+              />
+            </NameEmail>
+            <SubjectInput
+                id="contact-subject"
+                placeholder="Subject"
+                name="subject"
+                type="text"
             />
-            <TextInput
-              id="contact-email"
-              placeholder="Email"
-              name="email"
-              type="email"
-              style={{ marginRight: "0" }}
-            />
-          </NameEmail>
-          <SubjectInput
-            id="contact-subject"
-            placeholder="Subject"
-            name="subject"
-            type="text"
-          />
-          <MessageInput
-            id="contact-meassage"
-            placeholder="Message"
-            name="message"
-            multiline
-            rows={6}
-          />{" "}
-          <br />
-          <ButtonInput color="inherit">Send Message</ButtonInput>
-        </ContactForm>
-        <ContactInfo>
-          <CallAdd>
-            <InfoHead>Call Us</InfoHead>
-            <InfoHead>Address</InfoHead>
-            <Info>+91 93095 21094</Info>
-            <Info>
-              IEC-MPSTME, NMIMS,V. L. Mehta Road, Vile Parle, West Mumbai,
-              Maharashtra 400056
-            </Info>
-          </CallAdd>
-          <Emhour>
-            <InfoHead>Email Us</InfoHead>
-            <InfoHead>Open Hours</InfoHead>
-            <Info>iec.nmims@gmail.com</Info>
-            <Info>
-              Monday - Saturday
-              <br></br>10:00AM - 05:00PM
-            </Info>
-          </Emhour>
-        </ContactInfo>
-      </SubContainer>
-    </ContactContainer>
+            <MessageInput
+                id="contact-meassage"
+                placeholder="Message"
+                name="message"
+                multiline
+                rows={6}
+            />{" "}
+            <br />
+            <ButtonInput color="inherit">Send Message</ButtonInput>
+          </ContactForm>
+          <ContactInfo>
+            <CallAdd>
+              <InfoHead>Call Us</InfoHead>
+              <InfoHead>Address</InfoHead>
+              <Info> <StyledLink href="tel:+919309521094">+91 93095 21094</StyledLink></Info>
+              <Info>
+                IEC-MPSTME, NMIMS,V. L. Mehta Road, Vile Parle, West Mumbai,
+                Maharashtra 400056
+              </Info>
+            </CallAdd>
+            <Emhour>
+              <InfoHead>Email Us</InfoHead>
+              <InfoHead>Open Hours</InfoHead>
+              <Info><StyledLink href= "mailto:contact@iecnmims.com?subject=Inquiry&body=Hello,%20I%20would%20like%20to%20discuss...">contact@iecnmims.com</StyledLink></Info>
+              <Info>
+                Monday - Saturday
+                <br></br>10:00AM - 05:00PM
+              </Info>
+            </Emhour>
+          </ContactInfo>
+        </SubContainer>
+      </ContactContainer>
   );
 };
 export default ContactUs;

@@ -86,7 +86,7 @@ const OurTeam = () => {
 				<SuperCoreHeader>Super Core</SuperCoreHeader>
 				<Carousel
 					responsive={responsive}
-					swipeable={false}
+					swipeable={true}
 					draggable={true}
 					showDots={false}
 					containerClass=""
@@ -110,7 +110,7 @@ const OurTeam = () => {
 				<SuperCoreHeader>Mentors</SuperCoreHeader>
 				<Carousel
 					responsive={responsive}
-					swipeable={false}
+					swipeable={true}
 					draggable={true}
 					showDots={false}
 					containerClass=""

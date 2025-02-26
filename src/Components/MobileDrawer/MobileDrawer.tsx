@@ -51,11 +51,25 @@ const MobileDrawer = () => {
 		setState(!state);
 	};
 
+	const NavbarContainer = styled(Box)({
+		display: "flex",
+		justifyContent: "space-between",
+		alignItems: "center",
+		width: "100%",
+		marginBottom: "20px",
+	});
+
+	const Logo = styled(Typography)({
+		color: "white",
+		fontFamily: "ITCAvantGardeGothicStd",
+		fontWeight: "bold",
+		fontSize: "1.5rem",
+	});
+
 	const HamburgerMenu = styled(MenuIcon)({
 		color: "white",
 		fontSize: "3rem",
 		fontFamily: "ITCAvantGardeGothicStd",
-		marginBottom: "20px",
 	});
 
 	const MenuBox = styled(Box)({
@@ -75,7 +89,15 @@ const MobileDrawer = () => {
 		backgroundColor: "rgba(42, 43, 42, 0.3)",
 		padding: "20px 20px",
 	});
-
+	const LinkText = styled(Typography)({
+		fontFamily: "ITCAvantGardeGothicStd",
+		color: "white",
+		fontSize: isMobile ? "0.9rem" : "1.2rem",
+		padding: "0 20px",
+		cursor: "pointer",
+		display: "flex",
+		alignItems: "center",
+	});
 	const MenuListItemText = styled(Typography)({
 		fontSize: "1.2rem",
 		fontWeight: "bold",
@@ -99,7 +121,13 @@ const MobileDrawer = () => {
 		fontFamily: "ITCAvantGardeGothicStd",
 		marginTop: "4px",
 	});
-
+	const Image = styled("img")({
+		height: "auto",
+		maxHeight: "40px",
+		width: "auto",
+		maxWidth: "100%",
+		objectFit: "contain"
+	});
 	const Arrow = styled(EastIcon)({
 		color: "black",
 		marginLeft: "auto",
@@ -225,10 +253,31 @@ const MobileDrawer = () => {
 	return (
 		<div>
 			{isMobile && (
-				<HamburgerMenu
-					id="navbar"
-					onClick={toggleDrawer()}
-				/>
+				<NavbarContainer>
+					<Logo>
+						<LinkText
+							onClick={() => {
+								const element = document.getElementById("home");
+								const href = window.location.href.split("/");
+								const length = window.location.href.split("/").length;
+
+								if (href[length - 1] === "") {
+									element?.scrollIntoView({
+										behavior: "smooth",
+									});
+								} else {
+									navigate("/");
+								}
+							}}
+						>
+							<Image src="/images/logo/iec-logo.svg" />
+						</LinkText>
+					</Logo>
+					<HamburgerMenu
+						id="navbar"
+						onClick={toggleDrawer()}
+					/>
+				</NavbarContainer>
 			)}
 			<Drawer
 				anchor="top"

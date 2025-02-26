@@ -35,6 +35,9 @@ const WhoAreWe = () => {
 	const LeftPanel = styled(Box)({
 		width: "50%",
 		zIndex: 1,
+		display: "flex",
+		flexDirection: "column",
+		alignItems: isMobile ? "center" : "flex-start",
 	});
 
 	const LeftPanelTitle = styled(Typography)({
@@ -46,13 +49,16 @@ const WhoAreWe = () => {
 	});
 
 	const LeftPanelPara = styled(Typography)({
-		width: isMobile ? "100%" : "auto",
+		maxWidth: isMobile ? "100%" : "90%", // Control maximum width
+		width: isMobile ? "100%" : "500px", // Set specific width for desktop
 		fontFamily: "ITCAvantGardeGothicStd",
 		fontSize: isMobile && window.innerWidth < 1024 ? "0.6rem" : "1rem",
 		color: "rgba(255, 255, 255, 0.6)",
 		marginBottom: isMobile ? "20px" : "40px",
 		zIndex: 1,
 		textAlign: isMobile ? "center" : "left",
+		lineHeight: "1.6", // Improve readability
+		letterSpacing: "0.3px", // Slight letter spacing for better readability
 	});
 
 	const KnowMore = styled(IconButton)({
@@ -120,17 +126,17 @@ const WhoAreWe = () => {
 						inculcate and entrepreneurial and innovative environment in the institute.
 						We want to keep up the spirit of entrepreneurship in the minds of the youth
 						and create passion amongst the students who wish to pursue entrepreneurship
-						as a career.
+						as a career. Through various initiatives, mentorship programs, and networking opportunities, we strive to equip students with the skills and knowledge needed to turn their ideas into successful ventures.
 					</LeftPanelPara>
-					<NavLink
-						style={{ textDecoration: "none" }}
-						to="/vision-mission"
-					>
-						<KnowMore>
-							<KnowMoreText>Click to know more</KnowMoreText>
-							<Arrow />
-						</KnowMore>
-					</NavLink>
+					{/*<NavLink*/}
+					{/*	style={{ textDecoration: "none" }}*/}
+					{/*	to="/vision-mission"*/}
+					{/*>*/}
+					{/*	<KnowMore>*/}
+					{/*		<KnowMoreText>Click to know more</KnowMoreText>*/}
+					{/*		<Arrow />*/}
+					{/*	</KnowMore>*/}
+					{/*</NavLink>*/}
 				</LeftPanel>
 				<RightPanel>
 					<RightPanelImage>

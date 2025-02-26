@@ -39,7 +39,7 @@ const InnoVision = () => {
 	const SpeakerHeader = styled(Typography)({
 		fontSize: isMobile && window.innerWidth < 1024 ? "1.8rem" : "3rem",
 		alignSelf: isMobile && window.innerWidth < 1024 ? "center" : "",
-		marginLeft: isMobile && window.innerWidth < 1024 ? "0" : "50px",
+		marginLeft: isMobile && window.innerWidth < 1024 ? "0" : "10px",
 		marginBottom: "50px",
 		fontWeight: "bold",
 		color: "white",
@@ -59,10 +59,10 @@ const InnoVision = () => {
 				ssr={false}
 				infinite={true}
 				autoPlay={true}
-				autoPlaySpeed={4000}
+				autoPlaySpeed={1000}
 				keyBoardControl={true}
 				transitionDuration={2000}
-				arrows={false}
+				arrows={true}
 			>
 				{InnoVisionGuestList.map((info, index) => (
 					<InnoVisionItem
@@ -72,6 +72,7 @@ const InnoVision = () => {
 						name={info.name}
 						post={info.post}
 						desc={info.desc}
+						linkedin={info.linkedin}
 					></InnoVisionItem>
 				))}
 			</Carousel>

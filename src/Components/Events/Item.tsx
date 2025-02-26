@@ -33,7 +33,7 @@ const Item = (props: Props) => {
   const EventCard = styled(Card)({
     width: isMobile && window.innerWidth < 1024 ? "95%" : "350px",
     height: "600px",
-    padding: "5px",
+    padding: "0.1px",
     backgroundColor: "rgba(42,43,42,.3)",
     borderRadius: "20px",
 
@@ -64,7 +64,7 @@ const Item = (props: Props) => {
 
   const EventDesc = styled(Typography)({
     fontFamily: "ITCAvantGardeGothicStd",
-    fontSize: isMobile && window.innerWidth < 1024 ? "0.75rem" : "0.85rem",
+    fontSize: isMobile && window.innerWidth < 1024 ? "0.85rem" : "0.95rem",
     marginBottom: "20px",
     color: "rgba(255, 255, 255, 0.8)",
   });

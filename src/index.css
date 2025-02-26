@@ -15,7 +15,7 @@
 
 @media screen and (max-width: 1200px) {
   html, body {
-    margin: 0px;
+    margin: 0;
     background-color:#000000;
     overflow-x: hidden;
     -ms-overflow-style: none;
@@ -45,6 +45,7 @@ body {
     overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    text-align: left;
 }
 
 ::-webkit-scrollbar {

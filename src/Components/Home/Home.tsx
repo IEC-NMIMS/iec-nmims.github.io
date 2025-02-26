@@ -1,15 +1,17 @@
 import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
-import IconButton from "@mui/material/IconButton";
+import Button from "@mui/material/IconButton";
 import EastIcon from "@mui/icons-material/East";
 import Typography from "@mui/material/Typography";
 import { Card, useMediaQuery, CardMedia } from "@mui/material";
 import { useTheme } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import CountUp from "react-countup";
 
 const Home = () => {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+	const isSmallScreen = window.innerWidth < 600;
 	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	const OuterBox = styled(Box)({
@@ -34,6 +36,7 @@ const Home = () => {
 		boxShadow: "none",
 		color: "rgba(255, 255, 255, 0.75)",
 		width: "max-content",
+		maxWidth: "100%",
 		padding: "0 5px",
 		marginLeft: "0",
 		marginTop: isMobile ? "0" : "100px",
@@ -50,7 +53,7 @@ const Home = () => {
 
 	const IECTitle = styled(Typography)({
 		color: "white",
-		fontSize: isMobile && window.innerWidth < 1024 ? "2rem" : "3.6rem",
+		fontSize: isSmallScreen ? "1.5rem" : isMobile && window.innerWidth < 1024 ? "2rem" : "3.6rem",
 		fontFamily: "ITCAvantGardeGothicStd",
 		fontWeight: "bold",
 		marginBottom: "10px",
@@ -58,33 +61,48 @@ const Home = () => {
 
 	const InfoText = styled(Typography)({
 		marginBottom: "30px",
-		fontSize: isMobile && window.innerWidth < 1024 ? "0.8rem" : "1.25rem",
+		fontSize: isSmallScreen ? "0.75rem" : isMobile && window.innerWidth < 1024 ? "0.8rem" : "1.25rem",
 		fontFamily: "ITCAvantGardeGothicStd",
 	});
 
-	const KnowMore = styled(IconButton)({
+	const KnowMore = styled(Button)({
 		backgroundColor: "rgb(0,185,203)",
 		borderRadius: isMobile ? "12px" : "15px",
 		right: "10px",
-		height: isMobile ? "40px" : "50px",
-		width: isMobile && window.innerWidth < 1024 ? "250px" : "350px",
+		height: isSmallScreen ? "36px" : isMobile ? "40px" : "50px",
+		width: "auto", // Changed to auto for better responsiveness
+		minWidth: isSmallScreen ? "160px" : isMobile ? "180px" : "250px",
+		maxWidth: "100%",
 		display: "flex",
-		justifyContent: "start",
+		justifyContent: "space-between", // Changed to space-between for better layout
 		alignItems: "center",
-		paddingRight: isMobile ? "0" : "20px",
+		padding: isSmallScreen ? "0 10px" : "0 15px", // Added consistent padding
 		color: "black",
 		fontWeight: "bold",
 		marginLeft: "8px",
+		gap: "8px",
 
 		"&:hover": {
 			backgroundColor: "rgb(0,185,203)",
+			transform: "scale(1.03)", // Added a subtle scale effect on hover
+			transition: "transform 0.2s ease-in-out",
 		},
 	});
 
 	const ButtonText = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 1024 ? "0.8rem" : "1rem",
+		fontSize: isSmallScreen ? "0.7rem" : isMobile && window.innerWidth < 1024 ? "0.8rem" : "1rem",
 		fontWeight: "bold",
+		whiteSpace: "nowrap", // Prevents text wrapping inside button
+		overflow: "hidden",
+		textOverflow: "ellipsis",
+		marginLeft: isSmallScreen ? "5px" : "24px", // Adjusted margins without theme
+	});
+
+	const Arrow = styled(EastIcon)({
+		marginLeft: "10px", // Consistent spacing
+		fontSize: isSmallScreen ? "1rem" : isMobile ? "1.2rem" : "1.5rem", // Responsive icon size
+		marginRight: isSmallScreen ? "5px" : "20px",
 	});
 
 	const Whitebox = styled(Card)({
@@ -92,39 +110,38 @@ const Home = () => {
 		marginLeft: isMobile ? "0" : "245px",
 		marginBottom: isMobile ? "0" : "50px",
 		marginTop: isMobile ? "0" : "100px",
-		padding: "10px 0",
+		padding: isSmallScreen ? "8px 0" : "10px 0",
 		height: "max-content",
 		borderRadius: "20px",
 		width: isDesktop ? "60%" : "100%",
 		display: "flex",
-		flexDirection: "row",
+		flexDirection: isSmallScreen ? "column" : "row", // Stack vertically on very small screens
 		alignItems: "center",
 		justifyContent: "space-evenly",
 		color: "black",
+		gap: isSmallScreen ? "16px" : 0, // Add gap for small screens
 	});
 
 	const WhiteBoxItem = styled(Box)({
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
+		padding: isSmallScreen ? "10px 0" : "0",
 	});
 
 	const WhiteBoxTitle = styled(Typography)({
-		fontSize: isMobile ? "100%" : "3rem",
+		fontSize: isSmallScreen ? "1.5rem" : isMobile ? "2rem" : "3rem",
 		fontWeight: "bold",
 		fontFamily: "ITCAvantGardeGothicStd",
 	});
 
 	const WhiteBoxBody = styled(Typography)({
-		fontSize: isMobile && window.innerWidth < 1024 ? "70%" : isMobile ? "80%" : "1.8rem",
+		fontSize: isSmallScreen ? "0.8rem" : isMobile && window.innerWidth < 1024 ? "0.9rem" : "1.8rem",
 		fontWeight: "600",
 		fontFamily: "ITCAvantGardeGothicStd",
+		textAlign: "center",
 	});
 
-	const Arrow = styled(EastIcon)({
-		marginLeft: "auto",
-		marginRight: "15px",
-	});
 	return (
 		<OuterBox id="home">
 			<InnerBox>
@@ -149,8 +166,8 @@ const Home = () => {
 						thinking.
 					</InfoText>
 					<NavLink
-						to="https://unstop.com/college-fests/inceptio-70-the-entrepreneurial-festival-narsee-monjee-institute-of-management-studies-nmims-mumbai-191469"
-						style={{ textDecoration: "none", color: "white" }}
+						to="https://unstop.com/college-fests/inceptio-80-an-innovation-and-entrepreneurship-carnival-narsee-monjee-institute-of-management-studies-nmims-mumbai-331073"
+						style={{ textDecoration: "none", color: "white", display: "inline-block", maxWidth: "100%" }} // Made NavLink responsive
 						target="_blank"
 					>
 						<KnowMore>
@@ -162,30 +179,40 @@ const Home = () => {
 			</InnerBox>
 
 			<InnerBox
-				sx={{ justifyContent: isDesktop && window.innerWidth < 1200 ? "center" : "" }}
+				sx={{
+					justifyContent: isDesktop && window.innerWidth < 1200 ? "center" : "",
+					flexDirection: isSmallScreen ? "column" : "row", // Stack on small screens
+				}}
 			>
 				<Whitebox>
 					<WhiteBoxItem>
-						<WhiteBoxTitle>+110</WhiteBoxTitle>
+						<WhiteBoxTitle>
+							<CountUp start={0} end={110} duration={3} />+
+						</WhiteBoxTitle>
 						<WhiteBoxBody>Team Members</WhiteBoxBody>
 					</WhiteBoxItem>
 
 					<WhiteBoxItem>
-						<WhiteBoxTitle>+100</WhiteBoxTitle>
+						<WhiteBoxTitle>
+							<CountUp start={0} end={100} duration={3} />+
+						</WhiteBoxTitle>
 						<WhiteBoxBody>Events</WhiteBoxBody>
 					</WhiteBoxItem>
 
 					<WhiteBoxItem>
-						<WhiteBoxTitle>+200</WhiteBoxTitle>
+						<WhiteBoxTitle>
+							<CountUp start={0} end={200} duration={3} />+
+						</WhiteBoxTitle>
 						<WhiteBoxBody>Speakers</WhiteBoxBody>
 					</WhiteBoxItem>
 
 					<WhiteBoxItem>
-						<WhiteBoxTitle>+10k</WhiteBoxTitle>
+						<WhiteBoxTitle>
+							<CountUp start={0} end={10000} duration={3} />+
+						</WhiteBoxTitle>
 						<WhiteBoxBody>Outreach</WhiteBoxBody>
 					</WhiteBoxItem>
 				</Whitebox>
-				<InnerBox></InnerBox>
 			</InnerBox>
 		</OuterBox>
 	);

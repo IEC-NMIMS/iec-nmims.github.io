@@ -1,13 +1,28 @@
+import { useState, useEffect } from "react";
 import { SpeakerList } from "./SpeakerList";
 import SpeakerItem from "./SpeakerItem";
-import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 const Speaker = () => {
-	const theme = useTheme();
-	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.innerWidth < 1024);
+		};
+
+		// Set initial state
+		handleResize();
+
+		// Add event listener
+		window.addEventListener('resize', handleResize);
+
+		// Clean up
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
 
 	const responsive = {
 		superLargeDesktop: {
@@ -32,14 +47,14 @@ const Speaker = () => {
 		display: "flex",
 		flexDirection: "column",
 		margin: isMobile ? "50px 0px" : "150px 0",
-		marginLeft: isMobile && window.innerWidth < 1024 ? "10px" : "0px",
+		marginLeft: isMobile ? "10px" : "0px",
 		zIndex: 1,
 	});
 
 	const SpeakerHeader = styled(Typography)({
-		fontSize: isMobile && window.innerWidth < 1024 ? "1.8rem" : "3rem",
-		alignSelf: isMobile && window.innerWidth < 1024 ? "center" : "",
-		marginLeft: isMobile && window.innerWidth < 1024 ? "0" : "50px",
+		fontSize: isMobile ? "1.8rem" : "3rem",
+		alignSelf: isMobile ? "center" : "",
+		marginLeft: isMobile ? "0" : "10px",
 		marginBottom: "50px",
 		fontWeight: "bold",
 		color: "white",
@@ -59,10 +74,10 @@ const Speaker = () => {
 				ssr={false}
 				infinite={true}
 				autoPlay={true}
-				autoPlaySpeed={4000}
+				autoPlaySpeed={1000}
 				keyBoardControl={true}
-				transitionDuration={2000}
-				arrows={false}
+				transitionDuration={1500}
+				arrows={true}
 			>
 				{SpeakerList.map((info, index) => (
 					<SpeakerItem
@@ -72,7 +87,9 @@ const Speaker = () => {
 						name={info.name}
 						post={info.post}
 						desc={info.desc}
-					></SpeakerItem>
+						linkedin={info.linkedin}
+						isMobile={isMobile}
+					/>
 				))}
 			</Carousel>
 		</SpeakerBox>

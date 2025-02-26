@@ -34,7 +34,7 @@ const Events = () => {
     fontSize: isMobile && window.innerWidth < 1024 ? "1.8rem" : "3rem",
     fontWeight: "bold",
     fontFamily: "ITCAvantGardeGothicStd",
-    marginLeft: isMobile && window.innerWidth < 1024 ? "0" : "50px",
+    marginLeft: isMobile && window.innerWidth < 1024 ? "0" : "10px",
     marginBottom: isMobile && window.innerWidth < 1024 ? "50px" : "100px",
     zIndex: 1,
     alignSelf: isMobile && window.innerWidth < 1024 ? "center" : "",

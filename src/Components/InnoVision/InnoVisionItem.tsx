@@ -6,11 +6,12 @@ interface Props {
 	image: string;
 	name: string;
 	post: string;
+	linkedin?: string;
 	desc: string;
 }
 
 const InnoVisionItem = (props: Props) => {
-	const { image, name, post, desc } = props;
+	const { image, name, post, desc,linkedin } = props;
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
@@ -42,6 +43,10 @@ const InnoVisionItem = (props: Props) => {
 		marginTop: "20px",
 		textAlign: "center",
 		zIndex: 1,
+		"&:hover": {
+			color: linkedin ? "white" : "white",
+			textDecoration: linkedin ? "underline" : "none"
+		}
 	});
 	const SpeakerPost = styled(Typography)({
 		width: "100%",

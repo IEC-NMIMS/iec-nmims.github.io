@@ -40,13 +40,13 @@ const Inceptio = () => {
     zIndex: "1",
   });
 
-  const ImageCard = styled(Box)({
-    width: "100%",
-    height: isMobile ? "200px" : "600px",
-    borderRadius: "15px",
-    marginBottom: "20px",
-    zIndex: "1",
-  });
+  // const ImageCard = styled(Box)({
+  //   width: "100%",
+  //   height: isMobile ? "200px" : "600px",
+  //   borderRadius: "15px",
+  //   marginBottom: "20px",
+  //   zIndex: "1",
+  // });
 
   const Image = styled("img")({
     width: "100%",
@@ -129,13 +129,13 @@ const Inceptio = () => {
       <OuterBox>
         <Heading>Inceptio</Heading>
         <MainCard>
-          <ImageCard>
-            <Image
-              src="images/inceptio/inceptio-banner.png"
-              srcSet="images/inceptio/inceptio-banner-large.png 2x, images/inceptio/inceptio-banner.png 1x"
-              alt="Inceptio Banner"
-            />
-          </ImageCard>
+          {/*<ImageCard>*/}
+          {/*  <Image*/}
+          {/*    src="images/inceptio/inceptio-banner.png"*/}
+          {/*    srcSet="images/inceptio/inceptio-banner-large.png 2x, images/inceptio/inceptio-banner.png 1x"*/}
+          {/*    alt="Inceptio Banner"*/}
+          {/*  />*/}
+          {/*</ImageCard>*/}
 
           <EventDescriptionText>
             The NMIMS MPSTME's Innovation and Entrepreneurship Carnival is an

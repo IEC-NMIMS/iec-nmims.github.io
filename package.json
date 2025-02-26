@@ -8,7 +8,6 @@
     "dev": "vite --host",
     "build": "tsc && vite build",
     "deploy": "npm run build && gh-pages -d dist",
-
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -20,6 +19,7 @@
     "@mui/joy": "^5.0.0-beta.20",
     "@mui/material": "^5.15.1",
     "react": "^18.2.0",
+    "react-countup": "^6.5.3",
     "react-dom": "^18.2.0",
     "react-material-ui-carousel": "^3.4.2",
     "react-multi-carousel": "^2.8.4",
