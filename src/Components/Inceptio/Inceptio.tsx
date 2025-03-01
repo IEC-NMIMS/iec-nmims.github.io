@@ -111,6 +111,7 @@ const Inceptio = () => {
   const DataCardDescription = styled(Typography)({
     fontFamily: "ITCAvantGardeGothicStd",
     fontSize: isMobile && window.innerWidth < 1024 ? "0.4rem" : "0.875rem",
+    letterSpacing: isMobile && window.innerWidth < 1024 ? "0.05rem" : "0.1rem",
     zIndex: "1",
   });
 
