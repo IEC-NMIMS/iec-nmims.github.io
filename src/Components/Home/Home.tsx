@@ -166,15 +166,10 @@ const Home = () => {
 						cornerstone built on the pillars of ingenuity, intellect, and innovative
 						thinking.
 					</InfoText>
-					<NavLink
-						to="https://unstop.com/college-fests/inceptio-80-an-innovation-and-entrepreneurship-carnival-narsee-monjee-institute-of-management-studies-nmims-mumbai-331073"
-						style={{ textDecoration: "none", color: "white", display: "inline-block", maxWidth: "100%" }} // Made NavLink responsive
-						target="_blank"
-					>
 					<InfoText style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', width: 'fit-content' }}>
 					<span style={{ width: '100%' }}><strong>Powered by</strong></span>
 					<img
-						src=''
+						src='public\images\home\unstoplogo.png'
 						alt="Unstop Logo"
 						style={{
 						width: '100%', // Makes the logo match the width of the text
@@ -184,6 +179,11 @@ const Home = () => {
 						}}
 					/>
 					</InfoText>
+					<NavLink
+						to="https://unstop.com/college-fests/inceptio-80-an-innovation-and-entrepreneurship-carnival-narsee-monjee-institute-of-management-studies-nmims-mumbai-331073"
+						style={{ textDecoration: "none", color: "white", display: "inline-block", maxWidth: "100%" }} // Made NavLink responsive
+						target="_blank"
+					>
 
 						<KnowMore> 
 							<ButtonText>
