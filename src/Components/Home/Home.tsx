@@ -91,7 +91,7 @@ const Home = () => {
 
 	const ButtonText = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isSmallScreen ? "0.7rem" : isMobile && window.innerWidth < 1024 ? "0.8rem" : "1rem",
+		fontSize: isSmallScreen ? "0.9rem" : isMobile && window.innerWidth < 1024 ? "1.0rem" : "1.2rem",
 		fontWeight: "bold",
 		whiteSpace: "nowrap", // Prevents text wrapping inside button
 		overflow: "hidden",
@@ -142,6 +142,7 @@ const Home = () => {
 		textAlign: "center",
 	});
 
+
 	return (
 		<OuterBox id="home">
 			<InnerBox>
@@ -170,8 +171,25 @@ const Home = () => {
 						style={{ textDecoration: "none", color: "white", display: "inline-block", maxWidth: "100%" }} // Made NavLink responsive
 						target="_blank"
 					>
-						<KnowMore>
-							<ButtonText>Register Now for Inceptio</ButtonText>
+					<InfoText style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', width: 'fit-content' }}>
+					<span style={{ width: '100%' }}><strong>Powered by</strong></span>
+					<img
+						src=''
+						alt="Unstop Logo"
+						style={{
+						width: '100%', // Makes the logo match the width of the text
+						maxWidth: isSmallScreen ? '75px' : isMobile ? '100px' : '125px', // Prevents it from growing too large
+						height: 'auto',
+						marginTop: '5px'
+						}}
+					/>
+					</InfoText>
+
+						<KnowMore> 
+							<ButtonText>
+							<strong>Register now for Inceptio</strong>
+
+							</ButtonText>
 							<Arrow />
 						</KnowMore>
 					</NavLink>
