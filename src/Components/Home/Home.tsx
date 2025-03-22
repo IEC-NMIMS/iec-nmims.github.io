@@ -169,7 +169,7 @@ const Home = () => {
 					<InfoText style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', width: 'fit-content' }}>
 					<span style={{ width: '100%' }}><strong>Powered by</strong></span>
 					<img
-						src='images/home/unstoplogo.png'
+						src='public/images/home/unstoplogo.png'
 						alt="Unstop Logo"
 						style={{
 						width: '100%', // Makes the logo match the width of the text

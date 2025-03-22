@@ -18,7 +18,7 @@ export const EventList = [
   },
   {
     image: "./images/event-carousel/unplanned-banner.webp",
-    name: "Unplanned 3.0",
+    name: "Unplanned",
     desc: "Unplanned is a captivating event where participants must quickly create business plans based on given images. The challenges will change momentarily, keeping everyone on their toes. This event aims to boost your improvisational skills and provide a platform for students to enhance their planning abilities.",
 
     modalData: {
@@ -36,7 +36,7 @@ export const EventList = [
   },
   {
     image: "./images/inceptio/inceptio-banner.webp",
-    name: "Inceptio 7.0",
+    name: "Inceptio",
     desc: "NMIMS MPSTME's Innovation and Entrepreneurship Carnival is an exceptional annual three-day event fostering entrepreneurship, business, and innovation. It gathers young individuals citywide to collaborate on projects, fostering discovery and teamwork.",
     modalData: {
       title: "Innovation Challenge",

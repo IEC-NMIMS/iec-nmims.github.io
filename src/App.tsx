@@ -10,6 +10,7 @@ import WhatTheyThinkOfIEC from "./Components/WhatTheyThinkOfIEC/WhatTheyThinkOfI
 import { useTheme, useMediaQuery } from "@mui/material";
 import InnoVision from "./Components/InnoVision/InnoVision";
 import Footer from "./Components/Footer/Footer";
+import Sponsors from "./Components/Sponsors/Sponsors.tsx";
 
 function App() {
 	const theme = useTheme();
@@ -101,6 +102,7 @@ function App() {
 			<WhatDoWeDo />
 			<WhatDoWeLearn />
 			<Events />
+			<Sponsors/>
 			<Speaker />
 			<InnoVision />
 			<WhatTheyThinkOfIEC />

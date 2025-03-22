@@ -7,6 +7,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
+import {EventList} from '../Events/EventList.ts';
 
 const Navbar = (): JSX.Element => {
     const navigate = useNavigate();
@@ -73,7 +74,7 @@ const Navbar = (): JSX.Element => {
     const LinkText = styled(Typography)({
         fontFamily: "ITCAvantGardeGothicStd",
         color: "white",
-        fontSize: isMobile ? "0.9rem" : "1.2rem",
+        fontSize: isMobile ? "0.8rem" : "1.1rem",
         padding: "0 20px",
         cursor: "pointer",
         display: "flex",
@@ -167,6 +168,27 @@ const Navbar = (): JSX.Element => {
         setDropdownOpen(!dropdownOpen);
     };
 
+    // Navigation handlers for events using the EventList data
+    const navigateToEventDetails = (title: string): void => {
+        // Find the corresponding event from EventList
+        const eventItem = EventList.find(event => event.name === title);
+
+        if (title === "Inceptio 7.0" || title === "Inceptio") {
+            navigate("/inceptio");
+        } else if (eventItem) {
+            // Navigate to events page with the event data
+            navigate("/events", {
+                state: {
+                    title: eventItem.modalData.title,
+                    data: eventItem.modalData.data,
+                    images: eventItem.modalData.images
+                },
+                replace: true
+            });
+        }
+        setDropdownOpen(false);
+    };
+
     return (
         <NavBox id="navbar">
             <Logo>
@@ -195,49 +217,20 @@ const Navbar = (): JSX.Element => {
                             />
                         </LinkText>
                         <Dropdown style={{ left: `${dropdownPosition.left}px` }}>
-                            <DropdownItem onClick={() => {
-                                scrollToSection("events");
-                                setDropdownOpen(false);
-                            }}>
-                                Enigma
-                            </DropdownItem>
-                            <DropdownItem>
-                                <NavLink
-                                    to="/workshops"
-                                    style={{ textDecoration: "none", color: "white", display: "block" }}
-                                    onClick={() => setDropdownOpen(false)}
+                            {/* Map through EventList to generate dropdown items */}
+                            {EventList.map((event, index) => (
+                                <DropdownItem
+                                    key={index}
+                                    onClick={() => navigateToEventDetails(event.name)}
                                 >
-                                    Unplanned
-                                </NavLink>
-                            </DropdownItem>
-                            <DropdownItem>
-                                <NavLink
-                                    to="/competitions"
-                                    style={{ textDecoration: "none", color: "white", display: "block" }}
-                                    onClick={() => setDropdownOpen(false)}
-                                >
-                                    Inceptio
-                                </NavLink>
-                            </DropdownItem>
-                            <DropdownItem>
-                                <NavLink
-                                    to="/speaker-sessions"
-                                    style={{ textDecoration: "none", color: "white", display: "block" }}
-                                    onClick={() => setDropdownOpen(false)}
-                                >
-                                    Concept Show
-                                </NavLink>
-                            </DropdownItem>
+                                    {event.name}
+                                </DropdownItem>
+                            ))}
                         </Dropdown>
                     </Box>
                 </ClickAwayListener>
-                <LinkText>
-                    <NavLink
-                        to="/inceptio"
-                        style={{ textDecoration: "none", color: "white" }}
-                    >
-                        Inceptio
-                    </NavLink>
+                <LinkText onClick={() => navigate("/inceptio")}>
+                    Inceptio
                 </LinkText>
                 <LinkText>
                     <NavLink
@@ -246,6 +239,9 @@ const Navbar = (): JSX.Element => {
                     >
                         Our Team
                     </NavLink>
+                </LinkText>
+                <LinkText onClick={() => scrollToSection("sponsors")}>
+                    Sponsors
                 </LinkText>
                 <LinkText onClick={() => scrollToSection("about-us")}>
                     About Us
