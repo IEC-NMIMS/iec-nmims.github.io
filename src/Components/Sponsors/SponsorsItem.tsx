@@ -15,7 +15,7 @@ const SponsorsItem = (props: Props) => {
 
     const EventCard = styled(Card)({
         width: isMobile ? "95%" : "350px",
-        height: "550px",
+        height: "400px",
         padding: "5px",
         backgroundColor: "rgba(42,43,42,.3)",
         borderRadius: "20px",
