@@ -8,4 +8,3 @@
 -   Give the following commands:
     -   npm install (only for the first time)
     -   npm run dev
-    -   npm run deploy
