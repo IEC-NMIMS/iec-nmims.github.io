@@ -59,4 +59,17 @@ export const SponsorList = [
         desc: "Tech Support Partner",
         category: "",
     },
+    {
+        image: "images/sponsors/imagica.webp",
+        name: "Imagicaa",
+        desc: "Entertainment Partner",
+        category: "",
+    },
+    {
+        image: "images/sponsors/3sis.webp",
+        name: "3sisters",
+        desc: "Beverage Partner",
+        category: "",
+    },
+    
 ];

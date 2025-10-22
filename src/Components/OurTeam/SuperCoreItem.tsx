@@ -14,7 +14,7 @@ const SuperCoreItem = (props: Props) => {
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
 	const MemberCard = styled(Card)({
-		width: isMobile && window.innerWidth < 1024 ? "95%" : "350px",
+		width: isMobile && window.innerWidth < 1080? "95%" : "272px",
 		height: "450px",
 		padding: "5px",
 		backgroundColor: "rgba(42,43,42,.3)",
@@ -23,7 +23,7 @@ const SuperCoreItem = (props: Props) => {
 	});
 	const SuperCorePic = styled(Box)({
 		background: "grey",
-		width: isMobile && window.innerWidth < 1024 ? "100%" : "318px",
+		width: isMobile && window.innerWidth < 1080? "100%" : "240px",
 		height: "300px",
 		borderRadius: "10px",
 		zIndex: 1,
@@ -41,7 +41,7 @@ const SuperCoreItem = (props: Props) => {
 	});
 	const SuperCoreName = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 1024 ? "1.2rem" : "1.5rem",
+		fontSize: isMobile && window.innerWidth < 1080? "1.2rem" : "1.5rem",
 		fontWeight: "bold",
 		color: "white",
 		marginTop: "20px",
@@ -51,7 +51,7 @@ const SuperCoreItem = (props: Props) => {
 	const SuperCoreDesg = styled(Typography)({
 		fontFamily: "ITCAvantGardeGothicStd",
 		textAlign: "center",
-		fontSize: isMobile && window.innerWidth < 1024 ? "0.8rem" : "1rem",
+		fontSize: isMobile && window.innerWidth < 1080? "0.8rem" : "1rem",
 		color: "rgba(255, 255, 255, 0.8)",
 		zIndex: 1,
 		width: "170px",

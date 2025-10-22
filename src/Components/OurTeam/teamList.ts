@@ -1,48 +1,48 @@
 export const SuperCorelist = [
 	{
-		photo: "images/team/supercore/Vaibhav Bhutada.webp",
-		Name: "Vaibhav Bhutada",
+		photo: "images/team/supercore/Prakhar.webp",
+		Name: "Prakhar Sharma",
 		designation: "President",
 	},
 	{
-		photo: "images/team/supercore/Jignesh Desai.webp",
-		Name: "Jignesh Desai",
+		photo: "images/team/supercore/Siddhant.webp",
+		Name: "Siddhant Naik",
 		designation: "Secretary",
 	},
 	{
-		photo: "images/team/supercore/Chahak Daga.webp",
-		Name: "Chahak Daga",
+		photo: "images/team/supercore/Itee Secretary.webp",
+		Name: "Itee Udeshi",
 		designation: "Secretary",
 	},
 	{
-		photo: "images/team/supercore/Mandar Rele.webp",
-		Name: "Mandar Rele",
+		photo: "images/team/supercore/Aman.webp",
+		Name: "Aman Babbar",
 		designation: "Treasurer",
 	},
 	{
-		photo: "images/team/supercore/Dhara Patel.webp",
-		Name: "Dhara Patel",
+		photo: "images/team/supercore/Tushar.webp",
+		Name: "Tushar Jain",
 		designation: "Vice President  (Relations)",
 	},
 	{
-		photo: "images/team/supercore/Darrian Bharucha.webp",
-		Name: "Darrian  Bharucha",
+		photo: "images/team/supercore/Swayam.webp",
+		Name: "Swayam Oberoi",
 		designation: "Vice President  (Marketing)",
 	},
+	// {
+	// 	photo: "images/team/supercore/.webp",
+	// 	Name: "Karan Bedi",
+	// 	designation: "Vice President  (Technical)",
+	// },
 	{
-		photo: "images/team/supercore/Karan Bedi.webp",
-		Name: "Karan Bedi",
-		designation: "Vice President  (Technical)",
-	},
-	{
-		photo: "images/team/supercore/Ananyaa Kapoor.webp",
-		Name: "Ananya Kapoor",
+		photo: "images/team/supercore/Krish.webp",
+		Name: "Krish Sharma",
 		designation: "Vice President  (Outreach)",
 	},
 	{
-		photo: "images/team/supercore/Preyasi Bhuva.webp",
-		Name: "Preyasi Bhuva",
-		designation: "Coordinator",
+		photo: "images/team/supercore/Mehek.webp",
+		Name: "Meahek Sigh",
+		designation: "Vice President  (Productions)",
 	},
 ];
 
