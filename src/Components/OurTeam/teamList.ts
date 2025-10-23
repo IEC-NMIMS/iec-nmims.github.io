@@ -17,7 +17,7 @@ export const SuperCorelist = [
 	{
 		photo: "images/team/supercore/Aman.webp",
 		Name: "Aman Babbar",
-		designation: "Treasurer",
+		designation: "Vice President (Finance & Admin)",
 	},
 	{
 		photo: "images/team/supercore/Tushar.webp",
