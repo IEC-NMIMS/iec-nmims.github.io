@@ -2,7 +2,7 @@ export const EventList = [
   {
     image: "./images/event-carousel/enigma-banner.webp",
     name: "Enigma",
-    desc: "IEC's introductory event for freshers showcases 'our vision and mission' through innovative games like Time Capsule, where participants write future goal notes, and brand/entrepreneur-themed heads up and dumb charades. This delightful experience with a Bollywood twist gives freshers hands-on entrepreneurship experience.",
+    desc: "IEC’s flagship fresher event, Enigma, gives newcomers a taste of creativity, chaos, and entrepreneurship in the IEC style! From innovative ice-breaker games to thought-provoking challenges, the event blends fun with purpose. Enigma marks the start of a year of innovation and unforgettable memories.",
     modalData: {
       title: "Enigma Unveiled: Have a look!",
       data: "IEC's introductory event meant for freshers essentially to get the essence of 'our vision and mission'. Various innovative games including Time Capsule, where people write a note to their future selves about their goals, heads up and dumb charades of brands/entrepreneurs sum it up. It is a delightful experience with a Bollywood twist where freshers get hands-on experience about entrepreneurship.",
@@ -19,11 +19,10 @@ export const EventList = [
   {
     image: "./images/event-carousel/unplanned-banner.webp",
     name: "Unplanned",
-    desc: "Unplanned is a captivating event where participants must quickly create business plans based on given images. The challenges will change momentarily, keeping everyone on their toes. This event aims to boost your improvisational skills and provide a platform for students to enhance their planning abilities.",
-
+    desc: "A fast-paced pitch event where participants combine random products, themes, and business elements to build spontaneous startups — creativity under pressure.",
     modalData: {
-      title: "Pitch-perfect Moments: Glimpses from Unplanned!",
-      data: "Unplanned is a captivating event, in which participants have to use their prompt reasoning to create on-the-spot business plans. All participants will be presented with images based on which they have to assemble a business plan Participants will be kept on their toes as their challenges will change momentarily. his event aims to encourage improvisational skills in students while providing them with a platform to hone their planning skills.",
+      title: "Unplanned",
+      data: "Participants craft on-the-spot business plans from given prompts and images, testing improvisation, quick planning, and adaptability.",
       images: [
         "./images/events/unplanned/image-1.webp",
         "./images/events/unplanned/image-2.webp",
