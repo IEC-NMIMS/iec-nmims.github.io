@@ -14,7 +14,7 @@ const SuperCoreItem = (props: Props) => {
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
 	const MemberCard = styled(Card)({
-		width: isMobile && window.innerWidth < 1080? "95%" : "272px",
+		width: isMobile && window.innerWidth < 1080? "75%" : "272px",
 		height: "450px",
 		padding: "5px",
 		backgroundColor: "rgba(42,43,42,.3)",

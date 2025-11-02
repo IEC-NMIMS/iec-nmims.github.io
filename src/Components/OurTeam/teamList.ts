@@ -87,27 +87,43 @@ export const CoreDep = [
 
 export const MentorList = [
 	{
-		photo: "images/team/mentors/Aditya Vellore.webp",
-		name: "Aditya Vellore",
+		photo: "images/team/mentors/ananyaa.webp",
+		name: "Ananyaa Kapoor",
 	},
 	{
-		photo: "images/team/mentors/Kashmaya Khandelwal.webp",
-		name: "Kashmaya Khandelwal",
+		photo: "images/team/mentors/aryan.webp",
+		name: "Aryan Karelia",
 	},
 	{
-		photo: "images/team/mentors/Rajveer Jha.webp",
-		name: "Rajveer Jha",
+		photo: "images/team/mentors/chahak.webp",
+		name: "Chahak Daga",
 	},
 	{
-		photo: "images/team/mentors/Roshni Luthria.webp",
-		name: "Roshni Luthria",
+		photo: "images/team/mentors/darrian.webp",
+		name: "Darrian Bharucha",
 	},
 	{
-		photo: "images/team/mentors/Sharvil Gangan.webp",
-		name: "Sharvil Gangan",
+		photo: "images/team/mentors/dhara.webp",
+		name: "Dhara Patel",
 	},
 	{
-		photo: "images/team/mentors/Siddhi Jain.webp",
-		name: "Siddhi Jain",
+		photo: "images/team/mentors/jignesh.webp",
+		name: "Jignesh Desai",
+	},
+	{
+		photo: "images/team/mentors/karan.webp",
+		name: "Karan Bedi",
+	},
+	{
+		photo: "images/team/mentors/mandar.webp",
+		name: "Mandar Rele",
+	},
+	{
+		photo: "images/team/mentors/preyasi.webp",
+		name: "Preyasi Bhuva",
+	},
+	{
+		photo: "images/team/mentors/vaibhav.webp",
+		name: "Vaibhav Bhutada",
 	},
 ];

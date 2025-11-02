@@ -13,7 +13,7 @@ const CoreItem = (props: Props) => {
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
 	const MemberCard = styled(Card)({
-		width: isMobile && window.innerWidth < 1024 ? "95%" : "272px",
+		width: isMobile && window.innerWidth < 1024 ? "75%" : "272px",
 		height: "400px",
 		padding: "5px",
 		backgroundColor: "rgba(42,43,42,.3)",

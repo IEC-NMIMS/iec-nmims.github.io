@@ -19,7 +19,21 @@
     background-color:#000000;
     overflow-x: hidden;
     -ms-overflow-style: none;
-    scrollbar-width: none;
+    scrollbar-width: thin;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 8px;
+    display: block;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #333333;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #00b9cb;
+    border-radius: 4px;
   }
 }
 
@@ -49,6 +63,19 @@ body {
 }
 
 ::-webkit-scrollbar {
-  display: none;
+  /* display: none; */
 }
 
+  ::-webkit-scrollbar {
+    width: 2px;
+    display: block;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #00b9cb;
+    border-radius: 2px;
+  }
