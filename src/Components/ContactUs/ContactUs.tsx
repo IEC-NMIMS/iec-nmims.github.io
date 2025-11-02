@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import styled from "@emotion/styled";
@@ -6,7 +6,6 @@ import InputBase from "@mui/material/InputBase";
 import emailjs from "@emailjs/browser";
 
 const ContactUs = () => {
-
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const form = useRef<HTMLFormElement>(null);
@@ -123,14 +122,14 @@ const ContactUs = () => {
     marginBottom: "0px",
     fontWeight: "bold",
   });
-  const StyledLink= styled('a')({
+  const StyledLink = styled("a")({
     fontFamily: "ITCAvantGardeGothicStd",
     color: "white",
     textDecoration: "none",
-    '&:hover': {
+    "&:hover": {
       textDecoration: "underline",
-    }
-  })
+    },
+  });
 
   const Info = styled(Typography)({
     fontFamily: "ITCAvantGardeGothicStd",
@@ -140,79 +139,116 @@ const ContactUs = () => {
   });
   const sendEmail = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-
+    setStatus("sending");
+    setMessage("");
     emailjs
-        .sendForm("service_79t3ups", "template_s527qdh", form.current!, {
-          publicKey: "rxKvzV-FaA8t2u-yw",
-        })
-        .then(
-            () => {
-              form.current!.reset();
-              alert("SUCCESS!");
-            },
-            (error) => {
-              alert("FAILED..." + error.text);
-            }
-        );
+      .sendForm("service_x4aect6", "template_rdye5ac", form.current!, {
+        publicKey: "wCf5Yw9Qs6eu9ctzO",
+      })
+      .then(
+        () => {
+          form.current!.reset();
+          setStatus("success");
+          setMessage("Message sent — we'll get back to you shortly.");
+        },
+        (error) => {
+          setStatus("error");
+          setMessage(
+            error?.text || "Failed to send message. Please try again later."
+          );
+        }
+      );
   };
+
+  // Inline status for form feedback
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
+  const [message, setMessage] = useState<string>("");
   return (
-      <ContactContainer>
-        <Header>Contact Us</Header>
-        <SubContainer>
-          <ContactForm ref={form} onSubmit={sendEmail}>
-            <NameEmail>
-              <TextInput
-                  id="contact-name"
-                  placeholder="Name"
-                  name="name"
-                  type="text"
-              />
-              <TextInput
-                  id="contact-email"
-                  placeholder="Email"
-                  name="email"
-                  type="email"
-                  style={{ marginRight: "0" }}
-              />
-            </NameEmail>
-            <SubjectInput
-                id="contact-subject"
-                placeholder="Subject"
-                name="subject"
-                type="text"
+    <ContactContainer>
+      <Header>Contact Us</Header>
+      <SubContainer>
+        <ContactForm ref={form} onSubmit={sendEmail}>
+          <NameEmail>
+            <TextInput
+              id="contact-name"
+              placeholder="Name"
+              name="name"
+              type="text"
             />
-            <MessageInput
-                id="contact-meassage"
-                placeholder="Message"
-                name="message"
-                multiline
-                rows={6}
-            />{" "}
-            <br />
-            <ButtonInput color="inherit">Send Message</ButtonInput>
-          </ContactForm>
-          <ContactInfo>
-            <CallAdd>
-              <InfoHead>Call Us</InfoHead>
-              <InfoHead>Address</InfoHead>
-              <Info> <StyledLink href="tel:+919309521094">+91 93095 21094</StyledLink></Info>
-              <Info>
-                IEC-MPSTME, NMIMS,V. L. Mehta Road, Vile Parle, West Mumbai,
-                Maharashtra 400056
-              </Info>
-            </CallAdd>
-            <Emhour>
-              <InfoHead>Email Us</InfoHead>
-              <InfoHead>Open Hours</InfoHead>
-              <Info><StyledLink href= "mailto:contact@iecnmims.com?subject=Inquiry&body=Hello,%20I%20would%20like%20to%20discuss...">contact@iecnmims.com</StyledLink></Info>
-              <Info>
-                Monday - Saturday
-                <br></br>10:00AM - 05:00PM
-              </Info>
-            </Emhour>
-          </ContactInfo>
-        </SubContainer>
-      </ContactContainer>
+            <TextInput
+              id="contact-email"
+              placeholder="Email"
+              name="email"
+              type="email"
+              style={{ marginRight: "0" }}
+            />
+          </NameEmail>
+          <SubjectInput
+            id="contact-subject"
+            placeholder="Subject"
+            name="subject"
+            type="text"
+          />
+          <MessageInput
+            id="contact-meassage"
+            placeholder="Message"
+            name="message"
+            multiline
+            rows={6}
+          />{" "}
+          <br />
+          <ButtonInput
+            color="inherit"
+            type="submit"
+            disabled={status === "sending"}
+          >
+            {status === "sending" ? "Sending..." : "Send Message"}
+          </ButtonInput>
+          {/* Inline status message */}
+          {status !== "idle" && (
+            <Box role="status" aria-live="polite" sx={{ marginTop: "12px" }}>
+              <Typography
+                sx={{
+                  color: status === "success" ? "#4caf50" : "#f44336",
+                  fontFamily: "ITCAvantGardeGothicStd",
+                }}
+              >
+                {message}
+              </Typography>
+            </Box>
+          )}
+        </ContactForm>
+        <ContactInfo>
+          <CallAdd>
+            <InfoHead>Call Us</InfoHead>
+            <InfoHead>Address</InfoHead>
+            <Info>
+              {" "}
+              <StyledLink href="tel:+919309521094">+91 94368 94400</StyledLink>
+            </Info>
+            <Info>
+              IEC-MPSTME, NMIMS,V. L. Mehta Road, Vile Parle, West Mumbai,
+              Maharashtra 400056
+            </Info>
+          </CallAdd>
+          <Emhour>
+            <InfoHead>Email Us</InfoHead>
+            <InfoHead>Working Hours</InfoHead>
+            <Info>
+              <StyledLink href="mailto:contact@iecnmims.com?subject=Inquiry&body=Hello,%20I%20would%20like%20to%20discuss...">
+                contact@iecnmims.com
+              </StyledLink>
+            </Info>
+            <Info>
+              Monday - Saturday
+              <br></br>10:00AM - 05:00PM
+            </Info>
+          </Emhour>
+        </ContactInfo>
+      </SubContainer>
+    </ContactContainer>
   );
 };
 export default ContactUs;
