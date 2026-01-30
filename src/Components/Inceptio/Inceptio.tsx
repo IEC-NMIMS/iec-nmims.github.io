@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
-import BackgroundBox from "../BackgroundBox/BackgroundBox";
 import { InceptioList } from "./InceptioList";
 import { NavLink } from "react-router-dom";
+import BackgroundBox from "../BackgroundBox/BackgroundBox";
 
 const Inceptio = () => {
   const theme = useTheme();
@@ -117,16 +117,7 @@ const Inceptio = () => {
 
   return (
     <>
-      <BackgroundBox color="blue" position="right" index={0} />
-
-      <BackgroundBox color="yellow" position="left" index={1} />
-
-      <BackgroundBox color="yellow" position="right" index={2} />
-
-      <BackgroundBox color="blue" position="left" index={3} />
-
-      <BackgroundBox color="yellow" position="right" index={3.5} />
-
+      <BackgroundBox />
       <OuterBox>
         <Heading>Inceptio</Heading>
         <MainCard>
