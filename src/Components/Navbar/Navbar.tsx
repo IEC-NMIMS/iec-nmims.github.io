@@ -206,7 +206,9 @@ const Navbar = (): JSX.Element => {
       </Logo>
 
       <Links>
-        <LinkText onClick={() => scrollToSection("home")}>Home</LinkText>
+        <LinkText onClick={() => scrollToSection("home")}>
+          Home
+        </LinkText>
         <ClickAwayListener onClickAway={handleClickAway}>
           <Box ref={eventsRef} sx={{ position: "relative" }}>
             <LinkText
@@ -235,7 +237,9 @@ const Navbar = (): JSX.Element => {
             </Dropdown>
           </Box>
         </ClickAwayListener>
-        <LinkText onClick={() => navigate("/inceptio")}>Inceptio</LinkText>
+        <LinkText onClick={() => navigate("/inceptio")}>
+          Inceptio
+        </LinkText>
         <LinkText>
           <NavLink
             to="/our-team"

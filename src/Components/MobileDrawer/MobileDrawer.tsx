@@ -197,7 +197,7 @@ const MobileDrawer = () => {
 					</ListItem>
 
 					<NavLink
-						to="https://unstop.com/college-fests/inceptio-70-the-entrepreneurial-festival-narsee-monjee-institute-of-management-studies-nmims-mumbai-191469"
+						to="https://unstop.com/college-fests/inceptio-90-an-innovation-and-entrepreneurship-carnival-narsee-monjee-institute-of-management-studies-nmims-mumbai-435163"
 						style={{ textDecoration: "none", color: "white" }}
 						target="_blank"
 					>

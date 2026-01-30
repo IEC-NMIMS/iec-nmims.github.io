@@ -180,7 +180,7 @@ const Home = () => {
 					/>
 					</InfoText>
 					<NavLink
-						to="https://unstop.com/college-fests/inceptio-80-an-innovation-and-entrepreneurship-carnival-narsee-monjee-institute-of-management-studies-nmims-mumbai-331073"
+						to="https://unstop.com/college-fests/inceptio-90-an-innovation-and-entrepreneurship-carnival-narsee-monjee-institute-of-management-studies-nmims-mumbai-435163"
 						style={{ textDecoration: "none", color: "white", display: "inline-block", maxWidth: "100%" }} // Made NavLink responsive
 						target="_blank"
 					>
