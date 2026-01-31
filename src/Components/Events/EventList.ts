@@ -2,7 +2,8 @@ export const EventList = [
   {
     image: "./images/event-carousel/enigma-banner.webp",
     name: "Enigma",
-    desc: "IEC’s flagship fresher event, Enigma, gives newcomers a taste of creativity, chaos, and entrepreneurship in the IEC style! From innovative ice-breaker games to thought-provoking challenges, the event blends fun with purpose. Enigma marks the start of a year of innovation and unforgettable memories.",
+    slug: "enigma",
+    desc: "IEC’s flagship fresher event, Enigma, gives newcomers a taste of creativity, chaos, and entrepreneurship in the IEC style! From innovative ice-breaker games to thought-provoking challenges, the event blends fun with purpose. Enigma marks the start of a year of innovation and unforgettable memories.",
     modalData: {
       title: "Enigma Unveiled: Have a look!",
       data: "IEC's introductory event meant for freshers essentially to get the essence of 'our vision and mission'. Various innovative games including Time Capsule, where people write a note to their future selves about their goals, heads up and dumb charades of brands/entrepreneurs sum it up. It is a delightful experience with a Bollywood twist where freshers get hands-on experience about entrepreneurship.",
@@ -16,9 +17,11 @@ export const EventList = [
       ],
     },
   },
+
   {
     image: "./images/event-carousel/unplanned-banner.webp",
     name: "Unplanned",
+    slug: "unplanned",
     desc: "A fast-paced pitch event where participants combine random products, themes, and business elements to build spontaneous startups — creativity under pressure.",
     modalData: {
       title: "Unplanned",
@@ -33,9 +36,11 @@ export const EventList = [
       ],
     },
   },
+
   {
     image: "./images/inceptio/inceptio-banner.webp",
     name: "Inceptio",
+    slug: "inceptio",
     desc: "NMIMS MPSTME's Innovation and Entrepreneurship Carnival is an exceptional annual three-day event fostering entrepreneurship, business, and innovation. It gathers young individuals citywide to collaborate on projects, fostering discovery and teamwork.",
     modalData: {
       title: "Innovation Challenge",
@@ -43,6 +48,7 @@ export const EventList = [
       images: [],
     },
   },
+
   {
     image: "./images/event-carousel/concept-show-banner.webp",
     name: "Concept Show",

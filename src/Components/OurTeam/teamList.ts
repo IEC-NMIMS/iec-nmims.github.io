@@ -41,7 +41,7 @@ export const SuperCorelist = [
 	},
 	{
 		photo: "images/team/supercore/Mehek.webp",
-		Name: "Meahek Sigh",
+		Name: "Mehak Singh",
 		designation: "Vice President  (Productions)",
 	},
 ];
