@@ -35,9 +35,7 @@ const Footer = () => {
 				&copy; Copyright <b>IEC MPSTME</b>. All Rights Reserved
 			</FooterCopyright>
 			<FooterCredits>
-				Website Built by the <b>Tech Team</b> of IEC: Yash Korla, Karan Bedi, Sushanth
-				Tambe, Aarya Pandya, Aryan Chauhan, Parth Mehta, Parth Jhaveri, Diya Joshi,
-				Abhishekh Sheth, Jenish Nanda
+				Website Built and Maintained by the <b>Tech Team</b> of IEC
 			</FooterCredits>
 		</FooterBox>
 	);

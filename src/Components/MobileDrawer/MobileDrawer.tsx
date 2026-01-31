@@ -11,244 +11,212 @@ import EastIcon from "@mui/icons-material/East";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const MobileDrawer = () => {
-	const theme = useTheme();
-	const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-	const navigate = useNavigate();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const navigate = useNavigate();
 
-	const [state, setState] = React.useState(false);
+  const [state, setState] = React.useState(false);
 
-	const toggleDrawer = () => () => {
-		setState(!state);
-	};
+  const toggleDrawer = () => {
+    setState((prev) => !prev);
+  };
 
-	const NavbarContainer = styled(Box)({
-		display: "flex",
-		justifyContent: "space-between",
-		alignItems: "center",
-		width: "100%",
-		marginBottom: "20px",
-	});
+  /* ---------------- Styled ---------------- */
 
-	const Logo = styled(Box)({
-		color: "white",
-		fontFamily: "ITCAvantGardeGothicStd",
-		fontWeight: "bold",
-		fontSize: "1.5rem",
-		cursor: "pointer",
-	});
+  const NavbarContainer = styled(Box)({
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+    marginBottom: "20px",
+  });
 
-	const HamburgerMenu = styled(MenuIcon)({
-		color: "white",
-		fontSize: "3rem",
-		fontFamily: "ITCAvantGardeGothicStd",
-	});
+  const Logo = styled(Box)({
+    cursor: "pointer",
+  });
 
-	const MenuBox = styled(Box)({
-		width: "auto",
-		height: "500px",
-		backgroundColor: "black",
-		color: "white",
-		display: "flex",
-		flexDirection: "column",
-		alignItems: "center",
-		justifyContent: "center",
-	});
+  const HamburgerMenu = styled(MenuIcon)({
+    color: "white",
+    fontSize: "3rem",
+  });
 
-	const MenuList = styled(List)({
-		width: "80%",
-		borderRadius: "20px",
-		backgroundColor: "rgba(42, 43, 42, 0.3)",
-		padding: "20px 20px",
-	});
-	const LinkText = styled(Typography)({
-		fontFamily: "ITCAvantGardeGothicStd",
-		color: "white",
-		fontSize: isMobile ? "0.9rem" : "1.2rem",
-		padding: "0 20px",
-		cursor: "pointer",
-		display: "flex",
-		alignItems: "center",
-	});
-	const MenuListItemText = styled(Typography)({
-		fontSize: "1.2rem",
-		fontWeight: "bold",
-		fontFamily: "ITCAvantGardeGothicStd",
-	});
+  const MenuBox = styled(Box)({
+    width: "auto",
+    height: "500px",
+    backgroundColor: "black",
+    color: "white",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  });
 
-	const MenuButton = styled(Button)({
-		width: "170px",
-		backgroundColor: "white",
-		borderRadius: "10px",
-		textTransform: "none",
-		margin: "20px 10px",
-		display: "flex",
-		flexDirection: "row",
-	});
+  const MenuList = styled(List)({
+    width: "80%",
+    borderRadius: "20px",
+    backgroundColor: "rgba(42,43,42,0.3)",
+    padding: "20px",
+  });
 
-	const MenuButtonText = styled(Typography)({
-		color: "black",
-		fontSize: "1em",
-		fontWeight: "bold",
-		fontFamily: "ITCAvantGardeGothicStd",
-		marginTop: "4px",
-	});
-	const Image = styled("img")({
-		height: "auto",
-		maxHeight: "40px",
-		width: "auto",
-		maxWidth: "100%",
-		objectFit: "contain"
-	});
-	const Arrow = styled(EastIcon)({
-		color: "black",
-		marginLeft: "auto",
-	});
+  const LinkText = styled(Typography)({
+    fontFamily: "ITCAvantGardeGothicStd",
+    color: "white",
+    fontSize: isMobile ? "0.9rem" : "1.2rem",
+    padding: "0 20px",
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+  });
 
-	const list = () => (
-		<>
-			<MenuBox
-				role="presentation"
-				onClick={toggleDrawer()}
-			>
-				<MenuList>
-					<ListItem
-						disablePadding
-						onClick={() => {
-							const element = document.getElementById("home");
-							const href = window.location.href.split("/");
-							const length = window.location.href.split("/").length;
+  const MenuListItemText = styled(Typography)({
+    fontSize: "1.2rem",
+    fontWeight: "bold",
+    fontFamily: "ITCAvantGardeGothicStd",
+  });
 
-							if (href[length - 1] === "") {
-								element?.scrollIntoView({
-									behavior: "smooth",
-								});
-							} else {
-								navigate("/");
-							}
-						}}
-					>
-						<ListItemButton>
-							<MenuListItemText>Home</MenuListItemText>
-						</ListItemButton>
-					</ListItem>
+  const MenuButton = styled(Button)({
+    width: "170px",
+    backgroundColor: "#fe7f2e",
+    borderRadius: "10px",
+    textTransform: "none",
+    margin: "20px 10px",
+    display: "flex",
+    flexDirection: "row",
+  });
 
-					<ListItem
-						disablePadding
-						onClick={() => {
-							const element = document.getElementById("events");
-							const href = window.location.href.split("/");
-							const length = window.location.href.split("/").length;
+  const MenuButtonText = styled(Typography)({
+    color: "black",
+    fontSize: "1em",
+    fontWeight: "bold",
+    fontFamily: "ITCAvantGardeGothicStd",
+    marginTop: "4px",
+  });
 
-							if (href[length - 1] === "") {
-								element?.scrollIntoView({
-									behavior: "smooth",
-								});
-							} else {
-								navigate("/");
-							}
-						}}
-					>
-						<ListItemButton>
-							<MenuListItemText>Events</MenuListItemText>
-						</ListItemButton>
-					</ListItem>
+  const Image = styled("img")({
+    height: "auto",
+    maxHeight: "40px",
+    width: "auto",
+    maxWidth: "100%",
+    objectFit: "contain",
+  });
 
-					<ListItem disablePadding>
-						<NavLink
-							to="/inceptio"
-							style={{ textDecoration: "none", color: "white" }}
-						>
-							<ListItemButton>
-								<MenuListItemText>Inceptio</MenuListItemText>
-							</ListItemButton>
-						</NavLink>
-					</ListItem>
+  const Arrow = styled(EastIcon)({
+    color: "black",
+    marginLeft: "auto",
+  });
 
-					<ListItem disablePadding>
-						<NavLink
-							to="/our-team"
-							style={{ textDecoration: "none", color: "white" }}
-						>
-							<ListItemButton>
-								<MenuListItemText>Our Team</MenuListItemText>
-							</ListItemButton>
-						</NavLink>
-					</ListItem>
+  /* ---------------- Scroll Helper ---------------- */
 
-					<ListItem
-						disablePadding
-						onClick={() => {
-							const element = document.getElementById("about-us");
-							const href = window.location.href.split("/");
-							const length = window.location.href.split("/").length;
+  const scrollOrNavigate = (id: string) => {
+    const element = document.getElementById(id);
 
-							if (href[length - 1] === "") {
-								element?.scrollIntoView({
-									behavior: "smooth",
-								});
-							} else {
-								navigate("/");
-							}
-						}}
-					>
-						<ListItemButton>
-							<MenuListItemText>About Us</MenuListItemText>
-						</ListItemButton>
-					</ListItem>
+    if (window.location.pathname === "/") {
+      element?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({
+          behavior: "smooth",
+        });
+      }, 150);
+    }
 
-					<NavLink
-						to="https://unstop.com/college-fests/inceptio-90-an-innovation-and-entrepreneurship-carnival-narsee-monjee-institute-of-management-studies-nmims-mumbai-435163"
-						style={{ textDecoration: "none", color: "white" }}
-						target="_blank"
-					>
-						<MenuButton variant="contained">
-							<MenuButtonText>Register Now</MenuButtonText>
-							<Arrow />
-						</MenuButton>
-					</NavLink>
-				</MenuList>
-			</MenuBox>
-		</>
-	);
+    setState(false);
+  };
 
-	return (
-		<div>
-			{isMobile && (
-				<NavbarContainer>
-					<Logo>
-						<LinkText
-							onClick={() => {
-								const element = document.getElementById("home");
-								const href = window.location.href.split("/");
-								const length = window.location.href.split("/").length;
+  /* ---------------- Drawer Content ---------------- */
 
-								if (href[length - 1] === "") {
-									element?.scrollIntoView({
-										behavior: "smooth",
-									});
-								} else {
-									navigate("/");
-								}
-							}}
-						>
-							<Image src="/images/logo/iec-logo.svg" />
-						</LinkText>
-					</Logo>
-					<HamburgerMenu
-						id="navbar"
-						onClick={toggleDrawer()}
-					/>
-				</NavbarContainer>
-			)}
-			<Drawer
-				anchor="top"
-				open={state}
-				onClose={toggleDrawer()}
-			>
-				{list()}
-			</Drawer>
-		</div>
-	);
+  const list = () => (
+    <>
+      <MenuBox role="presentation">
+        <MenuList>
+
+          {/* HOME */}
+          <ListItem disablePadding onClick={() => scrollOrNavigate("home")}>
+            <ListItemButton>
+              <MenuListItemText>Home</MenuListItemText>
+            </ListItemButton>
+          </ListItem>
+
+          {/* EVENTS (UNCHANGED STRUCTURE) */}
+          <ListItem disablePadding onClick={() => scrollOrNavigate("events")}>
+            <ListItemButton>
+              <MenuListItemText>Events</MenuListItemText>
+            </ListItemButton>
+          </ListItem>
+
+          {/* INCEPTIO */}
+          <ListItem disablePadding>
+            <NavLink
+              to="/events/inceptio"
+              style={{ textDecoration: "none", color: "white" }}
+              onClick={() => setState(false)}
+            >
+              <ListItemButton>
+                <MenuListItemText>Inceptio</MenuListItemText>
+              </ListItemButton>
+            </NavLink>
+          </ListItem>
+
+          {/* OUR TEAM */}
+          <ListItem disablePadding>
+            <NavLink
+              to="/our-team"
+              style={{ textDecoration: "none", color: "white" }}
+              onClick={() => setState(false)}
+            >
+              <ListItemButton>
+                <MenuListItemText>Our Team</MenuListItemText>
+              </ListItemButton>
+            </NavLink>
+          </ListItem>
+
+          {/* ABOUT US */}
+          <ListItem disablePadding onClick={() => scrollOrNavigate("about-us")}>
+            <ListItemButton>
+              <MenuListItemText>About Us</MenuListItemText>
+            </ListItemButton>
+          </ListItem>
+
+          {/* REGISTER */}
+          <NavLink
+            to="https://unstop.com/college-fests/inceptio-90-an-innovation-and-entrepreneurship-carnival-narsee-monjee-institute-of-management-studies-nmims-mumbai-435163"
+            style={{ textDecoration: "none", color: "white" }}
+            target="_blank"
+            onClick={() => setState(false)}
+          >
+            <MenuButton>
+              <MenuButtonText>Register Now</MenuButtonText>
+              <Arrow />
+            </MenuButton>
+          </NavLink>
+
+        </MenuList>
+      </MenuBox>
+    </>
+  );
+
+  /* ---------------- JSX ---------------- */
+
+  return (
+    <div>
+      {isMobile && (
+        <NavbarContainer>
+          <Logo onClick={() => scrollOrNavigate("home")}>
+            <LinkText>
+              <Image src="/images/logo/iec-logo.svg" />
+            </LinkText>
+          </Logo>
+
+          <HamburgerMenu onClick={toggleDrawer} />
+        </NavbarContainer>
+      )}
+
+      <Drawer anchor="top" open={state} onClose={toggleDrawer}>
+        {list()}
+      </Drawer>
+    </div>
+  );
 };
 
 export default MobileDrawer;

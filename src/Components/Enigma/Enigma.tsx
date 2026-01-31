@@ -207,6 +207,7 @@ const Enigma = (): JSX.Element => {
 					max-width: 800px;
 					line-height: 1.8;
 					margin-top: 1rem;
+          opacity: 1;
 				}
 				@media (max-width: 768px) {
 					.blur-text-enigma {

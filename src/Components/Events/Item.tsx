@@ -17,6 +17,7 @@ interface modals {
   data: string;
   images: string[];
 }
+
 interface Props {
   image: string;
   name: string;
@@ -30,13 +31,14 @@ const Item = (props: Props) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
+  /* ---------------- Styled ---------------- */
+
   const EventCard = styled(Card)({
     width: isMobile && window.innerWidth < 1024 ? "95%" : "350px",
     height: "600px",
     padding: "0.1px",
     backgroundColor: "rgba(42,43,42,.3)",
     borderRadius: "20px",
-
   });
 
   const EventPic = styled(Box)({
@@ -89,39 +91,53 @@ const Item = (props: Props) => {
     paddingLeft: "20px",
     fontSize: "1.25rem",
   });
-  const handleKnowMore = (title: string, data: string, images: string[]) => {
-    if (title === "Innovation Challenge") {
-      navigate("/inceptio");
-    } else {
+
+  /* ---------------- FIXED NAVIGATION ---------------- */
+
+  const handleKnowMore = () => {
+    if (name === "Enigma") {
+      navigate("/events/enigma");
+    } 
+    else if (name === "Unplanned") {
+      navigate("/events/unplanned");
+    } 
+    else if (name === "Inceptio") {
+      navigate("/events/inceptio");
+    } 
+    else {
+      // Concept Show
       navigate("/events", {
         state: {
-          title: title,
-          data: data,
-          images: images,
+          title: modalData.title,
+          data: modalData.data,
+          images: modalData.images,
         },
       });
     }
   };
 
-  const Itemcard = (
-    <CardContent>
-      <EventPic>
-        <Image src={image} />
-      </EventPic>
-      <EventName>{name}</EventName>
-      <EventDesc>{desc}</EventDesc>
+  /* ---------------- JSX ---------------- */
 
-      <KnowMore
-        onClick={() =>
-          handleKnowMore(modalData.title, modalData.data, modalData.images)
-        }
-      >
-        <KnowMoreText>Know More</KnowMoreText>
-        <Arrow />
-      </KnowMore>
-    </CardContent>
+  return (
+    <EventCard variant="outlined">
+      <CardContent>
+
+        <EventPic>
+          <Image src={image} />
+        </EventPic>
+
+        <EventName>{name}</EventName>
+
+        <EventDesc>{desc}</EventDesc>
+
+        <KnowMore onClick={handleKnowMore}>
+          <KnowMoreText>Know More</KnowMoreText>
+          <Arrow />
+        </KnowMore>
+
+      </CardContent>
+    </EventCard>
   );
-  return <EventCard variant="outlined">{Itemcard}</EventCard>;
 };
 
 export default Item;

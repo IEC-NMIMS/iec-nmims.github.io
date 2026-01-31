@@ -75,7 +75,7 @@ const Home = () => {
   });
 
   const KnowMore = styled(Button)({
-    backgroundColor: "rgb(0,185,203)",
+    backgroundColor: "#fe7f2e",
     borderRadius: isMobile ? "12px" : "15px",
     right: "10px",
     height: isSmallScreen ? "36px" : isMobile ? "40px" : "50px",
@@ -92,7 +92,7 @@ const Home = () => {
     gap: "8px",
 
     "&:hover": {
-      backgroundColor: "rgb(0,185,203)",
+      backgroundColor: "#fe7f2e",
       transform: "scale(1.03)", // Added a subtle scale effect on hover
       transition: "transform 0.2s ease-in-out",
     },
@@ -119,7 +119,7 @@ const Home = () => {
   });
 
   const Whitebox = styled(Card)({
-    backgroundColor: "rgba(255, 255, 255, 0.8)",
+    backgroundColor: "rgba(0, 0, 0, 0.2)",
     marginLeft: isMobile ? "0" : "245px",
     marginBottom: isMobile ? "0" : "50px",
     marginTop: isMobile ? "0" : "100px",
@@ -131,7 +131,7 @@ const Home = () => {
     flexDirection: isSmallScreen ? "column" : "row", // Stack vertically on very small screens
     alignItems: "center",
     justifyContent: "space-evenly",
-    color: "black",
+    color: "white",
     gap: isSmallScreen ? "16px" : 0, // Add gap for small screens
   });
 
@@ -190,7 +190,7 @@ const Home = () => {
               width: "fit-content",
             }}
           >
-            <span style={{ width: "100%" }}>
+            {/* <span style={{ width: "100%" }}>
               <strong>Powered by</strong>
             </span>
             <img
@@ -202,7 +202,7 @@ const Home = () => {
                 height: "auto",
                 marginTop: "5px",
               }}
-            />
+            /> */}
           </InfoText>
           <NavLink
             to="https://unstop.com/college-fests/inceptio-90-an-innovation-and-entrepreneurship-carnival-narsee-monjee-institute-of-management-studies-nmims-mumbai-435163"

@@ -2,6 +2,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import Event from "./Components/Events/Event/Event.tsx";
 import WhoAreWeCarousel from "./Components/WhoAreWe/WhoAreWeCarousel.tsx";
 import Inceptio from "./Components/Inceptio/Inceptio.tsx";
@@ -10,6 +11,9 @@ import OurTeam from "./Components/OurTeam/OurTeam.tsx";
 import Enigma from "./Components/Enigma/Enigma.tsx";
 import Unplanned from "./Components/Unplanned/Unplanned.tsx";
 import Navbar from "./Components/Navbar/Navbar.tsx";
+import MobileDrawer from "./Components/MobileDrawer/MobileDrawer.tsx";
+import Credits from "./Components/Credits/Credits.tsx";   // ✅ NEW
+
 import {
   Box,
   Fab,
@@ -18,8 +22,9 @@ import {
   useScrollTrigger,
   useTheme,
 } from "@mui/material";
-import MobileDrawer from "./Components/MobileDrawer/MobileDrawer.tsx";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+
+/* ---------------- Scroll To Top Button ---------------- */
 
 interface Props {
   children: React.ReactElement;
@@ -27,6 +32,7 @@ interface Props {
 
 function ScrollTop(props: Props) {
   const { children } = props;
+
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 100,
@@ -58,29 +64,50 @@ function ScrollTop(props: Props) {
   );
 }
 
+/* ---------------- App Wrapper ---------------- */
+
 const RenderApp = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <BrowserRouter>
+
+      {/* NAVBAR */}
       {!isMobile ? <Navbar /> : <MobileDrawer />}
+
+      {/* SCROLL TO TOP BUTTON */}
       <ScrollTop>
         <Fab size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
+
+      {/* ROUTES */}
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/vision-mission" element={<WhoAreWeCarousel />} />
+
+        {/* EVENTS */}
         <Route path="/events" element={<Event />} />
         <Route path="/events/enigma" element={<Enigma />} />
         <Route path="/events/unplanned" element={<Unplanned />} />
         <Route path="/events/inceptio" element={<InceptioEvent />} />
+
+        {/* LEGACY INCEPTIO PAGE */}
         <Route path="/inceptio" element={<Inceptio />} />
+
+        {/* OTHER */}
         <Route path="/our-team" element={<OurTeam />} />
+
+        {/* ✅ CREDITS */}
+        <Route path="/credits" element={<Credits />} />
       </Routes>
+
     </BrowserRouter>
   );
 };
 
-ReactDOM.createRoot(document.getElementById("root")!).render(<RenderApp />);
+ReactDOM.createRoot(
+  document.getElementById("root")!
+).render(<RenderApp />);

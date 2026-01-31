@@ -91,8 +91,9 @@ const ContactUs = () => {
   const ButtonInput = styled("button")({
     fontFamily: "ITCAvantGardeGothicStd",
     fontWeight: "bold",
-    color: "rgb(42, 43, 42)",
-    borderColor: "#000000",
+    color: "#000000",
+    border: "2px solid #000000",
+    backgroundColor: "#fe7f2e",
     borderRadius: "15px",
     width: isMobile && window.innerWidth < 1024 ? "100%" : "40%",
     height: isMobile && window.innerHeight < 1024 ? "40px" : "50px",
@@ -100,7 +101,9 @@ const ContactUs = () => {
     alignSelf: "center",
     textTransform: "none",
     cursor: "pointer",
+    "&:hover": { backgroundColor: "#fe7f2e" },
   });
+  
 
   const CallAdd = styled(Box)({
     display: "grid",
@@ -166,7 +169,7 @@ const ContactUs = () => {
   >("idle");
   const [message, setMessage] = useState<string>("");
   return (
-    <ContactContainer>
+    <ContactContainer  id="contact-us">
       <Header>Contact Us</Header>
       <SubContainer>
         <ContactForm ref={form} onSubmit={sendEmail}>

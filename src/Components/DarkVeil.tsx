@@ -36,6 +36,27 @@ vec3 hueShiftRGB(vec3 col,float deg){
 
 vec4 sigmoid(vec4 x){return 1./(1.+exp(-x));}
 
+vec3 remapToCustomColors(vec3 originalColor) {
+    vec3 orange = vec3(0.996, 0.498, 0.180); // #fe7f2e
+    vec3 blue = vec3(0.161, 0.212, 0.620);   // #29369e
+    
+    // Calculate luminance
+    float lum = (originalColor.r + originalColor.g + originalColor.b) / 3.0;
+    
+    // Keep black areas black
+    if (lum < 0.02) {
+        return vec3(0.0);
+    }
+    
+    // Smooth blend between blue and orange based on luminance
+    // Lower luminance = blue, higher luminance = orange
+    float t = smoothstep(0.02, 0.6, lum);
+    vec3 newColor = mix(blue, orange, t);
+    
+    // Preserve original luminance intensity
+    return newColor * (lum / max(dot(newColor, vec3(0.299, 0.587, 0.114)), 0.001));
+}
+
 vec4 cppn_fn(vec2 coordinate,float in0,float in1,float in2){
     buf[6]=vec4(coordinate.x,coordinate.y,0.3948333106474662+in0,0.36+in1);
     buf[7]=vec4(0.14+in2,sqrt(coordinate.x*coordinate.x+coordinate.y*coordinate.y),0.,0.);
@@ -65,6 +86,10 @@ void mainImage(out vec4 fragColor,in vec2 fragCoord){
 
 void main(){
     vec4 col;mainImage(col,gl_FragCoord.xy);
+    
+    // Remap to custom colors before hue shift
+    col.rgb = remapToCustomColors(col.rgb);
+    
     col.rgb=hueShiftRGB(col.rgb,uHueShift);
     float scanline_val=sin(gl_FragCoord.y*uScanFreq)*0.5+0.5;
     col.rgb*=1.-(scanline_val*scanline_val)*uScan;

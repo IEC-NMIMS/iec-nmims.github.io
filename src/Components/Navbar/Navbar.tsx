@@ -1,7 +1,5 @@
 import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
-import IconButton from "@mui/material/IconButton";
-import EastIcon from "@mui/icons-material/East";
 import Typography from "@mui/material/Typography";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
@@ -11,15 +9,19 @@ import { EventList } from "../Events/EventList.ts";
 
 const Navbar = (): JSX.Element => {
   const navigate = useNavigate();
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 1200);
-  const isSmallScreen = window.innerWidth < 600;
+
+  const [isMobile, setIsMobile] = useState<boolean>(
+    window.innerWidth < 1200
+  );
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
+
   const eventsRef = useRef<HTMLDivElement>(null);
   const [dropdownPosition, setDropdownPosition] = useState<{ left: number }>({
     left: 0,
   });
 
-  // Handle resize events properly
+  /* ---------------- Resize ---------------- */
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1200);
@@ -29,25 +31,25 @@ const Navbar = (): JSX.Element => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Calculate position when needed, but avoid dependency on ref.current
   useEffect(() => {
     if (eventsRef.current && dropdownOpen) {
       const rect = eventsRef.current.getBoundingClientRect();
       setDropdownPosition({
-        left: rect.width / 2 - 90, // Half of dropdown width (180px) to center it
+        left: rect.width / 2 - 90,
       });
     }
   }, [dropdownOpen]);
 
+  /* ---------------- Styled ---------------- */
+
   const NavBox = styled(Box)({
     position: "sticky",
     top: 20,
-    margin: "20px 0 20px 0",
-    backgroundColor: "rgba(42,43,42, 0.8)",
+    margin: "20px 0",
+    backgroundColor: "rgba(0,0,0,0.4)",
     borderRadius: "20px",
     height: "72px",
     display: "flex",
-    flexDirection: "row",
     padding: "10px",
     alignItems: "center",
     justifyContent: "center",
@@ -57,7 +59,6 @@ const Navbar = (): JSX.Element => {
   const Logo = styled(Box)({
     width: isMobile ? "100px" : "200px",
     display: "flex",
-    left: "100px",
     marginLeft: "10px",
     marginRight: "auto",
   });
@@ -67,13 +68,16 @@ const Navbar = (): JSX.Element => {
   });
 
   const Links = styled(Box)({
-    width: "700px",
     display: "flex",
-    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    gap: "10px",
     color: "white",
-    justifyContent: "end",
     position: "relative",
+    flex: 1,              // 🔥 allows it to grow
+    minWidth: 0,
   });
+  
 
   const LinkText = styled(Typography)({
     fontFamily: "ITCAvantGardeGothicStd",
@@ -85,54 +89,17 @@ const Navbar = (): JSX.Element => {
     alignItems: "center",
   });
 
-  const Register = styled(IconButton)({
-    backgroundColor: "white",
-    borderRadius: "15px",
-    marginLeft: "20px",
-    right: "10px",
-    padding: "0 15px",
-    width: isMobile ? "175px" : "220px",
-    height: "50px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    color: "black",
-    fontSize: "22px",
-
-    "&:hover": {
-      backgroundColor: "white",
-    },
-  });
-
-  const RegisterText = styled(Typography)({
-    fontFamily: "ITCAvantGardeGothicStd",
-    fontWeight: "bold",
-    fontSize: isSmallScreen
-      ? "0.7rem"
-      : isMobile && window.innerWidth < 1024
-      ? "0.9rem"
-      : "1.2rem",
-    whiteSpace: "nowrap", // Prevents text wrapping inside button
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    marginLeft: isSmallScreen ? "5px" : "24px", // Adjusted margins without theme
-  });
-
-  const Arrow = styled(EastIcon)({
-    marginLeft: "auto",
-  });
-
   const Dropdown = styled(Box)({
     position: "absolute",
     top: "40px",
-    backgroundColor: "rgba(42,43,42, 0.95)",
+    backgroundColor: "rgba(0,0,0,0.95)",
     borderRadius: "10px",
     padding: "10px",
     zIndex: 2,
     minWidth: "180px",
     opacity: dropdownOpen ? 1 : 0,
     visibility: dropdownOpen ? "visible" : "hidden",
-    transition: "opacity 0.2s ease, visibility 0.2s ease",
+    transition: "0.2s",
   });
 
   const DropdownItem = styled(Typography)({
@@ -147,28 +114,21 @@ const Navbar = (): JSX.Element => {
     },
   });
 
+  /* ---------------- Logic ---------------- */
+
   const scrollToSection = (id: string): void => {
     const element = document.getElementById(id);
     const href = window.location.href.split("/");
-    const length = window.location.href.split("/").length;
+    const length = href.length;
 
     if (href[length - 1] === "") {
-      element?.scrollIntoView({
-        behavior: "smooth",
-      });
+      element?.scrollIntoView({ behavior: "smooth" });
     } else {
       navigate("/");
-      // Add a small delay to allow navigation to complete before scrolling
       setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({
-          behavior: "smooth",
-        });
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       }, 100);
     }
-  };
-
-  const handleClickAway = (): void => {
-    setDropdownOpen(false);
   };
 
   const toggleDropdown = (e: React.MouseEvent): void => {
@@ -176,15 +136,19 @@ const Navbar = (): JSX.Element => {
     setDropdownOpen(!dropdownOpen);
   };
 
-  // Navigation handlers for events using the EventList data
-  const navigateToEventDetails = (title: string): void => {
-    // Find the corresponding event from EventList
-    const eventItem = EventList.find((event) => event.name === title);
+  const closeDropdown = (): void => {
+    setDropdownOpen(false);
+  };
 
-    if (title === "Inceptio 7.0" || title === "Inceptio") {
-      navigate("/inceptio");
-    } else if (eventItem) {
-      // Navigate to events page with the event data
+  /* ---------------- Event Routing ---------------- */
+
+  const navigateToEventDetails = (title: string): void => {
+    const eventItem = EventList.find((e) => e.name === title);
+    if (!eventItem) return;
+
+    if ((eventItem as any).slug) {
+      navigate(`/events/${(eventItem as any).slug}`);
+    } else {
       navigate("/events", {
         state: {
           title: eventItem.modalData.title,
@@ -194,38 +158,44 @@ const Navbar = (): JSX.Element => {
         replace: true,
       });
     }
-    setDropdownOpen(false);
+
+    closeDropdown();
   };
+
+  /* ---------------- JSX ---------------- */
 
   return (
     <NavBox id="navbar">
+      {/* Logo */}
       <Logo>
         <LinkText onClick={() => scrollToSection("home")}>
-          <Image src="/images/logo/iec-logo.svg" alt="Logo" />
+          <Image src="/images/logo/iec-logo.svg" />
         </LinkText>
       </Logo>
 
+      {/* Links */}
       <Links>
         <LinkText onClick={() => scrollToSection("home")}>
           Home
         </LinkText>
-        <ClickAwayListener onClickAway={handleClickAway}>
+
+        {/* EVENTS DROPDOWN */}
+        <ClickAwayListener onClickAway={closeDropdown}>
           <Box ref={eventsRef} sx={{ position: "relative" }}>
-            <LinkText
-              onClick={toggleDropdown}
-              style={{ display: "flex", alignItems: "center" }}
-            >
+            <LinkText onClick={toggleDropdown}>
               Events
               <ExpandMoreIcon
                 style={{
                   marginLeft: "5px",
-                  transform: dropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
-                  transition: "transform 0.2s ease",
+                  transform: dropdownOpen
+                    ? "rotate(180deg)"
+                    : "rotate(0deg)",
+                  transition: "0.2s",
                 }}
               />
             </LinkText>
+
             <Dropdown style={{ left: `${dropdownPosition.left}px` }}>
-              {/* Map through EventList to generate dropdown items */}
               {EventList.map((event, index) => (
                 <DropdownItem
                   key={index}
@@ -237,9 +207,12 @@ const Navbar = (): JSX.Element => {
             </Dropdown>
           </Box>
         </ClickAwayListener>
-        <LinkText onClick={() => navigate("/inceptio")}>
+
+        {/* DIRECT INCEPTIO */}
+        <LinkText onClick={() => navigate("/events/inceptio")}>
           Inceptio
         </LinkText>
+
         <LinkText>
           <NavLink
             to="/our-team"
@@ -248,24 +221,20 @@ const Navbar = (): JSX.Element => {
             Our Team
           </NavLink>
         </LinkText>
+
         <LinkText onClick={() => scrollToSection("sponsors")}>
           Sponsors
         </LinkText>
+
         <LinkText onClick={() => scrollToSection("about-us")}>
           About Us
         </LinkText>
+
+        {/* ✅ CONTACT US ADDED */}
+        <LinkText onClick={() => scrollToSection("contact-us")}>
+          Contact Us
+        </LinkText>
       </Links>
-      <NavLink
-        to="https://unstop.com/college-fests/inceptio-80-an-innovation-and-entrepreneurship-carnival-narsee-monjee-institute-of-management-studies-nmims-mumbai-331073"
-        style={{ textDecoration: "none", color: "white" }}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Register>
-          <RegisterText>Register Now</RegisterText>
-          <Arrow />
-        </Register>
-      </NavLink>
     </NavBox>
   );
 };
