@@ -46,7 +46,7 @@ const Navbar = (): JSX.Element => {
     position: "sticky",
     top: 20,
     margin: "20px 0",
-    backgroundColor: "rgba(0,0,0,0.4)",
+    backgroundColor: "rgba(0,0,0,0.5)",
     borderRadius: "20px",
     height: "72px",
     display: "flex",
