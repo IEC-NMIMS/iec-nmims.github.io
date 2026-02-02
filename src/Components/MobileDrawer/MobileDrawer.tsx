@@ -138,7 +138,7 @@ const MobileDrawer = () => {
             </ListItemButton>
           </ListItem>
 
-          {/* EVENTS (UNCHANGED STRUCTURE) */}
+          {/* EVENTS */}
           <ListItem disablePadding onClick={() => scrollOrNavigate("events")}>
             <ListItemButton>
               <MenuListItemText>Events</MenuListItemText>
@@ -176,6 +176,21 @@ const MobileDrawer = () => {
             <ListItemButton>
               <MenuListItemText>About Us</MenuListItemText>
             </ListItemButton>
+          </ListItem>
+
+          {/* ✅ VERIFY CERTIFICATE */}
+          <ListItem disablePadding>
+            <a
+              href="https://certificates.iecnmims.com/verify"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none", color: "white", width: "100%" }}
+              onClick={() => setState(false)}
+            >
+              <ListItemButton>
+                <MenuListItemText>Verify Certificate</MenuListItemText>
+              </ListItemButton>
+            </a>
           </ListItem>
 
           {/* REGISTER */}
