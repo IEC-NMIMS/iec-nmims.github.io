@@ -47,6 +47,13 @@ const Credits = () => {
     marginBottom: "10px",
   });
 
+  /* Invisible Link Wrapper */
+  const HiddenLink = styled("a")({
+    color: "inherit",
+    textDecoration: "none",
+    cursor: "default",
+  });
+
   /* ---------------- Names ---------------- */
 
   const names = [
@@ -77,9 +84,20 @@ const Credits = () => {
 
         <Title>Credits</Title>
 
-        {names.map((name, index) => (
-          <Name key={index}>{name}</Name>
-        ))}
+        {names.map((name, index) =>
+          name === "Vedant Maheshwari" ? (
+            <HiddenLink
+              key={index}
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Name>{name}</Name>
+            </HiddenLink>
+          ) : (
+            <Name key={index}>{name}</Name>
+          )
+        )}
 
       </CreditsCard>
 
