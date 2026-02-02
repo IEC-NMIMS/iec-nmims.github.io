@@ -175,8 +175,34 @@ const ContactUs = () => {
     setStatus("sending");
     setMessage("");
 
+    // Validate form fields before sending
+    const formElement = form.current;
+    if (!formElement) {
+      setStatus("error");
+      setMessage("Form reference error. Please refresh the page.");
+      return;
+    }
+
+    const name = (formElement.elements.namedItem("name") as HTMLInputElement)?.value;
+    const email = (formElement.elements.namedItem("email") as HTMLInputElement)?.value;
+    const subject = (formElement.elements.namedItem("subject") as HTMLInputElement)?.value;
+    const messageText = (formElement.elements.namedItem("message") as HTMLTextAreaElement)?.value;
+
+    // Basic validation
+    if (!name || !email || !subject || !messageText) {
+      setStatus("error");
+      setMessage("Please fill in all fields.");
+      return;
+    }
+
+    if (!email.includes("@")) {
+      setStatus("error");
+      setMessage("Please enter a valid email address.");
+      return;
+    }
+
     emailjs
-      .sendForm("service_x4aect6", "template_rdye5ac", form.current!, {
+      .sendForm("service_x4aect6", "template_rdye5ac", formElement, {
         publicKey: "wCf5Yw9Qs6eu9ctzO",
       })
       .then(() => {
@@ -184,7 +210,8 @@ const ContactUs = () => {
         setStatus("success");
         setMessage("Message sent — we'll get back to you shortly.");
       })
-      .catch(() => {
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
         setStatus("error");
         setMessage("Failed to send message. Please try again later.");
       });
