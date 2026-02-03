@@ -1,8 +1,7 @@
 import styled from "@emotion/styled";
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
 
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import SmoothCarousel from "../SmoothCarousel/SmoothCarousel";
 import { ReviewList } from "./ReviewList";
 import Review from "./Review";
 import { Box } from "@mui/material";
@@ -65,19 +64,17 @@ const WhatTheyThinkOfIEC = () => {
 					Experience authentic excellence through our guests' satisfied voices.
 				</Intro>
 			</HeadingBox>
-			<Carousel
+			<SmoothCarousel
 				responsive={responsive}
 				swipeable={true}
 				draggable={false}
 				showDots={false}
-				containerClass=""
-				ssr={false}
 				infinite={true}
 				autoPlay={true}
-				autoPlaySpeed={1000}
-				keyBoardControl={true}
-				transitionDuration={2000}
+				autoPlaySpeed={4000}
+				transitionDuration={1000}
 				arrows={true}
+				conveyorMode={false}
 			>
 				{ReviewList.map((data, index) => (
 					<Review
@@ -87,7 +84,7 @@ const WhatTheyThinkOfIEC = () => {
 						position={data.position}
 					></Review>
 				))}
-			</Carousel>
+			</SmoothCarousel>
 		</WhatTheyThinkOfIECBox>
 	);
 };

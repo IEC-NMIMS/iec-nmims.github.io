@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Button from "@mui/material/IconButton";
 import EastIcon from "@mui/icons-material/East";
 import Typography from "@mui/material/Typography";
-import { Card, useMediaQuery, CardMedia } from "@mui/material";
+import { Card, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import CountUp from "react-countup";

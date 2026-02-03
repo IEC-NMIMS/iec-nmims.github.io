@@ -27,8 +27,8 @@
     "react-countup": "^6.5.3",
     "react-dom": "^18.2.0",
     "react-material-ui-carousel": "^3.4.2",
-    "react-multi-carousel": "^2.8.4",
-    "react-router-dom": "^6.21.1"
+    "react-router-dom": "^6.21.1",
+    "swiper": "^12.1.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",

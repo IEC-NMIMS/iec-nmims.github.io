@@ -3,8 +3,7 @@ import { SpeakerList } from "./SpeakerList";
 import SpeakerItem from "./SpeakerItem";
 import { Box, Typography } from "@mui/material";
 import styled from "@emotion/styled";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import SmoothCarousel from "../SmoothCarousel/SmoothCarousel";
 
 const Speaker = () => {
 	const [isMobile, setIsMobile] = useState(false);
@@ -65,18 +64,15 @@ const Speaker = () => {
 	return (
 		<SpeakerBox>
 			<SpeakerHeader>Speaker</SpeakerHeader>
-			<Carousel
+			<SmoothCarousel
 				responsive={responsive}
 				swipeable={true}
 				draggable={true}
 				showDots={false}
-				containerClass=""
-				ssr={false}
 				infinite={true}
 				autoPlay={true}
-				autoPlaySpeed={1000}
-				keyBoardControl={true}
-				transitionDuration={1500}
+				autoPlaySpeed={3000}
+				transitionDuration={500}
 				arrows={true}
 			>
 				{SpeakerList.map((info, index) => (
@@ -91,7 +87,7 @@ const Speaker = () => {
 						isMobile={isMobile}
 					/>
 				))}
-			</Carousel>
+			</SmoothCarousel>
 		</SpeakerBox>
 	);
 };

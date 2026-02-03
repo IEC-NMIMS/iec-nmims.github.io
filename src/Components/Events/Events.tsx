@@ -1,6 +1,5 @@
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import SmoothCarousel from "../SmoothCarousel/SmoothCarousel";
 import Item from "./Item";
 import { EventList } from "./EventList";
 import styled from "@emotion/styled";
@@ -52,18 +51,15 @@ const Events = () => {
       id="events"
     >
       <Headers>Events</Headers>
-      <Carousel
+      <SmoothCarousel
         responsive={responsive}
         swipeable={isMobile} 
         draggable={isMobile} 
         showDots={false}
-        containerClass=""
-        ssr={false}
         infinite={true}
         autoPlay={isMobile} 
         autoPlaySpeed={4000}
-        keyBoardControl={true}
-        transitionDuration={2000}
+        transitionDuration={500}
         arrows={false} 
       >
         {EventList.map((info, index) => (
@@ -75,7 +71,7 @@ const Events = () => {
             modalData={info.modalData}
           />
         ))}
-      </Carousel>
+      </SmoothCarousel>
     </div>
   );
 };

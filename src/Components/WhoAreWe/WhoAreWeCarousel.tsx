@@ -1,5 +1,4 @@
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import SmoothCarousel from "../SmoothCarousel/SmoothCarousel";
 import MissionCard from "./MissionCard";
 import VisionCard from "./VisionCard";
 import BackgroundBox from "../BackgroundBox/BackgroundBox";
@@ -29,21 +28,19 @@ const WhoAreWeCarousel = () => {
     <>
       <BackgroundBox />
 
-      <Carousel
+      <SmoothCarousel
         responsive={responsive}
         swipeable={true}
         draggable={true}
         showDots={false}
-        ssr={false}
         infinite={true}
         autoPlay={true}
         autoPlaySpeed={4000}
-        keyBoardControl={true}
-        transitionDuration={1000}
+        transitionDuration={500}
       >
         <MissionCard />
         <VisionCard />
-      </Carousel>
+      </SmoothCarousel>
     </>
   );
 };

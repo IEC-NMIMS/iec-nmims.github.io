@@ -3,8 +3,7 @@ import { SponsorList } from "./SponsorList.ts";
 import SpeakerItem from "./SponsorsItem.tsx";
 import { Box, Typography } from "@mui/material";
 import styled from "@emotion/styled";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import SmoothCarousel from "../SmoothCarousel/SmoothCarousel";
 
 const Sponsors = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -65,19 +64,17 @@ const Sponsors = () => {
     return (
         <SpeakerBox  id="sponsors">
             <SpeakerHeader>Sponsors</SpeakerHeader>
-            <Carousel
+            <SmoothCarousel
                 responsive={responsive}
                 swipeable={true}
                 draggable={true}
                 showDots={false}
-                containerClass=""
-                ssr={false}
                 infinite={true}
                 autoPlay={true}
-                autoPlaySpeed={1000}
-                keyBoardControl={true}
-                transitionDuration={1500}
+                autoPlaySpeed={4000}
+                transitionDuration={1000}
                 arrows={true}
+                conveyorMode={false}
             >
                 {SponsorList.map((info, index) => (
                     <SpeakerItem
@@ -90,7 +87,7 @@ const Sponsors = () => {
                         isMobile={isMobile}
                     />
                 ))}
-            </Carousel>
+            </SmoothCarousel>
         </SpeakerBox>
     );
 };

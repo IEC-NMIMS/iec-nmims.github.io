@@ -1,0 +1,101 @@
+/* Smooth Carousel Custom Styles */
+
+.smooth-carousel {
+  width: 100%;
+  position: relative;
+}
+
+/* Conveyor mode - continuous scrolling */
+.smooth-carousel.conveyor-mode .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+/* Swiper wrapper - ensure visibility */
+.smooth-carousel .swiper-wrapper {
+  padding: 0 20px;
+}
+
+/* Navigation arrows styling */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  width: 35px !important;
+  height: 35px !important;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  opacity: 0.7 !important;
+  z-index: 10 !important;
+}
+
+.swiper-button-prev {
+  left: 15px !important;
+}
+
+.swiper-button-next {
+  right: 15px !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  opacity: 1 !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 10px !important;
+  font-weight: bold;
+}
+
+/* Pagination dots styling */
+.smooth-carousel .swiper-pagination-bullet {
+  background: #ffffff;
+  opacity: 0.5;
+  width: 10px;
+  height: 10px;
+  transition: all 0.3s ease;
+}
+
+.smooth-carousel .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #ffffff;
+  transform: scale(1.2);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .smooth-carousel .swiper-button-next,
+  .smooth-carousel .swiper-button-prev {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .smooth-carousel .swiper-button-next::after,
+  .smooth-carousel .swiper-button-prev::after {
+    font-size: 8px !important;
+  }
+}
+
+/* Disable arrows on very small screens if needed */
+@media (max-width: 480px) {
+  .smooth-carousel .swiper-button-next,
+  .smooth-carousel .swiper-button-prev {
+    display: none;
+  }
+}
+
+/* Smooth slide transitions */
+.smooth-carousel .swiper-slide {
+  transition: transform 0.3s ease;
+}
+
+.smooth-carousel .swiper-slide-active {
+  z-index: 2;
+}
+
+/* Add subtle shadow on hover */
+.smooth-carousel .swiper-slide:hover {
+  transform: translateY(-5px);
+}

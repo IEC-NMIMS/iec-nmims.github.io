@@ -2,8 +2,7 @@ import SuperCoreItem from "./SuperCoreItem";
 import { CoreDep, SuperCorelist, MentorList } from "./teamList";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import styled from "@emotion/styled";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import SmoothCarousel from "../SmoothCarousel/SmoothCarousel";
 import CoreItem from "./CoreItem";
 import MentorItem from "./MentorItem";
 import BackgroundBox from "../BackgroundBox/BackgroundBox";
@@ -67,75 +66,69 @@ const OurTeam = () => {
       <OurTeamBox>
         <OurTeamHeader>Our Team</OurTeamHeader>
         <SuperCoreHeader>Super Core</SuperCoreHeader>
-        <Carousel
+        <SmoothCarousel
           responsive={responsive}
           swipeable={true}
           draggable={true}
           showDots={false}
-          containerClass=""
-          ssr={false}
           infinite={true}
           autoPlay={true}
           autoPlaySpeed={4000}
-          keyBoardControl={true}
-          transitionDuration={2000}
+          transitionDuration={500}
           arrows={true}
         >
           {SuperCorelist.map((info, index) => (
             <SuperCoreItem
+              key={index}
               index={index}
               photo={info.photo}
               name={info.Name}
               desg={info.designation}
             ></SuperCoreItem>
           ))}
-        </Carousel>
+        </SmoothCarousel>
         <SuperCoreHeader>Mentors</SuperCoreHeader>
-        <Carousel
+        <SmoothCarousel
           responsive={responsive}
           swipeable={true}
           draggable={true}
           showDots={false}
-          containerClass=""
-          ssr={false}
           infinite={true}
           autoPlay={true}
           autoPlaySpeed={4000}
-          keyBoardControl={true}
-          transitionDuration={2000}
+          transitionDuration={500}
           arrows={true}
         >
           {MentorList.map((info, index) => (
             <MentorItem
+              key={index}
               index={index}
               photo={info.photo}
               name={info.name}
             ></MentorItem>
           ))}
-        </Carousel>
+        </SmoothCarousel>
         <SuperCoreHeader>Core</SuperCoreHeader>
-        <Carousel
+        <SmoothCarousel
           responsive={responsive}
           swipeable={false}
           draggable={true}
           showDots={false}
-          containerClass=""
-          ssr={false}
           infinite={true}
           autoPlay={true}
           autoPlaySpeed={4000}
-          keyBoardControl={true}
-          transitionDuration={2000}
+          transitionDuration={500}
           arrows={true}
         >
           {CoreDep.map((info, index) => (
             <CoreItem
+              key={index}
               index={index}
               photo={info.photo}
               depname={info.department}
             ></CoreItem>
           ))}
-        </Carousel>
+        </SmoothCarousel>
       </OurTeamBox>
     </>
   );

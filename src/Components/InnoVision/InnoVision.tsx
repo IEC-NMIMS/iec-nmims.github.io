@@ -1,8 +1,7 @@
 import { InnoVisionGuestList } from "./InnoVisionGuestList";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import styled from "@emotion/styled";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import SmoothCarousel from "../SmoothCarousel/SmoothCarousel";
 import InnoVisionItem from "./InnoVisionItem";
 
 const InnoVision = () => {
@@ -50,18 +49,15 @@ const InnoVision = () => {
 	return (
 		<SpeakerBox>
 			<SpeakerHeader>Inno-Vision Guests</SpeakerHeader>
-			<Carousel
+			<SmoothCarousel
 				responsive={responsive}
 				swipeable={true}
 				draggable={true}
 				showDots={false}
-				containerClass=""
-				ssr={false}
 				infinite={true}
 				autoPlay={true}
-				autoPlaySpeed={1000}
-				keyBoardControl={true}
-				transitionDuration={2000}
+				autoPlaySpeed={3000}
+				transitionDuration={500}
 				arrows={true}
 			>
 				{InnoVisionGuestList.map((info, index) => (
@@ -75,7 +71,7 @@ const InnoVision = () => {
 						linkedin={info.linkedin}
 					></InnoVisionItem>
 				))}
-			</Carousel>
+			</SmoothCarousel>
 		</SpeakerBox>
 	);
 };
