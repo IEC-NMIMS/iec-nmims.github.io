@@ -1,13 +1,22 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay, A11y, FreeMode } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/free-mode';
-import './carousel-styles.css';
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  Navigation,
+  Pagination,
+  Autoplay,
+  A11y,
+  FreeMode,
+} from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/free-mode";
+import "./carousel-styles.css";
 
 interface ResponsiveSettings {
-  superLargeDesktop?: { breakpoint: { max: number; min: number }; items: number };
+  superLargeDesktop?: {
+    breakpoint: { max: number; min: number };
+    items: number;
+  };
   desktop?: { breakpoint: { max: number; min: number }; items: number };
   tablet?: { breakpoint: { max: number; min: number }; items: number };
   mobile?: { breakpoint: { max: number; min: number }; items: number };
@@ -49,14 +58,18 @@ const SmoothCarousel = ({
     breakpoints[0] = { slidesPerView: responsive.mobile.items };
   }
   if (responsive.tablet) {
-    breakpoints[responsive.tablet.breakpoint.min] = { slidesPerView: responsive.tablet.items };
+    breakpoints[responsive.tablet.breakpoint.min] = {
+      slidesPerView: responsive.tablet.items,
+    };
   }
   if (responsive.desktop) {
-    breakpoints[responsive.desktop.breakpoint.min] = { slidesPerView: responsive.desktop.items };
+    breakpoints[responsive.desktop.breakpoint.min] = {
+      slidesPerView: responsive.desktop.items,
+    };
   }
   if (responsive.superLargeDesktop) {
-    breakpoints[responsive.superLargeDesktop.breakpoint.min] = { 
-      slidesPerView: responsive.superLargeDesktop.items 
+    breakpoints[responsive.superLargeDesktop.breakpoint.min] = {
+      slidesPerView: responsive.superLargeDesktop.items,
     };
   }
 
@@ -80,7 +93,7 @@ const SmoothCarousel = ({
       breakpoints={breakpoints}
       allowTouchMove={swipeable || draggable}
       grabCursor={draggable}
-      className={`smooth-carousel ${conveyorMode ? 'conveyor-mode' : ''}`}
+      className={`smooth-carousel ${conveyorMode ? "conveyor-mode" : ""}`}
       freeMode={conveyorMode}
     >
       {children.map((child, index) => (

@@ -53,14 +53,14 @@ const Events = () => {
       <Headers>Events</Headers>
       <SmoothCarousel
         responsive={responsive}
-        swipeable={isMobile} 
-        draggable={isMobile} 
+        swipeable={isMobile}
+        draggable={isMobile}
         showDots={false}
         infinite={true}
-        autoPlay={isMobile} 
+        autoPlay={isMobile}
         autoPlaySpeed={4000}
         transitionDuration={500}
-        arrows={false} 
+        arrows={false}
       >
         {EventList.map((info, index) => (
           <Item
