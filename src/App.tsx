@@ -1,15 +1,18 @@
-import Events from "./Components/Events/Events";
-import WhoAreWe from "./Components/WhoAreWe/WhoAreWe";
-import ContactUs from "./Components/ContactUs/ContactUs";
-import WhatDoWeDo from "./Components/WhatDoWeDo/WhatDoWeDo";
-import WhatDoWeLearn from "./Components/WhatDoWeLearn/WhatDoWeLearn";
-import Speaker from "./Components/Speaker/Speaker";
+import { Suspense, lazy } from "react";
 import BackgroundBox from "./Components/BackgroundBox/BackgroundBox";
 import Home from "./Components/Home/Home";
-import WhatTheyThinkOfIEC from "./Components/WhatTheyThinkOfIEC/WhatTheyThinkOfIEC";
-import InnoVision from "./Components/InnoVision/InnoVision";
 import Footer from "./Components/Footer/Footer";
-import Sponsors from "./Components/Sponsors/Sponsors.tsx";
+
+// Lazy-loaded components for code splitting
+const WhoAreWe = lazy(() => import("./Components/WhoAreWe/WhoAreWe"));
+const WhatDoWeDo = lazy(() => import("./Components/WhatDoWeDo/WhatDoWeDo"));
+const WhatDoWeLearn = lazy(() => import("./Components/WhatDoWeLearn/WhatDoWeLearn"));
+const Events = lazy(() => import("./Components/Events/Events"));
+const Sponsors = lazy(() => import("./Components/Sponsors/Sponsors"));
+const Speaker = lazy(() => import("./Components/Speaker/Speaker"));
+const InnoVision = lazy(() => import("./Components/InnoVision/InnoVision"));
+const WhatTheyThinkOfIEC = lazy(() => import("./Components/WhatTheyThinkOfIEC/WhatTheyThinkOfIEC"));
+const ContactUs = lazy(() => import("./Components/ContactUs/ContactUs"));
 
 function App() {
 	return (
@@ -17,15 +20,17 @@ function App() {
 			<BackgroundBox />
 
 			<Home />
-			<WhoAreWe />
-			<WhatDoWeDo />
-			<WhatDoWeLearn />
-			<Events />
-			<Sponsors/>
-			<Speaker />
-			<InnoVision />
-			<WhatTheyThinkOfIEC />
-			<ContactUs />
+			<Suspense fallback={null}>
+				<WhoAreWe />
+				<WhatDoWeDo />
+				<WhatDoWeLearn />
+				<Events />
+				<Sponsors />
+				<Speaker />
+				<InnoVision />
+				<WhatTheyThinkOfIEC />
+				<ContactUs />
+			</Suspense>
 			<Footer />
 		</>
 	);
