@@ -14,7 +14,7 @@ export default defineConfig({
 		rollupOptions: {
 			output: {
 				manualChunks: (id) => {
-					// Split vendor libraries into a separate chunk
+					// Only split vendor libraries, let Vite handle component chunking
 					if (id.includes("node_modules")) {
 						if (
 							id.includes("@mui") ||
@@ -33,29 +33,10 @@ export default defineConfig({
 						}
 						return "vendor";
 					}
-					// Split components by section for better caching
-					if (id.includes("Components")) {
-						if (
-							id.includes("Events") ||
-							id.includes("Inceptio") ||
-							id.includes("Unplanned")
-						) {
-							return "events";
-						}
-						if (
-							id.includes("Speaker") ||
-							id.includes("Sponsors") ||
-							id.includes("InnoVision")
-						) {
-							return "features";
-						}
-						if (id.includes("WhoAreWe") || id.includes("OurTeam")) {
-							return "about";
-						}
-					}
+					// No manual component chunking - let Vite's automatic code splitting handle it
 				},
 			},
 		},
-		chunkSizeWarningLimit: 1000, // Increase warning threshold since chunks will be smaller
+		chunkSizeWarningLimit: 1000,
 	},
 });
