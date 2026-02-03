@@ -69,6 +69,8 @@ const Card = ({
           src={`${photo.url}?auto=format&fit=crop&w=600&q=80`}
           alt={photo.title || "Gallery Image"}
           draggable="false"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover brightness-75 group-hover:brightness-100 transition-all duration-700 pointer-events-none"
         />
 

@@ -86,6 +86,8 @@ const SpeakerItem = (props: Props) => {
 				<Image
 					src={image}
 					alt={name}
+					loading="lazy"
+					decoding="async"
 				/>
 			</SpeakerPic>
 			<SpeakerName onClick={handleNameClick}>{name}</SpeakerName>
