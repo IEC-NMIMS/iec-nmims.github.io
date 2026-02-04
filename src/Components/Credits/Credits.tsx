@@ -56,21 +56,29 @@ const Credits = () => {
 
   /* ---------------- Names ---------------- */
 
-  const names = [
-    "Yash Korla",
-    "Karan Bedi",
-    "Sushanth Tambe",
-    "Aarya Pandya",
-    "Aryan Chauhan",
-    "Parth Mehta",
-    "Parth Jhaveri",
-    "Diya Joshi",
-    "Abhishekh Sheth",
-    "Jenish Nanda",
-    "Nikhil Joshi",
-    "Pratyush Landekar",
-    "Vedant Maheshwari",
-  ];
+const names = [
+  { name: "Yash Korla" },
+  { name: "Karan Bedi" },
+  { name: "Sushanth Tambe" },
+  { name: "Aarya Pandya" },
+  { name: "Aryan Chauhan" },
+  { name: "Parth Mehta" },
+  { name: "Parth Jhaveri" },
+  { name: "Diya Joshi" },
+  { name: "Abhishekh Sheth" },
+  { name: "Jenish Nanda" },
+  { name: "Nikhil Joshi" },
+  { name: "Pratyush Landekar" },
+  {
+    name: "Vedant Maheshwari",
+    link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  },
+  {
+    name: "Daivik Guha",
+    link: "https://www.linkedin.com/in/daivik-guha-460762383/", 
+  },
+];
+
 
   /* ---------------- JSX ---------------- */
 
@@ -84,18 +92,18 @@ const Credits = () => {
 
         <Title>Credits</Title>
 
-        {names.map((name, index) =>
-          name === "Vedant Maheshwari" ? (
+        {names.map((person, index) =>
+          person.link ? (
             <HiddenLink
               key={index}
-              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              href={person.link}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Name>{name}</Name>
+              <Name>{person.name}</Name>
             </HiddenLink>
           ) : (
-            <Name key={index}>{name}</Name>
+            <Name key={index}>{person.name}</Name>
           )
         )}
 

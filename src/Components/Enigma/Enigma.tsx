@@ -12,7 +12,7 @@ const Enigma = (): JSX.Element => {
 
   const galleryImages = [
     { url: "/images/events/enigma/DSC_0416.webp" },
-    { url: "/images/events/enigma/DSC_0419.JPG" },
+    { url: "/images/events/enigma/DSC_0419.webp" },
     { url: "/images/events/enigma/IMG_6100.webp" },
     { url: "/images/events/enigma/IMG_9162.webp" },
     { url: "/images/events/enigma/IMG_9172.webp" },
