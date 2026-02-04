@@ -60,7 +60,7 @@ const SuperCoreItem = (props: Props) => {
 	const Itemcard = (
 		<CardContent>
 			<SuperCorePic>
-				<Image src={photo} />
+				<Image src={photo} loading="lazy" decoding="async" />
 			</SuperCorePic>
 			<SuperCoreContainer>
 				<SuperCoreName>{name}</SuperCoreName>

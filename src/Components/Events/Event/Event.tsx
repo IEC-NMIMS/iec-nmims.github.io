@@ -79,8 +79,8 @@ const Event = () => {
         <Title>{title}</Title>
         <Desc>{data}</Desc>
         <ImageBox>
-          {images.map((image: string | undefined) => (
-            <Image src={image} />
+          {images.map((image: string | undefined, idx: number) => (
+            <Image key={idx} src={image} loading="lazy" decoding="async" />
           ))}
         </ImageBox>
       </Background>

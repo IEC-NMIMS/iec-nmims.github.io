@@ -167,6 +167,8 @@ const Home = () => {
             <img
               src="images/home/home-animation.gif"
               alt="Home Animation"
+              loading="lazy"
+              decoding="async"
               style={{
                 backgroundColor: "transparent",
                 transform: "scale(1.5)",

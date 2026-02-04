@@ -53,7 +53,7 @@ const CoreItem = (props: Props) => {
 	const Itemcard = (
 		<CardContent>
 			<CorePic>
-				<Image src={photo} />
+				<Image src={photo} loading="lazy" decoding="async" />
 			</CorePic>
 			<CoreContainer>
 				<DepName>{depname}</DepName>

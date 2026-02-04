@@ -35,6 +35,8 @@ const SponsorsItem = (props: Props) => {
         aspectRatio: isMobile ? "1/1" : "1.2 / 1",
         width: "100%",
         borderRadius: "10px",
+        loading: "lazy",
+        decoding: "async",
     });
 
     const SpeakerName = styled(Typography)({
@@ -81,7 +83,7 @@ const SponsorsItem = (props: Props) => {
         <EventCard variant="outlined">
             <CardContentContainer>
                 <SpeakerPic>
-                    <Image src={image} alt={name} />
+                    <Image src={image} alt={name} loading="lazy" decoding="async" />
                 </SpeakerPic>
                 <SpeakerName>{name}</SpeakerName>
                 <SpeakerDesc>{desc}</SpeakerDesc>

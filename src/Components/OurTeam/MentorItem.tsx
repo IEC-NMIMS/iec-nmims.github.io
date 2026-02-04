@@ -50,7 +50,7 @@ const MentorItem = (props: Props) => {
 	const Itemcard = (
 		<CardContent>
 			<MentorPic>
-				<Image src={photo} />
+				<Image src={photo} loading="lazy" decoding="async" />
 			</MentorPic>
 			<MentorContainer>
 				<MentorName>{name}</MentorName>
