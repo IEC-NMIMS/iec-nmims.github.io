@@ -14,7 +14,7 @@ export default defineConfig({
 		rollupOptions: {
 			output: {
 				manualChunks: (id) => {
-					// Split vendor libraries into a separate chunk
+					// Only split vendor libraries, let Vite handle component chunking
 					if (id.includes("node_modules")) {
 						if (
 							id.includes("@mui") ||
@@ -36,6 +36,6 @@ export default defineConfig({
 				},
 			},
 		},
-		chunkSizeWarningLimit: 1000, // Increase warning threshold since chunks will be smaller
+		chunkSizeWarningLimit: 1000,
 	},
 });

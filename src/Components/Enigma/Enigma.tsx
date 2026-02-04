@@ -145,6 +145,9 @@ const Enigma = (): JSX.Element => {
             duration: 1.5,
             ease: "easeOut",
           }}
+          style={{
+            textAlign: "center",
+          }}
           className="enigma-description"
         >
           Enigma marks the beginning of every IEC journey. Designed as our

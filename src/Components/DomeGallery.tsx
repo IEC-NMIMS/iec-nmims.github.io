@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useCallback } from 'react';
+import { useEffect, useMemo, useRef, useCallback, memo } from 'react';
 import { useGesture } from '@use-gesture/react';
 
 type ImageItem = string | { src: string; alt?: string };
@@ -138,7 +138,7 @@ function computeItemBaseRotation(offsetX: number, offsetY: number, sizeX: number
   return { rotateX, rotateY };
 }
 
-export default function DomeGallery({
+const DomeGallery = memo(function DomeGallery({
   images = DEFAULT_IMAGES,
   fit = 0.5,
   fitBasis = 'auto',
@@ -199,20 +199,31 @@ export default function DomeGallery({
 
   const items = useMemo(() => buildItems(images, segments), [images, segments]);
 
-  const applyTransform = (xDeg: number, yDeg: number) => {
+  const lastTransformTime = useRef(0);
+  const applyTransform = useCallback((xDeg: number, yDeg: number) => {
+    const now = performance.now();
+    // Throttle to 60fps max
+    if (now - lastTransformTime.current < 16) return;
+    lastTransformTime.current = now;
+    
     const el = sphereRef.current;
     if (el) {
       el.style.transform = `translateZ(calc(var(--radius) * -1)) rotateX(${xDeg}deg) rotateY(${yDeg}deg)`;
     }
-  };
+  }, []);
 
   const lockedRadiusRef = useRef<number | null>(null);
 
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
+    
+    let resizeTimeout: number | null = null;
     const ro = new ResizeObserver(entries => {
-      const cr = entries[0].contentRect;
+      // Debounce resize to avoid excessive recalculations
+      if (resizeTimeout) cancelAnimationFrame(resizeTimeout);
+      resizeTimeout = requestAnimationFrame(() => {
+        const cr = entries[0].contentRect;
       const w = Math.max(1, cr.width),
         h = Math.max(1, cr.height);
       const minDim = Math.min(w, h),
@@ -275,6 +286,7 @@ export default function DomeGallery({
           enlargedOverlay.style.height = `${frameR.height}px`;
         }
       }
+      });
     });
     ro.observe(root);
     return () => ro.disconnect();
@@ -289,12 +301,13 @@ export default function DomeGallery({
     imageBorderRadius,
     openedImageBorderRadius,
     openedImageWidth,
-    openedImageHeight
+    openedImageHeight,
+    applyTransform
   ]);
 
   useEffect(() => {
     applyTransform(rotationRef.current.x, rotationRef.current.y);
-  }, []);
+  }, [applyTransform]);
 
   const stopInertia = useCallback(() => {
     if (inertiaRAF.current) {
@@ -302,6 +315,28 @@ export default function DomeGallery({
       inertiaRAF.current = null;
     }
   }, []);
+
+  // Pause animations when not visible
+  const isVisibleRef = useRef(true);
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isVisibleRef.current = entry.isIntersecting;
+          if (!entry.isIntersecting) {
+            stopInertia();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    
+    observer.observe(root);
+    return () => observer.disconnect();
+  }, [stopInertia]);
 
   const startInertia = useCallback(
     (vx: number, vy: number) => {
@@ -314,6 +349,11 @@ export default function DomeGallery({
       const stopThreshold = 0.015 - 0.01 * d;
       const maxFrames = Math.round(90 + 270 * d);
       const step = () => {
+        // Stop if not visible
+        if (!isVisibleRef.current) {
+          inertiaRAF.current = null;
+          return;
+        }
         vX *= frictionMul;
         vY *= frictionMul;
         if (Math.abs(vX) < stopThreshold && Math.abs(vY) < stopThreshold) {
@@ -692,7 +732,10 @@ export default function DomeGallery({
     }
     
     .sphere-root * { box-sizing: border-box; }
-    .sphere, .sphere-item, .item__image { transform-style: preserve-3d; }
+    .sphere, .sphere-item, .item__image { 
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+    }
     
     .stage {
       width: 100%;
@@ -723,10 +766,12 @@ export default function DomeGallery({
       margin: auto;
       transform-origin: 50% 50%;
       backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
       transition: transform 300ms;
       transform: rotateY(calc(var(--rot-y) * (var(--offset-x) + ((var(--item-size-x) - 1) / 2)) + var(--rot-y-delta, 0deg))) 
                  rotateX(calc(var(--rot-x) * (var(--offset-y) - ((var(--item-size-y) - 1) / 2)) + var(--rot-x-delta, 0deg))) 
                  translateZ(var(--radius));
+      will-change: transform;
     }
     
     .sphere-root[data-enlarging="true"] .scrim {
@@ -763,11 +808,20 @@ export default function DomeGallery({
       pointer-events: auto;
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
+      will-change: transform;
     }
     .item__image--reference {
       position: absolute;
       inset: 10px;
       pointer-events: none;
+    }
+    .item__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: var(--image-filter, none);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
     }
   `;
 
@@ -851,6 +905,8 @@ export default function DomeGallery({
                       src={it.src}
                       draggable={false}
                       alt={it.alt}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover pointer-events-none"
                       style={{
                         backfaceVisibility: 'hidden',
@@ -917,4 +973,6 @@ export default function DomeGallery({
       </div>
     </>
   );
-}
+});
+
+export default DomeGallery;
