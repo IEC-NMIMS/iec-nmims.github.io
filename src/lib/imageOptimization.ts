@@ -59,6 +59,12 @@ export const cloudflareImageUrl = (
   }: CloudflareImageOptions = {}
 ): string => {
   if (!url) return url;
+  if (typeof window !== 'undefined') {
+    const host = window.location.hostname;
+    if (host === 'localhost' || host === '127.0.0.1') {
+      return url;
+    }
+  }
   if (url.startsWith('/cdn-cgi/image/')) return url;
   if (url.startsWith('data:')) return url;
 
