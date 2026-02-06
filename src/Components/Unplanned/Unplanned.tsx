@@ -8,20 +8,20 @@ const Unplanned = (): JSX.Element => {
   const contentRef = useRef<HTMLDivElement>(null);
 
   const galleryImages = [
-    "/images/events/unplanned5/IMG_0659.webp",
-    "/images/events/unplanned5/IMG_0744.webp",
-    "/images/events/unplanned5/IMG_0747.webp",
-    "/images/events/unplanned5/IMG_0751.webp",
-    "/images/events/unplanned5/IMG_1821.webp",
-    "/images/events/unplanned5/IMG_1994.webp",
-    "/images/events/unplanned5/IMG_2001.webp",
-    "/images/events/unplanned5/IMG_6181.webp",
-    "/images/events/unplanned5/IMG_6245.webp",
-    "/images/events/unplanned5/IMG_6247.webp",
-    "/images/events/unplanned5/IMG_6251.webp",
-    "/images/events/unplanned5/IMG_6254.webp",
-    "/images/events/unplanned5/IMG_9858.webp",
-    "/images/events/unplanned5/IMG_9861.webp",
+    "/images/events/unplanned5/ccjieghrsmfdszcrzccq.avif",
+    "/images/events/unplanned5/dixwgt4pluk441tmapfj.avif",
+    "/images/events/unplanned5/gcjylwueydgmk9w2tp10.avif",
+    "/images/events/unplanned5/iaannkmvu2lgxskftsmh.avif",
+    "/images/events/unplanned5/IMG_0747.avif",
+    "/images/events/unplanned5/IMG_6245.avif",
+    "/images/events/unplanned5/IMG_6247.avif",
+    "/images/events/unplanned5/IMG_6251.avif",
+    "/images/events/unplanned5/IMG_9858.avif",
+    "/images/events/unplanned5/IMG_9861.avif",
+    "/images/events/unplanned5/ttkde1cleuz9htl1lnci.avif",
+    "/images/events/unplanned5/v5kujokn1gzarz5sy5xj.avif",
+    "/images/events/unplanned5/qfywmg57i8pihfxeq088.avif",
+    "/images/events/unplanned5/jb9u3zcinlsklwjvgwee.avif",
   ];
 
   useEffect(() => {
