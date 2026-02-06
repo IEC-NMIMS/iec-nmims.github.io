@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import BlurText from "../../BlurText";
+import { cloudflareImageUrl } from "../../../lib/imageOptimization";
 
 interface ChallengeData {
   title: string;
@@ -310,6 +311,7 @@ const ChallengeCard = ({
   index,
   isReversed,
 }: ChallengeCardProps) => {
+  const cdnWidth = 900;
   return (
     <motion.div
       initial={{ opacity: 0, y: 80 }}
@@ -343,8 +345,14 @@ const ChallengeCard = ({
             }}
           >
             <img
-              src={challenge.image}
+              src={cloudflareImageUrl(challenge.image, {
+                width: cdnWidth,
+                quality: 80,
+                fit: "cover",
+              })}
               alt={challenge.title}
+              loading="lazy"
+              decoding="async"
               style={{
                 width: "100%",
                 height: "auto",

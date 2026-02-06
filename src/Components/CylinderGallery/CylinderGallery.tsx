@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
+import { cloudflareImageUrl } from "../../lib/imageOptimization";
 
 interface Photo {
   url: string;
@@ -42,6 +43,7 @@ const Card = ({
 }: CardProps) => {
   const theta = (360 / totalItems) * index;
   const height = width * 1.5;
+  const cdnWidth = Math.round(width * 2);
 
   return (
     <div
@@ -66,7 +68,11 @@ const Card = ({
     >
       <div className="w-full h-full rounded-xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] bg-neutral-900 group cursor-grab active:cursor-grabbing transition-all duration-300">
         <img
-          src={`${photo.url}?auto=format&fit=crop&w=600&q=80`}
+          src={cloudflareImageUrl(photo.url, {
+            width: cdnWidth,
+            quality: 80,
+            fit: "cover",
+          })}
           alt={photo.title || "Gallery Image"}
           draggable="false"
           loading="lazy"
