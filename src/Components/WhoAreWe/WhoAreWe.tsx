@@ -162,7 +162,8 @@ const WhoAreWe = () => {
 					create passion amongst the students who wish to pursue entrepreneurship as a
 					career.
 				</LeftPanelPara>
-				<NavLink
+				
+				{/*<NavLink
 					style={{ textDecoration: "none" }}
 					to="/vision-mission"
 				>
@@ -170,7 +171,8 @@ const WhoAreWe = () => {
 						<KnowMoreText>Click to know more</KnowMoreText>
 						<Arrow />
 					</KnowMore>
-				</NavLink>
+				</NavLink>*/}
+				
 			</>
 		);
 	};

@@ -74,6 +74,10 @@ const names = [
     link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
   },
   {
+    name: "Ridhi Singh",
+    link: "https://www.linkedin.com/in/ridhi-singh-8b77433a6",
+  },
+  {
     name: "Daivik Guha",
     link: "https://www.linkedin.com/in/daivik-guha-460762383/", 
   },
