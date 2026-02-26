@@ -52,18 +52,12 @@ export const EventList = [
   {
     image: "./images/event-carousel/concept-show-banner.webp",
     name: "Concept Show",
-    desc: "Concept Show, an event held by MPSTME's Innovation and entrepreneurship cell is the go to place if you want to see an exemplary display of projects, embedded with core educational values such as critical thinking, design thinking, showcasing their own unique thoughts and innovation.",
-    modalData: {
-      title: "Ideas Illuminated: Snapshots of the Concept Show",
-      data: "Concept Show, an event held by MPSTME's Innovation and entrepreneurship cell is the go to place if you want to see an exemplary display of projects, embedded with core educational values such as critical thinking, design thinking, showcasing their own unique thoughts and innovation. With the main aim of giving the students one final taste of the industrial world before they enter it by giving opportunities to them to meet some of the renowned people from the industry.",
-      images: [
-        "./images/events/concept-show/image-1.webp",
-        "./images/events/concept-show/image-2.webp",
-        "./images/events/concept-show/image-3.webp",
-        "./images/events/concept-show/image-4.webp",
-        "./images/events/concept-show/image-5.webp",
-        "./images/events/concept-show/image-6.webp",
-      ],
+    slug: "concept-show",
+    desc: "The Concept Show is where imagination takes a tangible form. It's a stage for trailblazers to present their refined prototypes.",
+    modelData: {
+      title:"Concept Show",
+      data: "The Concept Show is where imagination takes a tangible form. It's a stage for trailblazers to present their refined prototypes.",
+      images: [],
     },
   },
 ];

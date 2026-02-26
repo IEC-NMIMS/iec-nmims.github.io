@@ -12,7 +12,8 @@ import Enigma from "./Components/Enigma/Enigma.tsx";
 import Unplanned from "./Components/Unplanned/Unplanned.tsx";
 import Navbar from "./Components/Navbar/Navbar.tsx";
 import MobileDrawer from "./Components/MobileDrawer/MobileDrawer.tsx";
-import Credits from "./Components/Credits/Credits.tsx";   // ✅ NEW
+import Credits from "./Components/Credits/Credits.tsx";   
+import ConceptShow from "./Components/ConceptShow/ConceptShow.tsx"; // ✅ NEW
 
 import {
   Box,
@@ -93,6 +94,7 @@ const RenderApp = () => {
         <Route path="/events/enigma" element={<Enigma />} />
         <Route path="/events/unplanned" element={<Unplanned />} />
         <Route path="/events/inceptio" element={<InceptioEvent />} />
+        <Route path="/events/concept-show" element={<ConceptShow />}/>
 
         {/* LEGACY INCEPTIO PAGE */}
         <Route path="/inceptio" element={<Inceptio />} />
