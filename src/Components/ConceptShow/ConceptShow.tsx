@@ -5,12 +5,12 @@ const ConceptShow = (): JSX.Element => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const polaroids = [
-    { title: "The Spark", image: "public/images/events/concept-show/image-1.webp", tilt: "-4deg" },
-    { title: "The Prototype", image: "/images/events/conceptshow/image-2.avif", tilt: "2deg" },
-    { title: "The Pitch", image: "/images/events/conceptshow/image-3.avif", tilt: "-2deg" },
-    { title: "The Feedback", image: "/images/events/conceptshow/image-4.avif", tilt: "3deg" },
-    { title: "The Blueprint", image: "/images/events/conceptshow/image-5.avif", tilt: "-3deg" },
-    { title: "The Launch", image: "/images/events/conceptshow/image-6.avif", tilt: "1deg" },
+    { title: "The Spark", image: "/images/events/concept-show/image-1.avif", tilt: "-4deg" },
+    { title: "The Prototype", image: "/images/events/concept-show/image-2.avif", tilt: "2deg" },
+    { title: "The Pitch", image: "/images/events/concept-show/image-3.avif", tilt: "-2deg" },
+    { title: "The Feedback", image: "/images/events/concept-show/image-4.avif", tilt: "3deg" },
+    { title: "The Blueprint", image: "/images/events/concept-show/image-5.avif", tilt: "-3deg" },
+    { title: "The Launch", image: "/images/events/concept-show/image-6.avif", tilt: "1deg" },
   ];
 
   useEffect(() => {
