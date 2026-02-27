@@ -42,6 +42,18 @@ export type CloudflareImageOptions = {
   format?: 'auto' | 'avif' | 'webp' | 'jpeg' | 'png';
   dpr?: number;
 };
+// ...existing code...
+//!TODO: Add environment variable check to enable/disable Cloudflare Image Optimization
+const isCloudflareImageEnabled = (): boolean => {
+  const envValue = (import.meta as ImportMeta & { env?: { VITE_CLOUDFLARE_IMAGES?: string } })
+    ?.env?.VITE_CLOUDFLARE_IMAGES;
+  if (typeof envValue === 'string') {
+    return envValue.toLowerCase() === 'true';
+  }
+
+  return false;
+};
+// ...existing code...
 
 /**
  * Build a Cloudflare Image Transformation URL for same-origin assets.
@@ -58,6 +70,7 @@ export const cloudflareImageUrl = (
     dpr
   }: CloudflareImageOptions = {}
 ): string => {
+  if (!isCloudflareImageEnabled()) return url;
   if (!url) return url;
   if (url.startsWith('/cdn-cgi/image/')) return url;
   if (url.startsWith('data:')) return url;
