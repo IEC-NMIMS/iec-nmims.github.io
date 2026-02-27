@@ -1,9 +1,6 @@
 import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
-import IconButton from "@mui/material/IconButton";
-import EastIcon from "@mui/icons-material/East";
 import Typography from "@mui/material/Typography";
-import { NavLink } from "react-router-dom";
 import { useMediaQuery, useTheme } from "@mui/material";
 
 const WhoAreWe = () => {
@@ -59,38 +56,6 @@ const WhoAreWe = () => {
 		textAlign: isMobile ? "center" : "left",
 		lineHeight: "1.6", // Improve readability
 		letterSpacing: "0.3px", // Slight letter spacing for better readability
-	});
-
-	const KnowMore = styled(IconButton)({
-		backgroundColor: "rgb(0,185,203)",
-		borderRadius: "10px",
-		right: "10px",
-		height: "40px",
-		width: isMobile && window.innerWidth < 1024 ? "100%" : "350px",
-		display: "flex",
-		justifyContent: "start",
-		alignItems: "center",
-		paddingRight: isMobile && window.innerWidth < 1024 ? "0px" : "20px",
-		color: "black",
-		fontFamily: "sans-serif",
-		fontWeight: "bold",
-		marginLeft: "8px",
-		zIndex: 1,
-
-		"&:hover": {
-			backgroundColor: "rgb(0,185,203)",
-		},
-	});
-
-	const KnowMoreText = styled(Typography)({
-		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 1024 ? "0.8rem" : "1rem",
-		fontWeight: "bold",
-	});
-
-	const Arrow = styled(EastIcon)({
-		marginLeft: "auto",
-		marginRight: isMobile ? "5px" : "15px",
 	});
 
 	const RightPanel = styled(Box)({

@@ -1,5 +1,4 @@
 import { useRef, useEffect } from "react";
-import { cloudflareImageUrl } from "../../lib/imageOptimization";
 
 interface Photo {
   url: string;
@@ -24,7 +23,6 @@ const ArcCarousel = ({
   const scrollPosRef = useRef(0);
 
   const imageHeight = imageWidth * 1.4;
-  const cdnWidth = Math.round(imageWidth * 2);
 
   // Duplicate images for seamless infinite scroll
   const displayImages = [...images, ...images, ...images];
@@ -98,11 +96,7 @@ const ArcCarousel = ({
             }}
           >
             <img
-              src={cloudflareImageUrl(photo.url, {
-                width: cdnWidth,
-                quality: 80,
-                fit: "cover",
-              })}
+              src={photo.url}
               alt={photo.title || `Gallery image ${(index % images.length) + 1}`}
               draggable="false"
               loading="lazy"
