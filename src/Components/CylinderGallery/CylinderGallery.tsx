@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo, useCallback } from "react";
+import { memo, useState, useEffect, useRef, useMemo, useCallback } from "react";
 
 interface Photo {
   url: string;
@@ -31,7 +31,7 @@ interface CardProps {
   cardTransformOrigin?: string;
 }
 
-const Card = ({
+const Card = memo(({
   photo,
   index,
   totalItems,
@@ -95,7 +95,27 @@ const Card = ({
       </div>
     </div>
   );
-};
+});
+
+Card.displayName = "Card";
+
+/** Memoized indicator dots — only re-renders when activeIndex changes */
+const Indicator = memo(({ count, activeIndex }: { count: number; activeIndex: number }) => (
+  <div className="absolute bottom-24 left-0 w-full flex flex-col items-center gap-6 z-50 pointer-events-none transition-opacity duration-500">
+    <div className="flex gap-1.5 px-6 max-w-md overflow-hidden opacity-50">
+      {Array.from({ length: count }, (_, i) => (
+        <div
+          key={i}
+          className={`h-1 transition-all duration-300 rounded-full ${
+            i === activeIndex ? "w-6 bg-blue-500" : "w-1 bg-neutral-800"
+          }`}
+        />
+      ))}
+    </div>
+  </div>
+));
+
+Indicator.displayName = "Indicator";
 
 interface CylinderGalleryProps {
   camera?: Camera;
@@ -119,13 +139,17 @@ const CylinderGallery = ({
   cardTransformOrigin = "center center",
 }: CylinderGalleryProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
 
   // Refs for animation state (mutable, no re-renders)
   const rotationRef = useRef(0);
   const velocityRef = useRef(0);
   const requestRef = useRef<number>();
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Use refs for values read inside the animation loop to avoid recreating it
+  const isDraggingRef = useRef(false);
+  const rotationSpeedRef = useRef(rotationSpeed);
+  const cameraRef = useRef(camera);
 
   // Refs for drag interaction
   const startX = useRef<number>(0);
@@ -138,19 +162,26 @@ const CylinderGallery = ({
   const FRICTION = 0.97;
   const totalItems = images.length;
 
+  // Sync prop values to refs (no animation loop recreation)
+  useEffect(() => { rotationSpeedRef.current = rotationSpeed; }, [rotationSpeed]);
+  useEffect(() => { cameraRef.current = camera; }, [camera]);
+
   const radius = useMemo(() => {
     const chord = imageWidth + imageSpacing;
     return Math.max(400, chord / 2 / Math.sin(Math.PI / totalItems));
   }, [imageWidth, imageSpacing, totalItems]);
 
+  // Stable animation loop — no state in deps, only refs
   const animate = useCallback(() => {
-    if (!isDragging) {
-      if (Math.abs(velocityRef.current) > Math.abs(rotationSpeed) + 0.05) {
+    const speed = rotationSpeedRef.current;
+    const cam = cameraRef.current;
+
+    if (!isDraggingRef.current) {
+      if (Math.abs(velocityRef.current) > Math.abs(speed) + 0.05) {
         rotationRef.current += velocityRef.current;
         velocityRef.current *= FRICTION;
       } else {
-        // Continuous rotation when not dragging
-        velocityRef.current = velocityRef.current * 0.9 + rotationSpeed * 0.1;
+        velocityRef.current = velocityRef.current * 0.9 + speed * 0.1;
         rotationRef.current += velocityRef.current;
       }
     }
@@ -158,18 +189,16 @@ const CylinderGallery = ({
     // Direct DOM manipulation for performance
     if (containerRef.current) {
       containerRef.current.style.transform = `
-        translate3d(${camera?.x || 0}px, ${camera?.y || 0}px, ${
-        camera?.z || 0
-      }px) 
-        rotateZ(${camera?.roll || 0}deg)
-        rotateX(${camera?.pitch || 0}deg) 
-        rotateY(${rotationRef.current + (camera?.yaw || 0)}deg)
+        translate3d(${cam?.x || 0}px, ${cam?.y || 0}px, ${cam?.z || 0}px) 
+        rotateZ(${cam?.roll || 0}deg)
+        rotateX(${cam?.pitch || 0}deg) 
+        rotateY(${rotationRef.current + (cam?.yaw || 0)}deg)
       `;
     }
 
     // Calculate active index efficiently
     const anglePerItem = 360 / totalItems;
-    const combinedRotation = rotationRef.current + (camera?.yaw || 0);
+    const combinedRotation = rotationRef.current + (cam?.yaw || 0);
     const currentActiveIndex =
       Math.round(
         ((combinedRotation / anglePerItem) % totalItems) + totalItems
@@ -181,7 +210,7 @@ const CylinderGallery = ({
     }
 
     requestRef.current = requestAnimationFrame(animate);
-  }, [isDragging, rotationSpeed, totalItems, camera]);
+  }, [totalItems]); // only depends on totalItems (structural), not on props read via refs
 
   useEffect(() => {
     requestRef.current = requestAnimationFrame(animate);
@@ -190,19 +219,20 @@ const CylinderGallery = ({
     };
   }, [animate]);
 
-  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+  const handlePointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     if ((e.target as HTMLElement).closest(".controls-panel")) return;
-    setIsDragging(true);
+    isDraggingRef.current = true;
     const x = e.clientX || 0;
     startX.current = x;
     lastX.current = x;
     startRotation.current = rotationRef.current;
     velocityRef.current = 0;
-  };
+  }, []);
 
-  const handlePointerMove = useCallback(
-    (e: React.PointerEvent<HTMLDivElement>) => {
-      if (!isDragging) return;
+  // Stable handlers attached once — check ref inside
+  useEffect(() => {
+    const onPointerMove = (e: PointerEvent) => {
+      if (!isDraggingRef.current) return;
       const currentX = e.clientX || 0;
       const deltaX = currentX - startX.current;
 
@@ -211,40 +241,19 @@ const CylinderGallery = ({
 
       const rotationOffset = deltaX * 0.15;
       rotationRef.current = startRotation.current - rotationOffset;
-    },
-    [isDragging]
-  );
-
-  const handlePointerUp = () => setIsDragging(false);
-
-  useEffect(() => {
-    if (isDragging) {
-      window.addEventListener(
-        "pointermove",
-        handlePointerMove as unknown as EventListener
-      );
-      window.addEventListener(
-        "pointerup",
-        handlePointerUp as unknown as EventListener
-      );
-    } else {
-      window.removeEventListener(
-        "pointermove",
-        handlePointerMove as unknown as EventListener
-      );
-      window.removeEventListener(
-        "pointerup",
-        handlePointerUp as unknown as EventListener
-      );
-    }
-    return () => {
-      window.removeEventListener(
-        "pointermove",
-        handlePointerMove as unknown as EventListener
-      );
-      window.removeEventListener("pointerup", handlePointerUp as EventListener);
     };
-  }, [isDragging, handlePointerMove]);
+
+    const onPointerUp = () => {
+      isDraggingRef.current = false;
+    };
+
+    window.addEventListener("pointermove", onPointerMove);
+    window.addEventListener("pointerup", onPointerUp);
+    return () => {
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerup", onPointerUp);
+    };
+  }, []);
 
   return (
     <div className="relative w-full h-full flex items-center justify-center">
@@ -258,7 +267,6 @@ const CylinderGallery = ({
           className="relative w-full h-full flex items-center justify-center will-change-transform"
           style={{
             transformStyle: "preserve-3d" as const,
-            // Initial transform handled by ref/animate, but harmless to leave empty or default here
           }}
         >
           {images.map((photo, index) => (
@@ -276,20 +284,7 @@ const CylinderGallery = ({
         </div>
       </div>
 
-      {showIndicator && (
-        <div className="absolute bottom-24 left-0 w-full flex flex-col items-center gap-6 z-50 pointer-events-none transition-opacity duration-500">
-          <div className="flex gap-1.5 px-6 max-w-md overflow-hidden opacity-50">
-            {images.map((_, i) => (
-              <div
-                key={i}
-                className={`h-1 transition-all duration-300 rounded-full ${
-                  i === activeIndex ? "w-6 bg-blue-500" : "w-1 bg-neutral-800"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-      )}
+      {showIndicator && <Indicator count={totalItems} activeIndex={activeIndex} />}
     </div>
   );
 };

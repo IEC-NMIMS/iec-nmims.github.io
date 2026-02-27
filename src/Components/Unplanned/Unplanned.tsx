@@ -3,26 +3,28 @@ import BlurText from "../BlurText";
 import DomeGallery from "../DomeGallery";
 import { motion } from "motion/react";
 
+const galleryImages = [
+  "/images/events/unplanned5/ccjieghrsmfdszcrzccq.avif",
+  "/images/events/unplanned5/dixwgt4pluk441tmapfj.avif",
+  "/images/events/unplanned5/gcjylwueydgmk9w2tp10.avif",
+  "/images/events/unplanned5/iaannkmvu2lgxskftsmh.avif",
+  "/images/events/unplanned5/IMG_0747.avif",
+  "/images/events/unplanned5/IMG_6245.avif",
+  "/images/events/unplanned5/IMG_6247.avif",
+  "/images/events/unplanned5/IMG_6251.avif",
+  "/images/events/unplanned5/IMG_9858.avif",
+  "/images/events/unplanned5/IMG_9861.avif",
+  "/images/events/unplanned5/ttkde1cleuz9htl1lnci.avif",
+  "/images/events/unplanned5/v5kujokn1gzarz5sy5xj.avif",
+  "/images/events/unplanned5/qfywmg57i8pihfxeq088.avif",
+  "/images/events/unplanned5/jb9u3zcinlsklwjvgwee.avif",
+  "/images/events/unplanned5/w1yanlvuh3drnuytclxq.avif",
+  "/images/events/unplanned5/ystzwla3qnk5wndzs3yy.avif",
+];
+
 const Unplanned = (): JSX.Element => {
   const [showDescription, setShowDescription] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
-
-  const galleryImages = [
-    "/images/events/unplanned5/ccjieghrsmfdszcrzccq.avif",
-    "/images/events/unplanned5/dixwgt4pluk441tmapfj.avif",
-    "/images/events/unplanned5/gcjylwueydgmk9w2tp10.avif",
-    "/images/events/unplanned5/iaannkmvu2lgxskftsmh.avif",
-    "/images/events/unplanned5/IMG_0747.avif",
-    "/images/events/unplanned5/IMG_6245.avif",
-    "/images/events/unplanned5/IMG_6247.avif",
-    "/images/events/unplanned5/IMG_6251.avif",
-    "/images/events/unplanned5/IMG_9858.avif",
-    "/images/events/unplanned5/IMG_9861.avif",
-    "/images/events/unplanned5/ttkde1cleuz9htl1lnci.avif",
-    "/images/events/unplanned5/v5kujokn1gzarz5sy5xj.avif",
-    "/images/events/unplanned5/qfywmg57i8pihfxeq088.avif",
-    "/images/events/unplanned5/jb9u3zcinlsklwjvgwee.avif",
-  ];
 
   useEffect(() => {
     // Remove body margin for full-screen effect
@@ -83,7 +85,7 @@ const Unplanned = (): JSX.Element => {
           maxVerticalRotationDeg={0}
           dragSensitivity={15}
           enlargeTransitionMs={300}
-          segments={30}
+          segments={20}
           dragDampening={1.5}
           grayscale={true}
           imageBorderRadius="12px"

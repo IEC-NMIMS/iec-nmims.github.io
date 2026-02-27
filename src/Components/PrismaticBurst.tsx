@@ -44,7 +44,6 @@ uniform int   uColorCount;
 uniform float uDistort;
 uniform vec2  uOffset;
 uniform sampler2D uGradient;
-uniform float uNoiseAmount;
 uniform int   uRayCount;
 
 float hash21(vec2 p){
@@ -59,11 +58,10 @@ float layeredNoise(vec2 fragPx){
     vec2 p = mod(fragPx + vec2(uTime * 30.0, -uTime * 21.0), 1024.0);
     vec2 q = rot30() * p;
     float n = 0.0;
-    n += 0.40 * hash21(q);
-    n += 0.25 * hash21(q * 2.0 + 17.0);
-    n += 0.20 * hash21(q * 4.0 + 47.0);
+    n += 0.42 * hash21(q);
+    n += 0.27 * hash21(q * 2.0 + 17.0);
+    n += 0.21 * hash21(q * 4.0 + 47.0);
     n += 0.10 * hash21(q * 8.0 + 113.0);
-    n += 0.05 * hash21(q * 16.0 + 191.0);
     return n;
 }
 
@@ -78,11 +76,10 @@ float edgeFade(vec2 frag, vec2 res, vec2 offset){
     float x = clamp(r, 0.0, 1.0);
     float q = x * x * x * (x * (x * 6.0 - 15.0) + 10.0);
     float s = q * 0.5;
-    s = pow(s, 1.5);
-    float tail = 1.0 - pow(1.0 - s, 2.0);
+    s = s * sqrt(s); // equivalent to pow(s, 1.5) but cheaper
+    float tail = 1.0 - (1.0 - s) * (1.0 - s);
     s = mix(s, tail, 0.2);
-    float dn = (layeredNoise(frag * 0.15) - 0.5) * 0.0015 * s;
-    return clamp(s + dn, 0.0, 1.0);
+    return clamp(s, 0.0, 1.0);
 }
 
 mat3 rotX(float a){ float c = cos(a), s = sin(a); return mat3(1.0,0.0,0.0, 0.0,c,-s, 0.0,s,c); }
@@ -100,16 +97,15 @@ vec2 rot2(vec2 v, float a){
 }
 
 float bendAngle(vec3 q, float t){
-    float a = 0.8 * sin(q.x * 0.55 + t * 0.6)
-            + 0.7 * sin(q.y * 0.50 - t * 0.5)
-            + 0.6 * sin(q.z * 0.60 + t * 0.7);
+    float a = 0.9 * sin(q.x * 0.55 + t * 0.6)
+            + 0.8 * sin(q.y * 0.50 - t * 0.5);
     return a;
 }
 
 void main(){
     vec2 frag = gl_FragCoord.xy;
     float t = uTime * uSpeed;
-    float jitterAmp = 0.1 * clamp(uNoiseAmount, 0.0, 1.0);
+    float jitterAmp = 0.08;
     vec3 dir = rayDir(frag, uResolution, uOffset, 1.0);
     float marchT = 0.0;
     vec3 col = vec3(0.0);
@@ -130,7 +126,7 @@ void main(){
       hoverMat = rotY(ang.y) * rotX(ang.x);
     }
 
-    for (int i = 0; i < 44; ++i) {
+    for (int i = 0; i < 28; ++i) {
         vec3 P = marchT * dir;
         P.z -= 2.0;
         float rad = length(P);
@@ -162,7 +158,7 @@ void main(){
         if (uRayCount > 0) {
             float ang = atan(Pb.y, Pb.x);
             float comb = 0.5 + 0.5 * cos(float(uRayCount) * ang);
-            comb = pow(comb, 3.0);
+            comb = comb * comb * comb;
             rayPattern *= smoothstep(0.15, 0.95, comb);
         }
 
@@ -250,7 +246,8 @@ const PrismaticBurst = ({
     const container = containerRef.current;
     if (!container) return;
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const isMobile = window.innerWidth < 768;
+    const dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1 : 2);
     const renderer = new Renderer({ dpr, alpha: false, antialias: false });
     rendererRef.current = renderer;
 
@@ -293,7 +290,6 @@ const PrismaticBurst = ({
         uDistort: { value: 0 },
         uOffset: { value: [0, 0] as [number, number] },
         uGradient: { value: gradientTex },
-        uNoiseAmount: { value: 0.8 },
         uRayCount: { value: 0 },
       },
     });
@@ -345,8 +341,7 @@ const PrismaticBurst = ({
       );
       io.observe(container);
     }
-    const onVis = () => {};
-    document.addEventListener("visibilitychange", onVis);
+
 
     let raf = 0;
     let last = performance.now();
@@ -380,7 +375,6 @@ const PrismaticBurst = ({
       ro?.disconnect();
       if (!ro) window.removeEventListener("resize", resize);
       io?.disconnect();
-      document.removeEventListener("visibilitychange", onVis);
       try {
         container.removeChild(gl.canvas);
       } catch (e) {
