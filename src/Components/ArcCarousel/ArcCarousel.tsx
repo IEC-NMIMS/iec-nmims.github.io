@@ -50,7 +50,8 @@ const ArcCarousel = ({
 
       // Update scale based on position
       const cards = track.querySelectorAll<HTMLDivElement>(".scroll-card");
-      const containerWidth = track.parentElement?.clientWidth || window.innerWidth;
+      const containerWidth =
+        track.parentElement?.clientWidth || window.innerWidth;
       const centerX = containerWidth / 2;
 
       cards.forEach((card) => {
@@ -60,7 +61,10 @@ const ArcCarousel = ({
         const maxDistance = containerWidth / 2;
 
         // Scale: smallest (0.6) at center, largest (1.0) at edges
-        const normalizedDistance = Math.min(distanceFromCenter / maxDistance, 1);
+        const normalizedDistance = Math.min(
+          distanceFromCenter / maxDistance,
+          1
+        );
         const scale = 0.6 + normalizedDistance * 0.4;
 
         // Slight opacity effect too
@@ -97,7 +101,9 @@ const ArcCarousel = ({
           >
             <img
               src={photo.url}
-              alt={photo.title || `Gallery image ${(index % images.length) + 1}`}
+              alt={
+                photo.title || `Gallery image ${(index % images.length) + 1}`
+              }
               draggable="false"
               loading="lazy"
               decoding="async"
