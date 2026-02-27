@@ -66,7 +66,7 @@ const Card = ({
     >
       <div className="w-full h-full rounded-xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] bg-neutral-900 group cursor-grab active:cursor-grabbing transition-all duration-300">
         <img
-          src={`${photo.url}?auto=format&fit=crop&w=600&q=80`}
+          src={photo.url}
           alt={photo.title || "Gallery Image"}
           draggable="false"
           loading="lazy"

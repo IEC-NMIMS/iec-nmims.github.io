@@ -345,6 +345,8 @@ const ChallengeCard = ({
             <img
               src={challenge.image}
               alt={challenge.title}
+              loading="lazy"
+              decoding="async"
               style={{
                 width: "100%",
                 height: "auto",
