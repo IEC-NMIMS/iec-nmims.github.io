@@ -54,7 +54,7 @@ export const EventList = [
     name: "Concept Show",
     slug: "concept-show",
     desc: "The Concept Show is where imagination takes a tangible form. It's a stage for trailblazers to present their refined prototypes.",
-    modelData: {
+    modalData: {
       title:"Concept Show",
       data: "The Concept Show is where imagination takes a tangible form. It's a stage for trailblazers to present their refined prototypes.",
       images: [],

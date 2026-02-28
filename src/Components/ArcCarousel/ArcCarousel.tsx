@@ -1,5 +1,4 @@
 import { useRef, useEffect } from "react";
-import { cloudflareImageUrl } from "../../lib/imageOptimization";
 
 interface Photo {
   url: string;
@@ -24,7 +23,6 @@ const ArcCarousel = ({
   const scrollPosRef = useRef(0);
 
   const imageHeight = imageWidth * 1.4;
-  const cdnWidth = Math.round(imageWidth * 2);
 
   // Duplicate images for seamless infinite scroll
   const displayImages = [...images, ...images, ...images];
@@ -52,7 +50,8 @@ const ArcCarousel = ({
 
       // Update scale based on position
       const cards = track.querySelectorAll<HTMLDivElement>(".scroll-card");
-      const containerWidth = track.parentElement?.clientWidth || window.innerWidth;
+      const containerWidth =
+        track.parentElement?.clientWidth || window.innerWidth;
       const centerX = containerWidth / 2;
 
       cards.forEach((card) => {
@@ -62,7 +61,10 @@ const ArcCarousel = ({
         const maxDistance = containerWidth / 2;
 
         // Scale: smallest (0.6) at center, largest (1.0) at edges
-        const normalizedDistance = Math.min(distanceFromCenter / maxDistance, 1);
+        const normalizedDistance = Math.min(
+          distanceFromCenter / maxDistance,
+          1
+        );
         const scale = 0.6 + normalizedDistance * 0.4;
 
         // Slight opacity effect too
@@ -98,12 +100,10 @@ const ArcCarousel = ({
             }}
           >
             <img
-              src={cloudflareImageUrl(photo.url, {
-                width: cdnWidth,
-                quality: 80,
-                fit: "cover",
-              })}
-              alt={photo.title || `Gallery image ${(index % images.length) + 1}`}
+              src={photo.url}
+              alt={
+                photo.title || `Gallery image ${(index % images.length) + 1}`
+              }
               draggable="false"
               loading="lazy"
               decoding="async"

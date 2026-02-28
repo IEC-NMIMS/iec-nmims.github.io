@@ -1,169 +1,138 @@
 import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
-import IconButton from "@mui/material/IconButton";
-import EastIcon from "@mui/icons-material/East";
 import Typography from "@mui/material/Typography";
-import { NavLink } from "react-router-dom";
 import { useMediaQuery, useTheme } from "@mui/material";
 
 const WhoAreWe = () => {
-	const theme = useTheme();
-	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
-	const OuterBox = styled(Box)({
-		width: "100%",
-		display: "flex",
-		justifyContent: "center",
-		border: "none",
-		zIndex: 1,
-		marginBottom: isMobile && window.innerWidth < 1024 ? "50px" : "150px",
-	});
+  const OuterBox = styled(Box)({
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    border: "none",
+    zIndex: 1,
+    marginBottom: isMobile && window.innerWidth < 1024 ? "50px" : "150px",
+  });
 
-	const WhoAreWeBox = styled(Box)({
-		backgroundColor: "rgba(42,43,42,0.3)",
-		borderRadius: "20px",
-		width: isMobile && window.innerWidth < 600 ? "100%" : "70%",
-		height: "max-content",
-		display: "flex",
-		flexDirection: isMobile ? "column" : "row",
-		alignItems: "center",
-		padding: isMobile ? "25px" : "45px",
-		color: "white",
-		zIndex: 1,
-	});
+  const WhoAreWeBox = styled(Box)({
+    backgroundColor: "rgba(42,43,42,0.3)",
+    borderRadius: "20px",
+    width: isMobile && window.innerWidth < 600 ? "100%" : "70%",
+    height: "max-content",
+    display: "flex",
+    flexDirection: isMobile ? "column" : "row",
+    alignItems: "center",
+    padding: isMobile ? "25px" : "45px",
+    color: "white",
+    zIndex: 1,
+  });
 
-	const LeftPanel = styled(Box)({
-		width: "50%",
-		zIndex: 1,
-		display: "flex",
-		flexDirection: "column",
-		alignItems: isMobile ? "center" : "flex-start",
-	});
+  const LeftPanel = styled(Box)({
+    width: "50%",
+    zIndex: 1,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: isMobile ? "center" : "flex-start",
+  });
 
-	const LeftPanelTitle = styled(Typography)({
-		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 1024 ? "2rem" : "3rem",
-		fontWeight: "bold",
-		marginBottom: isMobile ? "10px" : "30px",
-		zIndex: 1,
-	});
+  const LeftPanelTitle = styled(Typography)({
+    fontFamily: "ITCAvantGardeGothicStd",
+    fontSize: isMobile && window.innerWidth < 1024 ? "2rem" : "3rem",
+    fontWeight: "bold",
+    marginBottom: isMobile ? "10px" : "30px",
+    zIndex: 1,
+  });
 
-	const LeftPanelPara = styled(Typography)({
-		maxWidth: isMobile ? "100%" : "90%", // Control maximum width
-		width: isMobile ? "100%" : "500px", // Set specific width for desktop
-		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 1024 ? "0.6rem" : "1rem",
-		color: "rgba(255, 255, 255, 0.6)",
-		marginBottom: isMobile ? "20px" : "40px",
-		zIndex: 1,
-		textAlign: isMobile ? "center" : "left",
-		lineHeight: "1.6", // Improve readability
-		letterSpacing: "0.3px", // Slight letter spacing for better readability
-	});
+  const LeftPanelPara = styled(Typography)({
+    maxWidth: isMobile ? "100%" : "90%", // Control maximum width
+    width: isMobile ? "100%" : "500px", // Set specific width for desktop
+    fontFamily: "ITCAvantGardeGothicStd",
+    fontSize: isMobile && window.innerWidth < 1024 ? "0.6rem" : "1rem",
+    color: "rgba(255, 255, 255, 0.6)",
+    marginBottom: isMobile ? "20px" : "40px",
+    zIndex: 1,
+    textAlign: isMobile ? "center" : "left",
+    lineHeight: "1.6", // Improve readability
+    letterSpacing: "0.3px", // Slight letter spacing for better readability
+  });
 
-	const KnowMore = styled(IconButton)({
-		backgroundColor: "rgb(0,185,203)",
-		borderRadius: "10px",
-		right: "10px",
-		height: "40px",
-		width: isMobile && window.innerWidth < 1024 ? "100%" : "350px",
-		display: "flex",
-		justifyContent: "start",
-		alignItems: "center",
-		paddingRight: isMobile && window.innerWidth < 1024 ? "0px" : "20px",
-		color: "black",
-		fontFamily: "sans-serif",
-		fontWeight: "bold",
-		marginLeft: "8px",
-		zIndex: 1,
+  const RightPanel = styled(Box)({
+    width: "50%",
+    display: "flex",
+    justifyContent: "end",
+  });
 
-		"&:hover": {
-			backgroundColor: "rgb(0,185,203)",
-		},
-	});
+  const RightPanelImage = styled(Box)({
+    alignItems: "center",
+    justifyContent: "end",
+    height: isMobile && window.innerWidth < 1024 ? "200px" : "375px",
+    width: "100%",
+    display: "flex",
+    borderRadius: "20px",
+    marginBottom: isMobile ? "20px" : "0",
+  });
 
-	const KnowMoreText = styled(Typography)({
-		fontFamily: "ITCAvantGardeGothicStd",
-		fontSize: isMobile && window.innerWidth < 1024 ? "0.8rem" : "1rem",
-		fontWeight: "bold",
-	});
+  const Image = styled("img")({
+    width: "100%",
+    height: "100%",
+    borderRadius: "20px",
+  });
 
-	const Arrow = styled(EastIcon)({
-		marginLeft: "auto",
-		marginRight: isMobile ? "5px" : "15px",
-	});
+  const DesktopWhoAreWeContent = () => {
+    return (
+      <>
+        <LeftPanel>
+          <LeftPanelTitle>Who Are We?</LeftPanelTitle>
+          <LeftPanelPara>
+            The Innovation and Entrepreneurship cell (IEC) of MPSTME is a
+            student body, certified by the Ministry of Education. Government of
+            India, and aims to inculcate and entrepreneurial and innovative
+            environment in the institute. We want to keep up the spirit of
+            entrepreneurship in the minds of the youth and create passion
+            amongst the students who wish to pursue entrepreneurship as a
+            career. Through various initiatives, mentorship programs, and
+            networking opportunities, we strive to equip students with the
+            skills and knowledge needed to turn their ideas into successful
+            ventures.
+          </LeftPanelPara>
+          {/*<NavLink*/}
+          {/*	style={{ textDecoration: "none" }}*/}
+          {/*	to="/vision-mission"*/}
+          {/*>*/}
+          {/*	<KnowMore>*/}
+          {/*		<KnowMoreText>Click to know more</KnowMoreText>*/}
+          {/*		<Arrow />*/}
+          {/*	</KnowMore>*/}
+          {/*</NavLink>*/}
+        </LeftPanel>
+        <RightPanel>
+          <RightPanelImage>
+            <Image src="./images/team/iec-team.png" />
+          </RightPanelImage>
+        </RightPanel>
+      </>
+    );
+  };
 
-	const RightPanel = styled(Box)({
-		width: "50%",
-		display: "flex",
-		justifyContent: "end",
-	});
+  const MobileWhoAreWeContent = () => {
+    return (
+      <>
+        <RightPanelImage>
+          <Image src="./images/team/iec-team.png" />
+        </RightPanelImage>
+        <LeftPanelTitle>Who Are We?</LeftPanelTitle>
+        <LeftPanelPara>
+          The Innovation and Entrepreneurship cell (IEC) of MPSTME is a student
+          body, certified by the Ministry of Education. Government of India, and
+          aims to inculcate and entrepreneurial and innovative environment in
+          the institute. We want to keep up the spirit of entrepreneurship in
+          the minds of the youth and create passion amongst the students who
+          wish to pursue entrepreneurship as a career.
+        </LeftPanelPara>
 
-	const RightPanelImage = styled(Box)({
-		alignItems: "center",
-		justifyContent: "end",
-		height: isMobile && window.innerWidth < 1024 ? "200px" : "375px",
-		width: "100%",
-		display: "flex",
-		borderRadius: "20px",
-		marginBottom: isMobile ? "20px" : "0",
-	});
-
-	const Image = styled("img")({
-		width: "100%",
-		height: "100%",
-		borderRadius: "20px",
-	});
-
-	const DesktopWhoAreWeContent = () => {
-		return (
-			<>
-				<LeftPanel>
-					<LeftPanelTitle>Who Are We?</LeftPanelTitle>
-					<LeftPanelPara>
-						The Innovation and Entrepreneurship cell (IEC) of MPSTME is a student body,
-						certified by the Ministry of Education. Government of India, and aims to
-						inculcate and entrepreneurial and innovative environment in the institute.
-						We want to keep up the spirit of entrepreneurship in the minds of the youth
-						and create passion amongst the students who wish to pursue entrepreneurship
-						as a career. Through various initiatives, mentorship programs, and networking opportunities, we strive to equip students with the skills and knowledge needed to turn their ideas into successful ventures.
-					</LeftPanelPara>
-					{/*<NavLink*/}
-					{/*	style={{ textDecoration: "none" }}*/}
-					{/*	to="/vision-mission"*/}
-					{/*>*/}
-					{/*	<KnowMore>*/}
-					{/*		<KnowMoreText>Click to know more</KnowMoreText>*/}
-					{/*		<Arrow />*/}
-					{/*	</KnowMore>*/}
-					{/*</NavLink>*/}
-				</LeftPanel>
-				<RightPanel>
-					<RightPanelImage>
-						<Image src="./images/team/iec-team.png" />
-					</RightPanelImage>
-				</RightPanel>
-			</>
-		);
-	};
-
-	const MobileWhoAreWeContent = () => {
-		return (
-			<>
-				<RightPanelImage>
-					<Image src="./images/team/iec-team.png" />
-				</RightPanelImage>
-				<LeftPanelTitle>Who Are We?</LeftPanelTitle>
-				<LeftPanelPara>
-					The Innovation and Entrepreneurship cell (IEC) of MPSTME is a student body,
-					certified by the Ministry of Education. Government of India, and aims to
-					inculcate and entrepreneurial and innovative environment in the institute. We
-					want to keep up the spirit of entrepreneurship in the minds of the youth and
-					create passion amongst the students who wish to pursue entrepreneurship as a
-					career.
-				</LeftPanelPara>
-				
-				{/*<NavLink
+        {/*<NavLink
 					style={{ textDecoration: "none" }}
 					to="/vision-mission"
 				>
@@ -172,18 +141,17 @@ const WhoAreWe = () => {
 						<Arrow />
 					</KnowMore>
 				</NavLink>*/}
-				
-			</>
-		);
-	};
+      </>
+    );
+  };
 
-	return (
-		<OuterBox id="about-us">
-			<WhoAreWeBox>
-				{isMobile ? <MobileWhoAreWeContent /> : <DesktopWhoAreWeContent />}
-			</WhoAreWeBox>
-		</OuterBox>
-	);
+  return (
+    <OuterBox id="about-us">
+      <WhoAreWeBox>
+        {isMobile ? <MobileWhoAreWeContent /> : <DesktopWhoAreWeContent />}
+      </WhoAreWeBox>
+    </OuterBox>
+  );
 };
 
 export default WhoAreWe;
