@@ -1,1 +1,4 @@
-Sitemap: https://iec-nmims.github.io/sitemap.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://iecnmims.com/sitemap.xml
