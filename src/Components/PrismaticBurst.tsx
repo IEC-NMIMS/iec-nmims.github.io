@@ -342,7 +342,6 @@ const PrismaticBurst = ({
       io.observe(container);
     }
 
-
     let raf = 0;
     let last = performance.now();
     let accumTime = 0;

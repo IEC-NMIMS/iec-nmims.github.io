@@ -31,28 +31,29 @@ interface CardProps {
   cardTransformOrigin?: string;
 }
 
-const Card = memo(({
-  photo,
-  index,
-  totalItems,
-  radius,
-  width,
-  cardRotation = { x: 0, y: 0, z: 0 },
-  cardTransformOrigin = "center center",
-}: CardProps) => {
-  const theta = (360 / totalItems) * index;
-  const height = width * 1.5;
+const Card = memo(
+  ({
+    photo,
+    index,
+    totalItems,
+    radius,
+    width,
+    cardRotation = { x: 0, y: 0, z: 0 },
+    cardTransformOrigin = "center center",
+  }: CardProps) => {
+    const theta = (360 / totalItems) * index;
+    const height = width * 1.5;
 
-  return (
-    <div
-      className="absolute top-1/2 left-1/2 select-none"
-      style={{
-        width: `${width}px`,
-        height: `${height}px`,
-        marginTop: `-${height / 2}px`,
-        marginLeft: `-${width / 2}px`,
-        transformOrigin: cardTransformOrigin,
-        transform: `
+    return (
+      <div
+        className="absolute top-1/2 left-1/2 select-none"
+        style={{
+          width: `${width}px`,
+          height: `${height}px`,
+          marginTop: `-${height / 2}px`,
+          marginLeft: `-${width / 2}px`,
+          transformOrigin: cardTransformOrigin,
+          transform: `
           rotateY(${theta}deg) 
           translateZ(${radius}px) 
           rotateY(180deg)
@@ -60,60 +61,63 @@ const Card = memo(({
           rotateY(${cardRotation.y}deg)
           rotateZ(${cardRotation.z}deg)
         `,
-        transformStyle: "preserve-3d" as const,
-        backfaceVisibility: "hidden",
-      }}
-    >
-      <div className="w-full h-full rounded-xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] bg-neutral-900 group cursor-grab active:cursor-grabbing transition-all duration-300">
-        <img
-          src={photo.url}
-          alt={photo.title || "Gallery Image"}
-          draggable="false"
-          loading="lazy"
-          decoding="async"
-          className="w-full h-full object-cover brightness-75 group-hover:brightness-100 transition-all duration-700 pointer-events-none"
-        />
+          transformStyle: "preserve-3d" as const,
+          backfaceVisibility: "hidden",
+        }}
+      >
+        <div className="w-full h-full rounded-xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] bg-neutral-900 group cursor-grab active:cursor-grabbing transition-all duration-300">
+          <img
+            src={photo.url}
+            alt={photo.title || "Gallery Image"}
+            draggable="false"
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover brightness-75 group-hover:brightness-100 transition-all duration-700 pointer-events-none"
+          />
 
-        {(photo.title || photo.link) && (
-          <>
-            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent" />
-            <div className="absolute bottom-0 p-8 w-full">
-              {photo.title && (
-                <h3 className="text-white font-black text-2xl leading-tight mb-2 group-hover:text-blue-400 transition-colors uppercase italic tracking-tighter">
-                  {photo.title}
-                </h3>
-              )}
-              {photo.link && (
-                <div className="flex items-center gap-2 text-neutral-400 text-[10px] font-bold uppercase tracking-[0.3em]">
-                  <div className="w-10 h-px bg-blue-500" />
-                  View Detail
-                </div>
-              )}
-            </div>
-          </>
-        )}
+          {(photo.title || photo.link) && (
+            <>
+              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 p-8 w-full">
+                {photo.title && (
+                  <h3 className="text-white font-black text-2xl leading-tight mb-2 group-hover:text-blue-400 transition-colors uppercase italic tracking-tighter">
+                    {photo.title}
+                  </h3>
+                )}
+                {photo.link && (
+                  <div className="flex items-center gap-2 text-neutral-400 text-[10px] font-bold uppercase tracking-[0.3em]">
+                    <div className="w-10 h-px bg-blue-500" />
+                    View Detail
+                  </div>
+                )}
+              </div>
+            </>
+          )}
+        </div>
       </div>
-    </div>
-  );
-});
+    );
+  }
+);
 
 Card.displayName = "Card";
 
 /** Memoized indicator dots — only re-renders when activeIndex changes */
-const Indicator = memo(({ count, activeIndex }: { count: number; activeIndex: number }) => (
-  <div className="absolute bottom-24 left-0 w-full flex flex-col items-center gap-6 z-50 pointer-events-none transition-opacity duration-500">
-    <div className="flex gap-1.5 px-6 max-w-md overflow-hidden opacity-50">
-      {Array.from({ length: count }, (_, i) => (
-        <div
-          key={i}
-          className={`h-1 transition-all duration-300 rounded-full ${
-            i === activeIndex ? "w-6 bg-blue-500" : "w-1 bg-neutral-800"
-          }`}
-        />
-      ))}
+const Indicator = memo(
+  ({ count, activeIndex }: { count: number; activeIndex: number }) => (
+    <div className="absolute bottom-24 left-0 w-full flex flex-col items-center gap-6 z-50 pointer-events-none transition-opacity duration-500">
+      <div className="flex gap-1.5 px-6 max-w-md overflow-hidden opacity-50">
+        {Array.from({ length: count }, (_, i) => (
+          <div
+            key={i}
+            className={`h-1 transition-all duration-300 rounded-full ${
+              i === activeIndex ? "w-6 bg-blue-500" : "w-1 bg-neutral-800"
+            }`}
+          />
+        ))}
+      </div>
     </div>
-  </div>
-));
+  )
+);
 
 Indicator.displayName = "Indicator";
 
@@ -163,8 +167,12 @@ const CylinderGallery = ({
   const totalItems = images.length;
 
   // Sync prop values to refs (no animation loop recreation)
-  useEffect(() => { rotationSpeedRef.current = rotationSpeed; }, [rotationSpeed]);
-  useEffect(() => { cameraRef.current = camera; }, [camera]);
+  useEffect(() => {
+    rotationSpeedRef.current = rotationSpeed;
+  }, [rotationSpeed]);
+  useEffect(() => {
+    cameraRef.current = camera;
+  }, [camera]);
 
   const radius = useMemo(() => {
     const chord = imageWidth + imageSpacing;
@@ -219,15 +227,18 @@ const CylinderGallery = ({
     };
   }, [animate]);
 
-  const handlePointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
-    if ((e.target as HTMLElement).closest(".controls-panel")) return;
-    isDraggingRef.current = true;
-    const x = e.clientX || 0;
-    startX.current = x;
-    lastX.current = x;
-    startRotation.current = rotationRef.current;
-    velocityRef.current = 0;
-  }, []);
+  const handlePointerDown = useCallback(
+    (e: React.PointerEvent<HTMLDivElement>) => {
+      if ((e.target as HTMLElement).closest(".controls-panel")) return;
+      isDraggingRef.current = true;
+      const x = e.clientX || 0;
+      startX.current = x;
+      lastX.current = x;
+      startRotation.current = rotationRef.current;
+      velocityRef.current = 0;
+    },
+    []
+  );
 
   // Stable handlers attached once — check ref inside
   useEffect(() => {
@@ -284,7 +295,9 @@ const CylinderGallery = ({
         </div>
       </div>
 
-      {showIndicator && <Indicator count={totalItems} activeIndex={activeIndex} />}
+      {showIndicator && (
+        <Indicator count={totalItems} activeIndex={activeIndex} />
+      )}
     </div>
   );
 };
