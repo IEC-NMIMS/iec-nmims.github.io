@@ -130,7 +130,6 @@ const MobileDrawer = () => {
     <>
       <MenuBox role="presentation">
         <MenuList>
-
           {/* HOME */}
           <ListItem disablePadding onClick={() => scrollOrNavigate("home")}>
             <ListItemButton>
@@ -205,7 +204,6 @@ const MobileDrawer = () => {
               <Arrow />
             </MenuButton>
           </NavLink>
-
         </MenuList>
       </MenuBox>
     </>
@@ -214,7 +212,7 @@ const MobileDrawer = () => {
   /* ---------------- JSX ---------------- */
 
   return (
-    <div>
+    <div style={{ position: "sticky", top: 0, zIndex: 1000 }}>
       {isMobile && (
         <NavbarContainer>
           <Logo onClick={() => scrollOrNavigate("home")}>

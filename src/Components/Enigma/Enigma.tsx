@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from "react";
+
 import BlurText from "../BlurText";
 import PrismaticBurst from "../PrismaticBurst";
 import CylinderGallery from "../CylinderGallery/CylinderGallery";
 import { motion } from "motion/react";
+import { useMediaQuery } from "@mui/material";
 
 // Static data — hoisted outside component to avoid re-creation on every render
 const galleryImages = [
@@ -75,21 +77,13 @@ const SPEED_EASE_DURATION = 5000; // ms for the easing to complete
 const Enigma = (): JSX.Element => {
   const [showDescription, setShowDescription] = useState(false);
   const [showGallery, setShowGallery] = useState(false);
-  const contentRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMediaQuery("(max-width:768px)");
 
   // Use a ref for rotation speed to avoid re-rendering children (~72 times during easing)
   const rotationSpeedRef = useRef(SPEED_START);
   const [rotationSpeed, setRotationSpeed] = useState(SPEED_START);
 
   useEffect(() => {
-    // Scroll to center content on load
-    if (contentRef.current) {
-      contentRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
-
     // Start showing description after title animation completes
     const timer = setTimeout(() => {
       setShowDescription(true);
@@ -133,8 +127,37 @@ const Enigma = (): JSX.Element => {
     };
   }, []);
 
+  const resolvedRootStyle: React.CSSProperties = isMobile
+    ? {
+        ...rootStyle,
+        minHeight: "100vh",
+      }
+    : rootStyle;
+
+  const resolvedContentStyle: React.CSSProperties = isMobile
+    ? {
+        ...contentStyle,
+        justifyContent: "flex-start",
+        alignItems: "center",
+        minHeight: "100vh",
+        padding: "5.5rem 6% 38vh",
+      }
+    : contentStyle;
+
+  const resolvedGalleryWrapperStyle: React.CSSProperties = isMobile
+    ? {
+        ...galleryWrapperStyle,
+        position: "fixed",
+        top: "auto",
+        bottom: 0,
+        transform: "none",
+        height: "34vh",
+        zIndex: 6,
+      }
+    : galleryWrapperStyle;
+
   return (
-    <div style={rootStyle}>
+    <div style={resolvedRootStyle}>
       {/* Background */}
       <div style={bgStyle}>
         <PrismaticBurst
@@ -149,10 +172,10 @@ const Enigma = (): JSX.Element => {
       </div>
 
       {/* Content */}
-      <div ref={contentRef} style={contentStyle}>
+      <div style={resolvedContentStyle}>
         <motion.div
           animate={{
-            y: showDescription ? -40 : 0,
+            y: showDescription ? (isMobile ? -14 : -40) : 0,
           }}
           transition={{
             duration: 1,
@@ -198,13 +221,13 @@ const Enigma = (): JSX.Element => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
-          style={galleryWrapperStyle}
+          style={resolvedGalleryWrapperStyle}
         >
           <CylinderGallery
             images={galleryImages}
             rotationSpeed={rotationSpeed}
-            imageWidth={320}
-            imageSpacing={12}
+            imageWidth={isMobile ? 140 : 320}
+            imageSpacing={isMobile ? 8 : 12}
             showIndicator={true}
             cardRotation={{ x: 0, y: 0, z: 0 }}
             cardTransformOrigin="center bottom"
@@ -236,12 +259,14 @@ const Enigma = (): JSX.Element => {
 				}
 				@media (max-width: 768px) {
 					.blur-text-enigma {
-						font-size: 5rem;
+            font-size: 4.2rem;
+            letter-spacing: 0.03em;
 					}
 					.enigma-description {
-						font-size: 1rem;
+            font-size: 1.05rem;
 						max-width: 90%;
-						line-height: 1.6;
+            line-height: 1.55;
+            margin-top: 0.3rem;
 					}
 				}
 			`}</style>
