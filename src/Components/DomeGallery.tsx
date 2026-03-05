@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useCallback } from "react";
+import { useEffect, useMemo, useRef, useCallback, memo } from "react";
 import { useGesture } from "@use-gesture/react";
 
 type ImageItem = string | { src: string; alt?: string };
@@ -21,6 +21,7 @@ type DomeGalleryProps = {
   imageBorderRadius?: string;
   openedImageBorderRadius?: string;
   grayscale?: boolean;
+  autoRotateSpeed?: number;
 };
 
 type ItemDef = {
@@ -166,6 +167,7 @@ const DomeGallery = memo(function DomeGallery({
   imageBorderRadius = "30px",
   openedImageBorderRadius = "30px",
   grayscale = true,
+  autoRotateSpeed = 0,
 }: DomeGalleryProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
@@ -326,7 +328,6 @@ const DomeGallery = memo(function DomeGallery({
           enlargedOverlay.style.height = `${frameR.height}px`;
         }
       }
-      });
     });
     ro.observe(root);
     return () => ro.disconnect();
@@ -360,7 +361,7 @@ const DomeGallery = memo(function DomeGallery({
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
-    
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -372,7 +373,7 @@ const DomeGallery = memo(function DomeGallery({
       },
       { threshold: 0.1 }
     );
-    
+
     observer.observe(root);
     return () => observer.disconnect();
   }, [stopInertia]);
@@ -803,10 +804,47 @@ const DomeGallery = memo(function DomeGallery({
     }
   };
 
+  // Auto-rotate when idle (not dragging, no inertia, no enlarged image)
+  const autoRotateRAF = useRef<number | null>(null);
+  const autoRotateSpeedRef = useRef(autoRotateSpeed);
+  useEffect(() => {
+    autoRotateSpeedRef.current = autoRotateSpeed;
+  }, [autoRotateSpeed]);
+
+  useEffect(() => {
+    if (!autoRotateSpeed) return;
+    let lastTime = performance.now();
+
+    const tick = (now: number) => {
+      const dt = Math.min((now - lastTime) / 1000, 0.1); // cap delta to avoid jumps
+      lastTime = now;
+
+      // Skip when dragging, inertia running, image enlarged, or not visible
+      if (
+        !draggingRef.current &&
+        !inertiaRAF.current &&
+        !focusedElRef.current &&
+        isVisibleRef.current
+      ) {
+        const nextY = rotationRef.current.y + autoRotateSpeedRef.current * dt;
+        rotationRef.current = { ...rotationRef.current, y: nextY };
+        applyTransform(rotationRef.current.x, nextY);
+      }
+
+      autoRotateRAF.current = requestAnimationFrame(tick);
+    };
+
+    autoRotateRAF.current = requestAnimationFrame(tick);
+    return () => {
+      if (autoRotateRAF.current) cancelAnimationFrame(autoRotateRAF.current);
+    };
+  }, [!!autoRotateSpeed]); // only re-run if toggled on/off
+
   useEffect(() => {
     return () => {
       document.body.classList.remove("dg-scroll-lock");
       if (cullRAFRef.current) cancelAnimationFrame(cullRAFRef.current);
+      if (autoRotateRAF.current) cancelAnimationFrame(autoRotateRAF.current);
     };
   }, []);
 

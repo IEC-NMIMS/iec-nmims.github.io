@@ -12,7 +12,7 @@ import Enigma from "./Components/Enigma/Enigma.tsx";
 import Unplanned from "./Components/Unplanned/Unplanned.tsx";
 import Navbar from "./Components/Navbar/Navbar.tsx";
 import MobileDrawer from "./Components/MobileDrawer/MobileDrawer.tsx";
-import Credits from "./Components/Credits/Credits.tsx";   
+import Credits from "./Components/Credits/Credits.tsx";
 import ConceptShow from "./Components/ConceptShow/ConceptShow.tsx"; // ✅ NEW
 
 import {
@@ -39,17 +39,8 @@ function ScrollTop(props: Props) {
     threshold: 100,
   });
 
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    const anchor = (
-      (event.target as HTMLDivElement).ownerDocument || document
-    ).querySelector("#navbar");
-
-    if (anchor) {
-      anchor.scrollIntoView({
-        block: "center",
-        behavior: "smooth",
-      });
-    }
+  const handleClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -73,7 +64,6 @@ const RenderApp = () => {
 
   return (
     <BrowserRouter>
-
       {/* NAVBAR */}
       {!isMobile ? <Navbar /> : <MobileDrawer />}
 
@@ -94,7 +84,7 @@ const RenderApp = () => {
         <Route path="/events/enigma" element={<Enigma />} />
         <Route path="/events/unplanned" element={<Unplanned />} />
         <Route path="/events/inceptio" element={<InceptioEvent />} />
-        <Route path="/events/concept-show" element={<ConceptShow />}/>
+        <Route path="/events/concept-show" element={<ConceptShow />} />
 
         {/* LEGACY INCEPTIO PAGE */}
         <Route path="/inceptio" element={<Inceptio />} />
@@ -105,11 +95,8 @@ const RenderApp = () => {
         {/* ✅ CREDITS */}
         <Route path="/credits" element={<Credits />} />
       </Routes>
-
     </BrowserRouter>
   );
 };
 
-ReactDOM.createRoot(
-  document.getElementById("root")!
-).render(<RenderApp />);
+ReactDOM.createRoot(document.getElementById("root")!).render(<RenderApp />);

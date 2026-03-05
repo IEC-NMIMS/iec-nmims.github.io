@@ -89,6 +89,7 @@ const Unplanned = (): JSX.Element => {
           dragDampening={1.5}
           grayscale={true}
           imageBorderRadius="12px"
+          autoRotateSpeed={1}
         />
       </div>
 
